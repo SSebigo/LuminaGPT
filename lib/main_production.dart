@@ -9,7 +9,7 @@ Future<void> main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
 
-  configureInjection(Environment.prod);
+  await configureInjection(Environment.prod);
 
   runApp(AppProduction());
 }

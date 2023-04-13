@@ -19,32 +19,44 @@ mixin _$HomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
+    required TResult Function() newSessionPressed,
+    required TResult Function(Session session) deleteSessionPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
+    TResult? Function()? newSessionPressed,
+    TResult? Function(Session session)? deleteSessionPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
+    TResult Function()? newSessionPressed,
+    TResult Function(Session session)? deleteSessionPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(NewSessionPressed value) newSessionPressed,
+    required TResult Function(DeleteSessionPressed value) deleteSessionPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(NewSessionPressed value)? newSessionPressed,
+    TResult? Function(DeleteSessionPressed value)? deleteSessionPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(NewSessionPressed value)? newSessionPressed,
+    TResult Function(DeleteSessionPressed value)? deleteSessionPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -106,6 +118,8 @@ class _$AppLaunched implements AppLaunched {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
+    required TResult Function() newSessionPressed,
+    required TResult Function(Session session) deleteSessionPressed,
   }) {
     return appLaunched();
   }
@@ -114,6 +128,8 @@ class _$AppLaunched implements AppLaunched {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
+    TResult? Function()? newSessionPressed,
+    TResult? Function(Session session)? deleteSessionPressed,
   }) {
     return appLaunched?.call();
   }
@@ -122,6 +138,8 @@ class _$AppLaunched implements AppLaunched {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
+    TResult Function()? newSessionPressed,
+    TResult Function(Session session)? deleteSessionPressed,
     required TResult orElse(),
   }) {
     if (appLaunched != null) {
@@ -134,6 +152,8 @@ class _$AppLaunched implements AppLaunched {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(NewSessionPressed value) newSessionPressed,
+    required TResult Function(DeleteSessionPressed value) deleteSessionPressed,
   }) {
     return appLaunched(this);
   }
@@ -142,6 +162,8 @@ class _$AppLaunched implements AppLaunched {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(NewSessionPressed value)? newSessionPressed,
+    TResult? Function(DeleteSessionPressed value)? deleteSessionPressed,
   }) {
     return appLaunched?.call(this);
   }
@@ -150,6 +172,8 @@ class _$AppLaunched implements AppLaunched {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(NewSessionPressed value)? newSessionPressed,
+    TResult Function(DeleteSessionPressed value)? deleteSessionPressed,
     required TResult orElse(),
   }) {
     if (appLaunched != null) {
@@ -164,10 +188,270 @@ abstract class AppLaunched implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$$NewSessionPressedCopyWith<$Res> {
+  factory _$$NewSessionPressedCopyWith(
+          _$NewSessionPressed value, $Res Function(_$NewSessionPressed) then) =
+      __$$NewSessionPressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NewSessionPressedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$NewSessionPressed>
+    implements _$$NewSessionPressedCopyWith<$Res> {
+  __$$NewSessionPressedCopyWithImpl(
+      _$NewSessionPressed _value, $Res Function(_$NewSessionPressed) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NewSessionPressed implements NewSessionPressed {
+  const _$NewSessionPressed();
+
+  @override
+  String toString() {
+    return 'HomeEvent.newSessionPressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NewSessionPressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() appLaunched,
+    required TResult Function() newSessionPressed,
+    required TResult Function(Session session) deleteSessionPressed,
+  }) {
+    return newSessionPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? appLaunched,
+    TResult? Function()? newSessionPressed,
+    TResult? Function(Session session)? deleteSessionPressed,
+  }) {
+    return newSessionPressed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? appLaunched,
+    TResult Function()? newSessionPressed,
+    TResult Function(Session session)? deleteSessionPressed,
+    required TResult orElse(),
+  }) {
+    if (newSessionPressed != null) {
+      return newSessionPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(NewSessionPressed value) newSessionPressed,
+    required TResult Function(DeleteSessionPressed value) deleteSessionPressed,
+  }) {
+    return newSessionPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(NewSessionPressed value)? newSessionPressed,
+    TResult? Function(DeleteSessionPressed value)? deleteSessionPressed,
+  }) {
+    return newSessionPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(NewSessionPressed value)? newSessionPressed,
+    TResult Function(DeleteSessionPressed value)? deleteSessionPressed,
+    required TResult orElse(),
+  }) {
+    if (newSessionPressed != null) {
+      return newSessionPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NewSessionPressed implements HomeEvent {
+  const factory NewSessionPressed() = _$NewSessionPressed;
+}
+
+/// @nodoc
+abstract class _$$DeleteSessionPressedCopyWith<$Res> {
+  factory _$$DeleteSessionPressedCopyWith(_$DeleteSessionPressed value,
+          $Res Function(_$DeleteSessionPressed) then) =
+      __$$DeleteSessionPressedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Session session});
+
+  $SessionCopyWith<$Res> get session;
+}
+
+/// @nodoc
+class __$$DeleteSessionPressedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$DeleteSessionPressed>
+    implements _$$DeleteSessionPressedCopyWith<$Res> {
+  __$$DeleteSessionPressedCopyWithImpl(_$DeleteSessionPressed _value,
+      $Res Function(_$DeleteSessionPressed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? session = null,
+  }) {
+    return _then(_$DeleteSessionPressed(
+      null == session
+          ? _value.session
+          : session // ignore: cast_nullable_to_non_nullable
+              as Session,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SessionCopyWith<$Res> get session {
+    return $SessionCopyWith<$Res>(_value.session, (value) {
+      return _then(_value.copyWith(session: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$DeleteSessionPressed implements DeleteSessionPressed {
+  const _$DeleteSessionPressed(this.session);
+
+  @override
+  final Session session;
+
+  @override
+  String toString() {
+    return 'HomeEvent.deleteSessionPressed(session: $session)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteSessionPressed &&
+            (identical(other.session, session) || other.session == session));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, session);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteSessionPressedCopyWith<_$DeleteSessionPressed> get copyWith =>
+      __$$DeleteSessionPressedCopyWithImpl<_$DeleteSessionPressed>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() appLaunched,
+    required TResult Function() newSessionPressed,
+    required TResult Function(Session session) deleteSessionPressed,
+  }) {
+    return deleteSessionPressed(session);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? appLaunched,
+    TResult? Function()? newSessionPressed,
+    TResult? Function(Session session)? deleteSessionPressed,
+  }) {
+    return deleteSessionPressed?.call(session);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? appLaunched,
+    TResult Function()? newSessionPressed,
+    TResult Function(Session session)? deleteSessionPressed,
+    required TResult orElse(),
+  }) {
+    if (deleteSessionPressed != null) {
+      return deleteSessionPressed(session);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(NewSessionPressed value) newSessionPressed,
+    required TResult Function(DeleteSessionPressed value) deleteSessionPressed,
+  }) {
+    return deleteSessionPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(NewSessionPressed value)? newSessionPressed,
+    TResult? Function(DeleteSessionPressed value)? deleteSessionPressed,
+  }) {
+    return deleteSessionPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(NewSessionPressed value)? newSessionPressed,
+    TResult Function(DeleteSessionPressed value)? deleteSessionPressed,
+    required TResult orElse(),
+  }) {
+    if (deleteSessionPressed != null) {
+      return deleteSessionPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class DeleteSessionPressed implements HomeEvent {
+  const factory DeleteSessionPressed(final Session session) =
+      _$DeleteSessionPressed;
+
+  Session get session;
+  @JsonKey(ignore: true)
+  _$$DeleteSessionPressedCopyWith<_$DeleteSessionPressed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$HomeState {
   Option<Result<Unit, CoreFailure>> get failureOption =>
       throw _privateConstructorUsedError;
   bool get isProcessing => throw _privateConstructorUsedError;
+  List<Session> get sessions => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -180,7 +464,9 @@ abstract class $HomeStateCopyWith<$Res> {
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
   $Res call(
-      {Option<Result<Unit, CoreFailure>> failureOption, bool isProcessing});
+      {Option<Result<Unit, CoreFailure>> failureOption,
+      bool isProcessing,
+      List<Session> sessions});
 }
 
 /// @nodoc
@@ -198,6 +484,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   $Res call({
     Object? failureOption = null,
     Object? isProcessing = null,
+    Object? sessions = null,
   }) {
     return _then(_value.copyWith(
       failureOption: null == failureOption
@@ -208,6 +495,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.isProcessing
           : isProcessing // ignore: cast_nullable_to_non_nullable
               as bool,
+      sessions: null == sessions
+          ? _value.sessions
+          : sessions // ignore: cast_nullable_to_non_nullable
+              as List<Session>,
     ) as $Val);
   }
 }
@@ -220,7 +511,9 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {Option<Result<Unit, CoreFailure>> failureOption, bool isProcessing});
+      {Option<Result<Unit, CoreFailure>> failureOption,
+      bool isProcessing,
+      List<Session> sessions});
 }
 
 /// @nodoc
@@ -236,6 +529,7 @@ class __$$_HomeStateCopyWithImpl<$Res>
   $Res call({
     Object? failureOption = null,
     Object? isProcessing = null,
+    Object? sessions = null,
   }) {
     return _then(_$_HomeState(
       failureOption: null == failureOption
@@ -246,6 +540,10 @@ class __$$_HomeStateCopyWithImpl<$Res>
           ? _value.isProcessing
           : isProcessing // ignore: cast_nullable_to_non_nullable
               as bool,
+      sessions: null == sessions
+          ? _value._sessions
+          : sessions // ignore: cast_nullable_to_non_nullable
+              as List<Session>,
     ));
   }
 }
@@ -253,16 +551,27 @@ class __$$_HomeStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_HomeState implements _HomeState {
-  const _$_HomeState({required this.failureOption, required this.isProcessing});
+  const _$_HomeState(
+      {required this.failureOption,
+      required this.isProcessing,
+      required final List<Session> sessions})
+      : _sessions = sessions;
 
   @override
   final Option<Result<Unit, CoreFailure>> failureOption;
   @override
   final bool isProcessing;
+  final List<Session> _sessions;
+  @override
+  List<Session> get sessions {
+    if (_sessions is EqualUnmodifiableListView) return _sessions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_sessions);
+  }
 
   @override
   String toString() {
-    return 'HomeState(failureOption: $failureOption, isProcessing: $isProcessing)';
+    return 'HomeState(failureOption: $failureOption, isProcessing: $isProcessing, sessions: $sessions)';
   }
 
   @override
@@ -273,11 +582,13 @@ class _$_HomeState implements _HomeState {
             (identical(other.failureOption, failureOption) ||
                 other.failureOption == failureOption) &&
             (identical(other.isProcessing, isProcessing) ||
-                other.isProcessing == isProcessing));
+                other.isProcessing == isProcessing) &&
+            const DeepCollectionEquality().equals(other._sessions, _sessions));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, failureOption, isProcessing);
+  int get hashCode => Object.hash(runtimeType, failureOption, isProcessing,
+      const DeepCollectionEquality().hash(_sessions));
 
   @JsonKey(ignore: true)
   @override
@@ -289,12 +600,15 @@ class _$_HomeState implements _HomeState {
 abstract class _HomeState implements HomeState {
   const factory _HomeState(
       {required final Option<Result<Unit, CoreFailure>> failureOption,
-      required final bool isProcessing}) = _$_HomeState;
+      required final bool isProcessing,
+      required final List<Session> sessions}) = _$_HomeState;
 
   @override
   Option<Result<Unit, CoreFailure>> get failureOption;
   @override
   bool get isProcessing;
+  @override
+  List<Session> get sessions;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

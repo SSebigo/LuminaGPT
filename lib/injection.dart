@@ -7,4 +7,4 @@ final getIt = GetIt.instance;
 
 /// @nodoc
 @InjectableInit()
-GetIt configureInjection(String env) => getIt.init(environment: env);
+Future<GetIt> configureInjection(String env) => getIt.init(environment: env);
