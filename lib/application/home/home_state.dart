@@ -8,12 +8,16 @@ class HomeState with _$HomeState {
     required Option<Result<Unit, CoreFailure>> failureOption,
     required bool isProcessing,
     required List<Session> sessions,
+    required Settings settings,
+    required ApiKey apiKey,
   }) = _HomeState;
 
   /// @nodoc
-  factory HomeState.initial() => const HomeState(
-        failureOption: None(),
+  factory HomeState.initial() => HomeState(
+        failureOption: const None(),
         isProcessing: false,
         sessions: [],
+        settings: Settings.empty(),
+        apiKey: ApiKey(''),
       );
 }

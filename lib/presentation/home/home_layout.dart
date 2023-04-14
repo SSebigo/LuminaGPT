@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lumina_gpt/application/home/home_bloc.dart';
+import 'package:lumina_gpt/presentation/core/dialogs/api_key_dialog.dart';
+import 'package:lumina_gpt/presentation/core/dialogs/error_dialog.dart';
 
 /// @nodoc
 class HomeLayout extends StatelessWidget {
@@ -17,7 +19,31 @@ class HomeLayout extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: BlocListener<HomeBloc, HomeState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          state.failureOption.when(
+            some: (value) => value.when(
+              ok: (_) {},
+              err: (err) => err.maybeMap(
+                settings: (f) => f.f.maybeMap(
+                  apiKeyNotFound: (_) => showDialog<ApiKeyDialog>(
+                    context: context,
+                    builder: (_) => const ApiKeyDialog(),
+                  ),
+                  settingsNotFound: (_) => showDialog<ErrorDialog>(
+                    context: context,
+                    builder: (_) => ErrorDialog(
+                      messages: [],
+                      onPressed: () {},
+                    ),
+                  ),
+                  orElse: () {},
+                ),
+                orElse: () {},
+              ),
+            ),
+            none: () {},
+          );
+        },
         child: Row(
           children: [
             Container(
@@ -50,6 +76,22 @@ class HomeLayout extends StatelessWidget {
                       separatorBuilder: (_, i) => const SizedBox(height: 10),
                       itemCount: 1,
                     ),
+                  ),
+                  // a ListTile with a leading icon gear, a title "Settings"
+                  ListTile(
+                    tileColor: const Color(0xFF171717),
+                    leading: const Icon(
+                      Icons.settings,
+                      color: Colors.white,
+                    ),
+                    title: const Text(
+                      'Settings',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                    onTap: () {},
                   ),
                 ],
               ),

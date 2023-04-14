@@ -17,8 +17,13 @@ const IsarSettingsSchema = CollectionSchema(
   name: r'IsarSettings',
   id: -2003972169886166418,
   properties: {
-    r'stringify': PropertySchema(
+    r'apiKey': PropertySchema(
       id: 0,
+      name: r'apiKey',
+      type: IsarType.string,
+    ),
+    r'stringify': PropertySchema(
+      id: 1,
       name: r'stringify',
       type: IsarType.bool,
     )
@@ -43,6 +48,12 @@ int _isarSettingsEstimateSize(
   Map<Type, List<int>> allOffsets,
 ) {
   var bytesCount = offsets.last;
+  {
+    final value = object.apiKey;
+    if (value != null) {
+      bytesCount += 3 + value.length * 3;
+    }
+  }
   return bytesCount;
 }
 
@@ -52,7 +63,8 @@ void _isarSettingsSerialize(
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  writer.writeBool(offsets[0], object.stringify);
+  writer.writeString(offsets[0], object.apiKey);
+  writer.writeBool(offsets[1], object.stringify);
 }
 
 IsarSettings _isarSettingsDeserialize(
@@ -62,6 +74,7 @@ IsarSettings _isarSettingsDeserialize(
   Map<Type, List<int>> allOffsets,
 ) {
   final object = IsarSettings(
+    apiKey: reader.readStringOrNull(offsets[0]),
     id: id,
   );
   return object;
@@ -75,6 +88,8 @@ P _isarSettingsDeserializeProp<P>(
 ) {
   switch (propertyId) {
     case 0:
+      return (reader.readStringOrNull(offset)) as P;
+    case 1:
       return (reader.readBool(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -173,6 +188,159 @@ extension IsarSettingsQueryWhere
 
 extension IsarSettingsQueryFilter
     on QueryBuilder<IsarSettings, IsarSettings, QFilterCondition> {
+  QueryBuilder<IsarSettings, IsarSettings, QAfterFilterCondition>
+      apiKeyIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'apiKey',
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSettings, IsarSettings, QAfterFilterCondition>
+      apiKeyIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'apiKey',
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSettings, IsarSettings, QAfterFilterCondition> apiKeyEqualTo(
+    String? value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'apiKey',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSettings, IsarSettings, QAfterFilterCondition>
+      apiKeyGreaterThan(
+    String? value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'apiKey',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSettings, IsarSettings, QAfterFilterCondition>
+      apiKeyLessThan(
+    String? value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'apiKey',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSettings, IsarSettings, QAfterFilterCondition> apiKeyBetween(
+    String? lower,
+    String? upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'apiKey',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSettings, IsarSettings, QAfterFilterCondition>
+      apiKeyStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'apiKey',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSettings, IsarSettings, QAfterFilterCondition>
+      apiKeyEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'apiKey',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSettings, IsarSettings, QAfterFilterCondition>
+      apiKeyContains(String value, {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'apiKey',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSettings, IsarSettings, QAfterFilterCondition> apiKeyMatches(
+      String pattern,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'apiKey',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSettings, IsarSettings, QAfterFilterCondition>
+      apiKeyIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'apiKey',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSettings, IsarSettings, QAfterFilterCondition>
+      apiKeyIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'apiKey',
+        value: '',
+      ));
+    });
+  }
+
   QueryBuilder<IsarSettings, IsarSettings, QAfterFilterCondition> idEqualTo(
       Id value) {
     return QueryBuilder.apply(this, (query) {
@@ -245,6 +413,18 @@ extension IsarSettingsQueryLinks
 
 extension IsarSettingsQuerySortBy
     on QueryBuilder<IsarSettings, IsarSettings, QSortBy> {
+  QueryBuilder<IsarSettings, IsarSettings, QAfterSortBy> sortByApiKey() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'apiKey', Sort.asc);
+    });
+  }
+
+  QueryBuilder<IsarSettings, IsarSettings, QAfterSortBy> sortByApiKeyDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'apiKey', Sort.desc);
+    });
+  }
+
   QueryBuilder<IsarSettings, IsarSettings, QAfterSortBy> sortByStringify() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'stringify', Sort.asc);
@@ -260,6 +440,18 @@ extension IsarSettingsQuerySortBy
 
 extension IsarSettingsQuerySortThenBy
     on QueryBuilder<IsarSettings, IsarSettings, QSortThenBy> {
+  QueryBuilder<IsarSettings, IsarSettings, QAfterSortBy> thenByApiKey() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'apiKey', Sort.asc);
+    });
+  }
+
+  QueryBuilder<IsarSettings, IsarSettings, QAfterSortBy> thenByApiKeyDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'apiKey', Sort.desc);
+    });
+  }
+
   QueryBuilder<IsarSettings, IsarSettings, QAfterSortBy> thenById() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.asc);
@@ -287,6 +479,13 @@ extension IsarSettingsQuerySortThenBy
 
 extension IsarSettingsQueryWhereDistinct
     on QueryBuilder<IsarSettings, IsarSettings, QDistinct> {
+  QueryBuilder<IsarSettings, IsarSettings, QDistinct> distinctByApiKey(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'apiKey', caseSensitive: caseSensitive);
+    });
+  }
+
   QueryBuilder<IsarSettings, IsarSettings, QDistinct> distinctByStringify() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'stringify');
@@ -299,6 +498,12 @@ extension IsarSettingsQueryProperty
   QueryBuilder<IsarSettings, int, QQueryOperations> idProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'id');
+    });
+  }
+
+  QueryBuilder<IsarSettings, String?, QQueryOperations> apiKeyProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'apiKey');
     });
   }
 

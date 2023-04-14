@@ -22,6 +22,7 @@ mixin _$SettingsFailure {
     required TResult Function() settingsNotFound,
     required TResult Function() settingsNotInitialized,
     required TResult Function() settingsNotUpdated,
+    required TResult Function() apiKeyNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$SettingsFailure {
     TResult? Function()? settingsNotFound,
     TResult? Function()? settingsNotInitialized,
     TResult? Function()? settingsNotUpdated,
+    TResult? Function()? apiKeyNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$SettingsFailure {
     TResult Function()? settingsNotFound,
     TResult Function()? settingsNotInitialized,
     TResult Function()? settingsNotUpdated,
+    TResult Function()? apiKeyNotFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +51,7 @@ mixin _$SettingsFailure {
     required TResult Function(SettingsNotInitialized value)
         settingsNotInitialized,
     required TResult Function(SettingsNotUpdated value) settingsNotUpdated,
+    required TResult Function(ApiKeyNotFound value) apiKeyNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +60,7 @@ mixin _$SettingsFailure {
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(SettingsNotInitialized value)? settingsNotInitialized,
     TResult? Function(SettingsNotUpdated value)? settingsNotUpdated,
+    TResult? Function(ApiKeyNotFound value)? apiKeyNotFound,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +69,7 @@ mixin _$SettingsFailure {
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(SettingsNotInitialized value)? settingsNotInitialized,
     TResult Function(SettingsNotUpdated value)? settingsNotUpdated,
+    TResult Function(ApiKeyNotFound value)? apiKeyNotFound,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -129,6 +135,7 @@ class _$SettingsNotDeleted implements SettingsNotDeleted {
     required TResult Function() settingsNotFound,
     required TResult Function() settingsNotInitialized,
     required TResult Function() settingsNotUpdated,
+    required TResult Function() apiKeyNotFound,
   }) {
     return settingsNotDeleted();
   }
@@ -140,6 +147,7 @@ class _$SettingsNotDeleted implements SettingsNotDeleted {
     TResult? Function()? settingsNotFound,
     TResult? Function()? settingsNotInitialized,
     TResult? Function()? settingsNotUpdated,
+    TResult? Function()? apiKeyNotFound,
   }) {
     return settingsNotDeleted?.call();
   }
@@ -151,6 +159,7 @@ class _$SettingsNotDeleted implements SettingsNotDeleted {
     TResult Function()? settingsNotFound,
     TResult Function()? settingsNotInitialized,
     TResult Function()? settingsNotUpdated,
+    TResult Function()? apiKeyNotFound,
     required TResult orElse(),
   }) {
     if (settingsNotDeleted != null) {
@@ -167,6 +176,7 @@ class _$SettingsNotDeleted implements SettingsNotDeleted {
     required TResult Function(SettingsNotInitialized value)
         settingsNotInitialized,
     required TResult Function(SettingsNotUpdated value) settingsNotUpdated,
+    required TResult Function(ApiKeyNotFound value) apiKeyNotFound,
   }) {
     return settingsNotDeleted(this);
   }
@@ -178,6 +188,7 @@ class _$SettingsNotDeleted implements SettingsNotDeleted {
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(SettingsNotInitialized value)? settingsNotInitialized,
     TResult? Function(SettingsNotUpdated value)? settingsNotUpdated,
+    TResult? Function(ApiKeyNotFound value)? apiKeyNotFound,
   }) {
     return settingsNotDeleted?.call(this);
   }
@@ -189,6 +200,7 @@ class _$SettingsNotDeleted implements SettingsNotDeleted {
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(SettingsNotInitialized value)? settingsNotInitialized,
     TResult Function(SettingsNotUpdated value)? settingsNotUpdated,
+    TResult Function(ApiKeyNotFound value)? apiKeyNotFound,
     required TResult orElse(),
   }) {
     if (settingsNotDeleted != null) {
@@ -244,6 +256,7 @@ class _$SettingsNotFound implements SettingsNotFound {
     required TResult Function() settingsNotFound,
     required TResult Function() settingsNotInitialized,
     required TResult Function() settingsNotUpdated,
+    required TResult Function() apiKeyNotFound,
   }) {
     return settingsNotFound();
   }
@@ -255,6 +268,7 @@ class _$SettingsNotFound implements SettingsNotFound {
     TResult? Function()? settingsNotFound,
     TResult? Function()? settingsNotInitialized,
     TResult? Function()? settingsNotUpdated,
+    TResult? Function()? apiKeyNotFound,
   }) {
     return settingsNotFound?.call();
   }
@@ -266,6 +280,7 @@ class _$SettingsNotFound implements SettingsNotFound {
     TResult Function()? settingsNotFound,
     TResult Function()? settingsNotInitialized,
     TResult Function()? settingsNotUpdated,
+    TResult Function()? apiKeyNotFound,
     required TResult orElse(),
   }) {
     if (settingsNotFound != null) {
@@ -282,6 +297,7 @@ class _$SettingsNotFound implements SettingsNotFound {
     required TResult Function(SettingsNotInitialized value)
         settingsNotInitialized,
     required TResult Function(SettingsNotUpdated value) settingsNotUpdated,
+    required TResult Function(ApiKeyNotFound value) apiKeyNotFound,
   }) {
     return settingsNotFound(this);
   }
@@ -293,6 +309,7 @@ class _$SettingsNotFound implements SettingsNotFound {
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(SettingsNotInitialized value)? settingsNotInitialized,
     TResult? Function(SettingsNotUpdated value)? settingsNotUpdated,
+    TResult? Function(ApiKeyNotFound value)? apiKeyNotFound,
   }) {
     return settingsNotFound?.call(this);
   }
@@ -304,6 +321,7 @@ class _$SettingsNotFound implements SettingsNotFound {
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(SettingsNotInitialized value)? settingsNotInitialized,
     TResult Function(SettingsNotUpdated value)? settingsNotUpdated,
+    TResult Function(ApiKeyNotFound value)? apiKeyNotFound,
     required TResult orElse(),
   }) {
     if (settingsNotFound != null) {
@@ -359,6 +377,7 @@ class _$SettingsNotInitialized implements SettingsNotInitialized {
     required TResult Function() settingsNotFound,
     required TResult Function() settingsNotInitialized,
     required TResult Function() settingsNotUpdated,
+    required TResult Function() apiKeyNotFound,
   }) {
     return settingsNotInitialized();
   }
@@ -370,6 +389,7 @@ class _$SettingsNotInitialized implements SettingsNotInitialized {
     TResult? Function()? settingsNotFound,
     TResult? Function()? settingsNotInitialized,
     TResult? Function()? settingsNotUpdated,
+    TResult? Function()? apiKeyNotFound,
   }) {
     return settingsNotInitialized?.call();
   }
@@ -381,6 +401,7 @@ class _$SettingsNotInitialized implements SettingsNotInitialized {
     TResult Function()? settingsNotFound,
     TResult Function()? settingsNotInitialized,
     TResult Function()? settingsNotUpdated,
+    TResult Function()? apiKeyNotFound,
     required TResult orElse(),
   }) {
     if (settingsNotInitialized != null) {
@@ -397,6 +418,7 @@ class _$SettingsNotInitialized implements SettingsNotInitialized {
     required TResult Function(SettingsNotInitialized value)
         settingsNotInitialized,
     required TResult Function(SettingsNotUpdated value) settingsNotUpdated,
+    required TResult Function(ApiKeyNotFound value) apiKeyNotFound,
   }) {
     return settingsNotInitialized(this);
   }
@@ -408,6 +430,7 @@ class _$SettingsNotInitialized implements SettingsNotInitialized {
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(SettingsNotInitialized value)? settingsNotInitialized,
     TResult? Function(SettingsNotUpdated value)? settingsNotUpdated,
+    TResult? Function(ApiKeyNotFound value)? apiKeyNotFound,
   }) {
     return settingsNotInitialized?.call(this);
   }
@@ -419,6 +442,7 @@ class _$SettingsNotInitialized implements SettingsNotInitialized {
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(SettingsNotInitialized value)? settingsNotInitialized,
     TResult Function(SettingsNotUpdated value)? settingsNotUpdated,
+    TResult Function(ApiKeyNotFound value)? apiKeyNotFound,
     required TResult orElse(),
   }) {
     if (settingsNotInitialized != null) {
@@ -474,6 +498,7 @@ class _$SettingsNotUpdated implements SettingsNotUpdated {
     required TResult Function() settingsNotFound,
     required TResult Function() settingsNotInitialized,
     required TResult Function() settingsNotUpdated,
+    required TResult Function() apiKeyNotFound,
   }) {
     return settingsNotUpdated();
   }
@@ -485,6 +510,7 @@ class _$SettingsNotUpdated implements SettingsNotUpdated {
     TResult? Function()? settingsNotFound,
     TResult? Function()? settingsNotInitialized,
     TResult? Function()? settingsNotUpdated,
+    TResult? Function()? apiKeyNotFound,
   }) {
     return settingsNotUpdated?.call();
   }
@@ -496,6 +522,7 @@ class _$SettingsNotUpdated implements SettingsNotUpdated {
     TResult Function()? settingsNotFound,
     TResult Function()? settingsNotInitialized,
     TResult Function()? settingsNotUpdated,
+    TResult Function()? apiKeyNotFound,
     required TResult orElse(),
   }) {
     if (settingsNotUpdated != null) {
@@ -512,6 +539,7 @@ class _$SettingsNotUpdated implements SettingsNotUpdated {
     required TResult Function(SettingsNotInitialized value)
         settingsNotInitialized,
     required TResult Function(SettingsNotUpdated value) settingsNotUpdated,
+    required TResult Function(ApiKeyNotFound value) apiKeyNotFound,
   }) {
     return settingsNotUpdated(this);
   }
@@ -523,6 +551,7 @@ class _$SettingsNotUpdated implements SettingsNotUpdated {
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(SettingsNotInitialized value)? settingsNotInitialized,
     TResult? Function(SettingsNotUpdated value)? settingsNotUpdated,
+    TResult? Function(ApiKeyNotFound value)? apiKeyNotFound,
   }) {
     return settingsNotUpdated?.call(this);
   }
@@ -534,6 +563,7 @@ class _$SettingsNotUpdated implements SettingsNotUpdated {
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(SettingsNotInitialized value)? settingsNotInitialized,
     TResult Function(SettingsNotUpdated value)? settingsNotUpdated,
+    TResult Function(ApiKeyNotFound value)? apiKeyNotFound,
     required TResult orElse(),
   }) {
     if (settingsNotUpdated != null) {
@@ -545,4 +575,125 @@ class _$SettingsNotUpdated implements SettingsNotUpdated {
 
 abstract class SettingsNotUpdated implements SettingsFailure {
   const factory SettingsNotUpdated() = _$SettingsNotUpdated;
+}
+
+/// @nodoc
+abstract class _$$ApiKeyNotFoundCopyWith<$Res> {
+  factory _$$ApiKeyNotFoundCopyWith(
+          _$ApiKeyNotFound value, $Res Function(_$ApiKeyNotFound) then) =
+      __$$ApiKeyNotFoundCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ApiKeyNotFoundCopyWithImpl<$Res>
+    extends _$SettingsFailureCopyWithImpl<$Res, _$ApiKeyNotFound>
+    implements _$$ApiKeyNotFoundCopyWith<$Res> {
+  __$$ApiKeyNotFoundCopyWithImpl(
+      _$ApiKeyNotFound _value, $Res Function(_$ApiKeyNotFound) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ApiKeyNotFound implements ApiKeyNotFound {
+  const _$ApiKeyNotFound();
+
+  @override
+  String toString() {
+    return 'SettingsFailure.apiKeyNotFound()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ApiKeyNotFound);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() settingsNotDeleted,
+    required TResult Function() settingsNotFound,
+    required TResult Function() settingsNotInitialized,
+    required TResult Function() settingsNotUpdated,
+    required TResult Function() apiKeyNotFound,
+  }) {
+    return apiKeyNotFound();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? settingsNotDeleted,
+    TResult? Function()? settingsNotFound,
+    TResult? Function()? settingsNotInitialized,
+    TResult? Function()? settingsNotUpdated,
+    TResult? Function()? apiKeyNotFound,
+  }) {
+    return apiKeyNotFound?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? settingsNotDeleted,
+    TResult Function()? settingsNotFound,
+    TResult Function()? settingsNotInitialized,
+    TResult Function()? settingsNotUpdated,
+    TResult Function()? apiKeyNotFound,
+    required TResult orElse(),
+  }) {
+    if (apiKeyNotFound != null) {
+      return apiKeyNotFound();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SettingsNotDeleted value) settingsNotDeleted,
+    required TResult Function(SettingsNotFound value) settingsNotFound,
+    required TResult Function(SettingsNotInitialized value)
+        settingsNotInitialized,
+    required TResult Function(SettingsNotUpdated value) settingsNotUpdated,
+    required TResult Function(ApiKeyNotFound value) apiKeyNotFound,
+  }) {
+    return apiKeyNotFound(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SettingsNotDeleted value)? settingsNotDeleted,
+    TResult? Function(SettingsNotFound value)? settingsNotFound,
+    TResult? Function(SettingsNotInitialized value)? settingsNotInitialized,
+    TResult? Function(SettingsNotUpdated value)? settingsNotUpdated,
+    TResult? Function(ApiKeyNotFound value)? apiKeyNotFound,
+  }) {
+    return apiKeyNotFound?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SettingsNotDeleted value)? settingsNotDeleted,
+    TResult Function(SettingsNotFound value)? settingsNotFound,
+    TResult Function(SettingsNotInitialized value)? settingsNotInitialized,
+    TResult Function(SettingsNotUpdated value)? settingsNotUpdated,
+    TResult Function(ApiKeyNotFound value)? apiKeyNotFound,
+    required TResult orElse(),
+  }) {
+    if (apiKeyNotFound != null) {
+      return apiKeyNotFound(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ApiKeyNotFound implements SettingsFailure {
+  const factory ApiKeyNotFound() = _$ApiKeyNotFound;
 }

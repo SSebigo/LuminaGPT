@@ -21,6 +21,9 @@ mixin _$HomeEvent {
     required TResult Function() appLaunched,
     required TResult Function() newSessionPressed,
     required TResult Function(Session session) deleteSessionPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +31,9 @@ mixin _$HomeEvent {
     TResult? Function()? appLaunched,
     TResult? Function()? newSessionPressed,
     TResult? Function(Session session)? deleteSessionPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +41,9 @@ mixin _$HomeEvent {
     TResult Function()? appLaunched,
     TResult Function()? newSessionPressed,
     TResult Function(Session session)? deleteSessionPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +52,9 @@ mixin _$HomeEvent {
     required TResult Function(AppLaunched value) appLaunched,
     required TResult Function(NewSessionPressed value) newSessionPressed,
     required TResult Function(DeleteSessionPressed value) deleteSessionPressed,
+    required TResult Function(SettingsNotFound value) settingsNotFound,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +62,9 @@ mixin _$HomeEvent {
     TResult? Function(AppLaunched value)? appLaunched,
     TResult? Function(NewSessionPressed value)? newSessionPressed,
     TResult? Function(DeleteSessionPressed value)? deleteSessionPressed,
+    TResult? Function(SettingsNotFound value)? settingsNotFound,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +72,9 @@ mixin _$HomeEvent {
     TResult Function(AppLaunched value)? appLaunched,
     TResult Function(NewSessionPressed value)? newSessionPressed,
     TResult Function(DeleteSessionPressed value)? deleteSessionPressed,
+    TResult Function(SettingsNotFound value)? settingsNotFound,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +138,9 @@ class _$AppLaunched implements AppLaunched {
     required TResult Function() appLaunched,
     required TResult Function() newSessionPressed,
     required TResult Function(Session session) deleteSessionPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
   }) {
     return appLaunched();
   }
@@ -130,6 +151,9 @@ class _$AppLaunched implements AppLaunched {
     TResult? Function()? appLaunched,
     TResult? Function()? newSessionPressed,
     TResult? Function(Session session)? deleteSessionPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
   }) {
     return appLaunched?.call();
   }
@@ -140,6 +164,9 @@ class _$AppLaunched implements AppLaunched {
     TResult Function()? appLaunched,
     TResult Function()? newSessionPressed,
     TResult Function(Session session)? deleteSessionPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
     required TResult orElse(),
   }) {
     if (appLaunched != null) {
@@ -154,6 +181,9 @@ class _$AppLaunched implements AppLaunched {
     required TResult Function(AppLaunched value) appLaunched,
     required TResult Function(NewSessionPressed value) newSessionPressed,
     required TResult Function(DeleteSessionPressed value) deleteSessionPressed,
+    required TResult Function(SettingsNotFound value) settingsNotFound,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
   }) {
     return appLaunched(this);
   }
@@ -164,6 +194,9 @@ class _$AppLaunched implements AppLaunched {
     TResult? Function(AppLaunched value)? appLaunched,
     TResult? Function(NewSessionPressed value)? newSessionPressed,
     TResult? Function(DeleteSessionPressed value)? deleteSessionPressed,
+    TResult? Function(SettingsNotFound value)? settingsNotFound,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
   }) {
     return appLaunched?.call(this);
   }
@@ -174,6 +207,9 @@ class _$AppLaunched implements AppLaunched {
     TResult Function(AppLaunched value)? appLaunched,
     TResult Function(NewSessionPressed value)? newSessionPressed,
     TResult Function(DeleteSessionPressed value)? deleteSessionPressed,
+    TResult Function(SettingsNotFound value)? settingsNotFound,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     required TResult orElse(),
   }) {
     if (appLaunched != null) {
@@ -228,6 +264,9 @@ class _$NewSessionPressed implements NewSessionPressed {
     required TResult Function() appLaunched,
     required TResult Function() newSessionPressed,
     required TResult Function(Session session) deleteSessionPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
   }) {
     return newSessionPressed();
   }
@@ -238,6 +277,9 @@ class _$NewSessionPressed implements NewSessionPressed {
     TResult? Function()? appLaunched,
     TResult? Function()? newSessionPressed,
     TResult? Function(Session session)? deleteSessionPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
   }) {
     return newSessionPressed?.call();
   }
@@ -248,6 +290,9 @@ class _$NewSessionPressed implements NewSessionPressed {
     TResult Function()? appLaunched,
     TResult Function()? newSessionPressed,
     TResult Function(Session session)? deleteSessionPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
     required TResult orElse(),
   }) {
     if (newSessionPressed != null) {
@@ -262,6 +307,9 @@ class _$NewSessionPressed implements NewSessionPressed {
     required TResult Function(AppLaunched value) appLaunched,
     required TResult Function(NewSessionPressed value) newSessionPressed,
     required TResult Function(DeleteSessionPressed value) deleteSessionPressed,
+    required TResult Function(SettingsNotFound value) settingsNotFound,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
   }) {
     return newSessionPressed(this);
   }
@@ -272,6 +320,9 @@ class _$NewSessionPressed implements NewSessionPressed {
     TResult? Function(AppLaunched value)? appLaunched,
     TResult? Function(NewSessionPressed value)? newSessionPressed,
     TResult? Function(DeleteSessionPressed value)? deleteSessionPressed,
+    TResult? Function(SettingsNotFound value)? settingsNotFound,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
   }) {
     return newSessionPressed?.call(this);
   }
@@ -282,6 +333,9 @@ class _$NewSessionPressed implements NewSessionPressed {
     TResult Function(AppLaunched value)? appLaunched,
     TResult Function(NewSessionPressed value)? newSessionPressed,
     TResult Function(DeleteSessionPressed value)? deleteSessionPressed,
+    TResult Function(SettingsNotFound value)? settingsNotFound,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     required TResult orElse(),
   }) {
     if (newSessionPressed != null) {
@@ -373,6 +427,9 @@ class _$DeleteSessionPressed implements DeleteSessionPressed {
     required TResult Function() appLaunched,
     required TResult Function() newSessionPressed,
     required TResult Function(Session session) deleteSessionPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
   }) {
     return deleteSessionPressed(session);
   }
@@ -383,6 +440,9 @@ class _$DeleteSessionPressed implements DeleteSessionPressed {
     TResult? Function()? appLaunched,
     TResult? Function()? newSessionPressed,
     TResult? Function(Session session)? deleteSessionPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
   }) {
     return deleteSessionPressed?.call(session);
   }
@@ -393,6 +453,9 @@ class _$DeleteSessionPressed implements DeleteSessionPressed {
     TResult Function()? appLaunched,
     TResult Function()? newSessionPressed,
     TResult Function(Session session)? deleteSessionPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
     required TResult orElse(),
   }) {
     if (deleteSessionPressed != null) {
@@ -407,6 +470,9 @@ class _$DeleteSessionPressed implements DeleteSessionPressed {
     required TResult Function(AppLaunched value) appLaunched,
     required TResult Function(NewSessionPressed value) newSessionPressed,
     required TResult Function(DeleteSessionPressed value) deleteSessionPressed,
+    required TResult Function(SettingsNotFound value) settingsNotFound,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
   }) {
     return deleteSessionPressed(this);
   }
@@ -417,6 +483,9 @@ class _$DeleteSessionPressed implements DeleteSessionPressed {
     TResult? Function(AppLaunched value)? appLaunched,
     TResult? Function(NewSessionPressed value)? newSessionPressed,
     TResult? Function(DeleteSessionPressed value)? deleteSessionPressed,
+    TResult? Function(SettingsNotFound value)? settingsNotFound,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
   }) {
     return deleteSessionPressed?.call(this);
   }
@@ -427,6 +496,9 @@ class _$DeleteSessionPressed implements DeleteSessionPressed {
     TResult Function(AppLaunched value)? appLaunched,
     TResult Function(NewSessionPressed value)? newSessionPressed,
     TResult Function(DeleteSessionPressed value)? deleteSessionPressed,
+    TResult Function(SettingsNotFound value)? settingsNotFound,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     required TResult orElse(),
   }) {
     if (deleteSessionPressed != null) {
@@ -447,11 +519,423 @@ abstract class DeleteSessionPressed implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$$SettingsNotFoundCopyWith<$Res> {
+  factory _$$SettingsNotFoundCopyWith(
+          _$SettingsNotFound value, $Res Function(_$SettingsNotFound) then) =
+      __$$SettingsNotFoundCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SettingsNotFoundCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$SettingsNotFound>
+    implements _$$SettingsNotFoundCopyWith<$Res> {
+  __$$SettingsNotFoundCopyWithImpl(
+      _$SettingsNotFound _value, $Res Function(_$SettingsNotFound) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$SettingsNotFound implements SettingsNotFound {
+  const _$SettingsNotFound();
+
+  @override
+  String toString() {
+    return 'HomeEvent.settingsNotFound()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SettingsNotFound);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() appLaunched,
+    required TResult Function() newSessionPressed,
+    required TResult Function(Session session) deleteSessionPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
+  }) {
+    return settingsNotFound();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? appLaunched,
+    TResult? Function()? newSessionPressed,
+    TResult? Function(Session session)? deleteSessionPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
+  }) {
+    return settingsNotFound?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? appLaunched,
+    TResult Function()? newSessionPressed,
+    TResult Function(Session session)? deleteSessionPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
+    required TResult orElse(),
+  }) {
+    if (settingsNotFound != null) {
+      return settingsNotFound();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(NewSessionPressed value) newSessionPressed,
+    required TResult Function(DeleteSessionPressed value) deleteSessionPressed,
+    required TResult Function(SettingsNotFound value) settingsNotFound,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
+  }) {
+    return settingsNotFound(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(NewSessionPressed value)? newSessionPressed,
+    TResult? Function(DeleteSessionPressed value)? deleteSessionPressed,
+    TResult? Function(SettingsNotFound value)? settingsNotFound,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
+  }) {
+    return settingsNotFound?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(NewSessionPressed value)? newSessionPressed,
+    TResult Function(DeleteSessionPressed value)? deleteSessionPressed,
+    TResult Function(SettingsNotFound value)? settingsNotFound,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
+    required TResult orElse(),
+  }) {
+    if (settingsNotFound != null) {
+      return settingsNotFound(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SettingsNotFound implements HomeEvent {
+  const factory SettingsNotFound() = _$SettingsNotFound;
+}
+
+/// @nodoc
+abstract class _$$ApiKeyChangedCopyWith<$Res> {
+  factory _$$ApiKeyChangedCopyWith(
+          _$ApiKeyChanged value, $Res Function(_$ApiKeyChanged) then) =
+      __$$ApiKeyChangedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String apiKeyStr});
+}
+
+/// @nodoc
+class __$$ApiKeyChangedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$ApiKeyChanged>
+    implements _$$ApiKeyChangedCopyWith<$Res> {
+  __$$ApiKeyChangedCopyWithImpl(
+      _$ApiKeyChanged _value, $Res Function(_$ApiKeyChanged) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? apiKeyStr = null,
+  }) {
+    return _then(_$ApiKeyChanged(
+      null == apiKeyStr
+          ? _value.apiKeyStr
+          : apiKeyStr // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ApiKeyChanged implements ApiKeyChanged {
+  const _$ApiKeyChanged(this.apiKeyStr);
+
+  @override
+  final String apiKeyStr;
+
+  @override
+  String toString() {
+    return 'HomeEvent.apiKeyChanged(apiKeyStr: $apiKeyStr)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ApiKeyChanged &&
+            (identical(other.apiKeyStr, apiKeyStr) ||
+                other.apiKeyStr == apiKeyStr));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, apiKeyStr);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ApiKeyChangedCopyWith<_$ApiKeyChanged> get copyWith =>
+      __$$ApiKeyChangedCopyWithImpl<_$ApiKeyChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() appLaunched,
+    required TResult Function() newSessionPressed,
+    required TResult Function(Session session) deleteSessionPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
+  }) {
+    return apiKeyChanged(apiKeyStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? appLaunched,
+    TResult? Function()? newSessionPressed,
+    TResult? Function(Session session)? deleteSessionPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
+  }) {
+    return apiKeyChanged?.call(apiKeyStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? appLaunched,
+    TResult Function()? newSessionPressed,
+    TResult Function(Session session)? deleteSessionPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
+    required TResult orElse(),
+  }) {
+    if (apiKeyChanged != null) {
+      return apiKeyChanged(apiKeyStr);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(NewSessionPressed value) newSessionPressed,
+    required TResult Function(DeleteSessionPressed value) deleteSessionPressed,
+    required TResult Function(SettingsNotFound value) settingsNotFound,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
+  }) {
+    return apiKeyChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(NewSessionPressed value)? newSessionPressed,
+    TResult? Function(DeleteSessionPressed value)? deleteSessionPressed,
+    TResult? Function(SettingsNotFound value)? settingsNotFound,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
+  }) {
+    return apiKeyChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(NewSessionPressed value)? newSessionPressed,
+    TResult Function(DeleteSessionPressed value)? deleteSessionPressed,
+    TResult Function(SettingsNotFound value)? settingsNotFound,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
+    required TResult orElse(),
+  }) {
+    if (apiKeyChanged != null) {
+      return apiKeyChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ApiKeyChanged implements HomeEvent {
+  const factory ApiKeyChanged(final String apiKeyStr) = _$ApiKeyChanged;
+
+  String get apiKeyStr;
+  @JsonKey(ignore: true)
+  _$$ApiKeyChangedCopyWith<_$ApiKeyChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ApiKeySubmittedCopyWith<$Res> {
+  factory _$$ApiKeySubmittedCopyWith(
+          _$ApiKeySubmitted value, $Res Function(_$ApiKeySubmitted) then) =
+      __$$ApiKeySubmittedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ApiKeySubmittedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$ApiKeySubmitted>
+    implements _$$ApiKeySubmittedCopyWith<$Res> {
+  __$$ApiKeySubmittedCopyWithImpl(
+      _$ApiKeySubmitted _value, $Res Function(_$ApiKeySubmitted) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ApiKeySubmitted implements ApiKeySubmitted {
+  const _$ApiKeySubmitted();
+
+  @override
+  String toString() {
+    return 'HomeEvent.apiKeySubmitted()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ApiKeySubmitted);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() appLaunched,
+    required TResult Function() newSessionPressed,
+    required TResult Function(Session session) deleteSessionPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
+  }) {
+    return apiKeySubmitted();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? appLaunched,
+    TResult? Function()? newSessionPressed,
+    TResult? Function(Session session)? deleteSessionPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
+  }) {
+    return apiKeySubmitted?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? appLaunched,
+    TResult Function()? newSessionPressed,
+    TResult Function(Session session)? deleteSessionPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
+    required TResult orElse(),
+  }) {
+    if (apiKeySubmitted != null) {
+      return apiKeySubmitted();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(NewSessionPressed value) newSessionPressed,
+    required TResult Function(DeleteSessionPressed value) deleteSessionPressed,
+    required TResult Function(SettingsNotFound value) settingsNotFound,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
+  }) {
+    return apiKeySubmitted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(NewSessionPressed value)? newSessionPressed,
+    TResult? Function(DeleteSessionPressed value)? deleteSessionPressed,
+    TResult? Function(SettingsNotFound value)? settingsNotFound,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
+  }) {
+    return apiKeySubmitted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(NewSessionPressed value)? newSessionPressed,
+    TResult Function(DeleteSessionPressed value)? deleteSessionPressed,
+    TResult Function(SettingsNotFound value)? settingsNotFound,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
+    required TResult orElse(),
+  }) {
+    if (apiKeySubmitted != null) {
+      return apiKeySubmitted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ApiKeySubmitted implements HomeEvent {
+  const factory ApiKeySubmitted() = _$ApiKeySubmitted;
+}
+
+/// @nodoc
 mixin _$HomeState {
   Option<Result<Unit, CoreFailure>> get failureOption =>
       throw _privateConstructorUsedError;
   bool get isProcessing => throw _privateConstructorUsedError;
   List<Session> get sessions => throw _privateConstructorUsedError;
+  Settings get settings => throw _privateConstructorUsedError;
+  ApiKey get apiKey => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -466,7 +950,11 @@ abstract class $HomeStateCopyWith<$Res> {
   $Res call(
       {Option<Result<Unit, CoreFailure>> failureOption,
       bool isProcessing,
-      List<Session> sessions});
+      List<Session> sessions,
+      Settings settings,
+      ApiKey apiKey});
+
+  $SettingsCopyWith<$Res> get settings;
 }
 
 /// @nodoc
@@ -485,6 +973,8 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? failureOption = null,
     Object? isProcessing = null,
     Object? sessions = null,
+    Object? settings = null,
+    Object? apiKey = null,
   }) {
     return _then(_value.copyWith(
       failureOption: null == failureOption
@@ -499,7 +989,23 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.sessions
           : sessions // ignore: cast_nullable_to_non_nullable
               as List<Session>,
+      settings: null == settings
+          ? _value.settings
+          : settings // ignore: cast_nullable_to_non_nullable
+              as Settings,
+      apiKey: null == apiKey
+          ? _value.apiKey
+          : apiKey // ignore: cast_nullable_to_non_nullable
+              as ApiKey,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SettingsCopyWith<$Res> get settings {
+    return $SettingsCopyWith<$Res>(_value.settings, (value) {
+      return _then(_value.copyWith(settings: value) as $Val);
+    });
   }
 }
 
@@ -513,7 +1019,12 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
   $Res call(
       {Option<Result<Unit, CoreFailure>> failureOption,
       bool isProcessing,
-      List<Session> sessions});
+      List<Session> sessions,
+      Settings settings,
+      ApiKey apiKey});
+
+  @override
+  $SettingsCopyWith<$Res> get settings;
 }
 
 /// @nodoc
@@ -530,6 +1041,8 @@ class __$$_HomeStateCopyWithImpl<$Res>
     Object? failureOption = null,
     Object? isProcessing = null,
     Object? sessions = null,
+    Object? settings = null,
+    Object? apiKey = null,
   }) {
     return _then(_$_HomeState(
       failureOption: null == failureOption
@@ -544,6 +1057,14 @@ class __$$_HomeStateCopyWithImpl<$Res>
           ? _value._sessions
           : sessions // ignore: cast_nullable_to_non_nullable
               as List<Session>,
+      settings: null == settings
+          ? _value.settings
+          : settings // ignore: cast_nullable_to_non_nullable
+              as Settings,
+      apiKey: null == apiKey
+          ? _value.apiKey
+          : apiKey // ignore: cast_nullable_to_non_nullable
+              as ApiKey,
     ));
   }
 }
@@ -554,7 +1075,9 @@ class _$_HomeState implements _HomeState {
   const _$_HomeState(
       {required this.failureOption,
       required this.isProcessing,
-      required final List<Session> sessions})
+      required final List<Session> sessions,
+      required this.settings,
+      required this.apiKey})
       : _sessions = sessions;
 
   @override
@@ -570,8 +1093,13 @@ class _$_HomeState implements _HomeState {
   }
 
   @override
+  final Settings settings;
+  @override
+  final ApiKey apiKey;
+
+  @override
   String toString() {
-    return 'HomeState(failureOption: $failureOption, isProcessing: $isProcessing, sessions: $sessions)';
+    return 'HomeState(failureOption: $failureOption, isProcessing: $isProcessing, sessions: $sessions, settings: $settings, apiKey: $apiKey)';
   }
 
   @override
@@ -583,12 +1111,15 @@ class _$_HomeState implements _HomeState {
                 other.failureOption == failureOption) &&
             (identical(other.isProcessing, isProcessing) ||
                 other.isProcessing == isProcessing) &&
-            const DeepCollectionEquality().equals(other._sessions, _sessions));
+            const DeepCollectionEquality().equals(other._sessions, _sessions) &&
+            (identical(other.settings, settings) ||
+                other.settings == settings) &&
+            (identical(other.apiKey, apiKey) || other.apiKey == apiKey));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, failureOption, isProcessing,
-      const DeepCollectionEquality().hash(_sessions));
+      const DeepCollectionEquality().hash(_sessions), settings, apiKey);
 
   @JsonKey(ignore: true)
   @override
@@ -601,7 +1132,9 @@ abstract class _HomeState implements HomeState {
   const factory _HomeState(
       {required final Option<Result<Unit, CoreFailure>> failureOption,
       required final bool isProcessing,
-      required final List<Session> sessions}) = _$_HomeState;
+      required final List<Session> sessions,
+      required final Settings settings,
+      required final ApiKey apiKey}) = _$_HomeState;
 
   @override
   Option<Result<Unit, CoreFailure>> get failureOption;
@@ -609,6 +1142,10 @@ abstract class _HomeState implements HomeState {
   bool get isProcessing;
   @override
   List<Session> get sessions;
+  @override
+  Settings get settings;
+  @override
+  ApiKey get apiKey;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

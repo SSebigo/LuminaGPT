@@ -17,4 +17,7 @@ class SettingsFailure with _$SettingsFailure {
 
   /// @nodoc
   const factory SettingsFailure.settingsNotUpdated() = SettingsNotUpdated;
+
+  /// @nodoc
+  const factory SettingsFailure.apiKeyNotFound() = ApiKeyNotFound;
 }

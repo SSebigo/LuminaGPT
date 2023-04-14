@@ -12,13 +12,6 @@ class Name extends ValueObject<String> {
     );
   }
 
-  /// @nodoc
-  factory Name.forSaving(Result<String, ValueFailure<String>> input) {
-    return Name._(
-      Ok(input.unwrapOr('')),
-    );
-  }
-
   const Name._(this.value);
 
   @override
