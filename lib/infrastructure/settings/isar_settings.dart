@@ -32,7 +32,6 @@ class IsarSettings extends Equatable {
   }
 
   /// @nodoc
-  // toDomain method
   Settings toDomain() {
     return Settings(
       apiKey: ApiKey(apiKey ?? ''),

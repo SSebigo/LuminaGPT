@@ -1,12 +1,12 @@
 import 'package:injectable/injectable.dart';
 import 'package:isar/isar.dart';
+
 import 'package:lumina_gpt/domain/settings/i_settings_repository.dart';
+import 'package:lumina_gpt/domain/settings/settings.dart';
+import 'package:lumina_gpt/domain/settings/settings_failure.dart';
 import 'package:lumina_gpt/infrastructure/settings/isar_settings.dart';
 import 'package:lumina_gpt/infrastructure/settings/settings_dto.dart';
-import 'package:oxidized/src/unit.dart';
-import 'package:oxidized/src/result.dart';
-import 'package:lumina_gpt/domain/settings/settings_failure.dart';
-import 'package:lumina_gpt/domain/settings/settings.dart';
+import 'package:oxidized/oxidized.dart';
 
 /// @nodoc
 @LazySingleton(

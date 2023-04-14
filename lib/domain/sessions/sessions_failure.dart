@@ -16,4 +16,7 @@ class SessionsFailure with _$SessionsFailure {
 
   /// @nodoc
   const factory SessionsFailure.sessionNotInserted() = SessionNotInserted;
+
+  /// @nodoc
+  const factory SessionsFailure.unexpected() = Unexpected;
 }

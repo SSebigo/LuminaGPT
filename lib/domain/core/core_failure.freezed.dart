@@ -19,38 +19,38 @@ mixin _$CoreFailure {
   Object get f => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AgentsFailure f) agents,
+    required TResult Function(SessionsFailure f) sessions,
     required TResult Function(SettingsFailure f) settings,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AgentsFailure f)? agents,
+    TResult? Function(SessionsFailure f)? sessions,
     TResult? Function(SettingsFailure f)? settings,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AgentsFailure f)? agents,
+    TResult Function(SessionsFailure f)? sessions,
     TResult Function(SettingsFailure f)? settings,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Agents value) agents,
+    required TResult Function(_Sessions value) sessions,
     required TResult Function(_Settings value) settings,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Agents value)? agents,
+    TResult? Function(_Sessions value)? sessions,
     TResult? Function(_Settings value)? settings,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Agents value)? agents,
+    TResult Function(_Sessions value)? sessions,
     TResult Function(_Settings value)? settings,
     required TResult orElse(),
   }) =>
@@ -76,20 +76,22 @@ class _$CoreFailureCopyWithImpl<$Res, $Val extends CoreFailure>
 }
 
 /// @nodoc
-abstract class _$$_AgentsCopyWith<$Res> {
-  factory _$$_AgentsCopyWith(_$_Agents value, $Res Function(_$_Agents) then) =
-      __$$_AgentsCopyWithImpl<$Res>;
+abstract class _$$_SessionsCopyWith<$Res> {
+  factory _$$_SessionsCopyWith(
+          _$_Sessions value, $Res Function(_$_Sessions) then) =
+      __$$_SessionsCopyWithImpl<$Res>;
   @useResult
-  $Res call({AgentsFailure f});
+  $Res call({SessionsFailure f});
 
-  $AgentsFailureCopyWith<$Res> get f;
+  $SessionsFailureCopyWith<$Res> get f;
 }
 
 /// @nodoc
-class __$$_AgentsCopyWithImpl<$Res>
-    extends _$CoreFailureCopyWithImpl<$Res, _$_Agents>
-    implements _$$_AgentsCopyWith<$Res> {
-  __$$_AgentsCopyWithImpl(_$_Agents _value, $Res Function(_$_Agents) _then)
+class __$$_SessionsCopyWithImpl<$Res>
+    extends _$CoreFailureCopyWithImpl<$Res, _$_Sessions>
+    implements _$$_SessionsCopyWith<$Res> {
+  __$$_SessionsCopyWithImpl(
+      _$_Sessions _value, $Res Function(_$_Sessions) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,18 +99,18 @@ class __$$_AgentsCopyWithImpl<$Res>
   $Res call({
     Object? f = null,
   }) {
-    return _then(_$_Agents(
+    return _then(_$_Sessions(
       null == f
           ? _value.f
           : f // ignore: cast_nullable_to_non_nullable
-              as AgentsFailure,
+              as SessionsFailure,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $AgentsFailureCopyWith<$Res> get f {
-    return $AgentsFailureCopyWith<$Res>(_value.f, (value) {
+  $SessionsFailureCopyWith<$Res> get f {
+    return $SessionsFailureCopyWith<$Res>(_value.f, (value) {
       return _then(_value.copyWith(f: value));
     });
   }
@@ -116,22 +118,22 @@ class __$$_AgentsCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Agents implements _Agents {
-  const _$_Agents(this.f);
+class _$_Sessions implements _Sessions {
+  const _$_Sessions(this.f);
 
   @override
-  final AgentsFailure f;
+  final SessionsFailure f;
 
   @override
   String toString() {
-    return 'CoreFailure.agents(f: $f)';
+    return 'CoreFailure.sessions(f: $f)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Agents &&
+            other is _$_Sessions &&
             (identical(other.f, f) || other.f == f));
   }
 
@@ -141,36 +143,36 @@ class _$_Agents implements _Agents {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_AgentsCopyWith<_$_Agents> get copyWith =>
-      __$$_AgentsCopyWithImpl<_$_Agents>(this, _$identity);
+  _$$_SessionsCopyWith<_$_Sessions> get copyWith =>
+      __$$_SessionsCopyWithImpl<_$_Sessions>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AgentsFailure f) agents,
+    required TResult Function(SessionsFailure f) sessions,
     required TResult Function(SettingsFailure f) settings,
   }) {
-    return agents(f);
+    return sessions(f);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AgentsFailure f)? agents,
+    TResult? Function(SessionsFailure f)? sessions,
     TResult? Function(SettingsFailure f)? settings,
   }) {
-    return agents?.call(f);
+    return sessions?.call(f);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AgentsFailure f)? agents,
+    TResult Function(SessionsFailure f)? sessions,
     TResult Function(SettingsFailure f)? settings,
     required TResult orElse(),
   }) {
-    if (agents != null) {
-      return agents(f);
+    if (sessions != null) {
+      return sessions(f);
     }
     return orElse();
   }
@@ -178,42 +180,42 @@ class _$_Agents implements _Agents {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Agents value) agents,
+    required TResult Function(_Sessions value) sessions,
     required TResult Function(_Settings value) settings,
   }) {
-    return agents(this);
+    return sessions(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Agents value)? agents,
+    TResult? Function(_Sessions value)? sessions,
     TResult? Function(_Settings value)? settings,
   }) {
-    return agents?.call(this);
+    return sessions?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Agents value)? agents,
+    TResult Function(_Sessions value)? sessions,
     TResult Function(_Settings value)? settings,
     required TResult orElse(),
   }) {
-    if (agents != null) {
-      return agents(this);
+    if (sessions != null) {
+      return sessions(this);
     }
     return orElse();
   }
 }
 
-abstract class _Agents implements CoreFailure {
-  const factory _Agents(final AgentsFailure f) = _$_Agents;
+abstract class _Sessions implements CoreFailure {
+  const factory _Sessions(final SessionsFailure f) = _$_Sessions;
 
   @override
-  AgentsFailure get f;
+  SessionsFailure get f;
   @JsonKey(ignore: true)
-  _$$_AgentsCopyWith<_$_Agents> get copyWith =>
+  _$$_SessionsCopyWith<_$_Sessions> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -291,7 +293,7 @@ class _$_Settings implements _Settings {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AgentsFailure f) agents,
+    required TResult Function(SessionsFailure f) sessions,
     required TResult Function(SettingsFailure f) settings,
   }) {
     return settings(f);
@@ -300,7 +302,7 @@ class _$_Settings implements _Settings {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AgentsFailure f)? agents,
+    TResult? Function(SessionsFailure f)? sessions,
     TResult? Function(SettingsFailure f)? settings,
   }) {
     return settings?.call(f);
@@ -309,7 +311,7 @@ class _$_Settings implements _Settings {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AgentsFailure f)? agents,
+    TResult Function(SessionsFailure f)? sessions,
     TResult Function(SettingsFailure f)? settings,
     required TResult orElse(),
   }) {
@@ -322,7 +324,7 @@ class _$_Settings implements _Settings {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Agents value) agents,
+    required TResult Function(_Sessions value) sessions,
     required TResult Function(_Settings value) settings,
   }) {
     return settings(this);
@@ -331,7 +333,7 @@ class _$_Settings implements _Settings {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Agents value)? agents,
+    TResult? Function(_Sessions value)? sessions,
     TResult? Function(_Settings value)? settings,
   }) {
     return settings?.call(this);
@@ -340,7 +342,7 @@ class _$_Settings implements _Settings {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Agents value)? agents,
+    TResult Function(_Sessions value)? sessions,
     TResult Function(_Settings value)? settings,
     required TResult orElse(),
   }) {

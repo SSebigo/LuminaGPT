@@ -4,16 +4,16 @@ import 'package:lumina_gpt/domain/core/value_validators.dart';
 import 'package:oxidized/oxidized.dart';
 
 /// @nodoc
-class Temperature extends ValueObject<double> {
+class Role extends ValueObject<String> {
   /// @nodoc
-  factory Temperature(double input) {
-    return Temperature._(
-      validateTemperature(input),
+  factory Role(String input) {
+    return Role._(
+      validateRole(input),
     );
   }
 
-  const Temperature._(this.value);
+  const Role._(this.value);
 
   @override
-  final Result<double, ValueFailure<double>> value;
+  final Result<String, ValueFailure<String>> value;
 }

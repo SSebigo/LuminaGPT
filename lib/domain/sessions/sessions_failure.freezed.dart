@@ -21,6 +21,7 @@ mixin _$SessionsFailure {
     required TResult Function() sessionNotDeleted,
     required TResult Function() sessionNotFound,
     required TResult Function() sessionNotInserted,
+    required TResult Function() unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$SessionsFailure {
     TResult? Function()? sessionNotDeleted,
     TResult? Function()? sessionNotFound,
     TResult? Function()? sessionNotInserted,
+    TResult? Function()? unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$SessionsFailure {
     TResult Function()? sessionNotDeleted,
     TResult Function()? sessionNotFound,
     TResult Function()? sessionNotInserted,
+    TResult Function()? unexpected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$SessionsFailure {
     required TResult Function(SessionNotDeleted value) sessionNotDeleted,
     required TResult Function(SessionNotFound value) sessionNotFound,
     required TResult Function(SessionNotInserted value) sessionNotInserted,
+    required TResult Function(Unexpected value) unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$SessionsFailure {
     TResult? Function(SessionNotDeleted value)? sessionNotDeleted,
     TResult? Function(SessionNotFound value)? sessionNotFound,
     TResult? Function(SessionNotInserted value)? sessionNotInserted,
+    TResult? Function(Unexpected value)? unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$SessionsFailure {
     TResult Function(SessionNotDeleted value)? sessionNotDeleted,
     TResult Function(SessionNotFound value)? sessionNotFound,
     TResult Function(SessionNotInserted value)? sessionNotInserted,
+    TResult Function(Unexpected value)? unexpected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,6 +127,7 @@ class _$SessionNotDeleted implements SessionNotDeleted {
     required TResult Function() sessionNotDeleted,
     required TResult Function() sessionNotFound,
     required TResult Function() sessionNotInserted,
+    required TResult Function() unexpected,
   }) {
     return sessionNotDeleted();
   }
@@ -131,6 +138,7 @@ class _$SessionNotDeleted implements SessionNotDeleted {
     TResult? Function()? sessionNotDeleted,
     TResult? Function()? sessionNotFound,
     TResult? Function()? sessionNotInserted,
+    TResult? Function()? unexpected,
   }) {
     return sessionNotDeleted?.call();
   }
@@ -141,6 +149,7 @@ class _$SessionNotDeleted implements SessionNotDeleted {
     TResult Function()? sessionNotDeleted,
     TResult Function()? sessionNotFound,
     TResult Function()? sessionNotInserted,
+    TResult Function()? unexpected,
     required TResult orElse(),
   }) {
     if (sessionNotDeleted != null) {
@@ -155,6 +164,7 @@ class _$SessionNotDeleted implements SessionNotDeleted {
     required TResult Function(SessionNotDeleted value) sessionNotDeleted,
     required TResult Function(SessionNotFound value) sessionNotFound,
     required TResult Function(SessionNotInserted value) sessionNotInserted,
+    required TResult Function(Unexpected value) unexpected,
   }) {
     return sessionNotDeleted(this);
   }
@@ -165,6 +175,7 @@ class _$SessionNotDeleted implements SessionNotDeleted {
     TResult? Function(SessionNotDeleted value)? sessionNotDeleted,
     TResult? Function(SessionNotFound value)? sessionNotFound,
     TResult? Function(SessionNotInserted value)? sessionNotInserted,
+    TResult? Function(Unexpected value)? unexpected,
   }) {
     return sessionNotDeleted?.call(this);
   }
@@ -175,6 +186,7 @@ class _$SessionNotDeleted implements SessionNotDeleted {
     TResult Function(SessionNotDeleted value)? sessionNotDeleted,
     TResult Function(SessionNotFound value)? sessionNotFound,
     TResult Function(SessionNotInserted value)? sessionNotInserted,
+    TResult Function(Unexpected value)? unexpected,
     required TResult orElse(),
   }) {
     if (sessionNotDeleted != null) {
@@ -229,6 +241,7 @@ class _$SessionNotFound implements SessionNotFound {
     required TResult Function() sessionNotDeleted,
     required TResult Function() sessionNotFound,
     required TResult Function() sessionNotInserted,
+    required TResult Function() unexpected,
   }) {
     return sessionNotFound();
   }
@@ -239,6 +252,7 @@ class _$SessionNotFound implements SessionNotFound {
     TResult? Function()? sessionNotDeleted,
     TResult? Function()? sessionNotFound,
     TResult? Function()? sessionNotInserted,
+    TResult? Function()? unexpected,
   }) {
     return sessionNotFound?.call();
   }
@@ -249,6 +263,7 @@ class _$SessionNotFound implements SessionNotFound {
     TResult Function()? sessionNotDeleted,
     TResult Function()? sessionNotFound,
     TResult Function()? sessionNotInserted,
+    TResult Function()? unexpected,
     required TResult orElse(),
   }) {
     if (sessionNotFound != null) {
@@ -263,6 +278,7 @@ class _$SessionNotFound implements SessionNotFound {
     required TResult Function(SessionNotDeleted value) sessionNotDeleted,
     required TResult Function(SessionNotFound value) sessionNotFound,
     required TResult Function(SessionNotInserted value) sessionNotInserted,
+    required TResult Function(Unexpected value) unexpected,
   }) {
     return sessionNotFound(this);
   }
@@ -273,6 +289,7 @@ class _$SessionNotFound implements SessionNotFound {
     TResult? Function(SessionNotDeleted value)? sessionNotDeleted,
     TResult? Function(SessionNotFound value)? sessionNotFound,
     TResult? Function(SessionNotInserted value)? sessionNotInserted,
+    TResult? Function(Unexpected value)? unexpected,
   }) {
     return sessionNotFound?.call(this);
   }
@@ -283,6 +300,7 @@ class _$SessionNotFound implements SessionNotFound {
     TResult Function(SessionNotDeleted value)? sessionNotDeleted,
     TResult Function(SessionNotFound value)? sessionNotFound,
     TResult Function(SessionNotInserted value)? sessionNotInserted,
+    TResult Function(Unexpected value)? unexpected,
     required TResult orElse(),
   }) {
     if (sessionNotFound != null) {
@@ -337,6 +355,7 @@ class _$SessionNotInserted implements SessionNotInserted {
     required TResult Function() sessionNotDeleted,
     required TResult Function() sessionNotFound,
     required TResult Function() sessionNotInserted,
+    required TResult Function() unexpected,
   }) {
     return sessionNotInserted();
   }
@@ -347,6 +366,7 @@ class _$SessionNotInserted implements SessionNotInserted {
     TResult? Function()? sessionNotDeleted,
     TResult? Function()? sessionNotFound,
     TResult? Function()? sessionNotInserted,
+    TResult? Function()? unexpected,
   }) {
     return sessionNotInserted?.call();
   }
@@ -357,6 +377,7 @@ class _$SessionNotInserted implements SessionNotInserted {
     TResult Function()? sessionNotDeleted,
     TResult Function()? sessionNotFound,
     TResult Function()? sessionNotInserted,
+    TResult Function()? unexpected,
     required TResult orElse(),
   }) {
     if (sessionNotInserted != null) {
@@ -371,6 +392,7 @@ class _$SessionNotInserted implements SessionNotInserted {
     required TResult Function(SessionNotDeleted value) sessionNotDeleted,
     required TResult Function(SessionNotFound value) sessionNotFound,
     required TResult Function(SessionNotInserted value) sessionNotInserted,
+    required TResult Function(Unexpected value) unexpected,
   }) {
     return sessionNotInserted(this);
   }
@@ -381,6 +403,7 @@ class _$SessionNotInserted implements SessionNotInserted {
     TResult? Function(SessionNotDeleted value)? sessionNotDeleted,
     TResult? Function(SessionNotFound value)? sessionNotFound,
     TResult? Function(SessionNotInserted value)? sessionNotInserted,
+    TResult? Function(Unexpected value)? unexpected,
   }) {
     return sessionNotInserted?.call(this);
   }
@@ -391,6 +414,7 @@ class _$SessionNotInserted implements SessionNotInserted {
     TResult Function(SessionNotDeleted value)? sessionNotDeleted,
     TResult Function(SessionNotFound value)? sessionNotFound,
     TResult Function(SessionNotInserted value)? sessionNotInserted,
+    TResult Function(Unexpected value)? unexpected,
     required TResult orElse(),
   }) {
     if (sessionNotInserted != null) {
@@ -402,4 +426,118 @@ class _$SessionNotInserted implements SessionNotInserted {
 
 abstract class SessionNotInserted implements SessionsFailure {
   const factory SessionNotInserted() = _$SessionNotInserted;
+}
+
+/// @nodoc
+abstract class _$$UnexpectedCopyWith<$Res> {
+  factory _$$UnexpectedCopyWith(
+          _$Unexpected value, $Res Function(_$Unexpected) then) =
+      __$$UnexpectedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UnexpectedCopyWithImpl<$Res>
+    extends _$SessionsFailureCopyWithImpl<$Res, _$Unexpected>
+    implements _$$UnexpectedCopyWith<$Res> {
+  __$$UnexpectedCopyWithImpl(
+      _$Unexpected _value, $Res Function(_$Unexpected) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$Unexpected implements Unexpected {
+  const _$Unexpected();
+
+  @override
+  String toString() {
+    return 'SessionsFailure.unexpected()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$Unexpected);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() sessionNotDeleted,
+    required TResult Function() sessionNotFound,
+    required TResult Function() sessionNotInserted,
+    required TResult Function() unexpected,
+  }) {
+    return unexpected();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? sessionNotDeleted,
+    TResult? Function()? sessionNotFound,
+    TResult? Function()? sessionNotInserted,
+    TResult? Function()? unexpected,
+  }) {
+    return unexpected?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? sessionNotDeleted,
+    TResult Function()? sessionNotFound,
+    TResult Function()? sessionNotInserted,
+    TResult Function()? unexpected,
+    required TResult orElse(),
+  }) {
+    if (unexpected != null) {
+      return unexpected();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SessionNotDeleted value) sessionNotDeleted,
+    required TResult Function(SessionNotFound value) sessionNotFound,
+    required TResult Function(SessionNotInserted value) sessionNotInserted,
+    required TResult Function(Unexpected value) unexpected,
+  }) {
+    return unexpected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(SessionNotDeleted value)? sessionNotDeleted,
+    TResult? Function(SessionNotFound value)? sessionNotFound,
+    TResult? Function(SessionNotInserted value)? sessionNotInserted,
+    TResult? Function(Unexpected value)? unexpected,
+  }) {
+    return unexpected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SessionNotDeleted value)? sessionNotDeleted,
+    TResult Function(SessionNotFound value)? sessionNotFound,
+    TResult Function(SessionNotInserted value)? sessionNotInserted,
+    TResult Function(Unexpected value)? unexpected,
+    required TResult orElse(),
+  }) {
+    if (unexpected != null) {
+      return unexpected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Unexpected implements SessionsFailure {
+  const factory Unexpected() = _$Unexpected;
 }

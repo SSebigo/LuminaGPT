@@ -17,10 +17,25 @@ const IsarSessionSchema = CollectionSchema(
   name: r'IsarSession',
   id: -2390956724964996041,
   properties: {
-    r'stringify': PropertySchema(
+    r'model': PropertySchema(
       id: 0,
+      name: r'model',
+      type: IsarType.string,
+    ),
+    r'name': PropertySchema(
+      id: 1,
+      name: r'name',
+      type: IsarType.string,
+    ),
+    r'stringify': PropertySchema(
+      id: 2,
       name: r'stringify',
       type: IsarType.bool,
+    ),
+    r'temperature': PropertySchema(
+      id: 3,
+      name: r'temperature',
+      type: IsarType.double,
     )
   },
   estimateSize: _isarSessionEstimateSize,
@@ -43,6 +58,8 @@ int _isarSessionEstimateSize(
   Map<Type, List<int>> allOffsets,
 ) {
   var bytesCount = offsets.last;
+  bytesCount += 3 + object.model.length * 3;
+  bytesCount += 3 + object.name.length * 3;
   return bytesCount;
 }
 
@@ -52,7 +69,10 @@ void _isarSessionSerialize(
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  writer.writeBool(offsets[0], object.stringify);
+  writer.writeString(offsets[0], object.model);
+  writer.writeString(offsets[1], object.name);
+  writer.writeBool(offsets[2], object.stringify);
+  writer.writeDouble(offsets[3], object.temperature);
 }
 
 IsarSession _isarSessionDeserialize(
@@ -63,6 +83,9 @@ IsarSession _isarSessionDeserialize(
 ) {
   final object = IsarSession(
     id: id,
+    model: reader.readString(offsets[0]),
+    name: reader.readString(offsets[1]),
+    temperature: reader.readDouble(offsets[3]),
   );
   return object;
 }
@@ -75,7 +98,13 @@ P _isarSessionDeserializeProp<P>(
 ) {
   switch (propertyId) {
     case 0:
+      return (reader.readString(offset)) as P;
+    case 1:
+      return (reader.readString(offset)) as P;
+    case 2:
       return (reader.readBool(offset)) as P;
+    case 3:
+      return (reader.readDouble(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
   }
@@ -241,12 +270,341 @@ extension IsarSessionQueryFilter
     });
   }
 
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition> modelEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'model',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition>
+      modelGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'model',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition> modelLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'model',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition> modelBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'model',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition> modelStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'model',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition> modelEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'model',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition> modelContains(
+      String value,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'model',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition> modelMatches(
+      String pattern,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'model',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition> modelIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'model',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition>
+      modelIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'model',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition> nameEqualTo(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'name',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition> nameGreaterThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'name',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition> nameLessThan(
+    String value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'name',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition> nameBetween(
+    String lower,
+    String upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'name',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition> nameStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'name',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition> nameEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'name',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition> nameContains(
+      String value,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'name',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition> nameMatches(
+      String pattern,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'name',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition> nameIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'name',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition>
+      nameIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'name',
+        value: '',
+      ));
+    });
+  }
+
   QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition>
       stringifyEqualTo(bool value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'stringify',
         value: value,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition>
+      temperatureEqualTo(
+    double value, {
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'temperature',
+        value: value,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition>
+      temperatureGreaterThan(
+    double value, {
+    bool include = false,
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'temperature',
+        value: value,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition>
+      temperatureLessThan(
+    double value, {
+    bool include = false,
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'temperature',
+        value: value,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterFilterCondition>
+      temperatureBetween(
+    double lower,
+    double upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'temperature',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        epsilon: epsilon,
       ));
     });
   }
@@ -260,6 +618,30 @@ extension IsarSessionQueryLinks
 
 extension IsarSessionQuerySortBy
     on QueryBuilder<IsarSession, IsarSession, QSortBy> {
+  QueryBuilder<IsarSession, IsarSession, QAfterSortBy> sortByModel() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'model', Sort.asc);
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterSortBy> sortByModelDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'model', Sort.desc);
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterSortBy> sortByName() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'name', Sort.asc);
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterSortBy> sortByNameDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'name', Sort.desc);
+    });
+  }
+
   QueryBuilder<IsarSession, IsarSession, QAfterSortBy> sortByStringify() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'stringify', Sort.asc);
@@ -269,6 +651,18 @@ extension IsarSessionQuerySortBy
   QueryBuilder<IsarSession, IsarSession, QAfterSortBy> sortByStringifyDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'stringify', Sort.desc);
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterSortBy> sortByTemperature() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'temperature', Sort.asc);
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterSortBy> sortByTemperatureDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'temperature', Sort.desc);
     });
   }
 }
@@ -287,6 +681,30 @@ extension IsarSessionQuerySortThenBy
     });
   }
 
+  QueryBuilder<IsarSession, IsarSession, QAfterSortBy> thenByModel() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'model', Sort.asc);
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterSortBy> thenByModelDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'model', Sort.desc);
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterSortBy> thenByName() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'name', Sort.asc);
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterSortBy> thenByNameDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'name', Sort.desc);
+    });
+  }
+
   QueryBuilder<IsarSession, IsarSession, QAfterSortBy> thenByStringify() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'stringify', Sort.asc);
@@ -298,13 +716,45 @@ extension IsarSessionQuerySortThenBy
       return query.addSortBy(r'stringify', Sort.desc);
     });
   }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterSortBy> thenByTemperature() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'temperature', Sort.asc);
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QAfterSortBy> thenByTemperatureDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'temperature', Sort.desc);
+    });
+  }
 }
 
 extension IsarSessionQueryWhereDistinct
     on QueryBuilder<IsarSession, IsarSession, QDistinct> {
+  QueryBuilder<IsarSession, IsarSession, QDistinct> distinctByModel(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'model', caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QDistinct> distinctByName(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'name', caseSensitive: caseSensitive);
+    });
+  }
+
   QueryBuilder<IsarSession, IsarSession, QDistinct> distinctByStringify() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'stringify');
+    });
+  }
+
+  QueryBuilder<IsarSession, IsarSession, QDistinct> distinctByTemperature() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'temperature');
     });
   }
 }
@@ -317,9 +767,27 @@ extension IsarSessionQueryProperty
     });
   }
 
+  QueryBuilder<IsarSession, String, QQueryOperations> modelProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'model');
+    });
+  }
+
+  QueryBuilder<IsarSession, String, QQueryOperations> nameProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'name');
+    });
+  }
+
   QueryBuilder<IsarSession, bool, QQueryOperations> stringifyProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'stringify');
+    });
+  }
+
+  QueryBuilder<IsarSession, double, QQueryOperations> temperatureProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'temperature');
     });
   }
 }

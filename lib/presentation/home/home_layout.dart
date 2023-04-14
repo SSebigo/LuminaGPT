@@ -124,12 +124,36 @@ class HomeLayout extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        Expanded(child: const TextField()),
+                        Expanded(
+                          child: TextFormField(
+                            onChanged: (value) => context
+                                .read<HomeBloc>()
+                                .add(HomeEvent.nameChanged(value)),
+                          ),
+                        ),
                       ],
                     ),
                     Row(
                       children: [
-                        // "Goal" as Text widget with white font
+                        const Text(
+                          'Role',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        Expanded(
+                          child: TextFormField(
+                            onChanged: (value) => context
+                                .read<HomeBloc>()
+                                .add(HomeEvent.roleChanged(value)),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
                         const Text(
                           'Goal',
                           style: TextStyle(
@@ -138,7 +162,59 @@ class HomeLayout extends StatelessWidget {
                             fontWeight: FontWeight.w600,
                           ),
                         ),
-                        Expanded(child: const TextField()),
+                        Expanded(
+                          child: TextFormField(
+                            onChanged: (value) => context
+                                .read<HomeBloc>()
+                                .add(HomeEvent.goalChanged(value)),
+                          ),
+                        ),
+                      ],
+                    ),
+                    // Two TextButton next to each other, the left one is "Deploy", the second one is "Stop", the have rounded corners (5)
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextButton(
+                            onPressed: () => context
+                                .read<HomeBloc>()
+                                .add(const HomeEvent.deployPressed()),
+                            child: const Text(
+                              'Deploy',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            style: TextButton.styleFrom(
+                              backgroundColor: const Color(0xFF171717),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        Expanded(
+                          child: TextButton(
+                            onPressed: () {},
+                            child: const Text(
+                              'Stop',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            style: TextButton.styleFrom(
+                              backgroundColor: const Color(0xFF171717),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ],

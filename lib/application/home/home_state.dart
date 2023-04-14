@@ -10,6 +10,9 @@ class HomeState with _$HomeState {
     required List<Session> sessions,
     required Settings settings,
     required ApiKey apiKey,
+    required Name name,
+    required Role role,
+    required Goal goal,
   }) = _HomeState;
 
   /// @nodoc
@@ -19,5 +22,8 @@ class HomeState with _$HomeState {
         sessions: [],
         settings: Settings.empty(),
         apiKey: ApiKey(''),
+        name: Name(''),
+        role: Role(''),
+        goal: Goal(''),
       );
 }

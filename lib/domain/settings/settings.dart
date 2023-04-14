@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:lumina_gpt/domain/agents/agent.dart';
 import 'package:lumina_gpt/domain/settings/api_key.dart';
 
 part 'settings.freezed.dart';

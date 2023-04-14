@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:lumina_gpt/domain/agents/agent.dart';
 
 part 'session.freezed.dart';
 
@@ -8,11 +7,15 @@ part 'session.freezed.dart';
 class Session with _$Session {
   /// @nodoc
   factory Session({
-    required Agent agent,
+    required String name,
+    required String model,
+    required double temperature,
   }) = _Session;
 
   /// @nodoc
   factory Session.empty() => Session(
-        agent: Agent.empty(),
+        name: '',
+        model: '',
+        temperature: 0,
       );
 }
