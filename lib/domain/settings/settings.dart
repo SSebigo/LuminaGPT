@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:lumina_gpt/domain/settings/api_key.dart';
+import 'package:lumina_gpt/domain/core/label.dart';
 
 part 'settings.freezed.dart';
 
@@ -8,11 +8,11 @@ part 'settings.freezed.dart';
 class Settings with _$Settings {
   /// @nodoc
   factory Settings({
-    required ApiKey apiKey,
+    required Label apiKey,
   }) = _Settings;
 
   /// @nodoc
   factory Settings.empty() => Settings(
-        apiKey: ApiKey(''),
+        apiKey: Label(''),
       );
 }

@@ -4,15 +4,15 @@ import 'package:lumina_gpt/domain/core/value_validators.dart';
 import 'package:oxidized/oxidized.dart';
 
 /// @nodoc
-class ApiKey extends ValueObject<String> {
+class Label extends ValueObject<String> {
   /// @nodoc
-  factory ApiKey(String input) {
-    return ApiKey._(
-      validateApiKey(input),
+  factory Label(String input) {
+    return Label._(
+      validateNonEmpty(input),
     );
   }
 
-  const ApiKey._(this.value);
+  const Label._(this.value);
 
   @override
   final Result<String, ValueFailure<String>> value;

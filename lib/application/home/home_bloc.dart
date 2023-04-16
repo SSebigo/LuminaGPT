@@ -2,16 +2,15 @@ import 'package:bloc/bloc.dart';
 import 'package:dart_openai/openai.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:lumina_gpt/domain/agents/agent.dart';
+import 'package:lumina_gpt/domain/agents/i_agents_repository.dart';
+import 'package:lumina_gpt/domain/agents/task.dart';
 import 'package:lumina_gpt/domain/core/core_failure.dart';
-import 'package:lumina_gpt/domain/sessions/goal.dart';
-import 'package:lumina_gpt/domain/sessions/i_sessions_repository.dart';
-import 'package:lumina_gpt/domain/sessions/name.dart';
-import 'package:lumina_gpt/domain/sessions/role.dart';
-import 'package:lumina_gpt/domain/sessions/session.dart';
-import 'package:lumina_gpt/domain/settings/api_key.dart';
+import 'package:lumina_gpt/domain/core/label.dart';
 import 'package:lumina_gpt/domain/settings/i_settings_repository.dart';
 import 'package:lumina_gpt/domain/settings/settings.dart';
 import 'package:lumina_gpt/domain/settings/settings_failure.dart';
+import 'package:lumina_gpt/utils/constants/task.dart';
 import 'package:oxidized/oxidized.dart';
 
 part 'home_bloc.freezed.dart';
@@ -26,13 +25,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   /// @nodoc
   HomeBloc(
     this._settingsRepository,
-    this._sessionsRepository,
+    this._agentsRepository,
   ) : super(HomeState.initial()) {
     on<AppLaunched>((_, emit) async {
       emit(
         state.copyWith(
           failureOption: const None(),
-          isProcessing: true,
+          thinking: true,
         ),
       );
 
@@ -41,7 +40,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           emit(
             state.copyWith(
               failureOption: const None(),
-              isProcessing: false,
+              thinking: false,
               settings: settings,
               apiKey: settings.apiKey,
             ),
@@ -56,7 +55,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
               emit(
                 state.copyWith(
                   failureOption: Some(Err(CoreFailure.settings(failure))),
-                  isProcessing: false,
+                  thinking: false,
                 ),
               );
             },
@@ -64,8 +63,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         },
       );
     });
-    on<NewSessionPressed>((_, emit) async {});
-    on<DeleteSessionPressed>((_, emit) async {});
+    on<NewAgentPressed>((_, emit) async {});
+    on<DeleteAgentPressed>((_, emit) async {});
     on<SettingsNotFound>((event, emit) async {
       (await _settingsRepository.initializeSettings()).match(
         (_) {
@@ -73,7 +72,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             state.copyWith(
               failureOption:
                   const Some(Err(CoreFailure.settings(ApiKeyNotFound()))),
-              isProcessing: false,
+              thinking: false,
             ),
           );
         },
@@ -81,7 +80,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           emit(
             state.copyWith(
               failureOption: Some(Err(CoreFailure.settings(failure))),
-              isProcessing: false,
+              thinking: false,
             ),
           );
         },
@@ -91,7 +90,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       (event, emit) => emit(
         state.copyWith(
           failureOption: const None(),
-          apiKey: ApiKey(event.apiKeyStr),
+          apiKey: Label(event.apiKeyStr),
         ),
       ),
     );
@@ -110,34 +109,34 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             emit(
               state.copyWith(
                 failureOption: Some(Err(CoreFailure.settings(failure))),
-                isProcessing: false,
+                thinking: false,
               ),
             );
           },
         );
       }
     });
-    on<ApiKeyUpdated>((event, emit) async {
+    on<_ApiKeyUpdated>((event, emit) async {
       OpenAI.apiKey = state.apiKey.getOrCrash();
 
       add(const HomeEvent.clientInitialized());
     });
-    on<ClientInitialized>((event, emit) async {
-      (await _sessionsRepository.fetchSessions()).match(
-        (sessions) {
+    on<_ClientInitialized>((event, emit) async {
+      (await _agentsRepository.fetchAgents()).match(
+        (agents) {
           emit(
             state.copyWith(
               failureOption: const None(),
-              isProcessing: false,
-              sessions: sessions,
+              thinking: false,
+              agents: agents,
             ),
           );
         },
         (failure) {
           emit(
             state.copyWith(
-              failureOption: Some(Err(CoreFailure.sessions(failure))),
-              isProcessing: false,
+              failureOption: Some(Err(CoreFailure.agents(failure))),
+              thinking: false,
             ),
           );
         },
@@ -147,15 +146,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       emit(
         state.copyWith(
           failureOption: const None(),
-          name: Name(event.nameStr),
-        ),
-      );
-    });
-    on<RoleChanged>((event, emit) {
-      emit(
-        state.copyWith(
-          failureOption: const None(),
-          role: Role(event.roleStr),
+          name: Label(event.nameStr),
         ),
       );
     });
@@ -163,36 +154,213 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       emit(
         state.copyWith(
           failureOption: const None(),
-          goal: Goal(event.goalStr),
+          goal: Label(event.goalStr),
         ),
       );
     });
     on<DeployPressed>((event, emit) async {
       final nameValid = state.name.isValid;
-      final roleValid = state.role.isValid;
       final goalValid = state.goal.isValid;
 
-      if (nameValid && roleValid && goalValid) {
-        (await _sessionsRepository.startGoal(
+      emit(
+        state.copyWith(
+          failureOption: const None(),
+          thinking: true,
+        ),
+      );
+
+      if (nameValid && goalValid) {
+        (await _agentsRepository.startGoal(
           state.name,
-          state.role,
           state.goal,
         ))
             .match(
-          (p0) => null,
+          (agent) {
+            emit(
+              state.copyWith(
+                failureOption: const None(),
+                agent: agent,
+                agents: List.from([...state.agents, agent]),
+              ),
+            );
+
+            add(const HomeEvent.agentDeployed());
+          },
           (failure) {
             emit(
               state.copyWith(
-                failureOption: Some(Err(CoreFailure.sessions(failure))),
-                isProcessing: false,
+                failureOption: Some(Err(CoreFailure.agents(failure))),
+                thinking: false,
               ),
             );
           },
         );
       }
     });
+    on<_AgentDeployed>((event, emit) async {
+      if (state.agent != null) {
+        (await _agentsRepository.insertAgent(state.agent!)).match(
+          (agent) {
+            emit(
+              state.copyWith(
+                failureOption: const None(),
+                agent: agent,
+              ),
+            );
+
+            add(HomeEvent.agentInserted(state.agent!.tasks));
+          },
+          (failure) {
+            emit(
+              state.copyWith(
+                failureOption: Some(Err(CoreFailure.agents(failure))),
+                thinking: false,
+              ),
+            );
+          },
+        );
+      }
+    });
+    on<_AgentInserted>((event, emit) async {
+      if (state.agent != null) {
+        await emit.onEach(
+          _agentsRepository.createTasks(
+            state.agent!,
+            event.tasks,
+            state.goal,
+          ),
+          onData: (result) => result.match(
+            (tasks) {
+              final agent = state.agent!.copyWith(
+                tasks: List.from(
+                  [...state.agent!.tasks, ...tasks],
+                )..sort((a, b) => a.createdAt.compareTo(b.createdAt)),
+              );
+
+              emit(
+                state.copyWith(
+                  failureOption: const None(),
+                  agent: agent,
+                  agents: state.agents
+                      .map((s) => s.id == agent.id ? agent : s)
+                      .toList(),
+                ),
+              );
+
+              // delay by one second before adding new event
+              Future.delayed(const Duration(seconds: 1), () {
+                add(HomeEvent.tasksCreated(tasks));
+              });
+            },
+            (failure) {
+              failure.maybeMap(
+                maxTasksReached: (failure) {
+                  add(const HomeEvent.maxTasksReached());
+                },
+                orElse: () => emit(
+                  state.copyWith(
+                    failureOption: Some(Err(CoreFailure.agents(failure))),
+                    thinking: false,
+                  ),
+                ),
+              );
+            },
+          ),
+        );
+      }
+    });
+    on<_TasksCreated>((event, emit) async {
+      if (state.agent != null) {
+        (await _agentsRepository.insertAgent(state.agent!)).match(
+          (agent) {
+            emit(
+              state.copyWith(
+                failureOption: const None(),
+                agent: agent,
+                agents: state.agents
+                    .map((s) => s.id == agent.id ? agent : s)
+                    .toList(),
+              ),
+            );
+
+            add(HomeEvent.agentInserted(event.tasks));
+          },
+          (failure) {
+            emit(
+              state.copyWith(
+                failureOption: Some(Err(CoreFailure.agents(failure))),
+                thinking: false,
+              ),
+            );
+          },
+        );
+      }
+    });
+    on<_TaskExecuted>((event, emit) async {
+      if (state.agent != null) {
+        (await _agentsRepository.insertAgent(event.agent)).match(
+          (agent) {
+            emit(
+              state.copyWith(
+                failureOption: const None(),
+                agent: agent,
+              ),
+            );
+          },
+          (failure) {
+            emit(
+              state.copyWith(
+                failureOption: Some(Err(CoreFailure.agents(failure))),
+                thinking: false,
+              ),
+            );
+          },
+        );
+      }
+    });
+    on<_MaxTasksReached>((event, emit) async {
+      if (state.agent != null) {
+        await emit.onEach(
+          _agentsRepository.executeTasks(
+            state.agent!,
+            state.agent!.tasks,
+            state.goal,
+          ),
+          onData: (result) => result.match(
+            (task) {
+              // update corresponding task in agent
+              final agent = state.agent!.copyWith(
+                tasks: state.agent!.tasks
+                    .map((t) => t.id == task.id ? task : t)
+                    .toList(),
+              );
+
+              emit(
+                state.copyWith(
+                  failureOption: const None(),
+                  agent: agent,
+                  agents: state.agents
+                      .map((a) => a.id == agent.id ? agent : a)
+                      .toList(),
+                ),
+              );
+
+              add(HomeEvent.taskExecuted(agent));
+            },
+            (failure) {
+              emit(
+                state.copyWith(
+                  failureOption: Some(Err(CoreFailure.agents(failure))),
+                  thinking: false,
+                ),
+              );
+            },
+          ),
+        );
+      }
+    });
   }
 
   final ISettingsRepository _settingsRepository;
-  final ISessionsRepository _sessionsRepository;
+  final IAgentsRepository _agentsRepository;
 }

@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Settings {
-  ApiKey get apiKey => throw _privateConstructorUsedError;
+  Label get apiKey => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SettingsCopyWith<Settings> get copyWith =>
@@ -28,7 +28,7 @@ abstract class $SettingsCopyWith<$Res> {
   factory $SettingsCopyWith(Settings value, $Res Function(Settings) then) =
       _$SettingsCopyWithImpl<$Res, Settings>;
   @useResult
-  $Res call({ApiKey apiKey});
+  $Res call({Label apiKey});
 }
 
 /// @nodoc
@@ -50,7 +50,7 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
       apiKey: null == apiKey
           ? _value.apiKey
           : apiKey // ignore: cast_nullable_to_non_nullable
-              as ApiKey,
+              as Label,
     ) as $Val);
   }
 }
@@ -62,7 +62,7 @@ abstract class _$$_SettingsCopyWith<$Res> implements $SettingsCopyWith<$Res> {
       __$$_SettingsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ApiKey apiKey});
+  $Res call({Label apiKey});
 }
 
 /// @nodoc
@@ -82,7 +82,7 @@ class __$$_SettingsCopyWithImpl<$Res>
       apiKey: null == apiKey
           ? _value.apiKey
           : apiKey // ignore: cast_nullable_to_non_nullable
-              as ApiKey,
+              as Label,
     ));
   }
 }
@@ -93,7 +93,7 @@ class _$_Settings implements _Settings {
   _$_Settings({required this.apiKey});
 
   @override
-  final ApiKey apiKey;
+  final Label apiKey;
 
   @override
   String toString() {
@@ -119,10 +119,10 @@ class _$_Settings implements _Settings {
 }
 
 abstract class _Settings implements Settings {
-  factory _Settings({required final ApiKey apiKey}) = _$_Settings;
+  factory _Settings({required final Label apiKey}) = _$_Settings;
 
   @override
-  ApiKey get apiKey;
+  Label get apiKey;
   @override
   @JsonKey(ignore: true)
   _$$_SettingsCopyWith<_$_Settings> get copyWith =>

@@ -1,16 +1,14 @@
 import 'package:equatable/equatable.dart';
-import 'package:isar/isar.dart' hide Name;
-import 'package:lumina_gpt/domain/sessions/session.dart';
+import 'package:isar/isar.dart';
 
-part 'isar_session.g.dart';
+part 'isar_model.g.dart';
 
 /// @nodoc
-@Collection(accessor: 'sessions', inheritance: false)
-class IsarSession extends Equatable {
+@Collection(accessor: 'models', inheritance: false)
+class IsarModel extends Equatable {
   /// @nodoc
-  const IsarSession({
+  const IsarModel({
     required this.name,
-    required this.model,
     required this.temperature,
     this.id = Isar.autoIncrement,
   });
@@ -22,32 +20,20 @@ class IsarSession extends Equatable {
   final String name;
 
   /// @nodoc
-  final String model;
-
-  /// @nodoc
   final double temperature;
 
   /// @nodoc
-  IsarSession copyWith({
+  IsarModel copyWith({
     Id? id,
     String? name,
-    String? model,
     double? temperature,
   }) {
-    return IsarSession(
+    return IsarModel(
       id: id ?? this.id,
       name: name ?? this.name,
-      model: model ?? this.model,
       temperature: temperature ?? this.temperature,
     );
   }
-
-  /// @nodoc
-  Session toDomain() => Session(
-        name: name,
-        model: model,
-        temperature: temperature,
-      );
 
   @override
   @ignore

@@ -6,24 +6,23 @@ class HomeState with _$HomeState {
   /// @nodoc
   const factory HomeState({
     required Option<Result<Unit, CoreFailure>> failureOption,
-    required bool isProcessing,
-    required List<Session> sessions,
+    required bool thinking,
+    required List<Agent> agents,
     required Settings settings,
-    required ApiKey apiKey,
-    required Name name,
-    required Role role,
-    required Goal goal,
+    required Label apiKey,
+    required Label name,
+    required Label goal,
+    Agent? agent,
   }) = _HomeState;
 
   /// @nodoc
   factory HomeState.initial() => HomeState(
         failureOption: const None(),
-        isProcessing: false,
-        sessions: [],
+        thinking: false,
+        agents: [],
         settings: Settings.empty(),
-        apiKey: ApiKey(''),
-        name: Name(''),
-        role: Role(''),
-        goal: Goal(''),
+        apiKey: Label(''),
+        name: Label(''),
+        goal: Label(''),
       );
 }

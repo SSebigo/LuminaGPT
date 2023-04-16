@@ -7,11 +7,10 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.appLaunched() = AppLaunched;
 
   /// @nodoc
-  const factory HomeEvent.newSessionPressed() = NewSessionPressed;
+  const factory HomeEvent.newAgentPressed() = NewAgentPressed;
 
   /// @nodoc
-  const factory HomeEvent.deleteSessionPressed(Session session) =
-      DeleteSessionPressed;
+  const factory HomeEvent.deleteAgentPressed(Agent agent) = DeleteAgentPressed;
 
   /// @nodoc
   const factory HomeEvent.settingsNotFound() = SettingsNotFound;
@@ -23,20 +22,32 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.apiKeySubmitted() = ApiKeySubmitted;
 
   /// @nodoc
-  const factory HomeEvent.apiKeyUpdated() = ApiKeyUpdated;
+  const factory HomeEvent.apiKeyUpdated() = _ApiKeyUpdated;
 
   /// @nodoc
-  const factory HomeEvent.clientInitialized() = ClientInitialized;
+  const factory HomeEvent.clientInitialized() = _ClientInitialized;
 
   /// @nodoc
   const factory HomeEvent.nameChanged(String nameStr) = NameChanged;
-
-  /// @nodoc
-  const factory HomeEvent.roleChanged(String roleStr) = RoleChanged;
 
   /// @nodoc
   const factory HomeEvent.goalChanged(String goalStr) = GoalChanged;
 
   /// @nodoc
   const factory HomeEvent.deployPressed() = DeployPressed;
+
+  /// @nodoc
+  const factory HomeEvent.agentDeployed() = _AgentDeployed;
+
+  /// @nodoc
+  const factory HomeEvent.agentInserted(List<Task> tasks) = _AgentInserted;
+
+  /// @nodoc
+  const factory HomeEvent.tasksCreated(List<Task> tasks) = _TasksCreated;
+
+  /// @nodoc
+  const factory HomeEvent.taskExecuted(Agent agent) = _TaskExecuted;
+
+  /// @nodoc
+  const factory HomeEvent.maxTasksReached() = _MaxTasksReached;
 }

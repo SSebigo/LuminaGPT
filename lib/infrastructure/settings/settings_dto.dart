@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:lumina_gpt/domain/settings/api_key.dart';
+import 'package:lumina_gpt/domain/core/label.dart';
 import 'package:lumina_gpt/domain/settings/settings.dart';
 import 'package:lumina_gpt/infrastructure/settings/isar_settings.dart';
 
@@ -37,7 +37,7 @@ class SettingsDTO with _$SettingsDTO {
 extension SettingsDTOX on SettingsDTO {
   /// @nodoc
   Settings toDomain() => Settings(
-        apiKey: ApiKey(apiKey),
+        apiKey: Label(apiKey),
       );
 
   /// @nodoc
@@ -50,6 +50,6 @@ extension SettingsDTOX on SettingsDTO {
 extension SettingsMapX on Map<dynamic, dynamic> {
   /// @nodoc
   Settings toDomain() => Settings(
-        apiKey: ApiKey(this['apiKey'] as String),
+        apiKey: Label(this['apiKey'] as String),
       );
 }
