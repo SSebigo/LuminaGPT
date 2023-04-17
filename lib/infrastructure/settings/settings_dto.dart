@@ -11,13 +11,13 @@ part 'settings_dto.g.dart';
 class SettingsDTO with _$SettingsDTO {
   /// @nodoc
   factory SettingsDTO({
-    required String apiKey,
+    String? apiKey,
   }) = _SettingsDTO;
 
   /// @nodoc
   factory SettingsDTO.fromDomain(Settings settings) {
     return SettingsDTO(
-      apiKey: settings.apiKey.getOrCrash(),
+      apiKey: settings.apiKey?.getOrCrash(),
     );
   }
 
@@ -37,7 +37,7 @@ class SettingsDTO with _$SettingsDTO {
 extension SettingsDTOX on SettingsDTO {
   /// @nodoc
   Settings toDomain() => Settings(
-        apiKey: Label(apiKey),
+        apiKey: apiKey != null ? Label(apiKey!) : null,
       );
 
   /// @nodoc

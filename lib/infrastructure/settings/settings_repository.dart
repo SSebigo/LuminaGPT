@@ -38,17 +38,19 @@ class SettingsRepository implements ISettingsRepository {
   @override
   Future<Result<Settings, SettingsFailure>> fetchSettings() async {
     try {
-      final settings = await _isar.settings.get(0);
+      final isarSettings = await _isar.settings.get(0);
 
-      if (settings == null) {
+      if (isarSettings == null) {
         return const Err(SettingsFailure.settingsNotFound());
       }
 
-      if (settings.apiKey == null || settings.apiKey!.isEmpty) {
+      if (isarSettings.apiKey == null || isarSettings.apiKey!.isEmpty) {
         return const Err(SettingsFailure.apiKeyNotFound());
       }
 
-      return Ok(settings.toDomain());
+      final settings = SettingsDTO.fromAdapter(isarSettings).toDomain();
+
+      return Ok(settings);
     } catch (e) {
       return const Err(SettingsFailure.settingsNotFound());
     }

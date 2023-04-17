@@ -8,7 +8,7 @@ part 'isar_task.g.dart';
 @Collection(accessor: 'tasks', inheritance: false)
 class IsarTask extends Equatable {
   /// @nodoc
-  const IsarTask({
+  IsarTask({
     required this.name,
     required this.description,
     required this.role,
@@ -21,7 +21,7 @@ class IsarTask extends Equatable {
   });
 
   /// @nodoc
-  final Id? id;
+  Id? id;
 
   /// @nodoc
   final String name;

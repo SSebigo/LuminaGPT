@@ -45,18 +45,18 @@ packages:
     dependency: "direct main"
     description:
       name: auto_route
-      sha256: c012d5c631f9a201f07203a7084742618a1cef5e4d9f7b1e4fde6bc6158dd134
+      sha256: "40405e4af1552697b2a6696bf17a9770679c9bb3fa792986ca3a2469bc345486"
       url: "https://pub.dev"
     source: hosted
-    version: "6.1.0"
+    version: "6.2.0"
   auto_route_generator:
     dependency: "direct dev"
     description:
       name: auto_route_generator
-      sha256: "49d9c4eaa410d271c6d67044c579e695e8c5bbfd99de1e528c5ba1244e33809b"
+      sha256: e8056df4ff40700ce80b1fc7889cf62bfbb5250225f5fb2ea55d1f1271010a60
       url: "https://pub.dev"
     source: hosted
-    version: "6.1.0"
+    version: "6.2.0"
   bloc:
     dependency: "direct main"
     description:
@@ -444,26 +444,26 @@ packages:
     dependency: "direct main"
     description:
       name: isar
-      sha256: "5be35dbc489880fccc535da3d1c4b3f5fdeee6ebfcacd4b149e39e803c4029cd"
+      sha256: aef9b9dd6ea4f5fca1f6fdc38e76010e4762cdb1400169d99a0b42e8f71e4f8a
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.5"
+    version: "3.1.0"
   isar_flutter_libs:
     dependency: "direct main"
     description:
       name: isar_flutter_libs
-      sha256: "9794524734856a8a3629652f9f359b66e3fea3cebeec4dbdeb3e3a8fb253073e"
+      sha256: "8dcfb6889e68d9f0ad9980d77b3903782811645d848786e6ea6518ea6058e45d"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.5"
+    version: "3.1.0"
   isar_generator:
     dependency: "direct dev"
     description:
       name: isar_generator
-      sha256: ee4ab5d5b251bc7e86e1257793b57af100065831f00f3a12404b177ae53c2d69
+      sha256: "3813ddc78bff4d8328a5026a1c7af80a8c688719bf6fba6ec4b56f8772c5b8bf"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.5"
+    version: "3.1.0"
   js:
     dependency: transitive
     description:

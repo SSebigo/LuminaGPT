@@ -8,11 +8,9 @@ part 'settings.freezed.dart';
 class Settings with _$Settings {
   /// @nodoc
   factory Settings({
-    required Label apiKey,
+    Label? apiKey,
   }) = _Settings;
 
   /// @nodoc
-  factory Settings.empty() => Settings(
-        apiKey: Label(''),
-      );
+  factory Settings.empty() => Settings();
 }

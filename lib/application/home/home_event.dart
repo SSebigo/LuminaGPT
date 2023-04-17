@@ -50,4 +50,7 @@ class HomeEvent with _$HomeEvent {
 
   /// @nodoc
   const factory HomeEvent.maxTasksReached() = _MaxTasksReached;
+
+  /// @nodoc
+  const factory HomeEvent.noTasksAdded() = _NoTasksAdded;
 }

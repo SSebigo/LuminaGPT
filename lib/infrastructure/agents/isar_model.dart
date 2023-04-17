@@ -7,14 +7,14 @@ part 'isar_model.g.dart';
 @Collection(accessor: 'models', inheritance: false)
 class IsarModel extends Equatable {
   /// @nodoc
-  const IsarModel({
+  IsarModel({
     required this.name,
     required this.temperature,
     this.id = Isar.autoIncrement,
   });
 
   /// @nodoc
-  final Id? id;
+  Id? id;
 
   /// @nodoc
   final String name;

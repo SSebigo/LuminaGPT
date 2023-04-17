@@ -256,26 +256,29 @@ class HomeLayout extends StatelessWidget {
                         ),
                       ],
                     ),
-                    // Two TextButton next to each other, the left one is "Deploy", the second one is "Stop", the have rounded corners (5)
                     Row(
                       children: [
                         Expanded(
-                          child: TextButton(
-                            onPressed: () => context
-                                .read<HomeBloc>()
-                                .add(const HomeEvent.deployPressed()),
-                            style: TextButton.styleFrom(
-                              backgroundColor: const Color(0xFF171717),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5),
+                          child: BlocBuilder<HomeBloc, HomeState>(
+                            builder: (context, state) => TextButton(
+                              onPressed: state.thinking
+                                  ? null
+                                  : () => context
+                                      .read<HomeBloc>()
+                                      .add(const HomeEvent.deployPressed()),
+                              style: TextButton.styleFrom(
+                                backgroundColor: const Color(0xFF171717),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
                               ),
-                            ),
-                            child: const Text(
-                              'Deploy',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w600,
+                              child: const Text(
+                                'Deploy',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ),
                           ),

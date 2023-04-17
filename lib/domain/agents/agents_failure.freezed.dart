@@ -19,18 +19,21 @@ mixin _$AgentsFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() maxTasksReached,
+    required TResult Function() noNewTasks,
     required TResult Function() unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? maxTasksReached,
+    TResult? Function()? noNewTasks,
     TResult? Function()? unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? maxTasksReached,
+    TResult Function()? noNewTasks,
     TResult Function()? unexpected,
     required TResult orElse(),
   }) =>
@@ -38,18 +41,21 @@ mixin _$AgentsFailure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(MaxTasksReached value) maxTasksReached,
+    required TResult Function(NoNewTasks value) noNewTasks,
     required TResult Function(Unexpected value) unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MaxTasksReached value)? maxTasksReached,
+    TResult? Function(NoNewTasks value)? noNewTasks,
     TResult? Function(Unexpected value)? unexpected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MaxTasksReached value)? maxTasksReached,
+    TResult Function(NoNewTasks value)? noNewTasks,
     TResult Function(Unexpected value)? unexpected,
     required TResult orElse(),
   }) =>
@@ -113,6 +119,7 @@ class _$MaxTasksReached implements MaxTasksReached {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() maxTasksReached,
+    required TResult Function() noNewTasks,
     required TResult Function() unexpected,
   }) {
     return maxTasksReached();
@@ -122,6 +129,7 @@ class _$MaxTasksReached implements MaxTasksReached {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? maxTasksReached,
+    TResult? Function()? noNewTasks,
     TResult? Function()? unexpected,
   }) {
     return maxTasksReached?.call();
@@ -131,6 +139,7 @@ class _$MaxTasksReached implements MaxTasksReached {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? maxTasksReached,
+    TResult Function()? noNewTasks,
     TResult Function()? unexpected,
     required TResult orElse(),
   }) {
@@ -144,6 +153,7 @@ class _$MaxTasksReached implements MaxTasksReached {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(MaxTasksReached value) maxTasksReached,
+    required TResult Function(NoNewTasks value) noNewTasks,
     required TResult Function(Unexpected value) unexpected,
   }) {
     return maxTasksReached(this);
@@ -153,6 +163,7 @@ class _$MaxTasksReached implements MaxTasksReached {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MaxTasksReached value)? maxTasksReached,
+    TResult? Function(NoNewTasks value)? noNewTasks,
     TResult? Function(Unexpected value)? unexpected,
   }) {
     return maxTasksReached?.call(this);
@@ -162,6 +173,7 @@ class _$MaxTasksReached implements MaxTasksReached {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MaxTasksReached value)? maxTasksReached,
+    TResult Function(NoNewTasks value)? noNewTasks,
     TResult Function(Unexpected value)? unexpected,
     required TResult orElse(),
   }) {
@@ -174,6 +186,114 @@ class _$MaxTasksReached implements MaxTasksReached {
 
 abstract class MaxTasksReached implements AgentsFailure {
   const factory MaxTasksReached() = _$MaxTasksReached;
+}
+
+/// @nodoc
+abstract class _$$NoNewTasksCopyWith<$Res> {
+  factory _$$NoNewTasksCopyWith(
+          _$NoNewTasks value, $Res Function(_$NoNewTasks) then) =
+      __$$NoNewTasksCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NoNewTasksCopyWithImpl<$Res>
+    extends _$AgentsFailureCopyWithImpl<$Res, _$NoNewTasks>
+    implements _$$NoNewTasksCopyWith<$Res> {
+  __$$NoNewTasksCopyWithImpl(
+      _$NoNewTasks _value, $Res Function(_$NoNewTasks) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NoNewTasks implements NoNewTasks {
+  const _$NoNewTasks();
+
+  @override
+  String toString() {
+    return 'AgentsFailure.noNewTasks()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NoNewTasks);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() maxTasksReached,
+    required TResult Function() noNewTasks,
+    required TResult Function() unexpected,
+  }) {
+    return noNewTasks();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? maxTasksReached,
+    TResult? Function()? noNewTasks,
+    TResult? Function()? unexpected,
+  }) {
+    return noNewTasks?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? maxTasksReached,
+    TResult Function()? noNewTasks,
+    TResult Function()? unexpected,
+    required TResult orElse(),
+  }) {
+    if (noNewTasks != null) {
+      return noNewTasks();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(MaxTasksReached value) maxTasksReached,
+    required TResult Function(NoNewTasks value) noNewTasks,
+    required TResult Function(Unexpected value) unexpected,
+  }) {
+    return noNewTasks(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(MaxTasksReached value)? maxTasksReached,
+    TResult? Function(NoNewTasks value)? noNewTasks,
+    TResult? Function(Unexpected value)? unexpected,
+  }) {
+    return noNewTasks?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(MaxTasksReached value)? maxTasksReached,
+    TResult Function(NoNewTasks value)? noNewTasks,
+    TResult Function(Unexpected value)? unexpected,
+    required TResult orElse(),
+  }) {
+    if (noNewTasks != null) {
+      return noNewTasks(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NoNewTasks implements AgentsFailure {
+  const factory NoNewTasks() = _$NoNewTasks;
 }
 
 /// @nodoc
@@ -215,6 +335,7 @@ class _$Unexpected implements Unexpected {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() maxTasksReached,
+    required TResult Function() noNewTasks,
     required TResult Function() unexpected,
   }) {
     return unexpected();
@@ -224,6 +345,7 @@ class _$Unexpected implements Unexpected {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? maxTasksReached,
+    TResult? Function()? noNewTasks,
     TResult? Function()? unexpected,
   }) {
     return unexpected?.call();
@@ -233,6 +355,7 @@ class _$Unexpected implements Unexpected {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? maxTasksReached,
+    TResult Function()? noNewTasks,
     TResult Function()? unexpected,
     required TResult orElse(),
   }) {
@@ -246,6 +369,7 @@ class _$Unexpected implements Unexpected {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(MaxTasksReached value) maxTasksReached,
+    required TResult Function(NoNewTasks value) noNewTasks,
     required TResult Function(Unexpected value) unexpected,
   }) {
     return unexpected(this);
@@ -255,6 +379,7 @@ class _$Unexpected implements Unexpected {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(MaxTasksReached value)? maxTasksReached,
+    TResult? Function(NoNewTasks value)? noNewTasks,
     TResult? Function(Unexpected value)? unexpected,
   }) {
     return unexpected?.call(this);
@@ -264,6 +389,7 @@ class _$Unexpected implements Unexpected {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(MaxTasksReached value)? maxTasksReached,
+    TResult Function(NoNewTasks value)? noNewTasks,
     TResult Function(Unexpected value)? unexpected,
     required TResult orElse(),
   }) {

@@ -15,7 +15,7 @@ class IsarAgent extends Equatable {
   });
 
   /// @nodoc
-  final Id? id;
+  Id? id;
 
   /// @nodoc
   final String name;

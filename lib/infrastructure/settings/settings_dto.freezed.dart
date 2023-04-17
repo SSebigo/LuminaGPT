@@ -20,7 +20,7 @@ SettingsDTO _$SettingsDTOFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SettingsDTO {
-  String get apiKey => throw _privateConstructorUsedError;
+  String? get apiKey => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $SettingsDTOCopyWith<$Res> {
           SettingsDTO value, $Res Function(SettingsDTO) then) =
       _$SettingsDTOCopyWithImpl<$Res, SettingsDTO>;
   @useResult
-  $Res call({String apiKey});
+  $Res call({String? apiKey});
 }
 
 /// @nodoc
@@ -50,13 +50,13 @@ class _$SettingsDTOCopyWithImpl<$Res, $Val extends SettingsDTO>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? apiKey = null,
+    Object? apiKey = freezed,
   }) {
     return _then(_value.copyWith(
-      apiKey: null == apiKey
+      apiKey: freezed == apiKey
           ? _value.apiKey
           : apiKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -69,7 +69,7 @@ abstract class _$$_SettingsDTOCopyWith<$Res>
       __$$_SettingsDTOCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String apiKey});
+  $Res call({String? apiKey});
 }
 
 /// @nodoc
@@ -83,13 +83,13 @@ class __$$_SettingsDTOCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? apiKey = null,
+    Object? apiKey = freezed,
   }) {
     return _then(_$_SettingsDTO(
-      apiKey: null == apiKey
+      apiKey: freezed == apiKey
           ? _value.apiKey
           : apiKey // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -97,13 +97,13 @@ class __$$_SettingsDTOCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_SettingsDTO implements _SettingsDTO {
-  _$_SettingsDTO({required this.apiKey});
+  _$_SettingsDTO({this.apiKey});
 
   factory _$_SettingsDTO.fromJson(Map<String, dynamic> json) =>
       _$$_SettingsDTOFromJson(json);
 
   @override
-  final String apiKey;
+  final String? apiKey;
 
   @override
   String toString() {
@@ -137,13 +137,13 @@ class _$_SettingsDTO implements _SettingsDTO {
 }
 
 abstract class _SettingsDTO implements SettingsDTO {
-  factory _SettingsDTO({required final String apiKey}) = _$_SettingsDTO;
+  factory _SettingsDTO({final String? apiKey}) = _$_SettingsDTO;
 
   factory _SettingsDTO.fromJson(Map<String, dynamic> json) =
       _$_SettingsDTO.fromJson;
 
   @override
-  String get apiKey;
+  String? get apiKey;
   @override
   @JsonKey(ignore: true)
   _$$_SettingsDTOCopyWith<_$_SettingsDTO> get copyWith =>

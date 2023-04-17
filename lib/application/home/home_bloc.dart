@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:dart_openai/openai.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -10,7 +12,6 @@ import 'package:lumina_gpt/domain/core/label.dart';
 import 'package:lumina_gpt/domain/settings/i_settings_repository.dart';
 import 'package:lumina_gpt/domain/settings/settings.dart';
 import 'package:lumina_gpt/domain/settings/settings_failure.dart';
-import 'package:lumina_gpt/utils/constants/task.dart';
 import 'package:oxidized/oxidized.dart';
 
 part 'home_bloc.freezed.dart';
@@ -95,9 +96,9 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       ),
     );
     on<ApiKeySubmitted>((event, emit) async {
-      final apiKeyValid = state.apiKey.isValid;
+      final apiKeyValid = state.apiKey?.isValid;
 
-      if (apiKeyValid) {
+      if (apiKeyValid != null && apiKeyValid) {
         (await _settingsRepository.updateSettings(
           state.settings.copyWith(apiKey: state.apiKey),
         ))
@@ -117,9 +118,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       }
     });
     on<_ApiKeyUpdated>((event, emit) async {
-      OpenAI.apiKey = state.apiKey.getOrCrash();
+      final apiKey = state.apiKey?.getOrCrash();
 
-      add(const HomeEvent.clientInitialized());
+      if (apiKey != null) {
+        OpenAI.apiKey = apiKey;
+
+        add(const HomeEvent.clientInitialized());
+      }
     });
     on<_ClientInitialized>((event, emit) async {
       (await _agentsRepository.fetchAgents()).match(
@@ -254,8 +259,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             },
             (failure) {
               failure.maybeMap(
-                maxTasksReached: (failure) {
+                maxTasksReached: (_) {
                   add(const HomeEvent.maxTasksReached());
+                },
+                noNewTasks: (_) {
+                  add(const HomeEvent.noTasksAdded());
                 },
                 orElse: () => emit(
                   state.copyWith(
@@ -318,49 +326,52 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         );
       }
     });
-    on<_MaxTasksReached>((event, emit) async {
-      if (state.agent != null) {
-        await emit.onEach(
-          _agentsRepository.executeTasks(
-            state.agent!,
-            state.agent!.tasks,
-            state.goal,
-          ),
-          onData: (result) => result.match(
-            (task) {
-              // update corresponding task in agent
-              final agent = state.agent!.copyWith(
-                tasks: state.agent!.tasks
-                    .map((t) => t.id == task.id ? task : t)
-                    .toList(),
-              );
-
-              emit(
-                state.copyWith(
-                  failureOption: const None(),
-                  agent: agent,
-                  agents: state.agents
-                      .map((a) => a.id == agent.id ? agent : a)
-                      .toList(),
-                ),
-              );
-
-              add(HomeEvent.taskExecuted(agent));
-            },
-            (failure) {
-              emit(
-                state.copyWith(
-                  failureOption: Some(Err(CoreFailure.agents(failure))),
-                  thinking: false,
-                ),
-              );
-            },
-          ),
-        );
-      }
-    });
+    on<_MaxTasksReached>((_, emit) async => _executeTasks(emit));
+    on<_NoTasksAdded>((_, emit) async => _executeTasks(emit));
   }
 
   final ISettingsRepository _settingsRepository;
   final IAgentsRepository _agentsRepository;
+
+  FutureOr<void> _executeTasks(Emitter<HomeState> emit) async {
+    if (state.agent != null) {
+      await emit.onEach(
+        _agentsRepository.executeTasks(
+          state.agent!,
+          state.agent!.tasks,
+          state.goal,
+        ),
+        onData: (result) => result.match(
+          (task) {
+            // update corresponding task in agent
+            final agent = state.agent!.copyWith(
+              tasks: state.agent!.tasks
+                  .map((t) => t.id == task.id ? task : t)
+                  .toList(),
+            );
+
+            emit(
+              state.copyWith(
+                failureOption: const None(),
+                agent: agent,
+                agents: state.agents
+                    .map((a) => a.id == agent.id ? agent : a)
+                    .toList(),
+              ),
+            );
+
+            add(HomeEvent.taskExecuted(agent));
+          },
+          (failure) {
+            emit(
+              state.copyWith(
+                failureOption: Some(Err(CoreFailure.agents(failure))),
+                thinking: false,
+              ),
+            );
+          },
+        ),
+      );
+    }
+  }
 }

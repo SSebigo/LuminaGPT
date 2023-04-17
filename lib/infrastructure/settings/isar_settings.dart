@@ -1,7 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:isar/isar.dart';
-import 'package:lumina_gpt/domain/core/label.dart';
-import 'package:lumina_gpt/domain/settings/settings.dart';
 
 part 'isar_settings.g.dart';
 
@@ -28,13 +26,6 @@ class IsarSettings extends Equatable {
     return IsarSettings(
       apiKey: apiKey ?? this.apiKey,
       id: id ?? this.id,
-    );
-  }
-
-  /// @nodoc
-  Settings toDomain() {
-    return Settings(
-      apiKey: Label(apiKey ?? ''),
     );
   }
 

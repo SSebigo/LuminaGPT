@@ -34,7 +34,7 @@ class ApiKeyDialog extends StatelessWidget {
             onChanged: (value) =>
                 context.read<HomeBloc>().add(HomeEvent.apiKeyChanged(value)),
             validator: (_) =>
-                context.watch<HomeBloc>().state.apiKey.value.match(
+                context.watch<HomeBloc>().state.apiKey?.value.match(
                       (_) => null,
                       (err) => err.maybeMap(
                         emptyInput: (_) => 'The password is invalid.',

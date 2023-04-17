@@ -7,7 +7,7 @@ part of 'isar_task.dart';
 // **************************************************************************
 
 // coverage:ignore-file
-// ignore_for_file: duplicate_ignore, non_constant_identifier_names, constant_identifier_names, invalid_use_of_protected_member, unnecessary_cast, prefer_const_constructors, lines_longer_than_80_chars, require_trailing_commas, inference_failure_on_function_invocation, unnecessary_parenthesis, unnecessary_raw_strings, unnecessary_null_checks, join_return_with_assignment, prefer_final_locals, avoid_js_rounded_ints, avoid_positional_boolean_parameters
+// ignore_for_file: duplicate_ignore, non_constant_identifier_names, constant_identifier_names, invalid_use_of_protected_member, unnecessary_cast, prefer_const_constructors, lines_longer_than_80_chars, require_trailing_commas, inference_failure_on_function_invocation, unnecessary_parenthesis, unnecessary_raw_strings, unnecessary_null_checks, join_return_with_assignment, prefer_final_locals, avoid_js_rounded_ints, avoid_positional_boolean_parameters, always_specify_types
 
 extension GetIsarTaskCollection on Isar {
   IsarCollection<IsarTask> get tasks => this.collection();
@@ -74,7 +74,7 @@ const IsarTaskSchema = CollectionSchema(
   getId: _isarTaskGetId,
   getLinks: _isarTaskGetLinks,
   attach: _isarTaskAttach,
-  version: '3.0.5',
+  version: '3.1.0',
 );
 
 int _isarTaskEstimateSize(
@@ -171,7 +171,9 @@ List<IsarLinkBase<dynamic>> _isarTaskGetLinks(IsarTask object) {
   return [];
 }
 
-void _isarTaskAttach(IsarCollection<dynamic> col, Id id, IsarTask object) {}
+void _isarTaskAttach(IsarCollection<dynamic> col, Id id, IsarTask object) {
+  object.id = id;
+}
 
 extension IsarTaskQueryWhereSort on QueryBuilder<IsarTask, IsarTask, QWhere> {
   QueryBuilder<IsarTask, IsarTask, QAfterWhere> anyId() {

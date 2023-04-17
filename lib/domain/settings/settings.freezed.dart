@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Settings {
-  Label get apiKey => throw _privateConstructorUsedError;
+  Label? get apiKey => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SettingsCopyWith<Settings> get copyWith =>
@@ -28,7 +28,7 @@ abstract class $SettingsCopyWith<$Res> {
   factory $SettingsCopyWith(Settings value, $Res Function(Settings) then) =
       _$SettingsCopyWithImpl<$Res, Settings>;
   @useResult
-  $Res call({Label apiKey});
+  $Res call({Label? apiKey});
 }
 
 /// @nodoc
@@ -44,13 +44,13 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? apiKey = null,
+    Object? apiKey = freezed,
   }) {
     return _then(_value.copyWith(
-      apiKey: null == apiKey
+      apiKey: freezed == apiKey
           ? _value.apiKey
           : apiKey // ignore: cast_nullable_to_non_nullable
-              as Label,
+              as Label?,
     ) as $Val);
   }
 }
@@ -62,7 +62,7 @@ abstract class _$$_SettingsCopyWith<$Res> implements $SettingsCopyWith<$Res> {
       __$$_SettingsCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Label apiKey});
+  $Res call({Label? apiKey});
 }
 
 /// @nodoc
@@ -76,13 +76,13 @@ class __$$_SettingsCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? apiKey = null,
+    Object? apiKey = freezed,
   }) {
     return _then(_$_Settings(
-      apiKey: null == apiKey
+      apiKey: freezed == apiKey
           ? _value.apiKey
           : apiKey // ignore: cast_nullable_to_non_nullable
-              as Label,
+              as Label?,
     ));
   }
 }
@@ -90,10 +90,10 @@ class __$$_SettingsCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_Settings implements _Settings {
-  _$_Settings({required this.apiKey});
+  _$_Settings({this.apiKey});
 
   @override
-  final Label apiKey;
+  final Label? apiKey;
 
   @override
   String toString() {
@@ -119,10 +119,10 @@ class _$_Settings implements _Settings {
 }
 
 abstract class _Settings implements Settings {
-  factory _Settings({required final Label apiKey}) = _$_Settings;
+  factory _Settings({final Label? apiKey}) = _$_Settings;
 
   @override
-  Label get apiKey;
+  Label? get apiKey;
   @override
   @JsonKey(ignore: true)
   _$$_SettingsCopyWith<_$_Settings> get copyWith =>

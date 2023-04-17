@@ -9,9 +9,9 @@ class HomeState with _$HomeState {
     required bool thinking,
     required List<Agent> agents,
     required Settings settings,
-    required Label apiKey,
     required Label name,
     required Label goal,
+    Label? apiKey,
     Agent? agent,
   }) = _HomeState;
 
@@ -21,7 +21,6 @@ class HomeState with _$HomeState {
         thinking: false,
         agents: [],
         settings: Settings.empty(),
-        apiKey: Label(''),
         name: Label(''),
         goal: Label(''),
       );

@@ -12,5 +12,8 @@ class AgentsFailure with _$AgentsFailure {
   const factory AgentsFailure.maxTasksReached() = MaxTasksReached;
 
   /// @nodoc
+  const factory AgentsFailure.noNewTasks() = NoNewTasks;
+
+  /// @nodoc
   const factory AgentsFailure.unexpected() = Unexpected;
 }
