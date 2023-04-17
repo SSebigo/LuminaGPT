@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lumina_gpt/application/home/home_bloc.dart';
+import 'package:lumina_gpt/presentation/core/action_button.dart';
 import 'package:lumina_gpt/presentation/core/dialogs/api_key_dialog.dart';
 import 'package:lumina_gpt/presentation/core/dialogs/error_dialog.dart';
+import 'package:lumina_gpt/presentation/core/info_text_field.dart';
 
 /// @nodoc
 class HomeLayout extends StatelessWidget {
@@ -47,7 +49,15 @@ class HomeLayout extends StatelessWidget {
         child: Row(
           children: [
             Container(
-              color: const Color(0xFF171717),
+              decoration: const BoxDecoration(
+                color: Color(0xFF171717),
+                border: Border(
+                  right: BorderSide(
+                    color: Color(0xFF2e2e2e),
+                    width: 2,
+                  ),
+                ),
+              ),
               width: 250,
               child: Column(
                 children: [
@@ -121,7 +131,7 @@ class HomeLayout extends StatelessWidget {
             Expanded(
               flex: 10,
               child: ColoredBox(
-                color: const Color(0xFF2e2e2e),
+                color: const Color(0xFF171717),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -216,94 +226,49 @@ class HomeLayout extends StatelessWidget {
                         },
                       ),
                     ),
-                    Row(
-                      children: [
-                        const Text(
-                          'Name',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        Expanded(
-                          child: TextFormField(
-                            onChanged: (value) => context
-                                .read<HomeBloc>()
-                                .add(HomeEvent.nameChanged(value)),
-                            style: const TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: InfoTextField(
+                        icon: Icons.smart_toy_outlined,
+                        text: 'Name'.toUpperCase(),
+                        onChanged: (value) => context
+                            .read<HomeBloc>()
+                            .add(HomeEvent.nameChanged(value)),
+                      ),
                     ),
-                    Row(
-                      children: [
-                        const Text(
-                          'Goal',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        Expanded(
-                          child: TextFormField(
-                            onChanged: (value) => context
-                                .read<HomeBloc>()
-                                .add(HomeEvent.goalChanged(value)),
-                            style: const TextStyle(color: Colors.white),
-                          ),
-                        ),
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: InfoTextField(
+                        icon: Icons.star_outline_rounded,
+                        text: 'Goal'.toUpperCase(),
+                        onChanged: (value) => context
+                            .read<HomeBloc>()
+                            .add(HomeEvent.goalChanged(value)),
+                      ),
                     ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: BlocBuilder<HomeBloc, HomeState>(
-                            builder: (context, state) => TextButton(
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 25),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          BlocBuilder<HomeBloc, HomeState>(
+                            builder: (context, state) => ActionButton(
+                              text: 'Deploy',
                               onPressed: state.thinking
                                   ? null
                                   : () => context
                                       .read<HomeBloc>()
                                       .add(const HomeEvent.deployPressed()),
-                              style: TextButton.styleFrom(
-                                backgroundColor: const Color(0xFF171717),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                              ),
-                              child: const Text(
-                                'Deploy',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
                             ),
                           ),
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: TextButton(
+                          const SizedBox(width: 50),
+                          ActionButton(
+                            text: 'Stop',
                             onPressed: () {},
-                            style: TextButton.styleFrom(
-                              backgroundColor: const Color(0xFF171717),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5),
-                              ),
-                            ),
-                            child: const Text(
-                              'Stop',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
+                            backgroundColor: Colors.redAccent,
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),
