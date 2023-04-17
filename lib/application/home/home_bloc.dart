@@ -329,12 +329,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<_MaxTasksReached>((_, emit) async => _executeTasks(emit));
     on<_NoTasksAdded>((_, emit) async => _executeTasks(emit));
     on<AgentPressed>((event, emit) async {
-      emit(
-        state.copyWith(
-          failureOption: const None(),
-          agent: event.agent,
-        ),
-      );
+      if (state.agent == null || state.agent!.id != event.agent.id) {
+        emit(
+          state.copyWith(
+            failureOption: const None(),
+            agent: event.agent,
+          ),
+        );
+      }
     });
   }
 
