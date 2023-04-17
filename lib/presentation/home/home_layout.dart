@@ -6,6 +6,7 @@ import 'package:lumina_gpt/presentation/core/action_button.dart';
 import 'package:lumina_gpt/presentation/core/dialogs/api_key_dialog.dart';
 import 'package:lumina_gpt/presentation/core/dialogs/error_dialog.dart';
 import 'package:lumina_gpt/presentation/core/info_text_field.dart';
+import 'package:lumina_gpt/presentation/home/widgets/bordered_list_tile.dart';
 import 'package:lumina_gpt/presentation/home/widgets/task_bubble.dart';
 import 'package:lumina_gpt/utils/constants/palette.dart';
 
@@ -63,49 +64,45 @@ class HomeLayout extends StatelessWidget {
               width: 250,
               child: Column(
                 children: [
-                  ListTile(
-                    tileColor: primaryColor,
-                    leading: const Icon(
-                      Icons.add,
-                      color: Colors.white,
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: BorderedListTile(
+                      icon: Icons.add_rounded,
+                      title: 'New agent',
+                      onTap: () => context
+                          .read<HomeBloc>()
+                          .add(const HomeEvent.newAgentPressed()),
                     ),
-                    title: const Text(
-                      'New agent',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5),
-                      side: const BorderSide(color: Colors.white, width: 2),
-                    ),
-                    onTap: () {},
                   ),
                   Expanded(
                     child: BlocBuilder<HomeBloc, HomeState>(
                       builder: (context, state) {
                         return ListView.separated(
-                          itemBuilder: (_, i) {
-                            // return ListTile with a leadng icons chat bubble, a title state.sessions[i].name
-                            return ListTile(
-                              tileColor: primaryColor,
-                              leading: const Icon(
-                                Icons.chat_bubble,
-                                color: Colors.white,
+                          itemBuilder: (_, i) => Padding(
+                            padding: const EdgeInsets.all(10),
+                            child: DecoratedBox(
+                              decoration: BoxDecoration(
+                                color: Colors.blueAccent,
+                                borderRadius: BorderRadius.circular(8),
                               ),
-                              title: Text(
-                                state.agents[i].name.getOrCrash(),
-                                style: const TextStyle(
+                              child: ListTile(
+                                leading: const Icon(
+                                  Icons.chat_bubble_outline_rounded,
                                   color: Colors.white,
-                                  fontWeight: FontWeight.w400,
                                 ),
+                                title: Text(
+                                  state.agents[i].name.getOrCrash(),
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                onTap: () => context.read<HomeBloc>().add(
+                                      HomeEvent.agentPressed(state.agents[i]),
+                                    ),
                               ),
-                              onTap: () => context
-                                  .read<HomeBloc>()
-                                  .add(HomeEvent.agentPressed(state.agents[i])),
-                            );
-                          },
+                            ),
+                          ),
                           separatorBuilder: (_, i) =>
                               const SizedBox(height: 10),
                           itemCount: state.agents.length,
@@ -113,21 +110,13 @@ class HomeLayout extends StatelessWidget {
                       },
                     ),
                   ),
-                  // a ListTile with a leading icon gear, a title "Settings"
-                  ListTile(
-                    tileColor: primaryColor,
-                    leading: const Icon(
-                      Icons.settings,
-                      color: Colors.white,
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: BorderedListTile(
+                      icon: Icons.settings_outlined,
+                      title: 'Settings'.toUpperCase(),
+                      onTap: () {},
                     ),
-                    title: const Text(
-                      'Settings',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                      ),
-                    ),
-                    onTap: () {},
                   ),
                 ],
               ),

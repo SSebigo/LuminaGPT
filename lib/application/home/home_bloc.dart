@@ -64,7 +64,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         },
       );
     });
-    on<NewAgentPressed>((_, emit) async {});
+    on<NewAgentPressed>((_, emit) async {
+      emit(
+        state.copyWith(
+          failureOption: const None(),
+          agent: null,
+        ),
+      );
+    });
     on<DeleteAgentPressed>((_, emit) async {});
     on<SettingsNotFound>((event, emit) async {
       (await _settingsRepository.initializeSettings()).match(
