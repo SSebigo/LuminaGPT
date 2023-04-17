@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:isar/isar.dart';
-import 'package:lumina_gpt/domain/agents/task.dart';
 
 part 'isar_task.g.dart';
 

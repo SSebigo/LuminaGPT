@@ -9,9 +9,7 @@ class SettingsDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return Dialog(
       elevation: 10,
-      child: Column(
-        children: [],
-      ),
+      child: Column(),
     );
   }
 }

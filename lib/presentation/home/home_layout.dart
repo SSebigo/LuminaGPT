@@ -37,7 +37,7 @@ class HomeLayout extends StatelessWidget {
                   settingsNotFound: (_) => showDialog<ErrorDialog>(
                     context: context,
                     builder: (_) => ErrorDialog(
-                      messages: [],
+                      messages: const [],
                       onPressed: () {},
                     ),
                   ),
