@@ -6,6 +6,8 @@ import 'package:lumina_gpt/presentation/core/action_button.dart';
 import 'package:lumina_gpt/presentation/core/dialogs/api_key_dialog.dart';
 import 'package:lumina_gpt/presentation/core/dialogs/error_dialog.dart';
 import 'package:lumina_gpt/presentation/core/info_text_field.dart';
+import 'package:lumina_gpt/presentation/home/widgets/task_bubble.dart';
+import 'package:lumina_gpt/utils/constants/palette.dart';
 
 /// @nodoc
 class HomeLayout extends StatelessWidget {
@@ -50,10 +52,10 @@ class HomeLayout extends StatelessWidget {
           children: [
             Container(
               decoration: const BoxDecoration(
-                color: Color(0xFF171717),
+                color: primaryColor,
                 border: Border(
                   right: BorderSide(
-                    color: Color(0xFF2e2e2e),
+                    color: secondaryColor,
                     width: 2,
                   ),
                 ),
@@ -62,7 +64,7 @@ class HomeLayout extends StatelessWidget {
               child: Column(
                 children: [
                   ListTile(
-                    tileColor: const Color(0xFF171717),
+                    tileColor: primaryColor,
                     leading: const Icon(
                       Icons.add,
                       color: Colors.white,
@@ -87,7 +89,7 @@ class HomeLayout extends StatelessWidget {
                           itemBuilder: (_, i) {
                             // return ListTile with a leadng icons chat bubble, a title state.sessions[i].name
                             return ListTile(
-                              tileColor: const Color(0xFF171717),
+                              tileColor: primaryColor,
                               leading: const Icon(
                                 Icons.chat_bubble,
                                 color: Colors.white,
@@ -99,7 +101,9 @@ class HomeLayout extends StatelessWidget {
                                   fontWeight: FontWeight.w400,
                                 ),
                               ),
-                              onTap: () {},
+                              onTap: () => context
+                                  .read<HomeBloc>()
+                                  .add(HomeEvent.agentPressed(state.agents[i])),
                             );
                           },
                           separatorBuilder: (_, i) =>
@@ -111,7 +115,7 @@ class HomeLayout extends StatelessWidget {
                   ),
                   // a ListTile with a leading icon gear, a title "Settings"
                   ListTile(
-                    tileColor: const Color(0xFF171717),
+                    tileColor: primaryColor,
                     leading: const Icon(
                       Icons.settings,
                       color: Colors.white,
@@ -131,7 +135,7 @@ class HomeLayout extends StatelessWidget {
             Expanded(
               flex: 10,
               child: ColoredBox(
-                color: const Color(0xFF171717),
+                color: primaryColor,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -168,59 +172,22 @@ class HomeLayout extends StatelessWidget {
                           }
                           return ListView.separated(
                             itemBuilder: (_, i) {
-                              // return a container with three texts, the first one is "Task added: state.agent.tasks[i].name", the second one is "Reasoning: state.agent.tasks[i].description", the third one is "Goal: state.agent.tasks[i].goal"
                               return ColoredBox(
-                                color: const Color(0xFF171717),
+                                color: primaryColor,
                                 child: BlocBuilder<HomeBloc, HomeState>(
                                   buildWhen: (previous, current) =>
                                       previous.agent?.tasks[i].result !=
                                       current.agent?.tasks[i].result,
                                   builder: (context, state) {
-                                    return Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Text(
-                                          'Task added: ${state.agent?.tasks[i].name.getOrCrash()}',
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Reasoning: ${state.agent?.tasks[i].description.getOrCrash()}',
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
-                                        Text(
-                                          'Goal: ${state.agent?.tasks[i].goal.getOrCrash()}',
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.w600,
-                                          ),
-                                        ),
-                                        if (state.agent?.tasks[i].result !=
-                                            null)
-                                          Text(
-                                            'Result: ${state.agent?.tasks[i].result?.getOrCrash()}',
-                                            style: const TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 20,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
-                                      ],
+                                    return TaskBubble(
+                                      task: state.agent?.tasks[i],
                                     );
                                   },
                                 ),
                               );
                             },
                             separatorBuilder: (_, i) =>
-                                const SizedBox(height: 10),
+                                const SizedBox(height: 25),
                             itemCount: state.agent?.tasks.length ?? 0,
                           );
                         },
@@ -261,12 +228,12 @@ class HomeLayout extends StatelessWidget {
                                       .add(const HomeEvent.deployPressed()),
                             ),
                           ),
-                          const SizedBox(width: 50),
-                          ActionButton(
-                            text: 'Stop',
-                            onPressed: () {},
-                            backgroundColor: Colors.redAccent,
-                          ),
+                          // const SizedBox(width: 50),
+                          // ActionButton(
+                          //   text: 'Stop',
+                          //   onPressed: () {},
+                          //   backgroundColor: Colors.redAccent,
+                          // ),
                         ],
                       ),
                     ),

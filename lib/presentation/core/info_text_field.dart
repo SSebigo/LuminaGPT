@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lumina_gpt/utils/constants/palette.dart';
 
 /// @nodoc
 class InfoTextField extends StatelessWidget {
@@ -23,10 +24,12 @@ class InfoTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: const Color(0xFF2e2e2e),
+        color: secondaryColor,
         borderRadius: BorderRadius.circular(5),
       ),
       child: TextFormField(
+        minLines: 1,
+        maxLines: 5,
         onChanged: onChanged,
         style: const TextStyle(
           color: Colors.white,

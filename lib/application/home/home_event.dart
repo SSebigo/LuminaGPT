@@ -53,4 +53,7 @@ class HomeEvent with _$HomeEvent {
 
   /// @nodoc
   const factory HomeEvent.noTasksAdded() = _NoTasksAdded;
+
+  /// @nodoc
+  const factory HomeEvent.agentPressed(Agent agent) = AgentPressed;
 }

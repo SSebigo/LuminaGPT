@@ -50,6 +50,11 @@ class AgentsRepository implements IAgentsRepository {
     try {
       final agents = await _isar.agents.where().findAll();
 
+      for (final agent in agents) {
+        await agent.tasks.load();
+        await agent.model.load();
+      }
+
       return Ok(
         agents.map((e) => AgentDTO.fromAdapter(e).toDomain()).toList(),
       );
@@ -101,7 +106,7 @@ class AgentsRepository implements IAgentsRepository {
   ) async {
     try {
       final prompt =
-          'You are an autonomous task creation AI for worldbuilding called LuminaBrain. Given the following goal: "${goal.getOrCrash()}", you have to create zero to three realistic tasks for an AI that will help you achieve the goal. Return a list of tasks in JSON format such that it contains a name for the task, a description for the task, a role for the task and a goal for the task like this ```{"name": "","description": "","role": "","goal": ""}```.';
+          'You are an autonomous task creation AI for worldbuilding called Lumina Brain. Given the following goal: "${goal.getOrCrash()}", you have to create zero to three realistic tasks for an AI that will help you achieve the goal. Return a list of tasks in JSON format such that it contains a name for the task, a description for the task, a role for the task and a goal for the task like this ```{"name": "","description": "","role": "","goal": ""}```.';
 
       debugPrint('prompt: $prompt');
 
@@ -186,10 +191,10 @@ class AgentsRepository implements IAgentsRepository {
 
         if (result.isEmpty) {
           prompt =
-              'You are an autonomous task executioon AI for worldbuilding called LuminaSolver. Given the following overall goal: "${goal.getOrCrash()}", you have been given the task: ${task.name.getOrCrash().toLowerCase()}. Your role is that of a ${task.role.getOrCrash().toLowerCase()}. You will ${task.description.getOrCrash().toLowerCase()}. Your goal is to ${task.goal.getOrCrash().toLowerCase()}, you have to complete this goal by any means necessary and available to you. Return a string.';
+              'You are an autonomous task executioon AI for worldbuilding called Lumina Task Solver. Given the following overall goal: "${goal.getOrCrash()}", you have been given the task: ${task.name.getOrCrash().toLowerCase()}. Your role is that of a ${task.role.getOrCrash().toLowerCase()}. You will ${task.description.getOrCrash().toLowerCase()}. Your goal is to ${task.goal.getOrCrash().toLowerCase()}, you have to complete this goal by any means necessary and available to you. Return a string.';
         } else {
           prompt =
-              'You are an autonomous task executioon AI for worldbuilding called LuminaSolver. Given the following overall goal: "${goal.getOrCrash()}" and the following data: "${result}", you have been given the task: ${task.name.getOrCrash().toLowerCase()}. Your role is that of a ${task.role.getOrCrash().toLowerCase()}. You will ${task.description.getOrCrash().toLowerCase()}. Your goal is to ${task.goal.getOrCrash().toLowerCase()}, you have to complete this goal by any means necessary and available to you. Return a string.';
+              'You are an autonomous task executioon AI for worldbuilding called Lumina Task Solver. Given the following overall goal: "${goal.getOrCrash()}" and the following data: "${result}", you have been given the task: ${task.name.getOrCrash().toLowerCase()}. Your role is that of a ${task.role.getOrCrash().toLowerCase()}. You will ${task.description.getOrCrash().toLowerCase()}. Your goal is to ${task.goal.getOrCrash().toLowerCase()}, you have to complete this goal by any means necessary and available to you. Return a string.';
         }
 
         final completion = await OpenAI.instance.chat.create(
@@ -239,7 +244,7 @@ class AgentsRepository implements IAgentsRepository {
           final newTasks = <Task>[];
 
           final prompt =
-              'You are an autonomous task creation AI for worldbuilding called LuminaClerk. Given the following overall goal: "${goal.getOrCrash()}", you have been given the following task: "${task.name.getOrCrash().toLowerCase()}". Your role is that of a ${task.role.getOrCrash().toLowerCase()}. You will ${task.description.getOrCrash().toLowerCase()}. Your goal is to ${task.goal.getOrCrash().toLowerCase()}, you have to create ONLY IF NEEDED, zero to three realistic tasks for an AI that will help you achieve the goal. Return a list of tasks in JSON format such that it contains a name for the task, a description for the task, a role for the task and a goal for the task like this ```{"name": "","description": "","role": "","goal": ""}```. Return an empty list if you don\'t need to create any new tasks.';
+              'You are an autonomous task creation AI for worldbuilding called Lumina Task Maker. Given the following overall goal: "${goal.getOrCrash()}", you have been given the following task: "${task.name.getOrCrash().toLowerCase()}". Your role is that of a ${task.role.getOrCrash().toLowerCase()}. You will ${task.description.getOrCrash().toLowerCase()}. Your goal is to ${task.goal.getOrCrash().toLowerCase()}, you have to create ONLY IF NEEDED, zero to three realistic tasks for an AI that will help you achieve the goal. Return a list of tasks in JSON format such that it contains a name for the task, a description for the task, a role for the task and a goal for the task like this ```{"name": "","description": "","role": "","goal": ""}```. Return an empty list if you don\'t need to create any new tasks.';
 
           final completion = await OpenAI.instance.chat.create(
             model: agent.model.name.getOrCrash(),

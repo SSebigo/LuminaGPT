@@ -35,6 +35,7 @@ mixin _$HomeEvent {
     required TResult Function(Agent agent) taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +57,7 @@ mixin _$HomeEvent {
     TResult? Function(Agent agent)? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -77,6 +79,7 @@ mixin _$HomeEvent {
     TResult Function(Agent agent)? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -99,6 +102,7 @@ mixin _$HomeEvent {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -120,6 +124,7 @@ mixin _$HomeEvent {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -141,6 +146,7 @@ mixin _$HomeEvent {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -218,6 +224,7 @@ class _$AppLaunched implements AppLaunched {
     required TResult Function(Agent agent) taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
   }) {
     return appLaunched();
   }
@@ -242,6 +249,7 @@ class _$AppLaunched implements AppLaunched {
     TResult? Function(Agent agent)? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
   }) {
     return appLaunched?.call();
   }
@@ -266,6 +274,7 @@ class _$AppLaunched implements AppLaunched {
     TResult Function(Agent agent)? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
     required TResult orElse(),
   }) {
     if (appLaunched != null) {
@@ -294,6 +303,7 @@ class _$AppLaunched implements AppLaunched {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
   }) {
     return appLaunched(this);
   }
@@ -318,6 +328,7 @@ class _$AppLaunched implements AppLaunched {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
   }) {
     return appLaunched?.call(this);
   }
@@ -342,6 +353,7 @@ class _$AppLaunched implements AppLaunched {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
     required TResult orElse(),
   }) {
     if (appLaunched != null) {
@@ -410,6 +422,7 @@ class _$NewAgentPressed implements NewAgentPressed {
     required TResult Function(Agent agent) taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
   }) {
     return newAgentPressed();
   }
@@ -434,6 +447,7 @@ class _$NewAgentPressed implements NewAgentPressed {
     TResult? Function(Agent agent)? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
   }) {
     return newAgentPressed?.call();
   }
@@ -458,6 +472,7 @@ class _$NewAgentPressed implements NewAgentPressed {
     TResult Function(Agent agent)? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
     required TResult orElse(),
   }) {
     if (newAgentPressed != null) {
@@ -486,6 +501,7 @@ class _$NewAgentPressed implements NewAgentPressed {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
   }) {
     return newAgentPressed(this);
   }
@@ -510,6 +526,7 @@ class _$NewAgentPressed implements NewAgentPressed {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
   }) {
     return newAgentPressed?.call(this);
   }
@@ -534,6 +551,7 @@ class _$NewAgentPressed implements NewAgentPressed {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
     required TResult orElse(),
   }) {
     if (newAgentPressed != null) {
@@ -639,6 +657,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     required TResult Function(Agent agent) taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
   }) {
     return deleteAgentPressed(agent);
   }
@@ -663,6 +682,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult? Function(Agent agent)? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
   }) {
     return deleteAgentPressed?.call(agent);
   }
@@ -687,6 +707,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult Function(Agent agent)? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
     required TResult orElse(),
   }) {
     if (deleteAgentPressed != null) {
@@ -715,6 +736,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
   }) {
     return deleteAgentPressed(this);
   }
@@ -739,6 +761,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
   }) {
     return deleteAgentPressed?.call(this);
   }
@@ -763,6 +786,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
     required TResult orElse(),
   }) {
     if (deleteAgentPressed != null) {
@@ -836,6 +860,7 @@ class _$SettingsNotFound implements SettingsNotFound {
     required TResult Function(Agent agent) taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
   }) {
     return settingsNotFound();
   }
@@ -860,6 +885,7 @@ class _$SettingsNotFound implements SettingsNotFound {
     TResult? Function(Agent agent)? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
   }) {
     return settingsNotFound?.call();
   }
@@ -884,6 +910,7 @@ class _$SettingsNotFound implements SettingsNotFound {
     TResult Function(Agent agent)? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
     required TResult orElse(),
   }) {
     if (settingsNotFound != null) {
@@ -912,6 +939,7 @@ class _$SettingsNotFound implements SettingsNotFound {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
   }) {
     return settingsNotFound(this);
   }
@@ -936,6 +964,7 @@ class _$SettingsNotFound implements SettingsNotFound {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
   }) {
     return settingsNotFound?.call(this);
   }
@@ -960,6 +989,7 @@ class _$SettingsNotFound implements SettingsNotFound {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
     required TResult orElse(),
   }) {
     if (settingsNotFound != null) {
@@ -1055,6 +1085,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     required TResult Function(Agent agent) taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
   }) {
     return apiKeyChanged(apiKeyStr);
   }
@@ -1079,6 +1110,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult? Function(Agent agent)? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
   }) {
     return apiKeyChanged?.call(apiKeyStr);
   }
@@ -1103,6 +1135,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult Function(Agent agent)? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
     required TResult orElse(),
   }) {
     if (apiKeyChanged != null) {
@@ -1131,6 +1164,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
   }) {
     return apiKeyChanged(this);
   }
@@ -1155,6 +1189,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
   }) {
     return apiKeyChanged?.call(this);
   }
@@ -1179,6 +1214,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
     required TResult orElse(),
   }) {
     if (apiKeyChanged != null) {
@@ -1252,6 +1288,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     required TResult Function(Agent agent) taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
   }) {
     return apiKeySubmitted();
   }
@@ -1276,6 +1313,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult? Function(Agent agent)? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
   }) {
     return apiKeySubmitted?.call();
   }
@@ -1300,6 +1338,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult Function(Agent agent)? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
     required TResult orElse(),
   }) {
     if (apiKeySubmitted != null) {
@@ -1328,6 +1367,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
   }) {
     return apiKeySubmitted(this);
   }
@@ -1352,6 +1392,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
   }) {
     return apiKeySubmitted?.call(this);
   }
@@ -1376,6 +1417,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
     required TResult orElse(),
   }) {
     if (apiKeySubmitted != null) {
@@ -1444,6 +1486,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     required TResult Function(Agent agent) taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
   }) {
     return apiKeyUpdated();
   }
@@ -1468,6 +1511,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult? Function(Agent agent)? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
   }) {
     return apiKeyUpdated?.call();
   }
@@ -1492,6 +1536,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult Function(Agent agent)? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
     required TResult orElse(),
   }) {
     if (apiKeyUpdated != null) {
@@ -1520,6 +1565,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
   }) {
     return apiKeyUpdated(this);
   }
@@ -1544,6 +1590,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
   }) {
     return apiKeyUpdated?.call(this);
   }
@@ -1568,6 +1615,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
     required TResult orElse(),
   }) {
     if (apiKeyUpdated != null) {
@@ -1636,6 +1684,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     required TResult Function(Agent agent) taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
   }) {
     return clientInitialized();
   }
@@ -1660,6 +1709,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult? Function(Agent agent)? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
   }) {
     return clientInitialized?.call();
   }
@@ -1684,6 +1734,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult Function(Agent agent)? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
     required TResult orElse(),
   }) {
     if (clientInitialized != null) {
@@ -1712,6 +1763,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
   }) {
     return clientInitialized(this);
   }
@@ -1736,6 +1788,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
   }) {
     return clientInitialized?.call(this);
   }
@@ -1760,6 +1813,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
     required TResult orElse(),
   }) {
     if (clientInitialized != null) {
@@ -1854,6 +1908,7 @@ class _$NameChanged implements NameChanged {
     required TResult Function(Agent agent) taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
   }) {
     return nameChanged(nameStr);
   }
@@ -1878,6 +1933,7 @@ class _$NameChanged implements NameChanged {
     TResult? Function(Agent agent)? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
   }) {
     return nameChanged?.call(nameStr);
   }
@@ -1902,6 +1958,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(Agent agent)? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -1930,6 +1987,7 @@ class _$NameChanged implements NameChanged {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
   }) {
     return nameChanged(this);
   }
@@ -1954,6 +2012,7 @@ class _$NameChanged implements NameChanged {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
   }) {
     return nameChanged?.call(this);
   }
@@ -1978,6 +2037,7 @@ class _$NameChanged implements NameChanged {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
     required TResult orElse(),
   }) {
     if (nameChanged != null) {
@@ -2077,6 +2137,7 @@ class _$GoalChanged implements GoalChanged {
     required TResult Function(Agent agent) taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
   }) {
     return goalChanged(goalStr);
   }
@@ -2101,6 +2162,7 @@ class _$GoalChanged implements GoalChanged {
     TResult? Function(Agent agent)? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
   }) {
     return goalChanged?.call(goalStr);
   }
@@ -2125,6 +2187,7 @@ class _$GoalChanged implements GoalChanged {
     TResult Function(Agent agent)? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
     required TResult orElse(),
   }) {
     if (goalChanged != null) {
@@ -2153,6 +2216,7 @@ class _$GoalChanged implements GoalChanged {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
   }) {
     return goalChanged(this);
   }
@@ -2177,6 +2241,7 @@ class _$GoalChanged implements GoalChanged {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
   }) {
     return goalChanged?.call(this);
   }
@@ -2201,6 +2266,7 @@ class _$GoalChanged implements GoalChanged {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
     required TResult orElse(),
   }) {
     if (goalChanged != null) {
@@ -2274,6 +2340,7 @@ class _$DeployPressed implements DeployPressed {
     required TResult Function(Agent agent) taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
   }) {
     return deployPressed();
   }
@@ -2298,6 +2365,7 @@ class _$DeployPressed implements DeployPressed {
     TResult? Function(Agent agent)? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
   }) {
     return deployPressed?.call();
   }
@@ -2322,6 +2390,7 @@ class _$DeployPressed implements DeployPressed {
     TResult Function(Agent agent)? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
     required TResult orElse(),
   }) {
     if (deployPressed != null) {
@@ -2350,6 +2419,7 @@ class _$DeployPressed implements DeployPressed {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
   }) {
     return deployPressed(this);
   }
@@ -2374,6 +2444,7 @@ class _$DeployPressed implements DeployPressed {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
   }) {
     return deployPressed?.call(this);
   }
@@ -2398,6 +2469,7 @@ class _$DeployPressed implements DeployPressed {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
     required TResult orElse(),
   }) {
     if (deployPressed != null) {
@@ -2466,6 +2538,7 @@ class _$_AgentDeployed implements _AgentDeployed {
     required TResult Function(Agent agent) taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
   }) {
     return agentDeployed();
   }
@@ -2490,6 +2563,7 @@ class _$_AgentDeployed implements _AgentDeployed {
     TResult? Function(Agent agent)? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
   }) {
     return agentDeployed?.call();
   }
@@ -2514,6 +2588,7 @@ class _$_AgentDeployed implements _AgentDeployed {
     TResult Function(Agent agent)? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
     required TResult orElse(),
   }) {
     if (agentDeployed != null) {
@@ -2542,6 +2617,7 @@ class _$_AgentDeployed implements _AgentDeployed {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
   }) {
     return agentDeployed(this);
   }
@@ -2566,6 +2642,7 @@ class _$_AgentDeployed implements _AgentDeployed {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
   }) {
     return agentDeployed?.call(this);
   }
@@ -2590,6 +2667,7 @@ class _$_AgentDeployed implements _AgentDeployed {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
     required TResult orElse(),
   }) {
     if (agentDeployed != null) {
@@ -2690,6 +2768,7 @@ class _$_AgentInserted implements _AgentInserted {
     required TResult Function(Agent agent) taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
   }) {
     return agentInserted(tasks);
   }
@@ -2714,6 +2793,7 @@ class _$_AgentInserted implements _AgentInserted {
     TResult? Function(Agent agent)? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
   }) {
     return agentInserted?.call(tasks);
   }
@@ -2738,6 +2818,7 @@ class _$_AgentInserted implements _AgentInserted {
     TResult Function(Agent agent)? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
     required TResult orElse(),
   }) {
     if (agentInserted != null) {
@@ -2766,6 +2847,7 @@ class _$_AgentInserted implements _AgentInserted {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
   }) {
     return agentInserted(this);
   }
@@ -2790,6 +2872,7 @@ class _$_AgentInserted implements _AgentInserted {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
   }) {
     return agentInserted?.call(this);
   }
@@ -2814,6 +2897,7 @@ class _$_AgentInserted implements _AgentInserted {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
     required TResult orElse(),
   }) {
     if (agentInserted != null) {
@@ -2919,6 +3003,7 @@ class _$_TasksCreated implements _TasksCreated {
     required TResult Function(Agent agent) taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
   }) {
     return tasksCreated(tasks);
   }
@@ -2943,6 +3028,7 @@ class _$_TasksCreated implements _TasksCreated {
     TResult? Function(Agent agent)? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
   }) {
     return tasksCreated?.call(tasks);
   }
@@ -2967,6 +3053,7 @@ class _$_TasksCreated implements _TasksCreated {
     TResult Function(Agent agent)? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
     required TResult orElse(),
   }) {
     if (tasksCreated != null) {
@@ -2995,6 +3082,7 @@ class _$_TasksCreated implements _TasksCreated {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
   }) {
     return tasksCreated(this);
   }
@@ -3019,6 +3107,7 @@ class _$_TasksCreated implements _TasksCreated {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
   }) {
     return tasksCreated?.call(this);
   }
@@ -3043,6 +3132,7 @@ class _$_TasksCreated implements _TasksCreated {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
     required TResult orElse(),
   }) {
     if (tasksCreated != null) {
@@ -3152,6 +3242,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     required TResult Function(Agent agent) taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
   }) {
     return taskExecuted(agent);
   }
@@ -3176,6 +3267,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult? Function(Agent agent)? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
   }) {
     return taskExecuted?.call(agent);
   }
@@ -3200,6 +3292,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult Function(Agent agent)? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
     required TResult orElse(),
   }) {
     if (taskExecuted != null) {
@@ -3228,6 +3321,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
   }) {
     return taskExecuted(this);
   }
@@ -3252,6 +3346,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
   }) {
     return taskExecuted?.call(this);
   }
@@ -3276,6 +3371,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
     required TResult orElse(),
   }) {
     if (taskExecuted != null) {
@@ -3349,6 +3445,7 @@ class _$_MaxTasksReached implements _MaxTasksReached {
     required TResult Function(Agent agent) taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
   }) {
     return maxTasksReached();
   }
@@ -3373,6 +3470,7 @@ class _$_MaxTasksReached implements _MaxTasksReached {
     TResult? Function(Agent agent)? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
   }) {
     return maxTasksReached?.call();
   }
@@ -3397,6 +3495,7 @@ class _$_MaxTasksReached implements _MaxTasksReached {
     TResult Function(Agent agent)? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
     required TResult orElse(),
   }) {
     if (maxTasksReached != null) {
@@ -3425,6 +3524,7 @@ class _$_MaxTasksReached implements _MaxTasksReached {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
   }) {
     return maxTasksReached(this);
   }
@@ -3449,6 +3549,7 @@ class _$_MaxTasksReached implements _MaxTasksReached {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
   }) {
     return maxTasksReached?.call(this);
   }
@@ -3473,6 +3574,7 @@ class _$_MaxTasksReached implements _MaxTasksReached {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
     required TResult orElse(),
   }) {
     if (maxTasksReached != null) {
@@ -3541,6 +3643,7 @@ class _$_NoTasksAdded implements _NoTasksAdded {
     required TResult Function(Agent agent) taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
   }) {
     return noTasksAdded();
   }
@@ -3565,6 +3668,7 @@ class _$_NoTasksAdded implements _NoTasksAdded {
     TResult? Function(Agent agent)? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
   }) {
     return noTasksAdded?.call();
   }
@@ -3589,6 +3693,7 @@ class _$_NoTasksAdded implements _NoTasksAdded {
     TResult Function(Agent agent)? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
     required TResult orElse(),
   }) {
     if (noTasksAdded != null) {
@@ -3617,6 +3722,7 @@ class _$_NoTasksAdded implements _NoTasksAdded {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
   }) {
     return noTasksAdded(this);
   }
@@ -3641,6 +3747,7 @@ class _$_NoTasksAdded implements _NoTasksAdded {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
   }) {
     return noTasksAdded?.call(this);
   }
@@ -3665,6 +3772,7 @@ class _$_NoTasksAdded implements _NoTasksAdded {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
     required TResult orElse(),
   }) {
     if (noTasksAdded != null) {
@@ -3676,6 +3784,245 @@ class _$_NoTasksAdded implements _NoTasksAdded {
 
 abstract class _NoTasksAdded implements HomeEvent {
   const factory _NoTasksAdded() = _$_NoTasksAdded;
+}
+
+/// @nodoc
+abstract class _$$AgentPressedCopyWith<$Res> {
+  factory _$$AgentPressedCopyWith(
+          _$AgentPressed value, $Res Function(_$AgentPressed) then) =
+      __$$AgentPressedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Agent agent});
+
+  $AgentCopyWith<$Res> get agent;
+}
+
+/// @nodoc
+class __$$AgentPressedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$AgentPressed>
+    implements _$$AgentPressedCopyWith<$Res> {
+  __$$AgentPressedCopyWithImpl(
+      _$AgentPressed _value, $Res Function(_$AgentPressed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? agent = null,
+  }) {
+    return _then(_$AgentPressed(
+      null == agent
+          ? _value.agent
+          : agent // ignore: cast_nullable_to_non_nullable
+              as Agent,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $AgentCopyWith<$Res> get agent {
+    return $AgentCopyWith<$Res>(_value.agent, (value) {
+      return _then(_value.copyWith(agent: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$AgentPressed implements AgentPressed {
+  const _$AgentPressed(this.agent);
+
+  @override
+  final Agent agent;
+
+  @override
+  String toString() {
+    return 'HomeEvent.agentPressed(agent: $agent)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AgentPressed &&
+            (identical(other.agent, agent) || other.agent == agent));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, agent);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AgentPressedCopyWith<_$AgentPressed> get copyWith =>
+      __$$AgentPressedCopyWithImpl<_$AgentPressed>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() appLaunched,
+    required TResult Function() newAgentPressed,
+    required TResult Function(Agent agent) deleteAgentPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
+    required TResult Function() apiKeyUpdated,
+    required TResult Function() clientInitialized,
+    required TResult Function(String nameStr) nameChanged,
+    required TResult Function(String goalStr) goalChanged,
+    required TResult Function() deployPressed,
+    required TResult Function() agentDeployed,
+    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function(List<Task> tasks) tasksCreated,
+    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() maxTasksReached,
+    required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
+  }) {
+    return agentPressed(agent);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? appLaunched,
+    TResult? Function()? newAgentPressed,
+    TResult? Function(Agent agent)? deleteAgentPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
+    TResult? Function()? apiKeyUpdated,
+    TResult? Function()? clientInitialized,
+    TResult? Function(String nameStr)? nameChanged,
+    TResult? Function(String goalStr)? goalChanged,
+    TResult? Function()? deployPressed,
+    TResult? Function()? agentDeployed,
+    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function(List<Task> tasks)? tasksCreated,
+    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? maxTasksReached,
+    TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
+  }) {
+    return agentPressed?.call(agent);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? appLaunched,
+    TResult Function()? newAgentPressed,
+    TResult Function(Agent agent)? deleteAgentPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
+    TResult Function()? apiKeyUpdated,
+    TResult Function()? clientInitialized,
+    TResult Function(String nameStr)? nameChanged,
+    TResult Function(String goalStr)? goalChanged,
+    TResult Function()? deployPressed,
+    TResult Function()? agentDeployed,
+    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function(List<Task> tasks)? tasksCreated,
+    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? maxTasksReached,
+    TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
+    required TResult orElse(),
+  }) {
+    if (agentPressed != null) {
+      return agentPressed(agent);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(NewAgentPressed value) newAgentPressed,
+    required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
+    required TResult Function(SettingsNotFound value) settingsNotFound,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
+    required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
+    required TResult Function(_ClientInitialized value) clientInitialized,
+    required TResult Function(NameChanged value) nameChanged,
+    required TResult Function(GoalChanged value) goalChanged,
+    required TResult Function(DeployPressed value) deployPressed,
+    required TResult Function(_AgentDeployed value) agentDeployed,
+    required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_MaxTasksReached value) maxTasksReached,
+    required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
+  }) {
+    return agentPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(NewAgentPressed value)? newAgentPressed,
+    TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult? Function(SettingsNotFound value)? settingsNotFound,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult? Function(_ClientInitialized value)? clientInitialized,
+    TResult? Function(NameChanged value)? nameChanged,
+    TResult? Function(GoalChanged value)? goalChanged,
+    TResult? Function(DeployPressed value)? deployPressed,
+    TResult? Function(_AgentDeployed value)? agentDeployed,
+    TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_MaxTasksReached value)? maxTasksReached,
+    TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
+  }) {
+    return agentPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(NewAgentPressed value)? newAgentPressed,
+    TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult Function(SettingsNotFound value)? settingsNotFound,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult Function(_ClientInitialized value)? clientInitialized,
+    TResult Function(NameChanged value)? nameChanged,
+    TResult Function(GoalChanged value)? goalChanged,
+    TResult Function(DeployPressed value)? deployPressed,
+    TResult Function(_AgentDeployed value)? agentDeployed,
+    TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_MaxTasksReached value)? maxTasksReached,
+    TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
+    required TResult orElse(),
+  }) {
+    if (agentPressed != null) {
+      return agentPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class AgentPressed implements HomeEvent {
+  const factory AgentPressed(final Agent agent) = _$AgentPressed;
+
+  Agent get agent;
+  @JsonKey(ignore: true)
+  _$$AgentPressedCopyWith<_$AgentPressed> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc

@@ -1,56 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:lumina_gpt/domain/agents/task.dart';
+import 'package:lumina_gpt/presentation/home/widgets/task_bubble_field.dart';
 
 /// @nodoc
 class TaskBubble extends StatelessWidget {
   /// @nodoc
   const TaskBubble({
-    required this.task,
+    this.task,
     super.key,
   });
 
   /// @nodoc
-  final Task task;
+  final Task? task;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Text(
-          'Task added: ${task.name.getOrCrash()}',
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
+    if (task == null) {
+      return Container();
+    }
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          TaskBubbleField(
+            icon: Icons.task_alt_rounded,
+            text: task!.name.getOrCrash(),
+            title: 'Task added:',
           ),
-        ),
-        Text(
-          'Reasoning: ${task.description.getOrCrash()}',
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
+          TaskBubbleField(
+            icon: Icons.lightbulb_outline_rounded,
+            text: task!.description.getOrCrash(),
+            title: 'Reasoning:',
           ),
-        ),
-        Text(
-          'Goal: ${task.goal.getOrCrash()}',
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.w600,
+          TaskBubbleField(
+            icon: Icons.star_outline_rounded,
+            text: task!.goal.getOrCrash(),
+            title: 'Goal:',
+            iconColor: Colors.yellow,
           ),
-        ),
-        if (task.result != null)
-          Text(
-            'Result: ${task.result?.getOrCrash()}',
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
+          if (task!.result != null)
+            TaskBubbleField(
+              icon: Icons.assignment_turned_in_outlined,
+              text: task!.result?.getOrCrash() ?? '',
+              title: 'Result:',
             ),
-          ),
-      ],
+        ],
+      ),
     );
   }
 }
