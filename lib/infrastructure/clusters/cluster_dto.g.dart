@@ -15,6 +15,7 @@ _$_ClusterDTO _$$_ClusterDTOFromJson(Map<String, dynamic> json) =>
           .toList(),
       knowledge: json['knowledge'] as String?,
       id: json['id'] as int?,
+      uid: json['uid'] as String?,
     );
 
 Map<String, dynamic> _$$_ClusterDTOToJson(_$_ClusterDTO instance) =>
@@ -24,4 +25,5 @@ Map<String, dynamic> _$$_ClusterDTOToJson(_$_ClusterDTO instance) =>
       'tasks': instance.tasks,
       'knowledge': instance.knowledge,
       'id': instance.id,
+      'uid': instance.uid,
     };

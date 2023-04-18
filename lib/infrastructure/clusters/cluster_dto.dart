@@ -17,6 +17,7 @@ class ClusterDTO with _$ClusterDTO {
     required List<TaskDTO> tasks,
     String? knowledge,
     int? id,
+    String? uid,
   }) = _ClusterDTO;
 
   /// @nodoc
@@ -24,9 +25,10 @@ class ClusterDTO with _$ClusterDTO {
     return ClusterDTO(
       name: cluster.name.getOrCrash(),
       goal: cluster.goal.getOrCrash(),
-      knowledge: cluster.knowledge?.getOrCrash(),
       tasks: cluster.tasks.map(TaskDTO.fromDomain).toList(),
+      knowledge: cluster.knowledge?.getOrCrash(),
       id: cluster.id,
+      uid: cluster.uid,
     );
   }
 
@@ -35,9 +37,10 @@ class ClusterDTO with _$ClusterDTO {
     return ClusterDTO(
       name: cluster.name,
       goal: cluster.goal,
-      knowledge: cluster.knowledge,
       tasks: cluster.tasks.map(TaskDTO.fromAdapter).toList(),
+      knowledge: cluster.knowledge,
       id: cluster.id,
+      uid: cluster.uid,
     );
   }
 
@@ -52,9 +55,10 @@ extension ClusterDTOX on ClusterDTO {
   Cluster toDomain() => Cluster(
         name: Label(name),
         goal: Label(goal),
-        knowledge: knowledge != null ? Label(knowledge!) : null,
         tasks: tasks.map((task) => task.toDomain()).toList(),
+        knowledge: knowledge != null ? Label(knowledge!) : null,
         id: id,
+        uid: uid,
       );
 
   /// @nodoc
@@ -63,6 +67,7 @@ extension ClusterDTOX on ClusterDTO {
         goal: goal,
         knowledge: knowledge,
         id: id,
+        uid: uid,
       )..tasks.addAll(
           tasks.map((task) => task.toAdapter()).toList(),
         );

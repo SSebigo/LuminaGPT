@@ -25,6 +25,7 @@ mixin _$ClusterDTO {
   List<TaskDTO> get tasks => throw _privateConstructorUsedError;
   String? get knowledge => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
+  String? get uid => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +44,8 @@ abstract class $ClusterDTOCopyWith<$Res> {
       String goal,
       List<TaskDTO> tasks,
       String? knowledge,
-      int? id});
+      int? id,
+      String? uid});
 }
 
 /// @nodoc
@@ -64,6 +66,7 @@ class _$ClusterDTOCopyWithImpl<$Res, $Val extends ClusterDTO>
     Object? tasks = null,
     Object? knowledge = freezed,
     Object? id = freezed,
+    Object? uid = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -86,6 +89,10 @@ class _$ClusterDTOCopyWithImpl<$Res, $Val extends ClusterDTO>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
+      uid: freezed == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -103,7 +110,8 @@ abstract class _$$_ClusterDTOCopyWith<$Res>
       String goal,
       List<TaskDTO> tasks,
       String? knowledge,
-      int? id});
+      int? id,
+      String? uid});
 }
 
 /// @nodoc
@@ -122,6 +130,7 @@ class __$$_ClusterDTOCopyWithImpl<$Res>
     Object? tasks = null,
     Object? knowledge = freezed,
     Object? id = freezed,
+    Object? uid = freezed,
   }) {
     return _then(_$_ClusterDTO(
       name: null == name
@@ -144,6 +153,10 @@ class __$$_ClusterDTOCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
+      uid: freezed == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -156,7 +169,8 @@ class _$_ClusterDTO implements _ClusterDTO {
       required this.goal,
       required final List<TaskDTO> tasks,
       this.knowledge,
-      this.id})
+      this.id,
+      this.uid})
       : _tasks = tasks;
 
   factory _$_ClusterDTO.fromJson(Map<String, dynamic> json) =>
@@ -178,10 +192,12 @@ class _$_ClusterDTO implements _ClusterDTO {
   final String? knowledge;
   @override
   final int? id;
+  @override
+  final String? uid;
 
   @override
   String toString() {
-    return 'ClusterDTO(name: $name, goal: $goal, tasks: $tasks, knowledge: $knowledge, id: $id)';
+    return 'ClusterDTO(name: $name, goal: $goal, tasks: $tasks, knowledge: $knowledge, id: $id, uid: $uid)';
   }
 
   @override
@@ -194,13 +210,14 @@ class _$_ClusterDTO implements _ClusterDTO {
             const DeepCollectionEquality().equals(other._tasks, _tasks) &&
             (identical(other.knowledge, knowledge) ||
                 other.knowledge == knowledge) &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.uid, uid) || other.uid == uid));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, name, goal,
-      const DeepCollectionEquality().hash(_tasks), knowledge, id);
+      const DeepCollectionEquality().hash(_tasks), knowledge, id, uid);
 
   @JsonKey(ignore: true)
   @override
@@ -222,7 +239,8 @@ abstract class _ClusterDTO implements ClusterDTO {
       required final String goal,
       required final List<TaskDTO> tasks,
       final String? knowledge,
-      final int? id}) = _$_ClusterDTO;
+      final int? id,
+      final String? uid}) = _$_ClusterDTO;
 
   factory _ClusterDTO.fromJson(Map<String, dynamic> json) =
       _$_ClusterDTO.fromJson;
@@ -237,6 +255,8 @@ abstract class _ClusterDTO implements ClusterDTO {
   String? get knowledge;
   @override
   int? get id;
+  @override
+  String? get uid;
   @override
   @JsonKey(ignore: true)
   _$$_ClusterDTOCopyWith<_$_ClusterDTO> get copyWith =>

@@ -48,13 +48,16 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.agentDeployed() = _AgentDeployed;
 
   /// @nodoc
-  const factory HomeEvent.agentInserted(List<Task> tasks) = _AgentInserted;
+  const factory HomeEvent.agentInserted() = _AgentInserted;
+
+  /// @nodoc
+  const factory HomeEvent.tasksPrioritized() = _TasksPrioritized;
 
   /// @nodoc
   const factory HomeEvent.tasksCreated(List<Task> tasks) = _TasksCreated;
 
   /// @nodoc
-  const factory HomeEvent.taskExecuted(Agent agent) = _TaskExecuted;
+  const factory HomeEvent.taskExecuted() = _TaskExecuted;
 
   /// @nodoc
   const factory HomeEvent.maxTasksReached() = _MaxTasksReached;

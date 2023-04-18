@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:lumina_gpt/domain/clusters/task.dart';
 import 'package:lumina_gpt/domain/core/label.dart';
+import 'package:uuid/uuid.dart';
 
 part 'cluster.freezed.dart';
 
@@ -14,6 +15,7 @@ class Cluster with _$Cluster {
     required List<Task> tasks,
     Label? knowledge,
     int? id,
+    String? uid,
   }) = _Cluster;
 
   /// @nodoc
@@ -21,5 +23,6 @@ class Cluster with _$Cluster {
         name: Label(''),
         goal: Label(''),
         tasks: [],
+        uid: const Uuid().v4(),
       );
 }

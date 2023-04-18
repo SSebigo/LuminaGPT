@@ -12,6 +12,7 @@ class IsarCluster extends Equatable {
     required this.name,
     required this.goal,
     this.knowledge,
+    this.uid,
     this.id = Isar.autoIncrement,
   });
 
@@ -28,6 +29,9 @@ class IsarCluster extends Equatable {
   final String? knowledge;
 
   /// @nodoc
+  final String? uid;
+
+  /// @nodoc
   final tasks = IsarLinks<IsarTask>();
 
   /// @nodoc
@@ -36,18 +40,20 @@ class IsarCluster extends Equatable {
     String? name,
     String? goal,
     String? knowledge,
+    String? uid,
   }) {
     return IsarCluster(
       id: id ?? this.id,
       name: name ?? this.name,
       goal: goal ?? this.goal,
       knowledge: knowledge ?? this.knowledge,
+      uid: uid ?? this.uid,
     );
   }
 
   @override
   @ignore
-  List<Object?> get props => [id];
+  List<Object?> get props => [id, uid];
 
   @override
   bool get stringify => true;

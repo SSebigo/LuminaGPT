@@ -192,7 +192,7 @@ class AgentsRepository implements IAgentsRepository {
           .toList();
       final tasksJson = jsonEncode(tasksFormatted);
       final prompt =
-          'Instruction: You are an autonomous task priorization AI for worldbuilding called Lumina Task Manager. Given the following goal: "${cluster.goal.getOrCrash()}", you have to sort tasks by their importance to help you achieve the goal.\n\nTasks: $tasksJson. Return a list of ids.\n\n\nContext: ${cluster.knowledge?.getOrCrash()}';
+          'Instruction: You are an autonomous task priorization AI for worldbuilding called Lumina Task Manager. Given the following goal: "${cluster.goal.getOrCrash()}", you have to sort tasks by their importance to help you achieve the goal.\n\nTasks: $tasksJson. Return a JSON formatted list of IDs sorted by their task priority.\n\n\nContext: ${cluster.knowledge?.getOrCrash()}';
 
       debugPrint('prioritizeTasks() - prompt: $prompt');
 
@@ -212,8 +212,30 @@ class AgentsRepository implements IAgentsRepository {
 
       debugPrint('prioritizeTasks() - content: $content');
 
-      return Ok([]);
+      final jsonContent = _extractJsonParts(content);
+
+      debugPrint('prioritizeTasks() - jsonContent: $jsonContent');
+
+      final newTasksList = <Task>[];
+      for (final task in tasks) {
+        final index = jsonContent.indexOf({'id': '${task.id}'});
+
+        newTasksList.add(task.copyWith(priority: index));
+      }
+
+      return Ok(newTasksList);
     } catch (e) {
+      return const Err(AgentsFailure.unexpected());
+    }
+  }
+
+  @override
+  Future<Result<Task, AgentsFailure>> executeTask(
+    Agent agent,
+    Cluster cluster,
+    Task task,
+  ) async {
+    try {} catch (e) {
       return const Err(AgentsFailure.unexpected());
     }
   }
@@ -345,44 +367,6 @@ class AgentsRepository implements IAgentsRepository {
       // }
     } catch (e) {
       yield const Err(AgentsFailure.unexpected());
-    }
-  }
-
-  Future<Result<List<IsarCluster>, AgentsFailure>> _insertClusters(
-    Agent agent,
-  ) async {
-    try {
-      // extract clusters as a list of IsarCluster using ClusterDTO
-      final isarClusters = agent.clusters
-          .map((cluster) => ClusterDTO.fromDomain(cluster).toAdapter())
-          .toList();
-
-      await _isar.writeTxn(() async {
-        await _isar.clusters.putAll(isarClusters);
-      });
-
-      return Ok(isarClusters);
-    } catch (e) {
-      return const Err(AgentsFailure.unexpected());
-    }
-  }
-
-  Future<Result<List<IsarTask>, AgentsFailure>> _insertTasks(
-    Cluster cluster,
-  ) async {
-    try {
-      // extract tasks from cluster as a list of IsarTask using TaskDTO
-      final tasks = cluster.tasks
-          .map((task) => TaskDTO.fromDomain(task).toAdapter())
-          .toList();
-
-      await _isar.writeTxn(() async {
-        await _isar.tasks.putAll(tasks);
-      });
-
-      return Ok(tasks);
-    } catch (e) {
-      return const Err(AgentsFailure.unexpected());
     }
   }
 

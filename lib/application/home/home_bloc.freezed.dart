@@ -32,9 +32,10 @@ mixin _$HomeEvent {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -58,9 +59,10 @@ mixin _$HomeEvent {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -84,9 +86,10 @@ mixin _$HomeEvent {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -112,6 +115,7 @@ mixin _$HomeEvent {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -138,6 +142,7 @@ mixin _$HomeEvent {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -164,6 +169,7 @@ mixin _$HomeEvent {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -245,9 +251,10 @@ class _$AppLaunched implements AppLaunched {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -274,9 +281,10 @@ class _$AppLaunched implements AppLaunched {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -303,9 +311,10 @@ class _$AppLaunched implements AppLaunched {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -337,6 +346,7 @@ class _$AppLaunched implements AppLaunched {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -366,6 +376,7 @@ class _$AppLaunched implements AppLaunched {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -395,6 +406,7 @@ class _$AppLaunched implements AppLaunched {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -467,9 +479,10 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -496,9 +509,10 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -525,9 +539,10 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -559,6 +574,7 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -588,6 +604,7 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -617,6 +634,7 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -689,9 +707,10 @@ class _$NewClusterPressed implements NewClusterPressed {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -718,9 +737,10 @@ class _$NewClusterPressed implements NewClusterPressed {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -747,9 +767,10 @@ class _$NewClusterPressed implements NewClusterPressed {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -781,6 +802,7 @@ class _$NewClusterPressed implements NewClusterPressed {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -810,6 +832,7 @@ class _$NewClusterPressed implements NewClusterPressed {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -839,6 +862,7 @@ class _$NewClusterPressed implements NewClusterPressed {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -948,9 +972,10 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -977,9 +1002,10 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -1006,9 +1032,10 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -1040,6 +1067,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -1069,6 +1097,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -1098,6 +1127,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -1175,9 +1205,10 @@ class _$SettingsNotFound implements SettingsNotFound {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -1204,9 +1235,10 @@ class _$SettingsNotFound implements SettingsNotFound {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -1233,9 +1265,10 @@ class _$SettingsNotFound implements SettingsNotFound {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -1267,6 +1300,7 @@ class _$SettingsNotFound implements SettingsNotFound {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -1296,6 +1330,7 @@ class _$SettingsNotFound implements SettingsNotFound {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -1325,6 +1360,7 @@ class _$SettingsNotFound implements SettingsNotFound {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -1424,9 +1460,10 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -1453,9 +1490,10 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -1482,9 +1520,10 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -1516,6 +1555,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -1545,6 +1585,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -1574,6 +1615,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -1651,9 +1693,10 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -1680,9 +1723,10 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -1709,9 +1753,10 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -1743,6 +1788,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -1772,6 +1818,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -1801,6 +1848,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -1873,9 +1921,10 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -1902,9 +1951,10 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -1931,9 +1981,10 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -1965,6 +2016,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -1994,6 +2046,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -2023,6 +2076,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -2095,9 +2149,10 @@ class _$_ClientInitialized implements _ClientInitialized {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -2124,9 +2179,10 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -2153,9 +2209,10 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -2187,6 +2244,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -2216,6 +2274,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -2245,6 +2304,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -2343,9 +2403,10 @@ class _$AgentNameChanged implements AgentNameChanged {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -2372,9 +2433,10 @@ class _$AgentNameChanged implements AgentNameChanged {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -2401,9 +2463,10 @@ class _$AgentNameChanged implements AgentNameChanged {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -2435,6 +2498,7 @@ class _$AgentNameChanged implements AgentNameChanged {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -2464,6 +2528,7 @@ class _$AgentNameChanged implements AgentNameChanged {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -2493,6 +2558,7 @@ class _$AgentNameChanged implements AgentNameChanged {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -2597,9 +2663,10 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -2626,9 +2693,10 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -2655,9 +2723,10 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -2689,6 +2758,7 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -2718,6 +2788,7 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -2747,6 +2818,7 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -2851,9 +2923,10 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -2880,9 +2953,10 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -2909,9 +2983,10 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -2943,6 +3018,7 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -2972,6 +3048,7 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -3001,6 +3078,7 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -3078,9 +3156,10 @@ class _$DeployPressed implements DeployPressed {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -3107,9 +3186,10 @@ class _$DeployPressed implements DeployPressed {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -3136,9 +3216,10 @@ class _$DeployPressed implements DeployPressed {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -3170,6 +3251,7 @@ class _$DeployPressed implements DeployPressed {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -3199,6 +3281,7 @@ class _$DeployPressed implements DeployPressed {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -3228,6 +3311,7 @@ class _$DeployPressed implements DeployPressed {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -3300,9 +3384,10 @@ class _$_AgentDeployed implements _AgentDeployed {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -3329,9 +3414,10 @@ class _$_AgentDeployed implements _AgentDeployed {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -3358,9 +3444,10 @@ class _$_AgentDeployed implements _AgentDeployed {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -3392,6 +3479,7 @@ class _$_AgentDeployed implements _AgentDeployed {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -3421,6 +3509,7 @@ class _$_AgentDeployed implements _AgentDeployed {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -3450,6 +3539,7 @@ class _$_AgentDeployed implements _AgentDeployed {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -3475,8 +3565,6 @@ abstract class _$$_AgentInsertedCopyWith<$Res> {
   factory _$$_AgentInsertedCopyWith(
           _$_AgentInserted value, $Res Function(_$_AgentInserted) then) =
       __$$_AgentInsertedCopyWithImpl<$Res>;
-  @useResult
-  $Res call({List<Task> tasks});
 }
 
 /// @nodoc
@@ -3486,56 +3574,26 @@ class __$$_AgentInsertedCopyWithImpl<$Res>
   __$$_AgentInsertedCopyWithImpl(
       _$_AgentInserted _value, $Res Function(_$_AgentInserted) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? tasks = null,
-  }) {
-    return _then(_$_AgentInserted(
-      null == tasks
-          ? _value._tasks
-          : tasks // ignore: cast_nullable_to_non_nullable
-              as List<Task>,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$_AgentInserted implements _AgentInserted {
-  const _$_AgentInserted(final List<Task> tasks) : _tasks = tasks;
-
-  final List<Task> _tasks;
-  @override
-  List<Task> get tasks {
-    if (_tasks is EqualUnmodifiableListView) return _tasks;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_tasks);
-  }
+  const _$_AgentInserted();
 
   @override
   String toString() {
-    return 'HomeEvent.agentInserted(tasks: $tasks)';
+    return 'HomeEvent.agentInserted()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_AgentInserted &&
-            const DeepCollectionEquality().equals(other._tasks, _tasks));
+        (other.runtimeType == runtimeType && other is _$_AgentInserted);
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_tasks));
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_AgentInsertedCopyWith<_$_AgentInserted> get copyWith =>
-      __$$_AgentInsertedCopyWithImpl<_$_AgentInserted>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -3554,16 +3612,17 @@ class _$_AgentInserted implements _AgentInserted {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
     required TResult Function(Cluster cluster) clusterPressed,
     required TResult Function(View view) viewPressed,
   }) {
-    return agentInserted(tasks);
+    return agentInserted();
   }
 
   @override
@@ -3583,16 +3642,17 @@ class _$_AgentInserted implements _AgentInserted {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
     TResult? Function(Cluster cluster)? clusterPressed,
     TResult? Function(View view)? viewPressed,
   }) {
-    return agentInserted?.call(tasks);
+    return agentInserted?.call();
   }
 
   @override
@@ -3612,9 +3672,10 @@ class _$_AgentInserted implements _AgentInserted {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -3623,7 +3684,7 @@ class _$_AgentInserted implements _AgentInserted {
     required TResult orElse(),
   }) {
     if (agentInserted != null) {
-      return agentInserted(tasks);
+      return agentInserted();
     }
     return orElse();
   }
@@ -3646,6 +3707,7 @@ class _$_AgentInserted implements _AgentInserted {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -3675,6 +3737,7 @@ class _$_AgentInserted implements _AgentInserted {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -3704,6 +3767,7 @@ class _$_AgentInserted implements _AgentInserted {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -3721,12 +3785,235 @@ class _$_AgentInserted implements _AgentInserted {
 }
 
 abstract class _AgentInserted implements HomeEvent {
-  const factory _AgentInserted(final List<Task> tasks) = _$_AgentInserted;
+  const factory _AgentInserted() = _$_AgentInserted;
+}
 
-  List<Task> get tasks;
-  @JsonKey(ignore: true)
-  _$$_AgentInsertedCopyWith<_$_AgentInserted> get copyWith =>
-      throw _privateConstructorUsedError;
+/// @nodoc
+abstract class _$$_TasksPrioritizedCopyWith<$Res> {
+  factory _$$_TasksPrioritizedCopyWith(
+          _$_TasksPrioritized value, $Res Function(_$_TasksPrioritized) then) =
+      __$$_TasksPrioritizedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_TasksPrioritizedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$_TasksPrioritized>
+    implements _$$_TasksPrioritizedCopyWith<$Res> {
+  __$$_TasksPrioritizedCopyWithImpl(
+      _$_TasksPrioritized _value, $Res Function(_$_TasksPrioritized) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_TasksPrioritized implements _TasksPrioritized {
+  const _$_TasksPrioritized();
+
+  @override
+  String toString() {
+    return 'HomeEvent.tasksPrioritized()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_TasksPrioritized);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() appLaunched,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
+    required TResult Function(Agent agent) deleteAgentPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
+    required TResult Function() apiKeyUpdated,
+    required TResult Function() clientInitialized,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
+    required TResult Function() deployPressed,
+    required TResult Function() agentDeployed,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
+    required TResult Function(List<Task> tasks) tasksCreated,
+    required TResult Function() taskExecuted,
+    required TResult Function() maxTasksReached,
+    required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
+  }) {
+    return tasksPrioritized();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? appLaunched,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
+    TResult? Function(Agent agent)? deleteAgentPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
+    TResult? Function()? apiKeyUpdated,
+    TResult? Function()? clientInitialized,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
+    TResult? Function()? deployPressed,
+    TResult? Function()? agentDeployed,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function(List<Task> tasks)? tasksCreated,
+    TResult? Function()? taskExecuted,
+    TResult? Function()? maxTasksReached,
+    TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
+  }) {
+    return tasksPrioritized?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? appLaunched,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
+    TResult Function(Agent agent)? deleteAgentPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
+    TResult Function()? apiKeyUpdated,
+    TResult Function()? clientInitialized,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
+    TResult Function()? deployPressed,
+    TResult Function()? agentDeployed,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
+    TResult Function(List<Task> tasks)? tasksCreated,
+    TResult Function()? taskExecuted,
+    TResult Function()? maxTasksReached,
+    TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
+    required TResult orElse(),
+  }) {
+    if (tasksPrioritized != null) {
+      return tasksPrioritized();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
+    required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
+    required TResult Function(SettingsNotFound value) settingsNotFound,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
+    required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
+    required TResult Function(_ClientInitialized value) clientInitialized,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
+    required TResult Function(DeployPressed value) deployPressed,
+    required TResult Function(_AgentDeployed value) agentDeployed,
+    required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_MaxTasksReached value) maxTasksReached,
+    required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
+  }) {
+    return tasksPrioritized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
+    TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult? Function(SettingsNotFound value)? settingsNotFound,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult? Function(_ClientInitialized value)? clientInitialized,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult? Function(DeployPressed value)? deployPressed,
+    TResult? Function(_AgentDeployed value)? agentDeployed,
+    TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_MaxTasksReached value)? maxTasksReached,
+    TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
+  }) {
+    return tasksPrioritized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
+    TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult Function(SettingsNotFound value)? settingsNotFound,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult Function(_ClientInitialized value)? clientInitialized,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult Function(DeployPressed value)? deployPressed,
+    TResult Function(_AgentDeployed value)? agentDeployed,
+    TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_MaxTasksReached value)? maxTasksReached,
+    TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
+    required TResult orElse(),
+  }) {
+    if (tasksPrioritized != null) {
+      return tasksPrioritized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TasksPrioritized implements HomeEvent {
+  const factory _TasksPrioritized() = _$_TasksPrioritized;
 }
 
 /// @nodoc
@@ -3813,9 +4100,10 @@ class _$_TasksCreated implements _TasksCreated {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -3842,9 +4130,10 @@ class _$_TasksCreated implements _TasksCreated {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -3871,9 +4160,10 @@ class _$_TasksCreated implements _TasksCreated {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -3905,6 +4195,7 @@ class _$_TasksCreated implements _TasksCreated {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -3934,6 +4225,7 @@ class _$_TasksCreated implements _TasksCreated {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -3963,6 +4255,7 @@ class _$_TasksCreated implements _TasksCreated {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -3993,10 +4286,6 @@ abstract class _$$_TaskExecutedCopyWith<$Res> {
   factory _$$_TaskExecutedCopyWith(
           _$_TaskExecuted value, $Res Function(_$_TaskExecuted) then) =
       __$$_TaskExecutedCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Agent agent});
-
-  $AgentCopyWith<$Res> get agent;
 }
 
 /// @nodoc
@@ -4006,58 +4295,26 @@ class __$$_TaskExecutedCopyWithImpl<$Res>
   __$$_TaskExecutedCopyWithImpl(
       _$_TaskExecuted _value, $Res Function(_$_TaskExecuted) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? agent = null,
-  }) {
-    return _then(_$_TaskExecuted(
-      null == agent
-          ? _value.agent
-          : agent // ignore: cast_nullable_to_non_nullable
-              as Agent,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $AgentCopyWith<$Res> get agent {
-    return $AgentCopyWith<$Res>(_value.agent, (value) {
-      return _then(_value.copyWith(agent: value));
-    });
-  }
 }
 
 /// @nodoc
 
 class _$_TaskExecuted implements _TaskExecuted {
-  const _$_TaskExecuted(this.agent);
-
-  @override
-  final Agent agent;
+  const _$_TaskExecuted();
 
   @override
   String toString() {
-    return 'HomeEvent.taskExecuted(agent: $agent)';
+    return 'HomeEvent.taskExecuted()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_TaskExecuted &&
-            (identical(other.agent, agent) || other.agent == agent));
+        (other.runtimeType == runtimeType && other is _$_TaskExecuted);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, agent);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$_TaskExecutedCopyWith<_$_TaskExecuted> get copyWith =>
-      __$$_TaskExecutedCopyWithImpl<_$_TaskExecuted>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
@@ -4076,16 +4333,17 @@ class _$_TaskExecuted implements _TaskExecuted {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
     required TResult Function(Cluster cluster) clusterPressed,
     required TResult Function(View view) viewPressed,
   }) {
-    return taskExecuted(agent);
+    return taskExecuted();
   }
 
   @override
@@ -4105,16 +4363,17 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
     TResult? Function(Cluster cluster)? clusterPressed,
     TResult? Function(View view)? viewPressed,
   }) {
-    return taskExecuted?.call(agent);
+    return taskExecuted?.call();
   }
 
   @override
@@ -4134,9 +4393,10 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -4145,7 +4405,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     required TResult orElse(),
   }) {
     if (taskExecuted != null) {
-      return taskExecuted(agent);
+      return taskExecuted();
     }
     return orElse();
   }
@@ -4168,6 +4428,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -4197,6 +4458,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -4226,6 +4488,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -4243,12 +4506,7 @@ class _$_TaskExecuted implements _TaskExecuted {
 }
 
 abstract class _TaskExecuted implements HomeEvent {
-  const factory _TaskExecuted(final Agent agent) = _$_TaskExecuted;
-
-  Agent get agent;
-  @JsonKey(ignore: true)
-  _$$_TaskExecutedCopyWith<_$_TaskExecuted> get copyWith =>
-      throw _privateConstructorUsedError;
+  const factory _TaskExecuted() = _$_TaskExecuted;
 }
 
 /// @nodoc
@@ -4303,9 +4561,10 @@ class _$_MaxTasksReached implements _MaxTasksReached {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -4332,9 +4591,10 @@ class _$_MaxTasksReached implements _MaxTasksReached {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -4361,9 +4621,10 @@ class _$_MaxTasksReached implements _MaxTasksReached {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -4395,6 +4656,7 @@ class _$_MaxTasksReached implements _MaxTasksReached {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -4424,6 +4686,7 @@ class _$_MaxTasksReached implements _MaxTasksReached {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -4453,6 +4716,7 @@ class _$_MaxTasksReached implements _MaxTasksReached {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -4525,9 +4789,10 @@ class _$_NoTasksAdded implements _NoTasksAdded {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -4554,9 +4819,10 @@ class _$_NoTasksAdded implements _NoTasksAdded {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -4583,9 +4849,10 @@ class _$_NoTasksAdded implements _NoTasksAdded {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -4617,6 +4884,7 @@ class _$_NoTasksAdded implements _NoTasksAdded {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -4646,6 +4914,7 @@ class _$_NoTasksAdded implements _NoTasksAdded {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -4675,6 +4944,7 @@ class _$_NoTasksAdded implements _NoTasksAdded {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -4783,9 +5053,10 @@ class _$AgentPressed implements AgentPressed {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -4812,9 +5083,10 @@ class _$AgentPressed implements AgentPressed {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -4841,9 +5113,10 @@ class _$AgentPressed implements AgentPressed {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -4875,6 +5148,7 @@ class _$AgentPressed implements AgentPressed {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -4904,6 +5178,7 @@ class _$AgentPressed implements AgentPressed {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -4933,6 +5208,7 @@ class _$AgentPressed implements AgentPressed {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -5046,9 +5322,10 @@ class _$ClusterPressed implements ClusterPressed {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -5075,9 +5352,10 @@ class _$ClusterPressed implements ClusterPressed {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -5104,9 +5382,10 @@ class _$ClusterPressed implements ClusterPressed {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -5138,6 +5417,7 @@ class _$ClusterPressed implements ClusterPressed {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -5167,6 +5447,7 @@ class _$ClusterPressed implements ClusterPressed {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -5196,6 +5477,7 @@ class _$ClusterPressed implements ClusterPressed {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,
@@ -5299,9 +5581,10 @@ class _$ViewPressed implements ViewPressed {
     required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
-    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function() agentInserted,
+    required TResult Function() tasksPrioritized,
     required TResult Function(List<Task> tasks) tasksCreated,
-    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() taskExecuted,
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
@@ -5328,9 +5611,10 @@ class _$ViewPressed implements ViewPressed {
     TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
-    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function()? agentInserted,
+    TResult? Function()? tasksPrioritized,
     TResult? Function(List<Task> tasks)? tasksCreated,
-    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? taskExecuted,
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
@@ -5357,9 +5641,10 @@ class _$ViewPressed implements ViewPressed {
     TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
-    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function()? agentInserted,
+    TResult Function()? tasksPrioritized,
     TResult Function(List<Task> tasks)? tasksCreated,
-    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? taskExecuted,
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
@@ -5391,6 +5676,7 @@ class _$ViewPressed implements ViewPressed {
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
     required TResult Function(_TasksCreated value) tasksCreated,
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_MaxTasksReached value) maxTasksReached,
@@ -5420,6 +5706,7 @@ class _$ViewPressed implements ViewPressed {
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
     TResult? Function(_TasksCreated value)? tasksCreated,
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
@@ -5449,6 +5736,7 @@ class _$ViewPressed implements ViewPressed {
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
     TResult Function(_TasksCreated value)? tasksCreated,
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_MaxTasksReached value)? maxTasksReached,

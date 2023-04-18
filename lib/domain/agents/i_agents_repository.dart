@@ -30,6 +30,13 @@ abstract class IAgentsRepository {
   );
 
   /// @nodoc
+  Future<Result<Task, AgentsFailure>> executeTask(
+    Agent agent,
+    Cluster cluster,
+    Task task,
+  );
+
+  /// @nodoc
   Stream<Result<Task, AgentsFailure>> executeTasks(
     Agent agent,
     List<Task> tasks,

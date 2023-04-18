@@ -21,6 +21,7 @@ mixin _$Cluster {
   List<Task> get tasks => throw _privateConstructorUsedError;
   Label? get knowledge => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
+  String? get uid => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ClusterCopyWith<Cluster> get copyWith => throw _privateConstructorUsedError;
@@ -32,7 +33,12 @@ abstract class $ClusterCopyWith<$Res> {
       _$ClusterCopyWithImpl<$Res, Cluster>;
   @useResult
   $Res call(
-      {Label name, Label goal, List<Task> tasks, Label? knowledge, int? id});
+      {Label name,
+      Label goal,
+      List<Task> tasks,
+      Label? knowledge,
+      int? id,
+      String? uid});
 }
 
 /// @nodoc
@@ -53,6 +59,7 @@ class _$ClusterCopyWithImpl<$Res, $Val extends Cluster>
     Object? tasks = null,
     Object? knowledge = freezed,
     Object? id = freezed,
+    Object? uid = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -75,6 +82,10 @@ class _$ClusterCopyWithImpl<$Res, $Val extends Cluster>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
+      uid: freezed == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -87,7 +98,12 @@ abstract class _$$_ClusterCopyWith<$Res> implements $ClusterCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {Label name, Label goal, List<Task> tasks, Label? knowledge, int? id});
+      {Label name,
+      Label goal,
+      List<Task> tasks,
+      Label? knowledge,
+      int? id,
+      String? uid});
 }
 
 /// @nodoc
@@ -105,6 +121,7 @@ class __$$_ClusterCopyWithImpl<$Res>
     Object? tasks = null,
     Object? knowledge = freezed,
     Object? id = freezed,
+    Object? uid = freezed,
   }) {
     return _then(_$_Cluster(
       name: null == name
@@ -127,6 +144,10 @@ class __$$_ClusterCopyWithImpl<$Res>
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
+      uid: freezed == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -139,7 +160,8 @@ class _$_Cluster implements _Cluster {
       required this.goal,
       required final List<Task> tasks,
       this.knowledge,
-      this.id})
+      this.id,
+      this.uid})
       : _tasks = tasks;
 
   @override
@@ -158,10 +180,12 @@ class _$_Cluster implements _Cluster {
   final Label? knowledge;
   @override
   final int? id;
+  @override
+  final String? uid;
 
   @override
   String toString() {
-    return 'Cluster(name: $name, goal: $goal, tasks: $tasks, knowledge: $knowledge, id: $id)';
+    return 'Cluster(name: $name, goal: $goal, tasks: $tasks, knowledge: $knowledge, id: $id, uid: $uid)';
   }
 
   @override
@@ -174,12 +198,13 @@ class _$_Cluster implements _Cluster {
             const DeepCollectionEquality().equals(other._tasks, _tasks) &&
             (identical(other.knowledge, knowledge) ||
                 other.knowledge == knowledge) &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.uid, uid) || other.uid == uid));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, name, goal,
-      const DeepCollectionEquality().hash(_tasks), knowledge, id);
+      const DeepCollectionEquality().hash(_tasks), knowledge, id, uid);
 
   @JsonKey(ignore: true)
   @override
@@ -194,7 +219,8 @@ abstract class _Cluster implements Cluster {
       required final Label goal,
       required final List<Task> tasks,
       final Label? knowledge,
-      final int? id}) = _$_Cluster;
+      final int? id,
+      final String? uid}) = _$_Cluster;
 
   @override
   Label get name;
@@ -206,6 +232,8 @@ abstract class _Cluster implements Cluster {
   Label? get knowledge;
   @override
   int? get id;
+  @override
+  String? get uid;
   @override
   @JsonKey(ignore: true)
   _$$_ClusterCopyWith<_$_Cluster> get copyWith =>

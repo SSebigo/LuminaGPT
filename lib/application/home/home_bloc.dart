@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:collection/collection.dart';
 import 'package:dart_openai/openai.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -16,6 +17,7 @@ import 'package:lumina_gpt/domain/settings/i_settings_repository.dart';
 import 'package:lumina_gpt/domain/settings/settings.dart';
 import 'package:lumina_gpt/domain/settings/settings_failure.dart';
 import 'package:oxidized/oxidized.dart';
+import 'package:uuid/uuid.dart';
 
 part 'home_bloc.freezed.dart';
 part 'home_event.dart';
@@ -241,6 +243,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
               name: state.clusterName,
               goal: state.clusterGoal,
               tasks: tasks,
+              uid: const Uuid().v4(),
             );
 
             final agent = state.agent!.copyWith(
@@ -275,14 +278,20 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       if (state.agent != null) {
         (await _agentsRepository.insertAgent(state.agent!)).match(
           (agent) {
+            final cluster = agent.clusters.firstWhereOrNull(
+              (cluster) => cluster.uid == state.cluster!.uid,
+            );
+
             emit(
               state.copyWith(
                 failureOption: const None(),
                 agent: agent,
+                cluster: cluster,
+                tasksQueue: [...cluster!.tasks],
               ),
             );
 
-            // add(HomeEvent.agentInserted(state.agent!.tasks));
+            add(const HomeEvent.agentInserted());
           },
           (failure) {
             emit(
@@ -296,54 +305,67 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       }
     });
     on<_AgentInserted>((event, emit) async {
-      if (state.agent != null) {
-        await emit.onEach(
-          _agentsRepository.createTasks(
-            state.agent!,
-            event.tasks,
-            state.clusterGoal,
-          ),
-          onData: (result) => result.match(
-            (tasks) {
-              final agent = state.agent!.copyWith(
-                  // tasks: List.from(
-                  //   [...state.agent!.tasks, ...tasks],
-                  // )..sort((a, b) => a.createdAt.compareTo(b.createdAt)),
-                  );
+      if (state.agent != null && state.cluster != null) {
+        (await _agentsRepository.prioritizeTasks(
+          state.agent!,
+          state.cluster!,
+          state.tasksQueue,
+        ))
+            .match(
+          (tasks) {
+            emit(
+              state.copyWith(
+                failureOption: const None(),
+                tasksQueue: tasks,
+              ),
+            );
 
+            add(const HomeEvent.tasksPrioritized());
+          },
+          (failure) {
+            emit(
+              state.copyWith(
+                failureOption: Some(Err(CoreFailure.agents(failure))),
+                thinking: false,
+              ),
+            );
+          },
+        );
+      }
+    });
+    on<_TasksPrioritized>((_, emit) async {
+      if (state.tasksQueue.isNotEmpty) {
+        final task =
+            state.tasksQueue.singleWhereOrNull((task) => task.priority == 0);
+
+        if (task != null) {
+          (await _agentsRepository.executeTask(
+            state.agent!,
+            state.cluster!,
+            task,
+          ))
+              .match(
+            (tasks) {
               emit(
                 state.copyWith(
                   failureOption: const None(),
-                  agent: agent,
-                  agents: state.agents
-                      .map((s) => s.id == agent.id ? agent : s)
-                      .toList(),
+                  tasksQueue: state.tasksQueue
+                    ..removeWhere((task) => task.priority == 0),
                 ),
               );
 
-              // delay by one second before adding new event
-              Future.delayed(const Duration(seconds: 1), () {
-                add(HomeEvent.tasksCreated(tasks));
-              });
+              add(const HomeEvent.taskExecuted());
             },
             (failure) {
-              failure.maybeMap(
-                maxTasksReached: (_) {
-                  add(const HomeEvent.maxTasksReached());
-                },
-                noNewTasks: (_) {
-                  add(const HomeEvent.noTasksAdded());
-                },
-                orElse: () => emit(
-                  state.copyWith(
-                    failureOption: Some(Err(CoreFailure.agents(failure))),
-                    thinking: false,
-                  ),
+              emit(
+                state.copyWith(
+                  failureOption: Some(Err(CoreFailure.agents(failure))),
+                  thinking: false,
                 ),
               );
             },
-          ),
-        );
+          );
+        }
       }
     });
     on<_TasksCreated>((event, emit) async {
@@ -360,7 +382,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
               ),
             );
 
-            add(HomeEvent.agentInserted(event.tasks));
+            add(const HomeEvent.agentInserted());
           },
           (failure) {
             emit(
@@ -375,7 +397,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     });
     on<_TaskExecuted>((event, emit) async {
       if (state.agent != null) {
-        (await _agentsRepository.insertAgent(event.agent)).match(
+        (await _agentsRepository.insertAgent(state.agent!)).match(
           (agent) {
             emit(
               state.copyWith(

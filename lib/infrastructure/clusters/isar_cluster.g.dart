@@ -36,6 +36,11 @@ const IsarClusterSchema = CollectionSchema(
       id: 3,
       name: r'stringify',
       type: IsarType.bool,
+    ),
+    r'uid': PropertySchema(
+      id: 4,
+      name: r'uid',
+      type: IsarType.string,
     )
   },
   estimateSize: _isarClusterEstimateSize,
@@ -73,6 +78,12 @@ int _isarClusterEstimateSize(
     }
   }
   bytesCount += 3 + object.name.length * 3;
+  {
+    final value = object.uid;
+    if (value != null) {
+      bytesCount += 3 + value.length * 3;
+    }
+  }
   return bytesCount;
 }
 
@@ -86,6 +97,7 @@ void _isarClusterSerialize(
   writer.writeString(offsets[1], object.knowledge);
   writer.writeString(offsets[2], object.name);
   writer.writeBool(offsets[3], object.stringify);
+  writer.writeString(offsets[4], object.uid);
 }
 
 IsarCluster _isarClusterDeserialize(
@@ -99,6 +111,7 @@ IsarCluster _isarClusterDeserialize(
     id: id,
     knowledge: reader.readStringOrNull(offsets[1]),
     name: reader.readString(offsets[2]),
+    uid: reader.readStringOrNull(offsets[4]),
   );
   return object;
 }
@@ -118,6 +131,8 @@ P _isarClusterDeserializeProp<P>(
       return (reader.readString(offset)) as P;
     case 3:
       return (reader.readBool(offset)) as P;
+    case 4:
+      return (reader.readStringOrNull(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
   }
@@ -711,6 +726,153 @@ extension IsarClusterQueryFilter
       ));
     });
   }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition> uidIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'uid',
+      ));
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition> uidIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'uid',
+      ));
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition> uidEqualTo(
+    String? value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'uid',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition> uidGreaterThan(
+    String? value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'uid',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition> uidLessThan(
+    String? value, {
+    bool include = false,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'uid',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition> uidBetween(
+    String? lower,
+    String? upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'uid',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition> uidStartsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.startsWith(
+        property: r'uid',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition> uidEndsWith(
+    String value, {
+    bool caseSensitive = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.endsWith(
+        property: r'uid',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition> uidContains(
+      String value,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.contains(
+        property: r'uid',
+        value: value,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition> uidMatches(
+      String pattern,
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.matches(
+        property: r'uid',
+        wildcard: pattern,
+        caseSensitive: caseSensitive,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition> uidIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'uid',
+        value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition>
+      uidIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        property: r'uid',
+        value: '',
+      ));
+    });
+  }
 }
 
 extension IsarClusterQueryObject
@@ -828,6 +990,18 @@ extension IsarClusterQuerySortBy
       return query.addSortBy(r'stringify', Sort.desc);
     });
   }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterSortBy> sortByUid() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'uid', Sort.asc);
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterSortBy> sortByUidDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'uid', Sort.desc);
+    });
+  }
 }
 
 extension IsarClusterQuerySortThenBy
@@ -891,6 +1065,18 @@ extension IsarClusterQuerySortThenBy
       return query.addSortBy(r'stringify', Sort.desc);
     });
   }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterSortBy> thenByUid() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'uid', Sort.asc);
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterSortBy> thenByUidDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'uid', Sort.desc);
+    });
+  }
 }
 
 extension IsarClusterQueryWhereDistinct
@@ -919,6 +1105,13 @@ extension IsarClusterQueryWhereDistinct
   QueryBuilder<IsarCluster, IsarCluster, QDistinct> distinctByStringify() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'stringify');
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QDistinct> distinctByUid(
+      {bool caseSensitive = true}) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'uid', caseSensitive: caseSensitive);
     });
   }
 }
@@ -952,6 +1145,12 @@ extension IsarClusterQueryProperty
   QueryBuilder<IsarCluster, bool, QQueryOperations> stringifyProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'stringify');
+    });
+  }
+
+  QueryBuilder<IsarCluster, String?, QQueryOperations> uidProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'uid');
     });
   }
 }
