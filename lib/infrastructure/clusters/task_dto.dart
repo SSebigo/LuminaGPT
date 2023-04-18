@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:lumina_gpt/domain/agents/task.dart';
+import 'package:lumina_gpt/domain/clusters/task.dart';
 import 'package:lumina_gpt/domain/core/label.dart';
-import 'package:lumina_gpt/infrastructure/agents/isar_task.dart';
+import 'package:lumina_gpt/infrastructure/clusters/isar_task.dart';
 
 part 'task_dto.freezed.dart';
 part 'task_dto.g.dart';
@@ -19,7 +19,7 @@ class TaskDTO with _$TaskDTO {
     required DateTime createdAt,
     String? result,
     int? id,
-    int? parentId,
+    int? priority,
   }) = _TaskDTO;
 
   /// @nodoc
@@ -33,7 +33,7 @@ class TaskDTO with _$TaskDTO {
       createdAt: task.createdAt,
       result: task.result?.getOrCrash(),
       id: task.id,
-      parentId: task.parentId,
+      priority: task.priority,
     );
   }
 
@@ -48,7 +48,7 @@ class TaskDTO with _$TaskDTO {
       createdAt: task.createdAt,
       result: task.result,
       id: task.id,
-      parentId: task.parentId,
+      priority: task.priority,
     );
   }
 
@@ -69,7 +69,7 @@ extension TaskDTOX on TaskDTO {
         createdAt: createdAt,
         result: result != null ? Label(result!) : null,
         id: id,
-        parentId: parentId,
+        priority: priority,
       );
 
   /// @nodoc
@@ -82,6 +82,6 @@ extension TaskDTOX on TaskDTO {
         createdAt: createdAt,
         result: result,
         id: id,
-        parentId: parentId,
+        priority: priority,
       );
 }

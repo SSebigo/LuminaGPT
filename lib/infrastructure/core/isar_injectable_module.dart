@@ -3,7 +3,8 @@ import 'package:isar/isar.dart';
 import 'package:lumina_gpt/flavors.dart';
 import 'package:lumina_gpt/infrastructure/agents/isar_agent.dart';
 import 'package:lumina_gpt/infrastructure/agents/isar_model.dart';
-import 'package:lumina_gpt/infrastructure/agents/isar_task.dart';
+import 'package:lumina_gpt/infrastructure/clusters/isar_cluster.dart';
+import 'package:lumina_gpt/infrastructure/clusters/isar_task.dart';
 import 'package:lumina_gpt/infrastructure/settings/isar_settings.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -22,6 +23,7 @@ abstract class IIsarInjectableModule {
         IsarModelSchema,
         IsarSettingsSchema,
         IsarTaskSchema,
+        IsarClusterSchema,
       ],
       directory: (await getApplicationSupportDirectory()).path,
       inspector: F.appFlavor == Flavor.development,

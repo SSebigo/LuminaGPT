@@ -9,10 +9,14 @@ class HomeState with _$HomeState {
     required bool thinking,
     required List<Agent> agents,
     required Settings settings,
-    required Label name,
-    required Label goal,
+    required Label agentName,
+    required Label clusterName,
+    required Label clusterGoal,
+    required View view,
+    required List<Task> tasksQueue,
     Label? apiKey,
     Agent? agent,
+    Cluster? cluster,
   }) = _HomeState;
 
   /// @nodoc
@@ -21,7 +25,10 @@ class HomeState with _$HomeState {
         thinking: false,
         agents: [],
         settings: Settings.empty(),
-        name: Label(''),
-        goal: Label(''),
+        agentName: Label(''),
+        clusterName: Label(''),
+        clusterGoal: Label(''),
+        view: View.agents,
+        tasksQueue: [],
       );
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lumina_gpt/domain/agents/task.dart';
+import 'package:lumina_gpt/domain/clusters/task.dart';
 import 'package:lumina_gpt/presentation/home/widgets/task_bubble_field.dart';
 
 /// @nodoc

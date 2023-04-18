@@ -15,7 +15,7 @@ _$_TaskDTO _$$_TaskDTOFromJson(Map<String, dynamic> json) => _$_TaskDTO(
       createdAt: DateTime.parse(json['createdAt'] as String),
       result: json['result'] as String?,
       id: json['id'] as int?,
-      parentId: json['parentId'] as int?,
+      priority: json['priority'] as int?,
     );
 
 Map<String, dynamic> _$$_TaskDTOToJson(_$_TaskDTO instance) =>
@@ -28,5 +28,5 @@ Map<String, dynamic> _$$_TaskDTOToJson(_$_TaskDTO instance) =>
       'createdAt': instance.createdAt.toIso8601String(),
       'result': instance.result,
       'id': instance.id,
-      'parentId': instance.parentId,
+      'priority': instance.priority,
     };

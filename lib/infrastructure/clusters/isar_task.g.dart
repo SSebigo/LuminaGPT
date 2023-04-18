@@ -42,9 +42,9 @@ const IsarTaskSchema = CollectionSchema(
       name: r'name',
       type: IsarType.string,
     ),
-    r'parentId': PropertySchema(
+    r'priority': PropertySchema(
       id: 5,
-      name: r'parentId',
+      name: r'priority',
       type: IsarType.long,
     ),
     r'result': PropertySchema(
@@ -107,7 +107,7 @@ void _isarTaskSerialize(
   writer.writeBool(offsets[2], object.done);
   writer.writeString(offsets[3], object.goal);
   writer.writeString(offsets[4], object.name);
-  writer.writeLong(offsets[5], object.parentId);
+  writer.writeLong(offsets[5], object.priority);
   writer.writeString(offsets[6], object.result);
   writer.writeString(offsets[7], object.role);
   writer.writeBool(offsets[8], object.stringify);
@@ -126,7 +126,7 @@ IsarTask _isarTaskDeserialize(
     goal: reader.readString(offsets[3]),
     id: id,
     name: reader.readString(offsets[4]),
-    parentId: reader.readLongOrNull(offsets[5]),
+    priority: reader.readLongOrNull(offsets[5]),
     result: reader.readStringOrNull(offsets[6]),
     role: reader.readString(offsets[7]),
   );
@@ -775,59 +775,59 @@ extension IsarTaskQueryFilter
     });
   }
 
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> parentIdIsNull() {
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> priorityIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'parentId',
+        property: r'priority',
       ));
     });
   }
 
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> parentIdIsNotNull() {
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> priorityIsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'parentId',
+        property: r'priority',
       ));
     });
   }
 
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> parentIdEqualTo(
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> priorityEqualTo(
       int? value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'parentId',
+        property: r'priority',
         value: value,
       ));
     });
   }
 
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> parentIdGreaterThan(
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> priorityGreaterThan(
     int? value, {
     bool include = false,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.greaterThan(
         include: include,
-        property: r'parentId',
+        property: r'priority',
         value: value,
       ));
     });
   }
 
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> parentIdLessThan(
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> priorityLessThan(
     int? value, {
     bool include = false,
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.lessThan(
         include: include,
-        property: r'parentId',
+        property: r'priority',
         value: value,
       ));
     });
   }
 
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> parentIdBetween(
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> priorityBetween(
     int? lower,
     int? upper, {
     bool includeLower = true,
@@ -835,7 +835,7 @@ extension IsarTaskQueryFilter
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.between(
-        property: r'parentId',
+        property: r'priority',
         lower: lower,
         includeLower: includeLower,
         upper: upper,
@@ -1198,15 +1198,15 @@ extension IsarTaskQuerySortBy on QueryBuilder<IsarTask, IsarTask, QSortBy> {
     });
   }
 
-  QueryBuilder<IsarTask, IsarTask, QAfterSortBy> sortByParentId() {
+  QueryBuilder<IsarTask, IsarTask, QAfterSortBy> sortByPriority() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'parentId', Sort.asc);
+      return query.addSortBy(r'priority', Sort.asc);
     });
   }
 
-  QueryBuilder<IsarTask, IsarTask, QAfterSortBy> sortByParentIdDesc() {
+  QueryBuilder<IsarTask, IsarTask, QAfterSortBy> sortByPriorityDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'parentId', Sort.desc);
+      return query.addSortBy(r'priority', Sort.desc);
     });
   }
 
@@ -1321,15 +1321,15 @@ extension IsarTaskQuerySortThenBy
     });
   }
 
-  QueryBuilder<IsarTask, IsarTask, QAfterSortBy> thenByParentId() {
+  QueryBuilder<IsarTask, IsarTask, QAfterSortBy> thenByPriority() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'parentId', Sort.asc);
+      return query.addSortBy(r'priority', Sort.asc);
     });
   }
 
-  QueryBuilder<IsarTask, IsarTask, QAfterSortBy> thenByParentIdDesc() {
+  QueryBuilder<IsarTask, IsarTask, QAfterSortBy> thenByPriorityDesc() {
     return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'parentId', Sort.desc);
+      return query.addSortBy(r'priority', Sort.desc);
     });
   }
 
@@ -1405,9 +1405,9 @@ extension IsarTaskQueryWhereDistinct
     });
   }
 
-  QueryBuilder<IsarTask, IsarTask, QDistinct> distinctByParentId() {
+  QueryBuilder<IsarTask, IsarTask, QDistinct> distinctByPriority() {
     return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'parentId');
+      return query.addDistinctBy(r'priority');
     });
   }
 
@@ -1470,9 +1470,9 @@ extension IsarTaskQueryProperty
     });
   }
 
-  QueryBuilder<IsarTask, int?, QQueryOperations> parentIdProperty() {
+  QueryBuilder<IsarTask, int?, QQueryOperations> priorityProperty() {
     return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'parentId');
+      return query.addPropertyName(r'priority');
     });
   }
 

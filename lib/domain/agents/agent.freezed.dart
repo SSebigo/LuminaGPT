@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Agent {
   Label get name => throw _privateConstructorUsedError;
   Model get model => throw _privateConstructorUsedError;
-  List<Task> get tasks => throw _privateConstructorUsedError;
+  List<Cluster> get clusters => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -30,7 +30,7 @@ abstract class $AgentCopyWith<$Res> {
   factory $AgentCopyWith(Agent value, $Res Function(Agent) then) =
       _$AgentCopyWithImpl<$Res, Agent>;
   @useResult
-  $Res call({Label name, Model model, List<Task> tasks, int? id});
+  $Res call({Label name, Model model, List<Cluster> clusters, int? id});
 
   $ModelCopyWith<$Res> get model;
 }
@@ -50,7 +50,7 @@ class _$AgentCopyWithImpl<$Res, $Val extends Agent>
   $Res call({
     Object? name = null,
     Object? model = null,
-    Object? tasks = null,
+    Object? clusters = null,
     Object? id = freezed,
   }) {
     return _then(_value.copyWith(
@@ -62,10 +62,10 @@ class _$AgentCopyWithImpl<$Res, $Val extends Agent>
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
               as Model,
-      tasks: null == tasks
-          ? _value.tasks
-          : tasks // ignore: cast_nullable_to_non_nullable
-              as List<Task>,
+      clusters: null == clusters
+          ? _value.clusters
+          : clusters // ignore: cast_nullable_to_non_nullable
+              as List<Cluster>,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -88,7 +88,7 @@ abstract class _$$_AgentCopyWith<$Res> implements $AgentCopyWith<$Res> {
       __$$_AgentCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Label name, Model model, List<Task> tasks, int? id});
+  $Res call({Label name, Model model, List<Cluster> clusters, int? id});
 
   @override
   $ModelCopyWith<$Res> get model;
@@ -105,7 +105,7 @@ class __$$_AgentCopyWithImpl<$Res> extends _$AgentCopyWithImpl<$Res, _$_Agent>
   $Res call({
     Object? name = null,
     Object? model = null,
-    Object? tasks = null,
+    Object? clusters = null,
     Object? id = freezed,
   }) {
     return _then(_$_Agent(
@@ -117,10 +117,10 @@ class __$$_AgentCopyWithImpl<$Res> extends _$AgentCopyWithImpl<$Res, _$_Agent>
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
               as Model,
-      tasks: null == tasks
-          ? _value._tasks
-          : tasks // ignore: cast_nullable_to_non_nullable
-              as List<Task>,
+      clusters: null == clusters
+          ? _value._clusters
+          : clusters // ignore: cast_nullable_to_non_nullable
+              as List<Cluster>,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -135,20 +135,20 @@ class _$_Agent implements _Agent {
   _$_Agent(
       {required this.name,
       required this.model,
-      required final List<Task> tasks,
+      required final List<Cluster> clusters,
       this.id})
-      : _tasks = tasks;
+      : _clusters = clusters;
 
   @override
   final Label name;
   @override
   final Model model;
-  final List<Task> _tasks;
+  final List<Cluster> _clusters;
   @override
-  List<Task> get tasks {
-    if (_tasks is EqualUnmodifiableListView) return _tasks;
+  List<Cluster> get clusters {
+    if (_clusters is EqualUnmodifiableListView) return _clusters;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_tasks);
+    return EqualUnmodifiableListView(_clusters);
   }
 
   @override
@@ -156,7 +156,7 @@ class _$_Agent implements _Agent {
 
   @override
   String toString() {
-    return 'Agent(name: $name, model: $model, tasks: $tasks, id: $id)';
+    return 'Agent(name: $name, model: $model, clusters: $clusters, id: $id)';
   }
 
   @override
@@ -166,13 +166,13 @@ class _$_Agent implements _Agent {
             other is _$_Agent &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.model, model) || other.model == model) &&
-            const DeepCollectionEquality().equals(other._tasks, _tasks) &&
+            const DeepCollectionEquality().equals(other._clusters, _clusters) &&
             (identical(other.id, id) || other.id == id));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, name, model,
-      const DeepCollectionEquality().hash(_tasks), id);
+      const DeepCollectionEquality().hash(_clusters), id);
 
   @JsonKey(ignore: true)
   @override
@@ -185,7 +185,7 @@ abstract class _Agent implements Agent {
   factory _Agent(
       {required final Label name,
       required final Model model,
-      required final List<Task> tasks,
+      required final List<Cluster> clusters,
       final int? id}) = _$_Agent;
 
   @override
@@ -193,7 +193,7 @@ abstract class _Agent implements Agent {
   @override
   Model get model;
   @override
-  List<Task> get tasks;
+  List<Cluster> get clusters;
   @override
   int? get id;
   @override

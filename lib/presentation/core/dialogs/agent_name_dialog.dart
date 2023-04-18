@@ -2,14 +2,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lumina_gpt/application/home/home_bloc.dart';
-import 'package:lumina_gpt/presentation/core/action_button.dart';
 import 'package:lumina_gpt/presentation/core/info_text_field.dart';
 import 'package:lumina_gpt/utils/constants/palette.dart';
 
 /// @nodoc
-class ApiKeyDialog extends StatelessWidget {
+class AgentNameDialog extends StatelessWidget {
   /// @nodoc
-  const ApiKeyDialog({super.key});
+  const AgentNameDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,36 +27,24 @@ class ApiKeyDialog extends StatelessWidget {
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 25),
               child: Icon(
-                Icons.vpn_key_rounded,
+                Icons.smart_toy_outlined,
                 color: Colors.white,
                 size: 35,
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 25),
-              child: Text(
-                'Please enter your API key',
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
-                ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: InfoTextField(
-                icon: Icons.vpn_key_rounded,
-                text: 'API key',
+                icon: Icons.smart_toy_outlined,
+                text: 'Name',
                 onChanged: (value) => context
                     .read<HomeBloc>()
-                    .add(HomeEvent.apiKeyChanged(value)),
+                    .add(HomeEvent.agentNameChanged(value)),
                 validator: (_) =>
                     context.watch<HomeBloc>().state.apiKey?.value.match(
                           (_) => null,
                           (err) => err.maybeMap(
-                            emptyInput: (_) => 'The API key is invalid.',
+                            emptyInput: (_) => 'The name is invalid.',
                             orElse: () => null,
                           ),
                         ),
@@ -69,7 +56,7 @@ class ApiKeyDialog extends StatelessWidget {
                 onPressed: () {
                   context
                       .read<HomeBloc>()
-                      .add(const HomeEvent.apiKeySubmitted());
+                      .add(const HomeEvent.agentNameSubmitted());
 
                   context.router.pop();
                 },

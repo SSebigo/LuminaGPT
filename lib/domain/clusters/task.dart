@@ -16,7 +16,7 @@ class Task with _$Task {
     required DateTime createdAt,
     Label? result,
     int? id,
-    int? parentId,
+    int? priority,
   }) = _Task;
 
   /// @nodoc

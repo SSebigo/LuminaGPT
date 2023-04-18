@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'task.dart';
+part of 'task_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,43 +14,48 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+TaskDTO _$TaskDTOFromJson(Map<String, dynamic> json) {
+  return _TaskDTO.fromJson(json);
+}
+
 /// @nodoc
-mixin _$Task {
-  Label get name => throw _privateConstructorUsedError;
-  Label get description => throw _privateConstructorUsedError;
-  Label get role => throw _privateConstructorUsedError;
-  Label get goal => throw _privateConstructorUsedError;
+mixin _$TaskDTO {
+  String get name => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
+  String get role => throw _privateConstructorUsedError;
+  String get goal => throw _privateConstructorUsedError;
   bool get done => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
-  Label? get result => throw _privateConstructorUsedError;
+  String? get result => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
-  int? get parentId => throw _privateConstructorUsedError;
+  int? get priority => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $TaskCopyWith<Task> get copyWith => throw _privateConstructorUsedError;
+  $TaskDTOCopyWith<TaskDTO> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $TaskCopyWith<$Res> {
-  factory $TaskCopyWith(Task value, $Res Function(Task) then) =
-      _$TaskCopyWithImpl<$Res, Task>;
+abstract class $TaskDTOCopyWith<$Res> {
+  factory $TaskDTOCopyWith(TaskDTO value, $Res Function(TaskDTO) then) =
+      _$TaskDTOCopyWithImpl<$Res, TaskDTO>;
   @useResult
   $Res call(
-      {Label name,
-      Label description,
-      Label role,
-      Label goal,
+      {String name,
+      String description,
+      String role,
+      String goal,
       bool done,
       DateTime createdAt,
-      Label? result,
+      String? result,
       int? id,
-      int? parentId});
+      int? priority});
 }
 
 /// @nodoc
-class _$TaskCopyWithImpl<$Res, $Val extends Task>
-    implements $TaskCopyWith<$Res> {
-  _$TaskCopyWithImpl(this._value, this._then);
+class _$TaskDTOCopyWithImpl<$Res, $Val extends TaskDTO>
+    implements $TaskDTOCopyWith<$Res> {
+  _$TaskDTOCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -68,25 +73,25 @@ class _$TaskCopyWithImpl<$Res, $Val extends Task>
     Object? createdAt = null,
     Object? result = freezed,
     Object? id = freezed,
-    Object? parentId = freezed,
+    Object? priority = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as Label,
+              as String,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as Label,
+              as String,
       role: null == role
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
-              as Label,
+              as String,
       goal: null == goal
           ? _value.goal
           : goal // ignore: cast_nullable_to_non_nullable
-              as Label,
+              as String,
       done: null == done
           ? _value.done
           : done // ignore: cast_nullable_to_non_nullable
@@ -98,41 +103,43 @@ class _$TaskCopyWithImpl<$Res, $Val extends Task>
       result: freezed == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
-              as Label?,
+              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      parentId: freezed == parentId
-          ? _value.parentId
-          : parentId // ignore: cast_nullable_to_non_nullable
+      priority: freezed == priority
+          ? _value.priority
+          : priority // ignore: cast_nullable_to_non_nullable
               as int?,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_TaskCopyWith<$Res> implements $TaskCopyWith<$Res> {
-  factory _$$_TaskCopyWith(_$_Task value, $Res Function(_$_Task) then) =
-      __$$_TaskCopyWithImpl<$Res>;
+abstract class _$$_TaskDTOCopyWith<$Res> implements $TaskDTOCopyWith<$Res> {
+  factory _$$_TaskDTOCopyWith(
+          _$_TaskDTO value, $Res Function(_$_TaskDTO) then) =
+      __$$_TaskDTOCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {Label name,
-      Label description,
-      Label role,
-      Label goal,
+      {String name,
+      String description,
+      String role,
+      String goal,
       bool done,
       DateTime createdAt,
-      Label? result,
+      String? result,
       int? id,
-      int? parentId});
+      int? priority});
 }
 
 /// @nodoc
-class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res, _$_Task>
-    implements _$$_TaskCopyWith<$Res> {
-  __$$_TaskCopyWithImpl(_$_Task _value, $Res Function(_$_Task) _then)
+class __$$_TaskDTOCopyWithImpl<$Res>
+    extends _$TaskDTOCopyWithImpl<$Res, _$_TaskDTO>
+    implements _$$_TaskDTOCopyWith<$Res> {
+  __$$_TaskDTOCopyWithImpl(_$_TaskDTO _value, $Res Function(_$_TaskDTO) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -146,25 +153,25 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res, _$_Task>
     Object? createdAt = null,
     Object? result = freezed,
     Object? id = freezed,
-    Object? parentId = freezed,
+    Object? priority = freezed,
   }) {
-    return _then(_$_Task(
+    return _then(_$_TaskDTO(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as Label,
+              as String,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as Label,
+              as String,
       role: null == role
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
-              as Label,
+              as String,
       goal: null == goal
           ? _value.goal
           : goal // ignore: cast_nullable_to_non_nullable
-              as Label,
+              as String,
       done: null == done
           ? _value.done
           : done // ignore: cast_nullable_to_non_nullable
@@ -176,23 +183,23 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res, _$_Task>
       result: freezed == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
-              as Label?,
+              as String?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int?,
-      parentId: freezed == parentId
-          ? _value.parentId
-          : parentId // ignore: cast_nullable_to_non_nullable
+      priority: freezed == priority
+          ? _value.priority
+          : priority // ignore: cast_nullable_to_non_nullable
               as int?,
     ));
   }
 }
 
 /// @nodoc
-
-class _$_Task implements _Task {
-  _$_Task(
+@JsonSerializable()
+class _$_TaskDTO implements _TaskDTO {
+  _$_TaskDTO(
       {required this.name,
       required this.description,
       required this.role,
@@ -201,37 +208,40 @@ class _$_Task implements _Task {
       required this.createdAt,
       this.result,
       this.id,
-      this.parentId});
+      this.priority});
+
+  factory _$_TaskDTO.fromJson(Map<String, dynamic> json) =>
+      _$$_TaskDTOFromJson(json);
 
   @override
-  final Label name;
+  final String name;
   @override
-  final Label description;
+  final String description;
   @override
-  final Label role;
+  final String role;
   @override
-  final Label goal;
+  final String goal;
   @override
   final bool done;
   @override
   final DateTime createdAt;
   @override
-  final Label? result;
+  final String? result;
   @override
   final int? id;
   @override
-  final int? parentId;
+  final int? priority;
 
   @override
   String toString() {
-    return 'Task(name: $name, description: $description, role: $role, goal: $goal, done: $done, createdAt: $createdAt, result: $result, id: $id, parentId: $parentId)';
+    return 'TaskDTO(name: $name, description: $description, role: $role, goal: $goal, done: $done, createdAt: $createdAt, result: $result, id: $id, priority: $priority)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Task &&
+            other is _$_TaskDTO &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -242,52 +252,63 @@ class _$_Task implements _Task {
                 other.createdAt == createdAt) &&
             (identical(other.result, result) || other.result == result) &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.parentId, parentId) ||
-                other.parentId == parentId));
+            (identical(other.priority, priority) ||
+                other.priority == priority));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, name, description, role, goal,
-      done, createdAt, result, id, parentId);
+      done, createdAt, result, id, priority);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_TaskCopyWith<_$_Task> get copyWith =>
-      __$$_TaskCopyWithImpl<_$_Task>(this, _$identity);
+  _$$_TaskDTOCopyWith<_$_TaskDTO> get copyWith =>
+      __$$_TaskDTOCopyWithImpl<_$_TaskDTO>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TaskDTOToJson(
+      this,
+    );
+  }
 }
 
-abstract class _Task implements Task {
-  factory _Task(
-      {required final Label name,
-      required final Label description,
-      required final Label role,
-      required final Label goal,
+abstract class _TaskDTO implements TaskDTO {
+  factory _TaskDTO(
+      {required final String name,
+      required final String description,
+      required final String role,
+      required final String goal,
       required final bool done,
       required final DateTime createdAt,
-      final Label? result,
+      final String? result,
       final int? id,
-      final int? parentId}) = _$_Task;
+      final int? priority}) = _$_TaskDTO;
+
+  factory _TaskDTO.fromJson(Map<String, dynamic> json) = _$_TaskDTO.fromJson;
 
   @override
-  Label get name;
+  String get name;
   @override
-  Label get description;
+  String get description;
   @override
-  Label get role;
+  String get role;
   @override
-  Label get goal;
+  String get goal;
   @override
   bool get done;
   @override
   DateTime get createdAt;
   @override
-  Label? get result;
+  String? get result;
   @override
   int? get id;
   @override
-  int? get parentId;
+  int? get priority;
   @override
   @JsonKey(ignore: true)
-  _$$_TaskCopyWith<_$_Task> get copyWith => throw _privateConstructorUsedError;
+  _$$_TaskDTOCopyWith<_$_TaskDTO> get copyWith =>
+      throw _privateConstructorUsedError;
 }

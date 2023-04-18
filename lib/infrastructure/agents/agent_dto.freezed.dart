@@ -21,7 +21,7 @@ AgentDTO _$AgentDTOFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$AgentDTO {
   String get name => throw _privateConstructorUsedError;
-  List<TaskDTO> get tasks => throw _privateConstructorUsedError;
+  List<ClusterDTO> get clusters => throw _privateConstructorUsedError;
   ModelDTO get model => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
 
@@ -36,7 +36,7 @@ abstract class $AgentDTOCopyWith<$Res> {
   factory $AgentDTOCopyWith(AgentDTO value, $Res Function(AgentDTO) then) =
       _$AgentDTOCopyWithImpl<$Res, AgentDTO>;
   @useResult
-  $Res call({String name, List<TaskDTO> tasks, ModelDTO model, int? id});
+  $Res call({String name, List<ClusterDTO> clusters, ModelDTO model, int? id});
 
   $ModelDTOCopyWith<$Res> get model;
 }
@@ -55,7 +55,7 @@ class _$AgentDTOCopyWithImpl<$Res, $Val extends AgentDTO>
   @override
   $Res call({
     Object? name = null,
-    Object? tasks = null,
+    Object? clusters = null,
     Object? model = null,
     Object? id = freezed,
   }) {
@@ -64,10 +64,10 @@ class _$AgentDTOCopyWithImpl<$Res, $Val extends AgentDTO>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      tasks: null == tasks
-          ? _value.tasks
-          : tasks // ignore: cast_nullable_to_non_nullable
-              as List<TaskDTO>,
+      clusters: null == clusters
+          ? _value.clusters
+          : clusters // ignore: cast_nullable_to_non_nullable
+              as List<ClusterDTO>,
       model: null == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
@@ -95,7 +95,7 @@ abstract class _$$_AgentDTOCopyWith<$Res> implements $AgentDTOCopyWith<$Res> {
       __$$_AgentDTOCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, List<TaskDTO> tasks, ModelDTO model, int? id});
+  $Res call({String name, List<ClusterDTO> clusters, ModelDTO model, int? id});
 
   @override
   $ModelDTOCopyWith<$Res> get model;
@@ -113,7 +113,7 @@ class __$$_AgentDTOCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
-    Object? tasks = null,
+    Object? clusters = null,
     Object? model = null,
     Object? id = freezed,
   }) {
@@ -122,10 +122,10 @@ class __$$_AgentDTOCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      tasks: null == tasks
-          ? _value._tasks
-          : tasks // ignore: cast_nullable_to_non_nullable
-              as List<TaskDTO>,
+      clusters: null == clusters
+          ? _value._clusters
+          : clusters // ignore: cast_nullable_to_non_nullable
+              as List<ClusterDTO>,
       model: null == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
@@ -143,22 +143,22 @@ class __$$_AgentDTOCopyWithImpl<$Res>
 class _$_AgentDTO implements _AgentDTO {
   _$_AgentDTO(
       {required this.name,
-      required final List<TaskDTO> tasks,
+      required final List<ClusterDTO> clusters,
       required this.model,
       this.id})
-      : _tasks = tasks;
+      : _clusters = clusters;
 
   factory _$_AgentDTO.fromJson(Map<String, dynamic> json) =>
       _$$_AgentDTOFromJson(json);
 
   @override
   final String name;
-  final List<TaskDTO> _tasks;
+  final List<ClusterDTO> _clusters;
   @override
-  List<TaskDTO> get tasks {
-    if (_tasks is EqualUnmodifiableListView) return _tasks;
+  List<ClusterDTO> get clusters {
+    if (_clusters is EqualUnmodifiableListView) return _clusters;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_tasks);
+    return EqualUnmodifiableListView(_clusters);
   }
 
   @override
@@ -168,7 +168,7 @@ class _$_AgentDTO implements _AgentDTO {
 
   @override
   String toString() {
-    return 'AgentDTO(name: $name, tasks: $tasks, model: $model, id: $id)';
+    return 'AgentDTO(name: $name, clusters: $clusters, model: $model, id: $id)';
   }
 
   @override
@@ -177,7 +177,7 @@ class _$_AgentDTO implements _AgentDTO {
         (other.runtimeType == runtimeType &&
             other is _$_AgentDTO &&
             (identical(other.name, name) || other.name == name) &&
-            const DeepCollectionEquality().equals(other._tasks, _tasks) &&
+            const DeepCollectionEquality().equals(other._clusters, _clusters) &&
             (identical(other.model, model) || other.model == model) &&
             (identical(other.id, id) || other.id == id));
   }
@@ -185,7 +185,7 @@ class _$_AgentDTO implements _AgentDTO {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, name,
-      const DeepCollectionEquality().hash(_tasks), model, id);
+      const DeepCollectionEquality().hash(_clusters), model, id);
 
   @JsonKey(ignore: true)
   @override
@@ -204,7 +204,7 @@ class _$_AgentDTO implements _AgentDTO {
 abstract class _AgentDTO implements AgentDTO {
   factory _AgentDTO(
       {required final String name,
-      required final List<TaskDTO> tasks,
+      required final List<ClusterDTO> clusters,
       required final ModelDTO model,
       final int? id}) = _$_AgentDTO;
 
@@ -213,7 +213,7 @@ abstract class _AgentDTO implements AgentDTO {
   @override
   String get name;
   @override
-  List<TaskDTO> get tasks;
+  List<ClusterDTO> get clusters;
   @override
   ModelDTO get model;
   @override

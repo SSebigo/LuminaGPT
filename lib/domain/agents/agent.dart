@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:lumina_gpt/domain/agents/model.dart';
-import 'package:lumina_gpt/domain/agents/task.dart';
+import 'package:lumina_gpt/domain/clusters/cluster.dart';
 import 'package:lumina_gpt/domain/core/label.dart';
 
 part 'agent.freezed.dart';
@@ -12,7 +12,7 @@ class Agent with _$Agent {
   factory Agent({
     required Label name,
     required Model model,
-    required List<Task> tasks,
+    required List<Cluster> clusters,
     int? id,
   }) = _Agent;
 
@@ -20,6 +20,6 @@ class Agent with _$Agent {
   factory Agent.empty() => Agent(
         name: Label(''),
         model: Model.empty(),
-        tasks: [],
+        clusters: [],
       );
 }

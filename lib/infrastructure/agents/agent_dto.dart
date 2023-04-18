@@ -3,7 +3,8 @@ import 'package:lumina_gpt/domain/agents/agent.dart';
 import 'package:lumina_gpt/domain/core/label.dart';
 import 'package:lumina_gpt/infrastructure/agents/isar_agent.dart';
 import 'package:lumina_gpt/infrastructure/agents/model_dto.dart';
-import 'package:lumina_gpt/infrastructure/agents/task_dto.dart';
+import 'package:lumina_gpt/infrastructure/clusters/cluster_dto.dart';
+import 'package:lumina_gpt/infrastructure/clusters/task_dto.dart';
 
 part 'agent_dto.freezed.dart';
 part 'agent_dto.g.dart';
@@ -14,7 +15,7 @@ class AgentDTO with _$AgentDTO {
   /// @nodoc
   factory AgentDTO({
     required String name,
-    required List<TaskDTO> tasks,
+    required List<ClusterDTO> clusters,
     required ModelDTO model,
     int? id,
   }) = _AgentDTO;
@@ -23,7 +24,7 @@ class AgentDTO with _$AgentDTO {
   factory AgentDTO.fromDomain(Agent agent) {
     return AgentDTO(
       name: agent.name.getOrCrash(),
-      tasks: agent.tasks.map(TaskDTO.fromDomain).toList(),
+      clusters: agent.clusters.map(ClusterDTO.fromDomain).toList(),
       model: ModelDTO.fromDomain(agent.model),
       id: agent.id,
     );
@@ -33,7 +34,7 @@ class AgentDTO with _$AgentDTO {
   factory AgentDTO.fromAdapter(IsarAgent agent) {
     return AgentDTO(
       name: agent.name,
-      tasks: agent.tasks.map(TaskDTO.fromAdapter).toList(),
+      clusters: agent.clusters.map(ClusterDTO.fromAdapter).toList(),
       model: ModelDTO.fromAdapter(agent.model.value!),
       id: agent.id,
     );
@@ -49,7 +50,7 @@ extension AgentDTOX on AgentDTO {
   /// @nodoc
   Agent toDomain() => Agent(
         name: Label(name),
-        tasks: tasks.map((task) => task.toDomain()).toList(),
+        clusters: clusters.map((task) => task.toDomain()).toList(),
         model: model.toDomain(),
         id: id,
       );
@@ -59,8 +60,8 @@ extension AgentDTOX on AgentDTO {
         name: name,
         id: id,
       )
-        ..tasks.addAll(
-          tasks.map((task) => task.toAdapter()).toList(),
+        ..clusters.addAll(
+          clusters.map((task) => task.toAdapter()).toList(),
         )
         ..model.value = model.toAdapter();
 }

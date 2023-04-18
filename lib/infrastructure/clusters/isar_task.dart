@@ -15,7 +15,7 @@ class IsarTask extends Equatable {
     required this.done,
     required this.createdAt,
     this.result,
-    this.parentId,
+    this.priority,
     this.id = Isar.autoIncrement,
   });
 
@@ -44,7 +44,7 @@ class IsarTask extends Equatable {
   final String? result;
 
   /// @nodoc
-  final int? parentId;
+  final int? priority;
 
   /// @nodoc
   IsarTask copyWith({
@@ -56,7 +56,7 @@ class IsarTask extends Equatable {
     bool? done,
     DateTime? createdAt,
     String? result,
-    int? parentId,
+    int? priority,
   }) {
     return IsarTask(
       id: id ?? this.id,
@@ -67,7 +67,7 @@ class IsarTask extends Equatable {
       done: done ?? this.done,
       createdAt: createdAt ?? this.createdAt,
       result: result ?? this.result,
-      parentId: parentId ?? this.parentId,
+      priority: priority ?? this.priority,
     );
   }
 

@@ -9,6 +9,7 @@ class InfoTextField extends StatelessWidget {
     required this.text,
     super.key,
     this.onChanged,
+    this.validator,
   });
 
   /// @nodoc
@@ -19,6 +20,9 @@ class InfoTextField extends StatelessWidget {
 
   /// @nodoc
   final void Function(String)? onChanged;
+
+  /// @nodoc
+  final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +35,7 @@ class InfoTextField extends StatelessWidget {
         minLines: 1,
         maxLines: 5,
         onChanged: onChanged,
+        validator: validator,
         style: const TextStyle(
           color: Colors.white,
           decoration: TextDecoration.none,

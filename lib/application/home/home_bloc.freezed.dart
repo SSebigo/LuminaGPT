@@ -19,15 +19,17 @@ mixin _$HomeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
-    required TResult Function() newAgentPressed,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
     required TResult Function(Agent agent) deleteAgentPressed,
     required TResult Function() settingsNotFound,
     required TResult Function(String apiKeyStr) apiKeyChanged,
     required TResult Function() apiKeySubmitted,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String goalStr) goalChanged,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
     required TResult Function(List<Task> tasks) agentInserted,
@@ -36,20 +38,24 @@ mixin _$HomeEvent {
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
-    TResult? Function()? newAgentPressed,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
     TResult? Function(Agent agent)? deleteAgentPressed,
     TResult? Function()? settingsNotFound,
     TResult? Function(String apiKeyStr)? apiKeyChanged,
     TResult? Function()? apiKeySubmitted,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String goalStr)? goalChanged,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
     TResult? Function(List<Task> tasks)? agentInserted,
@@ -58,20 +64,24 @@ mixin _$HomeEvent {
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
-    TResult Function()? newAgentPressed,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
     TResult Function(Agent agent)? deleteAgentPressed,
     TResult Function()? settingsNotFound,
     TResult Function(String apiKeyStr)? apiKeyChanged,
     TResult Function()? apiKeySubmitted,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function(String nameStr)? nameChanged,
-    TResult Function(String goalStr)? goalChanged,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
     TResult Function(List<Task> tasks)? agentInserted,
@@ -80,21 +90,25 @@ mixin _$HomeEvent {
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(NewAgentPressed value) newAgentPressed,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
     required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
     required TResult Function(SettingsNotFound value) settingsNotFound,
     required TResult Function(ApiKeyChanged value) apiKeyChanged,
     required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GoalChanged value) goalChanged,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
@@ -103,20 +117,24 @@ mixin _$HomeEvent {
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
     required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(NewAgentPressed value)? newAgentPressed,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
     TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(ApiKeyChanged value)? apiKeyChanged,
     TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GoalChanged value)? goalChanged,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
@@ -125,20 +143,24 @@ mixin _$HomeEvent {
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
     TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(NewAgentPressed value)? newAgentPressed,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
     TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(ApiKeyChanged value)? apiKeyChanged,
     TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GoalChanged value)? goalChanged,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
@@ -147,6 +169,8 @@ mixin _$HomeEvent {
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
     TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -208,15 +232,17 @@ class _$AppLaunched implements AppLaunched {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
-    required TResult Function() newAgentPressed,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
     required TResult Function(Agent agent) deleteAgentPressed,
     required TResult Function() settingsNotFound,
     required TResult Function(String apiKeyStr) apiKeyChanged,
     required TResult Function() apiKeySubmitted,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String goalStr) goalChanged,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
     required TResult Function(List<Task> tasks) agentInserted,
@@ -225,6 +251,8 @@ class _$AppLaunched implements AppLaunched {
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
   }) {
     return appLaunched();
   }
@@ -233,15 +261,17 @@ class _$AppLaunched implements AppLaunched {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
-    TResult? Function()? newAgentPressed,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
     TResult? Function(Agent agent)? deleteAgentPressed,
     TResult? Function()? settingsNotFound,
     TResult? Function(String apiKeyStr)? apiKeyChanged,
     TResult? Function()? apiKeySubmitted,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String goalStr)? goalChanged,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
     TResult? Function(List<Task> tasks)? agentInserted,
@@ -250,6 +280,8 @@ class _$AppLaunched implements AppLaunched {
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
   }) {
     return appLaunched?.call();
   }
@@ -258,15 +290,17 @@ class _$AppLaunched implements AppLaunched {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
-    TResult Function()? newAgentPressed,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
     TResult Function(Agent agent)? deleteAgentPressed,
     TResult Function()? settingsNotFound,
     TResult Function(String apiKeyStr)? apiKeyChanged,
     TResult Function()? apiKeySubmitted,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function(String nameStr)? nameChanged,
-    TResult Function(String goalStr)? goalChanged,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
     TResult Function(List<Task> tasks)? agentInserted,
@@ -275,6 +309,8 @@ class _$AppLaunched implements AppLaunched {
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
     required TResult orElse(),
   }) {
     if (appLaunched != null) {
@@ -287,15 +323,17 @@ class _$AppLaunched implements AppLaunched {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(NewAgentPressed value) newAgentPressed,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
     required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
     required TResult Function(SettingsNotFound value) settingsNotFound,
     required TResult Function(ApiKeyChanged value) apiKeyChanged,
     required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GoalChanged value) goalChanged,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
@@ -304,6 +342,8 @@ class _$AppLaunched implements AppLaunched {
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
     required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
   }) {
     return appLaunched(this);
   }
@@ -312,15 +352,17 @@ class _$AppLaunched implements AppLaunched {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(NewAgentPressed value)? newAgentPressed,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
     TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(ApiKeyChanged value)? apiKeyChanged,
     TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GoalChanged value)? goalChanged,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
@@ -329,6 +371,8 @@ class _$AppLaunched implements AppLaunched {
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
     TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
   }) {
     return appLaunched?.call(this);
   }
@@ -337,15 +381,17 @@ class _$AppLaunched implements AppLaunched {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(NewAgentPressed value)? newAgentPressed,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
     TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(ApiKeyChanged value)? apiKeyChanged,
     TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GoalChanged value)? goalChanged,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
@@ -354,6 +400,8 @@ class _$AppLaunched implements AppLaunched {
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
     TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
     required TResult orElse(),
   }) {
     if (appLaunched != null) {
@@ -368,35 +416,35 @@ abstract class AppLaunched implements HomeEvent {
 }
 
 /// @nodoc
-abstract class _$$NewAgentPressedCopyWith<$Res> {
-  factory _$$NewAgentPressedCopyWith(
-          _$NewAgentPressed value, $Res Function(_$NewAgentPressed) then) =
-      __$$NewAgentPressedCopyWithImpl<$Res>;
+abstract class _$$AgentNameSubmittedCopyWith<$Res> {
+  factory _$$AgentNameSubmittedCopyWith(_$AgentNameSubmitted value,
+          $Res Function(_$AgentNameSubmitted) then) =
+      __$$AgentNameSubmittedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$NewAgentPressedCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$NewAgentPressed>
-    implements _$$NewAgentPressedCopyWith<$Res> {
-  __$$NewAgentPressedCopyWithImpl(
-      _$NewAgentPressed _value, $Res Function(_$NewAgentPressed) _then)
+class __$$AgentNameSubmittedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$AgentNameSubmitted>
+    implements _$$AgentNameSubmittedCopyWith<$Res> {
+  __$$AgentNameSubmittedCopyWithImpl(
+      _$AgentNameSubmitted _value, $Res Function(_$AgentNameSubmitted) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$NewAgentPressed implements NewAgentPressed {
-  const _$NewAgentPressed();
+class _$AgentNameSubmitted implements AgentNameSubmitted {
+  const _$AgentNameSubmitted();
 
   @override
   String toString() {
-    return 'HomeEvent.newAgentPressed()';
+    return 'HomeEvent.agentNameSubmitted()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$NewAgentPressed);
+        (other.runtimeType == runtimeType && other is _$AgentNameSubmitted);
   }
 
   @override
@@ -406,15 +454,17 @@ class _$NewAgentPressed implements NewAgentPressed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
-    required TResult Function() newAgentPressed,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
     required TResult Function(Agent agent) deleteAgentPressed,
     required TResult Function() settingsNotFound,
     required TResult Function(String apiKeyStr) apiKeyChanged,
     required TResult Function() apiKeySubmitted,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String goalStr) goalChanged,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
     required TResult Function(List<Task> tasks) agentInserted,
@@ -423,23 +473,27 @@ class _$NewAgentPressed implements NewAgentPressed {
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
   }) {
-    return newAgentPressed();
+    return agentNameSubmitted();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
-    TResult? Function()? newAgentPressed,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
     TResult? Function(Agent agent)? deleteAgentPressed,
     TResult? Function()? settingsNotFound,
     TResult? Function(String apiKeyStr)? apiKeyChanged,
     TResult? Function()? apiKeySubmitted,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String goalStr)? goalChanged,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
     TResult? Function(List<Task> tasks)? agentInserted,
@@ -448,23 +502,27 @@ class _$NewAgentPressed implements NewAgentPressed {
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
   }) {
-    return newAgentPressed?.call();
+    return agentNameSubmitted?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
-    TResult Function()? newAgentPressed,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
     TResult Function(Agent agent)? deleteAgentPressed,
     TResult Function()? settingsNotFound,
     TResult Function(String apiKeyStr)? apiKeyChanged,
     TResult Function()? apiKeySubmitted,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function(String nameStr)? nameChanged,
-    TResult Function(String goalStr)? goalChanged,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
     TResult Function(List<Task> tasks)? agentInserted,
@@ -473,10 +531,12 @@ class _$NewAgentPressed implements NewAgentPressed {
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
     required TResult orElse(),
   }) {
-    if (newAgentPressed != null) {
-      return newAgentPressed();
+    if (agentNameSubmitted != null) {
+      return agentNameSubmitted();
     }
     return orElse();
   }
@@ -485,15 +545,17 @@ class _$NewAgentPressed implements NewAgentPressed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(NewAgentPressed value) newAgentPressed,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
     required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
     required TResult Function(SettingsNotFound value) settingsNotFound,
     required TResult Function(ApiKeyChanged value) apiKeyChanged,
     required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GoalChanged value) goalChanged,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
@@ -502,23 +564,27 @@ class _$NewAgentPressed implements NewAgentPressed {
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
     required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
   }) {
-    return newAgentPressed(this);
+    return agentNameSubmitted(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(NewAgentPressed value)? newAgentPressed,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
     TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(ApiKeyChanged value)? apiKeyChanged,
     TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GoalChanged value)? goalChanged,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
@@ -527,23 +593,27 @@ class _$NewAgentPressed implements NewAgentPressed {
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
     TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
   }) {
-    return newAgentPressed?.call(this);
+    return agentNameSubmitted?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(NewAgentPressed value)? newAgentPressed,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
     TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(ApiKeyChanged value)? apiKeyChanged,
     TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GoalChanged value)? goalChanged,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
@@ -552,17 +622,241 @@ class _$NewAgentPressed implements NewAgentPressed {
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
     TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
     required TResult orElse(),
   }) {
-    if (newAgentPressed != null) {
-      return newAgentPressed(this);
+    if (agentNameSubmitted != null) {
+      return agentNameSubmitted(this);
     }
     return orElse();
   }
 }
 
-abstract class NewAgentPressed implements HomeEvent {
-  const factory NewAgentPressed() = _$NewAgentPressed;
+abstract class AgentNameSubmitted implements HomeEvent {
+  const factory AgentNameSubmitted() = _$AgentNameSubmitted;
+}
+
+/// @nodoc
+abstract class _$$NewClusterPressedCopyWith<$Res> {
+  factory _$$NewClusterPressedCopyWith(
+          _$NewClusterPressed value, $Res Function(_$NewClusterPressed) then) =
+      __$$NewClusterPressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NewClusterPressedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$NewClusterPressed>
+    implements _$$NewClusterPressedCopyWith<$Res> {
+  __$$NewClusterPressedCopyWithImpl(
+      _$NewClusterPressed _value, $Res Function(_$NewClusterPressed) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$NewClusterPressed implements NewClusterPressed {
+  const _$NewClusterPressed();
+
+  @override
+  String toString() {
+    return 'HomeEvent.newClusterPressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NewClusterPressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() appLaunched,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
+    required TResult Function(Agent agent) deleteAgentPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
+    required TResult Function() apiKeyUpdated,
+    required TResult Function() clientInitialized,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
+    required TResult Function() deployPressed,
+    required TResult Function() agentDeployed,
+    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function(List<Task> tasks) tasksCreated,
+    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() maxTasksReached,
+    required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
+  }) {
+    return newClusterPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? appLaunched,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
+    TResult? Function(Agent agent)? deleteAgentPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
+    TResult? Function()? apiKeyUpdated,
+    TResult? Function()? clientInitialized,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
+    TResult? Function()? deployPressed,
+    TResult? Function()? agentDeployed,
+    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function(List<Task> tasks)? tasksCreated,
+    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? maxTasksReached,
+    TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
+  }) {
+    return newClusterPressed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? appLaunched,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
+    TResult Function(Agent agent)? deleteAgentPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
+    TResult Function()? apiKeyUpdated,
+    TResult Function()? clientInitialized,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
+    TResult Function()? deployPressed,
+    TResult Function()? agentDeployed,
+    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function(List<Task> tasks)? tasksCreated,
+    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? maxTasksReached,
+    TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
+    required TResult orElse(),
+  }) {
+    if (newClusterPressed != null) {
+      return newClusterPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
+    required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
+    required TResult Function(SettingsNotFound value) settingsNotFound,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
+    required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
+    required TResult Function(_ClientInitialized value) clientInitialized,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
+    required TResult Function(DeployPressed value) deployPressed,
+    required TResult Function(_AgentDeployed value) agentDeployed,
+    required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_MaxTasksReached value) maxTasksReached,
+    required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
+  }) {
+    return newClusterPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
+    TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult? Function(SettingsNotFound value)? settingsNotFound,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult? Function(_ClientInitialized value)? clientInitialized,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult? Function(DeployPressed value)? deployPressed,
+    TResult? Function(_AgentDeployed value)? agentDeployed,
+    TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_MaxTasksReached value)? maxTasksReached,
+    TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
+  }) {
+    return newClusterPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
+    TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult Function(SettingsNotFound value)? settingsNotFound,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult Function(_ClientInitialized value)? clientInitialized,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult Function(DeployPressed value)? deployPressed,
+    TResult Function(_AgentDeployed value)? agentDeployed,
+    TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_MaxTasksReached value)? maxTasksReached,
+    TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
+    required TResult orElse(),
+  }) {
+    if (newClusterPressed != null) {
+      return newClusterPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NewClusterPressed implements HomeEvent {
+  const factory NewClusterPressed() = _$NewClusterPressed;
 }
 
 /// @nodoc
@@ -641,15 +935,17 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
-    required TResult Function() newAgentPressed,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
     required TResult Function(Agent agent) deleteAgentPressed,
     required TResult Function() settingsNotFound,
     required TResult Function(String apiKeyStr) apiKeyChanged,
     required TResult Function() apiKeySubmitted,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String goalStr) goalChanged,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
     required TResult Function(List<Task> tasks) agentInserted,
@@ -658,6 +954,8 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
   }) {
     return deleteAgentPressed(agent);
   }
@@ -666,15 +964,17 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
-    TResult? Function()? newAgentPressed,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
     TResult? Function(Agent agent)? deleteAgentPressed,
     TResult? Function()? settingsNotFound,
     TResult? Function(String apiKeyStr)? apiKeyChanged,
     TResult? Function()? apiKeySubmitted,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String goalStr)? goalChanged,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
     TResult? Function(List<Task> tasks)? agentInserted,
@@ -683,6 +983,8 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
   }) {
     return deleteAgentPressed?.call(agent);
   }
@@ -691,15 +993,17 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
-    TResult Function()? newAgentPressed,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
     TResult Function(Agent agent)? deleteAgentPressed,
     TResult Function()? settingsNotFound,
     TResult Function(String apiKeyStr)? apiKeyChanged,
     TResult Function()? apiKeySubmitted,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function(String nameStr)? nameChanged,
-    TResult Function(String goalStr)? goalChanged,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
     TResult Function(List<Task> tasks)? agentInserted,
@@ -708,6 +1012,8 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
     required TResult orElse(),
   }) {
     if (deleteAgentPressed != null) {
@@ -720,15 +1026,17 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(NewAgentPressed value) newAgentPressed,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
     required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
     required TResult Function(SettingsNotFound value) settingsNotFound,
     required TResult Function(ApiKeyChanged value) apiKeyChanged,
     required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GoalChanged value) goalChanged,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
@@ -737,6 +1045,8 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
     required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
   }) {
     return deleteAgentPressed(this);
   }
@@ -745,15 +1055,17 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(NewAgentPressed value)? newAgentPressed,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
     TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(ApiKeyChanged value)? apiKeyChanged,
     TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GoalChanged value)? goalChanged,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
@@ -762,6 +1074,8 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
     TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
   }) {
     return deleteAgentPressed?.call(this);
   }
@@ -770,15 +1084,17 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(NewAgentPressed value)? newAgentPressed,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
     TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(ApiKeyChanged value)? apiKeyChanged,
     TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GoalChanged value)? goalChanged,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
@@ -787,6 +1103,8 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
     TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
     required TResult orElse(),
   }) {
     if (deleteAgentPressed != null) {
@@ -844,15 +1162,17 @@ class _$SettingsNotFound implements SettingsNotFound {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
-    required TResult Function() newAgentPressed,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
     required TResult Function(Agent agent) deleteAgentPressed,
     required TResult Function() settingsNotFound,
     required TResult Function(String apiKeyStr) apiKeyChanged,
     required TResult Function() apiKeySubmitted,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String goalStr) goalChanged,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
     required TResult Function(List<Task> tasks) agentInserted,
@@ -861,6 +1181,8 @@ class _$SettingsNotFound implements SettingsNotFound {
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
   }) {
     return settingsNotFound();
   }
@@ -869,15 +1191,17 @@ class _$SettingsNotFound implements SettingsNotFound {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
-    TResult? Function()? newAgentPressed,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
     TResult? Function(Agent agent)? deleteAgentPressed,
     TResult? Function()? settingsNotFound,
     TResult? Function(String apiKeyStr)? apiKeyChanged,
     TResult? Function()? apiKeySubmitted,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String goalStr)? goalChanged,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
     TResult? Function(List<Task> tasks)? agentInserted,
@@ -886,6 +1210,8 @@ class _$SettingsNotFound implements SettingsNotFound {
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
   }) {
     return settingsNotFound?.call();
   }
@@ -894,15 +1220,17 @@ class _$SettingsNotFound implements SettingsNotFound {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
-    TResult Function()? newAgentPressed,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
     TResult Function(Agent agent)? deleteAgentPressed,
     TResult Function()? settingsNotFound,
     TResult Function(String apiKeyStr)? apiKeyChanged,
     TResult Function()? apiKeySubmitted,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function(String nameStr)? nameChanged,
-    TResult Function(String goalStr)? goalChanged,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
     TResult Function(List<Task> tasks)? agentInserted,
@@ -911,6 +1239,8 @@ class _$SettingsNotFound implements SettingsNotFound {
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
     required TResult orElse(),
   }) {
     if (settingsNotFound != null) {
@@ -923,15 +1253,17 @@ class _$SettingsNotFound implements SettingsNotFound {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(NewAgentPressed value) newAgentPressed,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
     required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
     required TResult Function(SettingsNotFound value) settingsNotFound,
     required TResult Function(ApiKeyChanged value) apiKeyChanged,
     required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GoalChanged value) goalChanged,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
@@ -940,6 +1272,8 @@ class _$SettingsNotFound implements SettingsNotFound {
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
     required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
   }) {
     return settingsNotFound(this);
   }
@@ -948,15 +1282,17 @@ class _$SettingsNotFound implements SettingsNotFound {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(NewAgentPressed value)? newAgentPressed,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
     TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(ApiKeyChanged value)? apiKeyChanged,
     TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GoalChanged value)? goalChanged,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
@@ -965,6 +1301,8 @@ class _$SettingsNotFound implements SettingsNotFound {
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
     TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
   }) {
     return settingsNotFound?.call(this);
   }
@@ -973,15 +1311,17 @@ class _$SettingsNotFound implements SettingsNotFound {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(NewAgentPressed value)? newAgentPressed,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
     TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(ApiKeyChanged value)? apiKeyChanged,
     TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GoalChanged value)? goalChanged,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
@@ -990,6 +1330,8 @@ class _$SettingsNotFound implements SettingsNotFound {
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
     TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
     required TResult orElse(),
   }) {
     if (settingsNotFound != null) {
@@ -1069,15 +1411,17 @@ class _$ApiKeyChanged implements ApiKeyChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
-    required TResult Function() newAgentPressed,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
     required TResult Function(Agent agent) deleteAgentPressed,
     required TResult Function() settingsNotFound,
     required TResult Function(String apiKeyStr) apiKeyChanged,
     required TResult Function() apiKeySubmitted,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String goalStr) goalChanged,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
     required TResult Function(List<Task> tasks) agentInserted,
@@ -1086,6 +1430,8 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
   }) {
     return apiKeyChanged(apiKeyStr);
   }
@@ -1094,15 +1440,17 @@ class _$ApiKeyChanged implements ApiKeyChanged {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
-    TResult? Function()? newAgentPressed,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
     TResult? Function(Agent agent)? deleteAgentPressed,
     TResult? Function()? settingsNotFound,
     TResult? Function(String apiKeyStr)? apiKeyChanged,
     TResult? Function()? apiKeySubmitted,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String goalStr)? goalChanged,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
     TResult? Function(List<Task> tasks)? agentInserted,
@@ -1111,6 +1459,8 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
   }) {
     return apiKeyChanged?.call(apiKeyStr);
   }
@@ -1119,15 +1469,17 @@ class _$ApiKeyChanged implements ApiKeyChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
-    TResult Function()? newAgentPressed,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
     TResult Function(Agent agent)? deleteAgentPressed,
     TResult Function()? settingsNotFound,
     TResult Function(String apiKeyStr)? apiKeyChanged,
     TResult Function()? apiKeySubmitted,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function(String nameStr)? nameChanged,
-    TResult Function(String goalStr)? goalChanged,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
     TResult Function(List<Task> tasks)? agentInserted,
@@ -1136,6 +1488,8 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
     required TResult orElse(),
   }) {
     if (apiKeyChanged != null) {
@@ -1148,15 +1502,17 @@ class _$ApiKeyChanged implements ApiKeyChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(NewAgentPressed value) newAgentPressed,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
     required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
     required TResult Function(SettingsNotFound value) settingsNotFound,
     required TResult Function(ApiKeyChanged value) apiKeyChanged,
     required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GoalChanged value) goalChanged,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
@@ -1165,6 +1521,8 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
     required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
   }) {
     return apiKeyChanged(this);
   }
@@ -1173,15 +1531,17 @@ class _$ApiKeyChanged implements ApiKeyChanged {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(NewAgentPressed value)? newAgentPressed,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
     TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(ApiKeyChanged value)? apiKeyChanged,
     TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GoalChanged value)? goalChanged,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
@@ -1190,6 +1550,8 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
     TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
   }) {
     return apiKeyChanged?.call(this);
   }
@@ -1198,15 +1560,17 @@ class _$ApiKeyChanged implements ApiKeyChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(NewAgentPressed value)? newAgentPressed,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
     TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(ApiKeyChanged value)? apiKeyChanged,
     TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GoalChanged value)? goalChanged,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
@@ -1215,6 +1579,8 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
     TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
     required TResult orElse(),
   }) {
     if (apiKeyChanged != null) {
@@ -1272,15 +1638,17 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
-    required TResult Function() newAgentPressed,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
     required TResult Function(Agent agent) deleteAgentPressed,
     required TResult Function() settingsNotFound,
     required TResult Function(String apiKeyStr) apiKeyChanged,
     required TResult Function() apiKeySubmitted,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String goalStr) goalChanged,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
     required TResult Function(List<Task> tasks) agentInserted,
@@ -1289,6 +1657,8 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
   }) {
     return apiKeySubmitted();
   }
@@ -1297,15 +1667,17 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
-    TResult? Function()? newAgentPressed,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
     TResult? Function(Agent agent)? deleteAgentPressed,
     TResult? Function()? settingsNotFound,
     TResult? Function(String apiKeyStr)? apiKeyChanged,
     TResult? Function()? apiKeySubmitted,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String goalStr)? goalChanged,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
     TResult? Function(List<Task> tasks)? agentInserted,
@@ -1314,6 +1686,8 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
   }) {
     return apiKeySubmitted?.call();
   }
@@ -1322,15 +1696,17 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
-    TResult Function()? newAgentPressed,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
     TResult Function(Agent agent)? deleteAgentPressed,
     TResult Function()? settingsNotFound,
     TResult Function(String apiKeyStr)? apiKeyChanged,
     TResult Function()? apiKeySubmitted,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function(String nameStr)? nameChanged,
-    TResult Function(String goalStr)? goalChanged,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
     TResult Function(List<Task> tasks)? agentInserted,
@@ -1339,6 +1715,8 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
     required TResult orElse(),
   }) {
     if (apiKeySubmitted != null) {
@@ -1351,15 +1729,17 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(NewAgentPressed value) newAgentPressed,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
     required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
     required TResult Function(SettingsNotFound value) settingsNotFound,
     required TResult Function(ApiKeyChanged value) apiKeyChanged,
     required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GoalChanged value) goalChanged,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
@@ -1368,6 +1748,8 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
     required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
   }) {
     return apiKeySubmitted(this);
   }
@@ -1376,15 +1758,17 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(NewAgentPressed value)? newAgentPressed,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
     TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(ApiKeyChanged value)? apiKeyChanged,
     TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GoalChanged value)? goalChanged,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
@@ -1393,6 +1777,8 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
     TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
   }) {
     return apiKeySubmitted?.call(this);
   }
@@ -1401,15 +1787,17 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(NewAgentPressed value)? newAgentPressed,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
     TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(ApiKeyChanged value)? apiKeyChanged,
     TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GoalChanged value)? goalChanged,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
@@ -1418,6 +1806,8 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
     TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
     required TResult orElse(),
   }) {
     if (apiKeySubmitted != null) {
@@ -1470,15 +1860,17 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
-    required TResult Function() newAgentPressed,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
     required TResult Function(Agent agent) deleteAgentPressed,
     required TResult Function() settingsNotFound,
     required TResult Function(String apiKeyStr) apiKeyChanged,
     required TResult Function() apiKeySubmitted,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String goalStr) goalChanged,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
     required TResult Function(List<Task> tasks) agentInserted,
@@ -1487,6 +1879,8 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
   }) {
     return apiKeyUpdated();
   }
@@ -1495,15 +1889,17 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
-    TResult? Function()? newAgentPressed,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
     TResult? Function(Agent agent)? deleteAgentPressed,
     TResult? Function()? settingsNotFound,
     TResult? Function(String apiKeyStr)? apiKeyChanged,
     TResult? Function()? apiKeySubmitted,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String goalStr)? goalChanged,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
     TResult? Function(List<Task> tasks)? agentInserted,
@@ -1512,6 +1908,8 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
   }) {
     return apiKeyUpdated?.call();
   }
@@ -1520,15 +1918,17 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
-    TResult Function()? newAgentPressed,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
     TResult Function(Agent agent)? deleteAgentPressed,
     TResult Function()? settingsNotFound,
     TResult Function(String apiKeyStr)? apiKeyChanged,
     TResult Function()? apiKeySubmitted,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function(String nameStr)? nameChanged,
-    TResult Function(String goalStr)? goalChanged,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
     TResult Function(List<Task> tasks)? agentInserted,
@@ -1537,6 +1937,8 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
     required TResult orElse(),
   }) {
     if (apiKeyUpdated != null) {
@@ -1549,15 +1951,17 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(NewAgentPressed value) newAgentPressed,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
     required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
     required TResult Function(SettingsNotFound value) settingsNotFound,
     required TResult Function(ApiKeyChanged value) apiKeyChanged,
     required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GoalChanged value) goalChanged,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
@@ -1566,6 +1970,8 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
     required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
   }) {
     return apiKeyUpdated(this);
   }
@@ -1574,15 +1980,17 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(NewAgentPressed value)? newAgentPressed,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
     TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(ApiKeyChanged value)? apiKeyChanged,
     TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GoalChanged value)? goalChanged,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
@@ -1591,6 +1999,8 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
     TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
   }) {
     return apiKeyUpdated?.call(this);
   }
@@ -1599,15 +2009,17 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(NewAgentPressed value)? newAgentPressed,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
     TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(ApiKeyChanged value)? apiKeyChanged,
     TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GoalChanged value)? goalChanged,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
@@ -1616,6 +2028,8 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
     TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
     required TResult orElse(),
   }) {
     if (apiKeyUpdated != null) {
@@ -1668,15 +2082,17 @@ class _$_ClientInitialized implements _ClientInitialized {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
-    required TResult Function() newAgentPressed,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
     required TResult Function(Agent agent) deleteAgentPressed,
     required TResult Function() settingsNotFound,
     required TResult Function(String apiKeyStr) apiKeyChanged,
     required TResult Function() apiKeySubmitted,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String goalStr) goalChanged,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
     required TResult Function(List<Task> tasks) agentInserted,
@@ -1685,6 +2101,8 @@ class _$_ClientInitialized implements _ClientInitialized {
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
   }) {
     return clientInitialized();
   }
@@ -1693,15 +2111,17 @@ class _$_ClientInitialized implements _ClientInitialized {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
-    TResult? Function()? newAgentPressed,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
     TResult? Function(Agent agent)? deleteAgentPressed,
     TResult? Function()? settingsNotFound,
     TResult? Function(String apiKeyStr)? apiKeyChanged,
     TResult? Function()? apiKeySubmitted,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String goalStr)? goalChanged,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
     TResult? Function(List<Task> tasks)? agentInserted,
@@ -1710,6 +2130,8 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
   }) {
     return clientInitialized?.call();
   }
@@ -1718,15 +2140,17 @@ class _$_ClientInitialized implements _ClientInitialized {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
-    TResult Function()? newAgentPressed,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
     TResult Function(Agent agent)? deleteAgentPressed,
     TResult Function()? settingsNotFound,
     TResult Function(String apiKeyStr)? apiKeyChanged,
     TResult Function()? apiKeySubmitted,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function(String nameStr)? nameChanged,
-    TResult Function(String goalStr)? goalChanged,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
     TResult Function(List<Task> tasks)? agentInserted,
@@ -1735,6 +2159,8 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
     required TResult orElse(),
   }) {
     if (clientInitialized != null) {
@@ -1747,15 +2173,17 @@ class _$_ClientInitialized implements _ClientInitialized {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(NewAgentPressed value) newAgentPressed,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
     required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
     required TResult Function(SettingsNotFound value) settingsNotFound,
     required TResult Function(ApiKeyChanged value) apiKeyChanged,
     required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GoalChanged value) goalChanged,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
@@ -1764,6 +2192,8 @@ class _$_ClientInitialized implements _ClientInitialized {
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
     required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
   }) {
     return clientInitialized(this);
   }
@@ -1772,15 +2202,17 @@ class _$_ClientInitialized implements _ClientInitialized {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(NewAgentPressed value)? newAgentPressed,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
     TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(ApiKeyChanged value)? apiKeyChanged,
     TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GoalChanged value)? goalChanged,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
@@ -1789,6 +2221,8 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
     TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
   }) {
     return clientInitialized?.call(this);
   }
@@ -1797,15 +2231,17 @@ class _$_ClientInitialized implements _ClientInitialized {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(NewAgentPressed value)? newAgentPressed,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
     TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(ApiKeyChanged value)? apiKeyChanged,
     TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GoalChanged value)? goalChanged,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
@@ -1814,6 +2250,8 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
     TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
     required TResult orElse(),
   }) {
     if (clientInitialized != null) {
@@ -1828,20 +2266,20 @@ abstract class _ClientInitialized implements HomeEvent {
 }
 
 /// @nodoc
-abstract class _$$NameChangedCopyWith<$Res> {
-  factory _$$NameChangedCopyWith(
-          _$NameChanged value, $Res Function(_$NameChanged) then) =
-      __$$NameChangedCopyWithImpl<$Res>;
+abstract class _$$AgentNameChangedCopyWith<$Res> {
+  factory _$$AgentNameChangedCopyWith(
+          _$AgentNameChanged value, $Res Function(_$AgentNameChanged) then) =
+      __$$AgentNameChangedCopyWithImpl<$Res>;
   @useResult
   $Res call({String nameStr});
 }
 
 /// @nodoc
-class __$$NameChangedCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$NameChanged>
-    implements _$$NameChangedCopyWith<$Res> {
-  __$$NameChangedCopyWithImpl(
-      _$NameChanged _value, $Res Function(_$NameChanged) _then)
+class __$$AgentNameChangedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$AgentNameChanged>
+    implements _$$AgentNameChangedCopyWith<$Res> {
+  __$$AgentNameChangedCopyWithImpl(
+      _$AgentNameChanged _value, $Res Function(_$AgentNameChanged) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1849,7 +2287,7 @@ class __$$NameChangedCopyWithImpl<$Res>
   $Res call({
     Object? nameStr = null,
   }) {
-    return _then(_$NameChanged(
+    return _then(_$AgentNameChanged(
       null == nameStr
           ? _value.nameStr
           : nameStr // ignore: cast_nullable_to_non_nullable
@@ -1860,22 +2298,22 @@ class __$$NameChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$NameChanged implements NameChanged {
-  const _$NameChanged(this.nameStr);
+class _$AgentNameChanged implements AgentNameChanged {
+  const _$AgentNameChanged(this.nameStr);
 
   @override
   final String nameStr;
 
   @override
   String toString() {
-    return 'HomeEvent.nameChanged(nameStr: $nameStr)';
+    return 'HomeEvent.agentNameChanged(nameStr: $nameStr)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NameChanged &&
+            other is _$AgentNameChanged &&
             (identical(other.nameStr, nameStr) || other.nameStr == nameStr));
   }
 
@@ -1885,22 +2323,24 @@ class _$NameChanged implements NameChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$NameChangedCopyWith<_$NameChanged> get copyWith =>
-      __$$NameChangedCopyWithImpl<_$NameChanged>(this, _$identity);
+  _$$AgentNameChangedCopyWith<_$AgentNameChanged> get copyWith =>
+      __$$AgentNameChangedCopyWithImpl<_$AgentNameChanged>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
-    required TResult Function() newAgentPressed,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
     required TResult Function(Agent agent) deleteAgentPressed,
     required TResult Function() settingsNotFound,
     required TResult Function(String apiKeyStr) apiKeyChanged,
     required TResult Function() apiKeySubmitted,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String goalStr) goalChanged,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
     required TResult Function(List<Task> tasks) agentInserted,
@@ -1909,23 +2349,27 @@ class _$NameChanged implements NameChanged {
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
   }) {
-    return nameChanged(nameStr);
+    return agentNameChanged(nameStr);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
-    TResult? Function()? newAgentPressed,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
     TResult? Function(Agent agent)? deleteAgentPressed,
     TResult? Function()? settingsNotFound,
     TResult? Function(String apiKeyStr)? apiKeyChanged,
     TResult? Function()? apiKeySubmitted,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String goalStr)? goalChanged,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
     TResult? Function(List<Task> tasks)? agentInserted,
@@ -1934,23 +2378,27 @@ class _$NameChanged implements NameChanged {
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
   }) {
-    return nameChanged?.call(nameStr);
+    return agentNameChanged?.call(nameStr);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
-    TResult Function()? newAgentPressed,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
     TResult Function(Agent agent)? deleteAgentPressed,
     TResult Function()? settingsNotFound,
     TResult Function(String apiKeyStr)? apiKeyChanged,
     TResult Function()? apiKeySubmitted,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function(String nameStr)? nameChanged,
-    TResult Function(String goalStr)? goalChanged,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
     TResult Function(List<Task> tasks)? agentInserted,
@@ -1959,10 +2407,12 @@ class _$NameChanged implements NameChanged {
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
     required TResult orElse(),
   }) {
-    if (nameChanged != null) {
-      return nameChanged(nameStr);
+    if (agentNameChanged != null) {
+      return agentNameChanged(nameStr);
     }
     return orElse();
   }
@@ -1971,15 +2421,17 @@ class _$NameChanged implements NameChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(NewAgentPressed value) newAgentPressed,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
     required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
     required TResult Function(SettingsNotFound value) settingsNotFound,
     required TResult Function(ApiKeyChanged value) apiKeyChanged,
     required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GoalChanged value) goalChanged,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
@@ -1988,23 +2440,27 @@ class _$NameChanged implements NameChanged {
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
     required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
   }) {
-    return nameChanged(this);
+    return agentNameChanged(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(NewAgentPressed value)? newAgentPressed,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
     TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(ApiKeyChanged value)? apiKeyChanged,
     TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GoalChanged value)? goalChanged,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
@@ -2013,23 +2469,27 @@ class _$NameChanged implements NameChanged {
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
     TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
   }) {
-    return nameChanged?.call(this);
+    return agentNameChanged?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(NewAgentPressed value)? newAgentPressed,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
     TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(ApiKeyChanged value)? apiKeyChanged,
     TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GoalChanged value)? goalChanged,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
@@ -2038,39 +2498,295 @@ class _$NameChanged implements NameChanged {
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
     TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
     required TResult orElse(),
   }) {
-    if (nameChanged != null) {
-      return nameChanged(this);
+    if (agentNameChanged != null) {
+      return agentNameChanged(this);
     }
     return orElse();
   }
 }
 
-abstract class NameChanged implements HomeEvent {
-  const factory NameChanged(final String nameStr) = _$NameChanged;
+abstract class AgentNameChanged implements HomeEvent {
+  const factory AgentNameChanged(final String nameStr) = _$AgentNameChanged;
 
   String get nameStr;
   @JsonKey(ignore: true)
-  _$$NameChangedCopyWith<_$NameChanged> get copyWith =>
+  _$$AgentNameChangedCopyWith<_$AgentNameChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$GoalChangedCopyWith<$Res> {
-  factory _$$GoalChangedCopyWith(
-          _$GoalChanged value, $Res Function(_$GoalChanged) then) =
-      __$$GoalChangedCopyWithImpl<$Res>;
+abstract class _$$ClusterNameChangedCopyWith<$Res> {
+  factory _$$ClusterNameChangedCopyWith(_$ClusterNameChanged value,
+          $Res Function(_$ClusterNameChanged) then) =
+      __$$ClusterNameChangedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String nameStr});
+}
+
+/// @nodoc
+class __$$ClusterNameChangedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$ClusterNameChanged>
+    implements _$$ClusterNameChangedCopyWith<$Res> {
+  __$$ClusterNameChangedCopyWithImpl(
+      _$ClusterNameChanged _value, $Res Function(_$ClusterNameChanged) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? nameStr = null,
+  }) {
+    return _then(_$ClusterNameChanged(
+      null == nameStr
+          ? _value.nameStr
+          : nameStr // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ClusterNameChanged implements ClusterNameChanged {
+  const _$ClusterNameChanged(this.nameStr);
+
+  @override
+  final String nameStr;
+
+  @override
+  String toString() {
+    return 'HomeEvent.clusterNameChanged(nameStr: $nameStr)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ClusterNameChanged &&
+            (identical(other.nameStr, nameStr) || other.nameStr == nameStr));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, nameStr);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ClusterNameChangedCopyWith<_$ClusterNameChanged> get copyWith =>
+      __$$ClusterNameChangedCopyWithImpl<_$ClusterNameChanged>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() appLaunched,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
+    required TResult Function(Agent agent) deleteAgentPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
+    required TResult Function() apiKeyUpdated,
+    required TResult Function() clientInitialized,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
+    required TResult Function() deployPressed,
+    required TResult Function() agentDeployed,
+    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function(List<Task> tasks) tasksCreated,
+    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() maxTasksReached,
+    required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
+  }) {
+    return clusterNameChanged(nameStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? appLaunched,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
+    TResult? Function(Agent agent)? deleteAgentPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
+    TResult? Function()? apiKeyUpdated,
+    TResult? Function()? clientInitialized,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
+    TResult? Function()? deployPressed,
+    TResult? Function()? agentDeployed,
+    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function(List<Task> tasks)? tasksCreated,
+    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? maxTasksReached,
+    TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
+  }) {
+    return clusterNameChanged?.call(nameStr);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? appLaunched,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
+    TResult Function(Agent agent)? deleteAgentPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
+    TResult Function()? apiKeyUpdated,
+    TResult Function()? clientInitialized,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
+    TResult Function()? deployPressed,
+    TResult Function()? agentDeployed,
+    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function(List<Task> tasks)? tasksCreated,
+    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? maxTasksReached,
+    TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
+    required TResult orElse(),
+  }) {
+    if (clusterNameChanged != null) {
+      return clusterNameChanged(nameStr);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
+    required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
+    required TResult Function(SettingsNotFound value) settingsNotFound,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
+    required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
+    required TResult Function(_ClientInitialized value) clientInitialized,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
+    required TResult Function(DeployPressed value) deployPressed,
+    required TResult Function(_AgentDeployed value) agentDeployed,
+    required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_MaxTasksReached value) maxTasksReached,
+    required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
+  }) {
+    return clusterNameChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
+    TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult? Function(SettingsNotFound value)? settingsNotFound,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult? Function(_ClientInitialized value)? clientInitialized,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult? Function(DeployPressed value)? deployPressed,
+    TResult? Function(_AgentDeployed value)? agentDeployed,
+    TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_MaxTasksReached value)? maxTasksReached,
+    TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
+  }) {
+    return clusterNameChanged?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
+    TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult Function(SettingsNotFound value)? settingsNotFound,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult Function(_ClientInitialized value)? clientInitialized,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult Function(DeployPressed value)? deployPressed,
+    TResult Function(_AgentDeployed value)? agentDeployed,
+    TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_MaxTasksReached value)? maxTasksReached,
+    TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
+    required TResult orElse(),
+  }) {
+    if (clusterNameChanged != null) {
+      return clusterNameChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ClusterNameChanged implements HomeEvent {
+  const factory ClusterNameChanged(final String nameStr) = _$ClusterNameChanged;
+
+  String get nameStr;
+  @JsonKey(ignore: true)
+  _$$ClusterNameChangedCopyWith<_$ClusterNameChanged> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ClusterGoalChangedCopyWith<$Res> {
+  factory _$$ClusterGoalChangedCopyWith(_$ClusterGoalChanged value,
+          $Res Function(_$ClusterGoalChanged) then) =
+      __$$ClusterGoalChangedCopyWithImpl<$Res>;
   @useResult
   $Res call({String goalStr});
 }
 
 /// @nodoc
-class __$$GoalChangedCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$GoalChanged>
-    implements _$$GoalChangedCopyWith<$Res> {
-  __$$GoalChangedCopyWithImpl(
-      _$GoalChanged _value, $Res Function(_$GoalChanged) _then)
+class __$$ClusterGoalChangedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$ClusterGoalChanged>
+    implements _$$ClusterGoalChangedCopyWith<$Res> {
+  __$$ClusterGoalChangedCopyWithImpl(
+      _$ClusterGoalChanged _value, $Res Function(_$ClusterGoalChanged) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -2078,7 +2794,7 @@ class __$$GoalChangedCopyWithImpl<$Res>
   $Res call({
     Object? goalStr = null,
   }) {
-    return _then(_$GoalChanged(
+    return _then(_$ClusterGoalChanged(
       null == goalStr
           ? _value.goalStr
           : goalStr // ignore: cast_nullable_to_non_nullable
@@ -2089,22 +2805,22 @@ class __$$GoalChangedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$GoalChanged implements GoalChanged {
-  const _$GoalChanged(this.goalStr);
+class _$ClusterGoalChanged implements ClusterGoalChanged {
+  const _$ClusterGoalChanged(this.goalStr);
 
   @override
   final String goalStr;
 
   @override
   String toString() {
-    return 'HomeEvent.goalChanged(goalStr: $goalStr)';
+    return 'HomeEvent.clusterGoalChanged(goalStr: $goalStr)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GoalChanged &&
+            other is _$ClusterGoalChanged &&
             (identical(other.goalStr, goalStr) || other.goalStr == goalStr));
   }
 
@@ -2114,22 +2830,25 @@ class _$GoalChanged implements GoalChanged {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GoalChangedCopyWith<_$GoalChanged> get copyWith =>
-      __$$GoalChangedCopyWithImpl<_$GoalChanged>(this, _$identity);
+  _$$ClusterGoalChangedCopyWith<_$ClusterGoalChanged> get copyWith =>
+      __$$ClusterGoalChangedCopyWithImpl<_$ClusterGoalChanged>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
-    required TResult Function() newAgentPressed,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
     required TResult Function(Agent agent) deleteAgentPressed,
     required TResult Function() settingsNotFound,
     required TResult Function(String apiKeyStr) apiKeyChanged,
     required TResult Function() apiKeySubmitted,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String goalStr) goalChanged,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
     required TResult Function(List<Task> tasks) agentInserted,
@@ -2138,23 +2857,27 @@ class _$GoalChanged implements GoalChanged {
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
   }) {
-    return goalChanged(goalStr);
+    return clusterGoalChanged(goalStr);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
-    TResult? Function()? newAgentPressed,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
     TResult? Function(Agent agent)? deleteAgentPressed,
     TResult? Function()? settingsNotFound,
     TResult? Function(String apiKeyStr)? apiKeyChanged,
     TResult? Function()? apiKeySubmitted,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String goalStr)? goalChanged,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
     TResult? Function(List<Task> tasks)? agentInserted,
@@ -2163,23 +2886,27 @@ class _$GoalChanged implements GoalChanged {
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
   }) {
-    return goalChanged?.call(goalStr);
+    return clusterGoalChanged?.call(goalStr);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
-    TResult Function()? newAgentPressed,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
     TResult Function(Agent agent)? deleteAgentPressed,
     TResult Function()? settingsNotFound,
     TResult Function(String apiKeyStr)? apiKeyChanged,
     TResult Function()? apiKeySubmitted,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function(String nameStr)? nameChanged,
-    TResult Function(String goalStr)? goalChanged,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
     TResult Function(List<Task> tasks)? agentInserted,
@@ -2188,10 +2915,12 @@ class _$GoalChanged implements GoalChanged {
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
     required TResult orElse(),
   }) {
-    if (goalChanged != null) {
-      return goalChanged(goalStr);
+    if (clusterGoalChanged != null) {
+      return clusterGoalChanged(goalStr);
     }
     return orElse();
   }
@@ -2200,15 +2929,17 @@ class _$GoalChanged implements GoalChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(NewAgentPressed value) newAgentPressed,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
     required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
     required TResult Function(SettingsNotFound value) settingsNotFound,
     required TResult Function(ApiKeyChanged value) apiKeyChanged,
     required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GoalChanged value) goalChanged,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
@@ -2217,23 +2948,27 @@ class _$GoalChanged implements GoalChanged {
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
     required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
   }) {
-    return goalChanged(this);
+    return clusterGoalChanged(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(NewAgentPressed value)? newAgentPressed,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
     TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(ApiKeyChanged value)? apiKeyChanged,
     TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GoalChanged value)? goalChanged,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
@@ -2242,23 +2977,27 @@ class _$GoalChanged implements GoalChanged {
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
     TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
   }) {
-    return goalChanged?.call(this);
+    return clusterGoalChanged?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(NewAgentPressed value)? newAgentPressed,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
     TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(ApiKeyChanged value)? apiKeyChanged,
     TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GoalChanged value)? goalChanged,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
@@ -2267,21 +3006,23 @@ class _$GoalChanged implements GoalChanged {
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
     TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
     required TResult orElse(),
   }) {
-    if (goalChanged != null) {
-      return goalChanged(this);
+    if (clusterGoalChanged != null) {
+      return clusterGoalChanged(this);
     }
     return orElse();
   }
 }
 
-abstract class GoalChanged implements HomeEvent {
-  const factory GoalChanged(final String goalStr) = _$GoalChanged;
+abstract class ClusterGoalChanged implements HomeEvent {
+  const factory ClusterGoalChanged(final String goalStr) = _$ClusterGoalChanged;
 
   String get goalStr;
   @JsonKey(ignore: true)
-  _$$GoalChangedCopyWith<_$GoalChanged> get copyWith =>
+  _$$ClusterGoalChangedCopyWith<_$ClusterGoalChanged> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -2324,15 +3065,17 @@ class _$DeployPressed implements DeployPressed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
-    required TResult Function() newAgentPressed,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
     required TResult Function(Agent agent) deleteAgentPressed,
     required TResult Function() settingsNotFound,
     required TResult Function(String apiKeyStr) apiKeyChanged,
     required TResult Function() apiKeySubmitted,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String goalStr) goalChanged,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
     required TResult Function(List<Task> tasks) agentInserted,
@@ -2341,6 +3084,8 @@ class _$DeployPressed implements DeployPressed {
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
   }) {
     return deployPressed();
   }
@@ -2349,15 +3094,17 @@ class _$DeployPressed implements DeployPressed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
-    TResult? Function()? newAgentPressed,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
     TResult? Function(Agent agent)? deleteAgentPressed,
     TResult? Function()? settingsNotFound,
     TResult? Function(String apiKeyStr)? apiKeyChanged,
     TResult? Function()? apiKeySubmitted,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String goalStr)? goalChanged,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
     TResult? Function(List<Task> tasks)? agentInserted,
@@ -2366,6 +3113,8 @@ class _$DeployPressed implements DeployPressed {
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
   }) {
     return deployPressed?.call();
   }
@@ -2374,15 +3123,17 @@ class _$DeployPressed implements DeployPressed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
-    TResult Function()? newAgentPressed,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
     TResult Function(Agent agent)? deleteAgentPressed,
     TResult Function()? settingsNotFound,
     TResult Function(String apiKeyStr)? apiKeyChanged,
     TResult Function()? apiKeySubmitted,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function(String nameStr)? nameChanged,
-    TResult Function(String goalStr)? goalChanged,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
     TResult Function(List<Task> tasks)? agentInserted,
@@ -2391,6 +3142,8 @@ class _$DeployPressed implements DeployPressed {
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
     required TResult orElse(),
   }) {
     if (deployPressed != null) {
@@ -2403,15 +3156,17 @@ class _$DeployPressed implements DeployPressed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(NewAgentPressed value) newAgentPressed,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
     required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
     required TResult Function(SettingsNotFound value) settingsNotFound,
     required TResult Function(ApiKeyChanged value) apiKeyChanged,
     required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GoalChanged value) goalChanged,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
@@ -2420,6 +3175,8 @@ class _$DeployPressed implements DeployPressed {
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
     required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
   }) {
     return deployPressed(this);
   }
@@ -2428,15 +3185,17 @@ class _$DeployPressed implements DeployPressed {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(NewAgentPressed value)? newAgentPressed,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
     TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(ApiKeyChanged value)? apiKeyChanged,
     TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GoalChanged value)? goalChanged,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
@@ -2445,6 +3204,8 @@ class _$DeployPressed implements DeployPressed {
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
     TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
   }) {
     return deployPressed?.call(this);
   }
@@ -2453,15 +3214,17 @@ class _$DeployPressed implements DeployPressed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(NewAgentPressed value)? newAgentPressed,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
     TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(ApiKeyChanged value)? apiKeyChanged,
     TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GoalChanged value)? goalChanged,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
@@ -2470,6 +3233,8 @@ class _$DeployPressed implements DeployPressed {
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
     TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
     required TResult orElse(),
   }) {
     if (deployPressed != null) {
@@ -2522,15 +3287,17 @@ class _$_AgentDeployed implements _AgentDeployed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
-    required TResult Function() newAgentPressed,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
     required TResult Function(Agent agent) deleteAgentPressed,
     required TResult Function() settingsNotFound,
     required TResult Function(String apiKeyStr) apiKeyChanged,
     required TResult Function() apiKeySubmitted,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String goalStr) goalChanged,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
     required TResult Function(List<Task> tasks) agentInserted,
@@ -2539,6 +3306,8 @@ class _$_AgentDeployed implements _AgentDeployed {
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
   }) {
     return agentDeployed();
   }
@@ -2547,15 +3316,17 @@ class _$_AgentDeployed implements _AgentDeployed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
-    TResult? Function()? newAgentPressed,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
     TResult? Function(Agent agent)? deleteAgentPressed,
     TResult? Function()? settingsNotFound,
     TResult? Function(String apiKeyStr)? apiKeyChanged,
     TResult? Function()? apiKeySubmitted,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String goalStr)? goalChanged,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
     TResult? Function(List<Task> tasks)? agentInserted,
@@ -2564,6 +3335,8 @@ class _$_AgentDeployed implements _AgentDeployed {
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
   }) {
     return agentDeployed?.call();
   }
@@ -2572,15 +3345,17 @@ class _$_AgentDeployed implements _AgentDeployed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
-    TResult Function()? newAgentPressed,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
     TResult Function(Agent agent)? deleteAgentPressed,
     TResult Function()? settingsNotFound,
     TResult Function(String apiKeyStr)? apiKeyChanged,
     TResult Function()? apiKeySubmitted,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function(String nameStr)? nameChanged,
-    TResult Function(String goalStr)? goalChanged,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
     TResult Function(List<Task> tasks)? agentInserted,
@@ -2589,6 +3364,8 @@ class _$_AgentDeployed implements _AgentDeployed {
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
     required TResult orElse(),
   }) {
     if (agentDeployed != null) {
@@ -2601,15 +3378,17 @@ class _$_AgentDeployed implements _AgentDeployed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(NewAgentPressed value) newAgentPressed,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
     required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
     required TResult Function(SettingsNotFound value) settingsNotFound,
     required TResult Function(ApiKeyChanged value) apiKeyChanged,
     required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GoalChanged value) goalChanged,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
@@ -2618,6 +3397,8 @@ class _$_AgentDeployed implements _AgentDeployed {
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
     required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
   }) {
     return agentDeployed(this);
   }
@@ -2626,15 +3407,17 @@ class _$_AgentDeployed implements _AgentDeployed {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(NewAgentPressed value)? newAgentPressed,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
     TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(ApiKeyChanged value)? apiKeyChanged,
     TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GoalChanged value)? goalChanged,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
@@ -2643,6 +3426,8 @@ class _$_AgentDeployed implements _AgentDeployed {
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
     TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
   }) {
     return agentDeployed?.call(this);
   }
@@ -2651,15 +3436,17 @@ class _$_AgentDeployed implements _AgentDeployed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(NewAgentPressed value)? newAgentPressed,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
     TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(ApiKeyChanged value)? apiKeyChanged,
     TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GoalChanged value)? goalChanged,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
@@ -2668,6 +3455,8 @@ class _$_AgentDeployed implements _AgentDeployed {
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
     TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
     required TResult orElse(),
   }) {
     if (agentDeployed != null) {
@@ -2752,15 +3541,17 @@ class _$_AgentInserted implements _AgentInserted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
-    required TResult Function() newAgentPressed,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
     required TResult Function(Agent agent) deleteAgentPressed,
     required TResult Function() settingsNotFound,
     required TResult Function(String apiKeyStr) apiKeyChanged,
     required TResult Function() apiKeySubmitted,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String goalStr) goalChanged,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
     required TResult Function(List<Task> tasks) agentInserted,
@@ -2769,6 +3560,8 @@ class _$_AgentInserted implements _AgentInserted {
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
   }) {
     return agentInserted(tasks);
   }
@@ -2777,15 +3570,17 @@ class _$_AgentInserted implements _AgentInserted {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
-    TResult? Function()? newAgentPressed,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
     TResult? Function(Agent agent)? deleteAgentPressed,
     TResult? Function()? settingsNotFound,
     TResult? Function(String apiKeyStr)? apiKeyChanged,
     TResult? Function()? apiKeySubmitted,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String goalStr)? goalChanged,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
     TResult? Function(List<Task> tasks)? agentInserted,
@@ -2794,6 +3589,8 @@ class _$_AgentInserted implements _AgentInserted {
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
   }) {
     return agentInserted?.call(tasks);
   }
@@ -2802,15 +3599,17 @@ class _$_AgentInserted implements _AgentInserted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
-    TResult Function()? newAgentPressed,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
     TResult Function(Agent agent)? deleteAgentPressed,
     TResult Function()? settingsNotFound,
     TResult Function(String apiKeyStr)? apiKeyChanged,
     TResult Function()? apiKeySubmitted,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function(String nameStr)? nameChanged,
-    TResult Function(String goalStr)? goalChanged,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
     TResult Function(List<Task> tasks)? agentInserted,
@@ -2819,6 +3618,8 @@ class _$_AgentInserted implements _AgentInserted {
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
     required TResult orElse(),
   }) {
     if (agentInserted != null) {
@@ -2831,15 +3632,17 @@ class _$_AgentInserted implements _AgentInserted {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(NewAgentPressed value) newAgentPressed,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
     required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
     required TResult Function(SettingsNotFound value) settingsNotFound,
     required TResult Function(ApiKeyChanged value) apiKeyChanged,
     required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GoalChanged value) goalChanged,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
@@ -2848,6 +3651,8 @@ class _$_AgentInserted implements _AgentInserted {
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
     required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
   }) {
     return agentInserted(this);
   }
@@ -2856,15 +3661,17 @@ class _$_AgentInserted implements _AgentInserted {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(NewAgentPressed value)? newAgentPressed,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
     TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(ApiKeyChanged value)? apiKeyChanged,
     TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GoalChanged value)? goalChanged,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
@@ -2873,6 +3680,8 @@ class _$_AgentInserted implements _AgentInserted {
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
     TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
   }) {
     return agentInserted?.call(this);
   }
@@ -2881,15 +3690,17 @@ class _$_AgentInserted implements _AgentInserted {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(NewAgentPressed value)? newAgentPressed,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
     TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(ApiKeyChanged value)? apiKeyChanged,
     TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GoalChanged value)? goalChanged,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
@@ -2898,6 +3709,8 @@ class _$_AgentInserted implements _AgentInserted {
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
     TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
     required TResult orElse(),
   }) {
     if (agentInserted != null) {
@@ -2987,15 +3800,17 @@ class _$_TasksCreated implements _TasksCreated {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
-    required TResult Function() newAgentPressed,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
     required TResult Function(Agent agent) deleteAgentPressed,
     required TResult Function() settingsNotFound,
     required TResult Function(String apiKeyStr) apiKeyChanged,
     required TResult Function() apiKeySubmitted,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String goalStr) goalChanged,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
     required TResult Function(List<Task> tasks) agentInserted,
@@ -3004,6 +3819,8 @@ class _$_TasksCreated implements _TasksCreated {
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
   }) {
     return tasksCreated(tasks);
   }
@@ -3012,15 +3829,17 @@ class _$_TasksCreated implements _TasksCreated {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
-    TResult? Function()? newAgentPressed,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
     TResult? Function(Agent agent)? deleteAgentPressed,
     TResult? Function()? settingsNotFound,
     TResult? Function(String apiKeyStr)? apiKeyChanged,
     TResult? Function()? apiKeySubmitted,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String goalStr)? goalChanged,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
     TResult? Function(List<Task> tasks)? agentInserted,
@@ -3029,6 +3848,8 @@ class _$_TasksCreated implements _TasksCreated {
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
   }) {
     return tasksCreated?.call(tasks);
   }
@@ -3037,15 +3858,17 @@ class _$_TasksCreated implements _TasksCreated {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
-    TResult Function()? newAgentPressed,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
     TResult Function(Agent agent)? deleteAgentPressed,
     TResult Function()? settingsNotFound,
     TResult Function(String apiKeyStr)? apiKeyChanged,
     TResult Function()? apiKeySubmitted,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function(String nameStr)? nameChanged,
-    TResult Function(String goalStr)? goalChanged,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
     TResult Function(List<Task> tasks)? agentInserted,
@@ -3054,6 +3877,8 @@ class _$_TasksCreated implements _TasksCreated {
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
     required TResult orElse(),
   }) {
     if (tasksCreated != null) {
@@ -3066,15 +3891,17 @@ class _$_TasksCreated implements _TasksCreated {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(NewAgentPressed value) newAgentPressed,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
     required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
     required TResult Function(SettingsNotFound value) settingsNotFound,
     required TResult Function(ApiKeyChanged value) apiKeyChanged,
     required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GoalChanged value) goalChanged,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
@@ -3083,6 +3910,8 @@ class _$_TasksCreated implements _TasksCreated {
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
     required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
   }) {
     return tasksCreated(this);
   }
@@ -3091,15 +3920,17 @@ class _$_TasksCreated implements _TasksCreated {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(NewAgentPressed value)? newAgentPressed,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
     TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(ApiKeyChanged value)? apiKeyChanged,
     TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GoalChanged value)? goalChanged,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
@@ -3108,6 +3939,8 @@ class _$_TasksCreated implements _TasksCreated {
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
     TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
   }) {
     return tasksCreated?.call(this);
   }
@@ -3116,15 +3949,17 @@ class _$_TasksCreated implements _TasksCreated {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(NewAgentPressed value)? newAgentPressed,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
     TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(ApiKeyChanged value)? apiKeyChanged,
     TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GoalChanged value)? goalChanged,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
@@ -3133,6 +3968,8 @@ class _$_TasksCreated implements _TasksCreated {
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
     TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
     required TResult orElse(),
   }) {
     if (tasksCreated != null) {
@@ -3226,15 +4063,17 @@ class _$_TaskExecuted implements _TaskExecuted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
-    required TResult Function() newAgentPressed,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
     required TResult Function(Agent agent) deleteAgentPressed,
     required TResult Function() settingsNotFound,
     required TResult Function(String apiKeyStr) apiKeyChanged,
     required TResult Function() apiKeySubmitted,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String goalStr) goalChanged,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
     required TResult Function(List<Task> tasks) agentInserted,
@@ -3243,6 +4082,8 @@ class _$_TaskExecuted implements _TaskExecuted {
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
   }) {
     return taskExecuted(agent);
   }
@@ -3251,15 +4092,17 @@ class _$_TaskExecuted implements _TaskExecuted {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
-    TResult? Function()? newAgentPressed,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
     TResult? Function(Agent agent)? deleteAgentPressed,
     TResult? Function()? settingsNotFound,
     TResult? Function(String apiKeyStr)? apiKeyChanged,
     TResult? Function()? apiKeySubmitted,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String goalStr)? goalChanged,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
     TResult? Function(List<Task> tasks)? agentInserted,
@@ -3268,6 +4111,8 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
   }) {
     return taskExecuted?.call(agent);
   }
@@ -3276,15 +4121,17 @@ class _$_TaskExecuted implements _TaskExecuted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
-    TResult Function()? newAgentPressed,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
     TResult Function(Agent agent)? deleteAgentPressed,
     TResult Function()? settingsNotFound,
     TResult Function(String apiKeyStr)? apiKeyChanged,
     TResult Function()? apiKeySubmitted,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function(String nameStr)? nameChanged,
-    TResult Function(String goalStr)? goalChanged,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
     TResult Function(List<Task> tasks)? agentInserted,
@@ -3293,6 +4140,8 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
     required TResult orElse(),
   }) {
     if (taskExecuted != null) {
@@ -3305,15 +4154,17 @@ class _$_TaskExecuted implements _TaskExecuted {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(NewAgentPressed value) newAgentPressed,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
     required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
     required TResult Function(SettingsNotFound value) settingsNotFound,
     required TResult Function(ApiKeyChanged value) apiKeyChanged,
     required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GoalChanged value) goalChanged,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
@@ -3322,6 +4173,8 @@ class _$_TaskExecuted implements _TaskExecuted {
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
     required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
   }) {
     return taskExecuted(this);
   }
@@ -3330,15 +4183,17 @@ class _$_TaskExecuted implements _TaskExecuted {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(NewAgentPressed value)? newAgentPressed,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
     TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(ApiKeyChanged value)? apiKeyChanged,
     TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GoalChanged value)? goalChanged,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
@@ -3347,6 +4202,8 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
     TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
   }) {
     return taskExecuted?.call(this);
   }
@@ -3355,15 +4212,17 @@ class _$_TaskExecuted implements _TaskExecuted {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(NewAgentPressed value)? newAgentPressed,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
     TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(ApiKeyChanged value)? apiKeyChanged,
     TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GoalChanged value)? goalChanged,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
@@ -3372,6 +4231,8 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
     TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
     required TResult orElse(),
   }) {
     if (taskExecuted != null) {
@@ -3429,15 +4290,17 @@ class _$_MaxTasksReached implements _MaxTasksReached {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
-    required TResult Function() newAgentPressed,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
     required TResult Function(Agent agent) deleteAgentPressed,
     required TResult Function() settingsNotFound,
     required TResult Function(String apiKeyStr) apiKeyChanged,
     required TResult Function() apiKeySubmitted,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String goalStr) goalChanged,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
     required TResult Function(List<Task> tasks) agentInserted,
@@ -3446,6 +4309,8 @@ class _$_MaxTasksReached implements _MaxTasksReached {
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
   }) {
     return maxTasksReached();
   }
@@ -3454,15 +4319,17 @@ class _$_MaxTasksReached implements _MaxTasksReached {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
-    TResult? Function()? newAgentPressed,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
     TResult? Function(Agent agent)? deleteAgentPressed,
     TResult? Function()? settingsNotFound,
     TResult? Function(String apiKeyStr)? apiKeyChanged,
     TResult? Function()? apiKeySubmitted,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String goalStr)? goalChanged,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
     TResult? Function(List<Task> tasks)? agentInserted,
@@ -3471,6 +4338,8 @@ class _$_MaxTasksReached implements _MaxTasksReached {
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
   }) {
     return maxTasksReached?.call();
   }
@@ -3479,15 +4348,17 @@ class _$_MaxTasksReached implements _MaxTasksReached {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
-    TResult Function()? newAgentPressed,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
     TResult Function(Agent agent)? deleteAgentPressed,
     TResult Function()? settingsNotFound,
     TResult Function(String apiKeyStr)? apiKeyChanged,
     TResult Function()? apiKeySubmitted,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function(String nameStr)? nameChanged,
-    TResult Function(String goalStr)? goalChanged,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
     TResult Function(List<Task> tasks)? agentInserted,
@@ -3496,6 +4367,8 @@ class _$_MaxTasksReached implements _MaxTasksReached {
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
     required TResult orElse(),
   }) {
     if (maxTasksReached != null) {
@@ -3508,15 +4381,17 @@ class _$_MaxTasksReached implements _MaxTasksReached {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(NewAgentPressed value) newAgentPressed,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
     required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
     required TResult Function(SettingsNotFound value) settingsNotFound,
     required TResult Function(ApiKeyChanged value) apiKeyChanged,
     required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GoalChanged value) goalChanged,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
@@ -3525,6 +4400,8 @@ class _$_MaxTasksReached implements _MaxTasksReached {
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
     required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
   }) {
     return maxTasksReached(this);
   }
@@ -3533,15 +4410,17 @@ class _$_MaxTasksReached implements _MaxTasksReached {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(NewAgentPressed value)? newAgentPressed,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
     TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(ApiKeyChanged value)? apiKeyChanged,
     TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GoalChanged value)? goalChanged,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
@@ -3550,6 +4429,8 @@ class _$_MaxTasksReached implements _MaxTasksReached {
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
     TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
   }) {
     return maxTasksReached?.call(this);
   }
@@ -3558,15 +4439,17 @@ class _$_MaxTasksReached implements _MaxTasksReached {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(NewAgentPressed value)? newAgentPressed,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
     TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(ApiKeyChanged value)? apiKeyChanged,
     TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GoalChanged value)? goalChanged,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
@@ -3575,6 +4458,8 @@ class _$_MaxTasksReached implements _MaxTasksReached {
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
     TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
     required TResult orElse(),
   }) {
     if (maxTasksReached != null) {
@@ -3627,15 +4512,17 @@ class _$_NoTasksAdded implements _NoTasksAdded {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
-    required TResult Function() newAgentPressed,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
     required TResult Function(Agent agent) deleteAgentPressed,
     required TResult Function() settingsNotFound,
     required TResult Function(String apiKeyStr) apiKeyChanged,
     required TResult Function() apiKeySubmitted,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String goalStr) goalChanged,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
     required TResult Function(List<Task> tasks) agentInserted,
@@ -3644,6 +4531,8 @@ class _$_NoTasksAdded implements _NoTasksAdded {
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
   }) {
     return noTasksAdded();
   }
@@ -3652,15 +4541,17 @@ class _$_NoTasksAdded implements _NoTasksAdded {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
-    TResult? Function()? newAgentPressed,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
     TResult? Function(Agent agent)? deleteAgentPressed,
     TResult? Function()? settingsNotFound,
     TResult? Function(String apiKeyStr)? apiKeyChanged,
     TResult? Function()? apiKeySubmitted,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String goalStr)? goalChanged,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
     TResult? Function(List<Task> tasks)? agentInserted,
@@ -3669,6 +4560,8 @@ class _$_NoTasksAdded implements _NoTasksAdded {
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
   }) {
     return noTasksAdded?.call();
   }
@@ -3677,15 +4570,17 @@ class _$_NoTasksAdded implements _NoTasksAdded {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
-    TResult Function()? newAgentPressed,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
     TResult Function(Agent agent)? deleteAgentPressed,
     TResult Function()? settingsNotFound,
     TResult Function(String apiKeyStr)? apiKeyChanged,
     TResult Function()? apiKeySubmitted,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function(String nameStr)? nameChanged,
-    TResult Function(String goalStr)? goalChanged,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
     TResult Function(List<Task> tasks)? agentInserted,
@@ -3694,6 +4589,8 @@ class _$_NoTasksAdded implements _NoTasksAdded {
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
     required TResult orElse(),
   }) {
     if (noTasksAdded != null) {
@@ -3706,15 +4603,17 @@ class _$_NoTasksAdded implements _NoTasksAdded {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(NewAgentPressed value) newAgentPressed,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
     required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
     required TResult Function(SettingsNotFound value) settingsNotFound,
     required TResult Function(ApiKeyChanged value) apiKeyChanged,
     required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GoalChanged value) goalChanged,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
@@ -3723,6 +4622,8 @@ class _$_NoTasksAdded implements _NoTasksAdded {
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
     required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
   }) {
     return noTasksAdded(this);
   }
@@ -3731,15 +4632,17 @@ class _$_NoTasksAdded implements _NoTasksAdded {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(NewAgentPressed value)? newAgentPressed,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
     TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(ApiKeyChanged value)? apiKeyChanged,
     TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GoalChanged value)? goalChanged,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
@@ -3748,6 +4651,8 @@ class _$_NoTasksAdded implements _NoTasksAdded {
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
     TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
   }) {
     return noTasksAdded?.call(this);
   }
@@ -3756,15 +4661,17 @@ class _$_NoTasksAdded implements _NoTasksAdded {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(NewAgentPressed value)? newAgentPressed,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
     TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(ApiKeyChanged value)? apiKeyChanged,
     TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GoalChanged value)? goalChanged,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
@@ -3773,6 +4680,8 @@ class _$_NoTasksAdded implements _NoTasksAdded {
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
     TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
     required TResult orElse(),
   }) {
     if (noTasksAdded != null) {
@@ -3861,15 +4770,17 @@ class _$AgentPressed implements AgentPressed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() appLaunched,
-    required TResult Function() newAgentPressed,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
     required TResult Function(Agent agent) deleteAgentPressed,
     required TResult Function() settingsNotFound,
     required TResult Function(String apiKeyStr) apiKeyChanged,
     required TResult Function() apiKeySubmitted,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function(String nameStr) nameChanged,
-    required TResult Function(String goalStr) goalChanged,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
     required TResult Function() deployPressed,
     required TResult Function() agentDeployed,
     required TResult Function(List<Task> tasks) agentInserted,
@@ -3878,6 +4789,8 @@ class _$AgentPressed implements AgentPressed {
     required TResult Function() maxTasksReached,
     required TResult Function() noTasksAdded,
     required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
   }) {
     return agentPressed(agent);
   }
@@ -3886,15 +4799,17 @@ class _$AgentPressed implements AgentPressed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? appLaunched,
-    TResult? Function()? newAgentPressed,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
     TResult? Function(Agent agent)? deleteAgentPressed,
     TResult? Function()? settingsNotFound,
     TResult? Function(String apiKeyStr)? apiKeyChanged,
     TResult? Function()? apiKeySubmitted,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function(String nameStr)? nameChanged,
-    TResult? Function(String goalStr)? goalChanged,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
     TResult? Function()? deployPressed,
     TResult? Function()? agentDeployed,
     TResult? Function(List<Task> tasks)? agentInserted,
@@ -3903,6 +4818,8 @@ class _$AgentPressed implements AgentPressed {
     TResult? Function()? maxTasksReached,
     TResult? Function()? noTasksAdded,
     TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
   }) {
     return agentPressed?.call(agent);
   }
@@ -3911,15 +4828,17 @@ class _$AgentPressed implements AgentPressed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? appLaunched,
-    TResult Function()? newAgentPressed,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
     TResult Function(Agent agent)? deleteAgentPressed,
     TResult Function()? settingsNotFound,
     TResult Function(String apiKeyStr)? apiKeyChanged,
     TResult Function()? apiKeySubmitted,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function(String nameStr)? nameChanged,
-    TResult Function(String goalStr)? goalChanged,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
     TResult Function()? deployPressed,
     TResult Function()? agentDeployed,
     TResult Function(List<Task> tasks)? agentInserted,
@@ -3928,6 +4847,8 @@ class _$AgentPressed implements AgentPressed {
     TResult Function()? maxTasksReached,
     TResult Function()? noTasksAdded,
     TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
     required TResult orElse(),
   }) {
     if (agentPressed != null) {
@@ -3940,15 +4861,17 @@ class _$AgentPressed implements AgentPressed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(NewAgentPressed value) newAgentPressed,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
     required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
     required TResult Function(SettingsNotFound value) settingsNotFound,
     required TResult Function(ApiKeyChanged value) apiKeyChanged,
     required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(NameChanged value) nameChanged,
-    required TResult Function(GoalChanged value) goalChanged,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
     required TResult Function(DeployPressed value) deployPressed,
     required TResult Function(_AgentDeployed value) agentDeployed,
     required TResult Function(_AgentInserted value) agentInserted,
@@ -3957,6 +4880,8 @@ class _$AgentPressed implements AgentPressed {
     required TResult Function(_MaxTasksReached value) maxTasksReached,
     required TResult Function(_NoTasksAdded value) noTasksAdded,
     required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
   }) {
     return agentPressed(this);
   }
@@ -3965,15 +4890,17 @@ class _$AgentPressed implements AgentPressed {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(NewAgentPressed value)? newAgentPressed,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
     TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult? Function(SettingsNotFound value)? settingsNotFound,
     TResult? Function(ApiKeyChanged value)? apiKeyChanged,
     TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(NameChanged value)? nameChanged,
-    TResult? Function(GoalChanged value)? goalChanged,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult? Function(DeployPressed value)? deployPressed,
     TResult? Function(_AgentDeployed value)? agentDeployed,
     TResult? Function(_AgentInserted value)? agentInserted,
@@ -3982,6 +4909,8 @@ class _$AgentPressed implements AgentPressed {
     TResult? Function(_MaxTasksReached value)? maxTasksReached,
     TResult? Function(_NoTasksAdded value)? noTasksAdded,
     TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
   }) {
     return agentPressed?.call(this);
   }
@@ -3990,15 +4919,17 @@ class _$AgentPressed implements AgentPressed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(NewAgentPressed value)? newAgentPressed,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
     TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
     TResult Function(SettingsNotFound value)? settingsNotFound,
     TResult Function(ApiKeyChanged value)? apiKeyChanged,
     TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(NameChanged value)? nameChanged,
-    TResult Function(GoalChanged value)? goalChanged,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
     TResult Function(DeployPressed value)? deployPressed,
     TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_AgentInserted value)? agentInserted,
@@ -4007,6 +4938,8 @@ class _$AgentPressed implements AgentPressed {
     TResult Function(_MaxTasksReached value)? maxTasksReached,
     TResult Function(_NoTasksAdded value)? noTasksAdded,
     TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
     required TResult orElse(),
   }) {
     if (agentPressed != null) {
@@ -4026,16 +4959,536 @@ abstract class AgentPressed implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$$ClusterPressedCopyWith<$Res> {
+  factory _$$ClusterPressedCopyWith(
+          _$ClusterPressed value, $Res Function(_$ClusterPressed) then) =
+      __$$ClusterPressedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Cluster cluster});
+
+  $ClusterCopyWith<$Res> get cluster;
+}
+
+/// @nodoc
+class __$$ClusterPressedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$ClusterPressed>
+    implements _$$ClusterPressedCopyWith<$Res> {
+  __$$ClusterPressedCopyWithImpl(
+      _$ClusterPressed _value, $Res Function(_$ClusterPressed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? cluster = null,
+  }) {
+    return _then(_$ClusterPressed(
+      null == cluster
+          ? _value.cluster
+          : cluster // ignore: cast_nullable_to_non_nullable
+              as Cluster,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ClusterCopyWith<$Res> get cluster {
+    return $ClusterCopyWith<$Res>(_value.cluster, (value) {
+      return _then(_value.copyWith(cluster: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$ClusterPressed implements ClusterPressed {
+  const _$ClusterPressed(this.cluster);
+
+  @override
+  final Cluster cluster;
+
+  @override
+  String toString() {
+    return 'HomeEvent.clusterPressed(cluster: $cluster)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ClusterPressed &&
+            (identical(other.cluster, cluster) || other.cluster == cluster));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, cluster);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ClusterPressedCopyWith<_$ClusterPressed> get copyWith =>
+      __$$ClusterPressedCopyWithImpl<_$ClusterPressed>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() appLaunched,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
+    required TResult Function(Agent agent) deleteAgentPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
+    required TResult Function() apiKeyUpdated,
+    required TResult Function() clientInitialized,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
+    required TResult Function() deployPressed,
+    required TResult Function() agentDeployed,
+    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function(List<Task> tasks) tasksCreated,
+    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() maxTasksReached,
+    required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
+  }) {
+    return clusterPressed(cluster);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? appLaunched,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
+    TResult? Function(Agent agent)? deleteAgentPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
+    TResult? Function()? apiKeyUpdated,
+    TResult? Function()? clientInitialized,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
+    TResult? Function()? deployPressed,
+    TResult? Function()? agentDeployed,
+    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function(List<Task> tasks)? tasksCreated,
+    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? maxTasksReached,
+    TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
+  }) {
+    return clusterPressed?.call(cluster);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? appLaunched,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
+    TResult Function(Agent agent)? deleteAgentPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
+    TResult Function()? apiKeyUpdated,
+    TResult Function()? clientInitialized,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
+    TResult Function()? deployPressed,
+    TResult Function()? agentDeployed,
+    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function(List<Task> tasks)? tasksCreated,
+    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? maxTasksReached,
+    TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
+    required TResult orElse(),
+  }) {
+    if (clusterPressed != null) {
+      return clusterPressed(cluster);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
+    required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
+    required TResult Function(SettingsNotFound value) settingsNotFound,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
+    required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
+    required TResult Function(_ClientInitialized value) clientInitialized,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
+    required TResult Function(DeployPressed value) deployPressed,
+    required TResult Function(_AgentDeployed value) agentDeployed,
+    required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_MaxTasksReached value) maxTasksReached,
+    required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
+  }) {
+    return clusterPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
+    TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult? Function(SettingsNotFound value)? settingsNotFound,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult? Function(_ClientInitialized value)? clientInitialized,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult? Function(DeployPressed value)? deployPressed,
+    TResult? Function(_AgentDeployed value)? agentDeployed,
+    TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_MaxTasksReached value)? maxTasksReached,
+    TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
+  }) {
+    return clusterPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
+    TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult Function(SettingsNotFound value)? settingsNotFound,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult Function(_ClientInitialized value)? clientInitialized,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult Function(DeployPressed value)? deployPressed,
+    TResult Function(_AgentDeployed value)? agentDeployed,
+    TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_MaxTasksReached value)? maxTasksReached,
+    TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
+    required TResult orElse(),
+  }) {
+    if (clusterPressed != null) {
+      return clusterPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ClusterPressed implements HomeEvent {
+  const factory ClusterPressed(final Cluster cluster) = _$ClusterPressed;
+
+  Cluster get cluster;
+  @JsonKey(ignore: true)
+  _$$ClusterPressedCopyWith<_$ClusterPressed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ViewPressedCopyWith<$Res> {
+  factory _$$ViewPressedCopyWith(
+          _$ViewPressed value, $Res Function(_$ViewPressed) then) =
+      __$$ViewPressedCopyWithImpl<$Res>;
+  @useResult
+  $Res call({View view});
+}
+
+/// @nodoc
+class __$$ViewPressedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$ViewPressed>
+    implements _$$ViewPressedCopyWith<$Res> {
+  __$$ViewPressedCopyWithImpl(
+      _$ViewPressed _value, $Res Function(_$ViewPressed) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? view = null,
+  }) {
+    return _then(_$ViewPressed(
+      null == view
+          ? _value.view
+          : view // ignore: cast_nullable_to_non_nullable
+              as View,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ViewPressed implements ViewPressed {
+  const _$ViewPressed(this.view);
+
+  @override
+  final View view;
+
+  @override
+  String toString() {
+    return 'HomeEvent.viewPressed(view: $view)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ViewPressed &&
+            (identical(other.view, view) || other.view == view));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, view);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ViewPressedCopyWith<_$ViewPressed> get copyWith =>
+      __$$ViewPressedCopyWithImpl<_$ViewPressed>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() appLaunched,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
+    required TResult Function(Agent agent) deleteAgentPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
+    required TResult Function() apiKeyUpdated,
+    required TResult Function() clientInitialized,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
+    required TResult Function() deployPressed,
+    required TResult Function() agentDeployed,
+    required TResult Function(List<Task> tasks) agentInserted,
+    required TResult Function(List<Task> tasks) tasksCreated,
+    required TResult Function(Agent agent) taskExecuted,
+    required TResult Function() maxTasksReached,
+    required TResult Function() noTasksAdded,
+    required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
+  }) {
+    return viewPressed(view);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? appLaunched,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
+    TResult? Function(Agent agent)? deleteAgentPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
+    TResult? Function()? apiKeyUpdated,
+    TResult? Function()? clientInitialized,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
+    TResult? Function()? deployPressed,
+    TResult? Function()? agentDeployed,
+    TResult? Function(List<Task> tasks)? agentInserted,
+    TResult? Function(List<Task> tasks)? tasksCreated,
+    TResult? Function(Agent agent)? taskExecuted,
+    TResult? Function()? maxTasksReached,
+    TResult? Function()? noTasksAdded,
+    TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
+  }) {
+    return viewPressed?.call(view);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? appLaunched,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
+    TResult Function(Agent agent)? deleteAgentPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
+    TResult Function()? apiKeyUpdated,
+    TResult Function()? clientInitialized,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
+    TResult Function()? deployPressed,
+    TResult Function()? agentDeployed,
+    TResult Function(List<Task> tasks)? agentInserted,
+    TResult Function(List<Task> tasks)? tasksCreated,
+    TResult Function(Agent agent)? taskExecuted,
+    TResult Function()? maxTasksReached,
+    TResult Function()? noTasksAdded,
+    TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
+    required TResult orElse(),
+  }) {
+    if (viewPressed != null) {
+      return viewPressed(view);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
+    required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
+    required TResult Function(SettingsNotFound value) settingsNotFound,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
+    required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
+    required TResult Function(_ClientInitialized value) clientInitialized,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
+    required TResult Function(DeployPressed value) deployPressed,
+    required TResult Function(_AgentDeployed value) agentDeployed,
+    required TResult Function(_AgentInserted value) agentInserted,
+    required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_MaxTasksReached value) maxTasksReached,
+    required TResult Function(_NoTasksAdded value) noTasksAdded,
+    required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
+  }) {
+    return viewPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
+    TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult? Function(SettingsNotFound value)? settingsNotFound,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult? Function(_ClientInitialized value)? clientInitialized,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult? Function(DeployPressed value)? deployPressed,
+    TResult? Function(_AgentDeployed value)? agentDeployed,
+    TResult? Function(_AgentInserted value)? agentInserted,
+    TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_MaxTasksReached value)? maxTasksReached,
+    TResult? Function(_NoTasksAdded value)? noTasksAdded,
+    TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
+  }) {
+    return viewPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
+    TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult Function(SettingsNotFound value)? settingsNotFound,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult Function(_ClientInitialized value)? clientInitialized,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult Function(DeployPressed value)? deployPressed,
+    TResult Function(_AgentDeployed value)? agentDeployed,
+    TResult Function(_AgentInserted value)? agentInserted,
+    TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_MaxTasksReached value)? maxTasksReached,
+    TResult Function(_NoTasksAdded value)? noTasksAdded,
+    TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
+    required TResult orElse(),
+  }) {
+    if (viewPressed != null) {
+      return viewPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ViewPressed implements HomeEvent {
+  const factory ViewPressed(final View view) = _$ViewPressed;
+
+  View get view;
+  @JsonKey(ignore: true)
+  _$$ViewPressedCopyWith<_$ViewPressed> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$HomeState {
   Option<Result<Unit, CoreFailure>> get failureOption =>
       throw _privateConstructorUsedError;
   bool get thinking => throw _privateConstructorUsedError;
   List<Agent> get agents => throw _privateConstructorUsedError;
   Settings get settings => throw _privateConstructorUsedError;
-  Label get name => throw _privateConstructorUsedError;
-  Label get goal => throw _privateConstructorUsedError;
+  Label get agentName => throw _privateConstructorUsedError;
+  Label get clusterName => throw _privateConstructorUsedError;
+  Label get clusterGoal => throw _privateConstructorUsedError;
+  View get view => throw _privateConstructorUsedError;
+  List<Task> get tasksQueue => throw _privateConstructorUsedError;
   Label? get apiKey => throw _privateConstructorUsedError;
   Agent? get agent => throw _privateConstructorUsedError;
+  Cluster? get cluster => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $HomeStateCopyWith<HomeState> get copyWith =>
@@ -4052,13 +5505,18 @@ abstract class $HomeStateCopyWith<$Res> {
       bool thinking,
       List<Agent> agents,
       Settings settings,
-      Label name,
-      Label goal,
+      Label agentName,
+      Label clusterName,
+      Label clusterGoal,
+      View view,
+      List<Task> tasksQueue,
       Label? apiKey,
-      Agent? agent});
+      Agent? agent,
+      Cluster? cluster});
 
   $SettingsCopyWith<$Res> get settings;
   $AgentCopyWith<$Res>? get agent;
+  $ClusterCopyWith<$Res>? get cluster;
 }
 
 /// @nodoc
@@ -4078,10 +5536,14 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? thinking = null,
     Object? agents = null,
     Object? settings = null,
-    Object? name = null,
-    Object? goal = null,
+    Object? agentName = null,
+    Object? clusterName = null,
+    Object? clusterGoal = null,
+    Object? view = null,
+    Object? tasksQueue = null,
     Object? apiKey = freezed,
     Object? agent = freezed,
+    Object? cluster = freezed,
   }) {
     return _then(_value.copyWith(
       failureOption: null == failureOption
@@ -4100,14 +5562,26 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.settings
           : settings // ignore: cast_nullable_to_non_nullable
               as Settings,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      agentName: null == agentName
+          ? _value.agentName
+          : agentName // ignore: cast_nullable_to_non_nullable
               as Label,
-      goal: null == goal
-          ? _value.goal
-          : goal // ignore: cast_nullable_to_non_nullable
+      clusterName: null == clusterName
+          ? _value.clusterName
+          : clusterName // ignore: cast_nullable_to_non_nullable
               as Label,
+      clusterGoal: null == clusterGoal
+          ? _value.clusterGoal
+          : clusterGoal // ignore: cast_nullable_to_non_nullable
+              as Label,
+      view: null == view
+          ? _value.view
+          : view // ignore: cast_nullable_to_non_nullable
+              as View,
+      tasksQueue: null == tasksQueue
+          ? _value.tasksQueue
+          : tasksQueue // ignore: cast_nullable_to_non_nullable
+              as List<Task>,
       apiKey: freezed == apiKey
           ? _value.apiKey
           : apiKey // ignore: cast_nullable_to_non_nullable
@@ -4116,6 +5590,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.agent
           : agent // ignore: cast_nullable_to_non_nullable
               as Agent?,
+      cluster: freezed == cluster
+          ? _value.cluster
+          : cluster // ignore: cast_nullable_to_non_nullable
+              as Cluster?,
     ) as $Val);
   }
 
@@ -4138,6 +5616,18 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
       return _then(_value.copyWith(agent: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ClusterCopyWith<$Res>? get cluster {
+    if (_value.cluster == null) {
+      return null;
+    }
+
+    return $ClusterCopyWith<$Res>(_value.cluster!, (value) {
+      return _then(_value.copyWith(cluster: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -4152,15 +5642,21 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       bool thinking,
       List<Agent> agents,
       Settings settings,
-      Label name,
-      Label goal,
+      Label agentName,
+      Label clusterName,
+      Label clusterGoal,
+      View view,
+      List<Task> tasksQueue,
       Label? apiKey,
-      Agent? agent});
+      Agent? agent,
+      Cluster? cluster});
 
   @override
   $SettingsCopyWith<$Res> get settings;
   @override
   $AgentCopyWith<$Res>? get agent;
+  @override
+  $ClusterCopyWith<$Res>? get cluster;
 }
 
 /// @nodoc
@@ -4178,10 +5674,14 @@ class __$$_HomeStateCopyWithImpl<$Res>
     Object? thinking = null,
     Object? agents = null,
     Object? settings = null,
-    Object? name = null,
-    Object? goal = null,
+    Object? agentName = null,
+    Object? clusterName = null,
+    Object? clusterGoal = null,
+    Object? view = null,
+    Object? tasksQueue = null,
     Object? apiKey = freezed,
     Object? agent = freezed,
+    Object? cluster = freezed,
   }) {
     return _then(_$_HomeState(
       failureOption: null == failureOption
@@ -4200,14 +5700,26 @@ class __$$_HomeStateCopyWithImpl<$Res>
           ? _value.settings
           : settings // ignore: cast_nullable_to_non_nullable
               as Settings,
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
+      agentName: null == agentName
+          ? _value.agentName
+          : agentName // ignore: cast_nullable_to_non_nullable
               as Label,
-      goal: null == goal
-          ? _value.goal
-          : goal // ignore: cast_nullable_to_non_nullable
+      clusterName: null == clusterName
+          ? _value.clusterName
+          : clusterName // ignore: cast_nullable_to_non_nullable
               as Label,
+      clusterGoal: null == clusterGoal
+          ? _value.clusterGoal
+          : clusterGoal // ignore: cast_nullable_to_non_nullable
+              as Label,
+      view: null == view
+          ? _value.view
+          : view // ignore: cast_nullable_to_non_nullable
+              as View,
+      tasksQueue: null == tasksQueue
+          ? _value._tasksQueue
+          : tasksQueue // ignore: cast_nullable_to_non_nullable
+              as List<Task>,
       apiKey: freezed == apiKey
           ? _value.apiKey
           : apiKey // ignore: cast_nullable_to_non_nullable
@@ -4216,6 +5728,10 @@ class __$$_HomeStateCopyWithImpl<$Res>
           ? _value.agent
           : agent // ignore: cast_nullable_to_non_nullable
               as Agent?,
+      cluster: freezed == cluster
+          ? _value.cluster
+          : cluster // ignore: cast_nullable_to_non_nullable
+              as Cluster?,
     ));
   }
 }
@@ -4228,11 +5744,16 @@ class _$_HomeState implements _HomeState {
       required this.thinking,
       required final List<Agent> agents,
       required this.settings,
-      required this.name,
-      required this.goal,
+      required this.agentName,
+      required this.clusterName,
+      required this.clusterGoal,
+      required this.view,
+      required final List<Task> tasksQueue,
       this.apiKey,
-      this.agent})
-      : _agents = agents;
+      this.agent,
+      this.cluster})
+      : _agents = agents,
+        _tasksQueue = tasksQueue;
 
   @override
   final Option<Result<Unit, CoreFailure>> failureOption;
@@ -4249,17 +5770,31 @@ class _$_HomeState implements _HomeState {
   @override
   final Settings settings;
   @override
-  final Label name;
+  final Label agentName;
   @override
-  final Label goal;
+  final Label clusterName;
+  @override
+  final Label clusterGoal;
+  @override
+  final View view;
+  final List<Task> _tasksQueue;
+  @override
+  List<Task> get tasksQueue {
+    if (_tasksQueue is EqualUnmodifiableListView) return _tasksQueue;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tasksQueue);
+  }
+
   @override
   final Label? apiKey;
   @override
   final Agent? agent;
+  @override
+  final Cluster? cluster;
 
   @override
   String toString() {
-    return 'HomeState(failureOption: $failureOption, thinking: $thinking, agents: $agents, settings: $settings, name: $name, goal: $goal, apiKey: $apiKey, agent: $agent)';
+    return 'HomeState(failureOption: $failureOption, thinking: $thinking, agents: $agents, settings: $settings, agentName: $agentName, clusterName: $clusterName, clusterGoal: $clusterGoal, view: $view, tasksQueue: $tasksQueue, apiKey: $apiKey, agent: $agent, cluster: $cluster)';
   }
 
   @override
@@ -4274,10 +5809,18 @@ class _$_HomeState implements _HomeState {
             const DeepCollectionEquality().equals(other._agents, _agents) &&
             (identical(other.settings, settings) ||
                 other.settings == settings) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.goal, goal) || other.goal == goal) &&
+            (identical(other.agentName, agentName) ||
+                other.agentName == agentName) &&
+            (identical(other.clusterName, clusterName) ||
+                other.clusterName == clusterName) &&
+            (identical(other.clusterGoal, clusterGoal) ||
+                other.clusterGoal == clusterGoal) &&
+            (identical(other.view, view) || other.view == view) &&
+            const DeepCollectionEquality()
+                .equals(other._tasksQueue, _tasksQueue) &&
             (identical(other.apiKey, apiKey) || other.apiKey == apiKey) &&
-            (identical(other.agent, agent) || other.agent == agent));
+            (identical(other.agent, agent) || other.agent == agent) &&
+            (identical(other.cluster, cluster) || other.cluster == cluster));
   }
 
   @override
@@ -4287,10 +5830,14 @@ class _$_HomeState implements _HomeState {
       thinking,
       const DeepCollectionEquality().hash(_agents),
       settings,
-      name,
-      goal,
+      agentName,
+      clusterName,
+      clusterGoal,
+      view,
+      const DeepCollectionEquality().hash(_tasksQueue),
       apiKey,
-      agent);
+      agent,
+      cluster);
 
   @JsonKey(ignore: true)
   @override
@@ -4305,10 +5852,14 @@ abstract class _HomeState implements HomeState {
       required final bool thinking,
       required final List<Agent> agents,
       required final Settings settings,
-      required final Label name,
-      required final Label goal,
+      required final Label agentName,
+      required final Label clusterName,
+      required final Label clusterGoal,
+      required final View view,
+      required final List<Task> tasksQueue,
       final Label? apiKey,
-      final Agent? agent}) = _$_HomeState;
+      final Agent? agent,
+      final Cluster? cluster}) = _$_HomeState;
 
   @override
   Option<Result<Unit, CoreFailure>> get failureOption;
@@ -4319,13 +5870,21 @@ abstract class _HomeState implements HomeState {
   @override
   Settings get settings;
   @override
-  Label get name;
+  Label get agentName;
   @override
-  Label get goal;
+  Label get clusterName;
+  @override
+  Label get clusterGoal;
+  @override
+  View get view;
+  @override
+  List<Task> get tasksQueue;
   @override
   Label? get apiKey;
   @override
   Agent? get agent;
+  @override
+  Cluster? get cluster;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStateCopyWith<_$_HomeState> get copyWith =>

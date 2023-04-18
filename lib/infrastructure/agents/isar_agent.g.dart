@@ -41,10 +41,10 @@ const IsarAgentSchema = CollectionSchema(
       target: r'IsarModel',
       single: true,
     ),
-    r'tasks': LinkSchema(
-      id: -2943976709407593942,
-      name: r'tasks',
-      target: r'IsarTask',
+    r'clusters': LinkSchema(
+      id: -584786088394790764,
+      name: r'clusters',
+      target: r'IsarCluster',
       single: false,
     )
   },
@@ -109,13 +109,14 @@ Id _isarAgentGetId(IsarAgent object) {
 }
 
 List<IsarLinkBase<dynamic>> _isarAgentGetLinks(IsarAgent object) {
-  return [object.model, object.tasks];
+  return [object.model, object.clusters];
 }
 
 void _isarAgentAttach(IsarCollection<dynamic> col, Id id, IsarAgent object) {
   object.id = id;
   object.model.attach(col, col.isar.collection<IsarModel>(), r'model', id);
-  object.tasks.attach(col, col.isar.collection<IsarTask>(), r'tasks', id);
+  object.clusters
+      .attach(col, col.isar.collection<IsarCluster>(), r'clusters', id);
 }
 
 extension IsarAgentQueryWhereSort
@@ -425,52 +426,55 @@ extension IsarAgentQueryLinks
     });
   }
 
-  QueryBuilder<IsarAgent, IsarAgent, QAfterFilterCondition> tasks(
-      FilterQuery<IsarTask> q) {
+  QueryBuilder<IsarAgent, IsarAgent, QAfterFilterCondition> clusters(
+      FilterQuery<IsarCluster> q) {
     return QueryBuilder.apply(this, (query) {
-      return query.link(q, r'tasks');
-    });
-  }
-
-  QueryBuilder<IsarAgent, IsarAgent, QAfterFilterCondition> tasksLengthEqualTo(
-      int length) {
-    return QueryBuilder.apply(this, (query) {
-      return query.linkLength(r'tasks', length, true, length, true);
-    });
-  }
-
-  QueryBuilder<IsarAgent, IsarAgent, QAfterFilterCondition> tasksIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.linkLength(r'tasks', 0, true, 0, true);
-    });
-  }
-
-  QueryBuilder<IsarAgent, IsarAgent, QAfterFilterCondition> tasksIsNotEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.linkLength(r'tasks', 0, false, 999999, true);
-    });
-  }
-
-  QueryBuilder<IsarAgent, IsarAgent, QAfterFilterCondition> tasksLengthLessThan(
-    int length, {
-    bool include = false,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.linkLength(r'tasks', 0, true, length, include);
+      return query.link(q, r'clusters');
     });
   }
 
   QueryBuilder<IsarAgent, IsarAgent, QAfterFilterCondition>
-      tasksLengthGreaterThan(
+      clustersLengthEqualTo(int length) {
+    return QueryBuilder.apply(this, (query) {
+      return query.linkLength(r'clusters', length, true, length, true);
+    });
+  }
+
+  QueryBuilder<IsarAgent, IsarAgent, QAfterFilterCondition> clustersIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.linkLength(r'clusters', 0, true, 0, true);
+    });
+  }
+
+  QueryBuilder<IsarAgent, IsarAgent, QAfterFilterCondition>
+      clustersIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.linkLength(r'clusters', 0, false, 999999, true);
+    });
+  }
+
+  QueryBuilder<IsarAgent, IsarAgent, QAfterFilterCondition>
+      clustersLengthLessThan(
     int length, {
     bool include = false,
   }) {
     return QueryBuilder.apply(this, (query) {
-      return query.linkLength(r'tasks', length, include, 999999, true);
+      return query.linkLength(r'clusters', 0, true, length, include);
     });
   }
 
-  QueryBuilder<IsarAgent, IsarAgent, QAfterFilterCondition> tasksLengthBetween(
+  QueryBuilder<IsarAgent, IsarAgent, QAfterFilterCondition>
+      clustersLengthGreaterThan(
+    int length, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.linkLength(r'clusters', length, include, 999999, true);
+    });
+  }
+
+  QueryBuilder<IsarAgent, IsarAgent, QAfterFilterCondition>
+      clustersLengthBetween(
     int lower,
     int upper, {
     bool includeLower = true,
@@ -478,7 +482,7 @@ extension IsarAgentQueryLinks
   }) {
     return QueryBuilder.apply(this, (query) {
       return query.linkLength(
-          r'tasks', lower, includeLower, upper, includeUpper);
+          r'clusters', lower, includeLower, upper, includeUpper);
     });
   }
 }

@@ -7,7 +7,10 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.appLaunched() = AppLaunched;
 
   /// @nodoc
-  const factory HomeEvent.newAgentPressed() = NewAgentPressed;
+  const factory HomeEvent.agentNameSubmitted() = AgentNameSubmitted;
+
+  /// @nodoc
+  const factory HomeEvent.newClusterPressed() = NewClusterPressed;
 
   /// @nodoc
   const factory HomeEvent.deleteAgentPressed(Agent agent) = DeleteAgentPressed;
@@ -28,10 +31,15 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.clientInitialized() = _ClientInitialized;
 
   /// @nodoc
-  const factory HomeEvent.nameChanged(String nameStr) = NameChanged;
+  const factory HomeEvent.agentNameChanged(String nameStr) = AgentNameChanged;
 
   /// @nodoc
-  const factory HomeEvent.goalChanged(String goalStr) = GoalChanged;
+  const factory HomeEvent.clusterNameChanged(String nameStr) =
+      ClusterNameChanged;
+
+  /// @nodoc
+  const factory HomeEvent.clusterGoalChanged(String goalStr) =
+      ClusterGoalChanged;
 
   /// @nodoc
   const factory HomeEvent.deployPressed() = DeployPressed;
@@ -56,4 +64,10 @@ class HomeEvent with _$HomeEvent {
 
   /// @nodoc
   const factory HomeEvent.agentPressed(Agent agent) = AgentPressed;
+
+  /// @nodoc
+  const factory HomeEvent.clusterPressed(Cluster cluster) = ClusterPressed;
+
+  /// @nodoc
+  const factory HomeEvent.viewPressed(View view) = ViewPressed;
 }

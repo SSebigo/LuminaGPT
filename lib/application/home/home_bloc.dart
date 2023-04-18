@@ -6,9 +6,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:lumina_gpt/domain/agents/agent.dart';
 import 'package:lumina_gpt/domain/agents/i_agents_repository.dart';
-import 'package:lumina_gpt/domain/agents/task.dart';
+import 'package:lumina_gpt/domain/agents/model.dart';
+import 'package:lumina_gpt/domain/clusters/cluster.dart';
+import 'package:lumina_gpt/domain/clusters/task.dart';
 import 'package:lumina_gpt/domain/core/core_failure.dart';
 import 'package:lumina_gpt/domain/core/label.dart';
+import 'package:lumina_gpt/domain/core/view.dart';
 import 'package:lumina_gpt/domain/settings/i_settings_repository.dart';
 import 'package:lumina_gpt/domain/settings/settings.dart';
 import 'package:lumina_gpt/domain/settings/settings_failure.dart';
@@ -64,11 +67,49 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         },
       );
     });
-    on<NewAgentPressed>((_, emit) async {
+    on<AgentNameSubmitted>((_, emit) async {
+      final agentNameValid = state.agentName.isValid;
+
+      if (agentNameValid) {
+        final agent = Agent(
+          name: state.agentName,
+          clusters: [],
+          model: Model.base(),
+        );
+
+        (await _agentsRepository.insertAgent(agent)).match(
+          (agent) {
+            emit(
+              state.copyWith(
+                failureOption: const None(),
+                agentName: Label(''),
+                clusterName: Label(''),
+                clusterGoal: Label(''),
+                agents: [...state.agents, agent],
+                view: View.clusters,
+                agent: agent,
+                cluster: null,
+              ),
+            );
+          },
+          (failure) {
+            emit(
+              state.copyWith(
+                failureOption: Some(Err(CoreFailure.agents(failure))),
+                thinking: false,
+              ),
+            );
+          },
+        );
+      }
+    });
+    on<NewClusterPressed>((_, emit) {
       emit(
         state.copyWith(
           failureOption: const None(),
-          agent: null,
+          clusterName: Label(''),
+          clusterGoal: Label(''),
+          cluster: null,
         ),
       );
     });
@@ -154,25 +195,33 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         },
       );
     });
-    on<NameChanged>((event, emit) {
+    on<AgentNameChanged>((event, emit) {
       emit(
         state.copyWith(
           failureOption: const None(),
-          name: Label(event.nameStr),
+          agentName: Label(event.nameStr),
         ),
       );
     });
-    on<GoalChanged>((event, emit) {
+    on<ClusterNameChanged>((event, emit) {
       emit(
         state.copyWith(
           failureOption: const None(),
-          goal: Label(event.goalStr),
+          clusterName: Label(event.nameStr),
+        ),
+      );
+    });
+    on<ClusterGoalChanged>((event, emit) {
+      emit(
+        state.copyWith(
+          failureOption: const None(),
+          clusterGoal: Label(event.goalStr),
         ),
       );
     });
     on<DeployPressed>((event, emit) async {
-      final nameValid = state.name.isValid;
-      final goalValid = state.goal.isValid;
+      final nameValid = state.clusterName.isValid;
+      final goalValid = state.clusterGoal.isValid;
 
       emit(
         state.copyWith(
@@ -183,16 +232,29 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
       if (nameValid && goalValid) {
         (await _agentsRepository.startGoal(
-          state.name,
-          state.goal,
+          state.agent!,
+          state.clusterGoal,
         ))
             .match(
-          (agent) {
+          (tasks) {
+            final cluster = Cluster(
+              name: state.clusterName,
+              goal: state.clusterGoal,
+              tasks: tasks,
+            );
+
+            final agent = state.agent!.copyWith(
+              clusters: [...state.agent!.clusters, cluster],
+            );
+
             emit(
               state.copyWith(
                 failureOption: const None(),
+                clusterName: Label(''),
+                clusterGoal: Label(''),
                 agent: agent,
-                agents: List.from([...state.agents, agent]),
+                cluster: cluster,
+                tasksQueue: [...tasks],
               ),
             );
 
@@ -220,7 +282,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
               ),
             );
 
-            add(HomeEvent.agentInserted(state.agent!.tasks));
+            // add(HomeEvent.agentInserted(state.agent!.tasks));
           },
           (failure) {
             emit(
@@ -239,15 +301,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           _agentsRepository.createTasks(
             state.agent!,
             event.tasks,
-            state.goal,
+            state.clusterGoal,
           ),
           onData: (result) => result.match(
             (tasks) {
               final agent = state.agent!.copyWith(
-                tasks: List.from(
-                  [...state.agent!.tasks, ...tasks],
-                )..sort((a, b) => a.createdAt.compareTo(b.createdAt)),
-              );
+                  // tasks: List.from(
+                  //   [...state.agent!.tasks, ...tasks],
+                  // )..sort((a, b) => a.createdAt.compareTo(b.createdAt)),
+                  );
 
               emit(
                 state.copyWith(
@@ -341,9 +403,29 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           state.copyWith(
             failureOption: const None(),
             agent: event.agent,
+            cluster: null,
+            view: View.clusters,
           ),
         );
       }
+    });
+    on<ClusterPressed>((event, emit) async {
+      if (state.cluster == null || state.cluster!.id != event.cluster.id) {
+        emit(
+          state.copyWith(
+            failureOption: const None(),
+            cluster: event.cluster,
+          ),
+        );
+      }
+    });
+    on<ViewPressed>((event, emit) {
+      emit(
+        state.copyWith(
+          failureOption: const None(),
+          view: event.view,
+        ),
+      );
     });
   }
 
@@ -352,43 +434,43 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   FutureOr<void> _executeTasks(Emitter<HomeState> emit) async {
     if (state.agent != null) {
-      await emit.onEach(
-        _agentsRepository.executeTasks(
-          state.agent!,
-          state.agent!.tasks,
-          state.goal,
-        ),
-        onData: (result) => result.match(
-          (task) {
-            // update corresponding task in agent
-            final agent = state.agent!.copyWith(
-              tasks: state.agent!.tasks
-                  .map((t) => t.id == task.id ? task : t)
-                  .toList(),
-            );
+      // await emit.onEach(
+      //   _agentsRepository.executeTasks(
+      //     state.agent!,
+      //     state.agent!.tasks,
+      //     state.goal,
+      //   ),
+      //   onData: (result) => result.match(
+      //     (task) {
+      //       // update corresponding task in agent
+      //       final agent = state.agent!.copyWith(
+      //         tasks: state.agent!.tasks
+      //             .map((t) => t.id == task.id ? task : t)
+      //             .toList(),
+      //       );
 
-            emit(
-              state.copyWith(
-                failureOption: const None(),
-                agent: agent,
-                agents: state.agents
-                    .map((a) => a.id == agent.id ? agent : a)
-                    .toList(),
-              ),
-            );
+      //       emit(
+      //         state.copyWith(
+      //           failureOption: const None(),
+      //           agent: agent,
+      //           agents: state.agents
+      //               .map((a) => a.id == agent.id ? agent : a)
+      //               .toList(),
+      //         ),
+      //       );
 
-            add(HomeEvent.taskExecuted(agent));
-          },
-          (failure) {
-            emit(
-              state.copyWith(
-                failureOption: Some(Err(CoreFailure.agents(failure))),
-                thinking: false,
-              ),
-            );
-          },
-        ),
-      );
+      //       add(HomeEvent.taskExecuted(agent));
+      //     },
+      //     (failure) {
+      //       emit(
+      //         state.copyWith(
+      //           failureOption: Some(Err(CoreFailure.agents(failure))),
+      //           thinking: false,
+      //         ),
+      //       );
+      //     },
+      //   ),
+      // );
     }
   }
 }
