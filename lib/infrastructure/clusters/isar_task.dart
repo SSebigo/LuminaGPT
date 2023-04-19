@@ -8,9 +8,7 @@ part 'isar_task.g.dart';
 class IsarTask extends Equatable {
   /// @nodoc
   IsarTask({
-    required this.name,
     required this.description,
-    required this.goal,
     required this.done,
     required this.createdAt,
     this.result,
@@ -23,13 +21,7 @@ class IsarTask extends Equatable {
   Id? id;
 
   /// @nodoc
-  final String name;
-
-  /// @nodoc
   final String description;
-
-  /// @nodoc
-  final String goal;
 
   /// @nodoc
   final bool done;
@@ -49,9 +41,7 @@ class IsarTask extends Equatable {
   /// @nodoc
   IsarTask copyWith({
     Id? id,
-    String? name,
     String? description,
-    String? goal,
     bool? done,
     DateTime? createdAt,
     String? result,
@@ -60,9 +50,7 @@ class IsarTask extends Equatable {
   }) {
     return IsarTask(
       id: id ?? this.id,
-      name: name ?? this.name,
       description: description ?? this.description,
-      goal: goal ?? this.goal,
       done: done ?? this.done,
       createdAt: createdAt ?? this.createdAt,
       result: result ?? this.result,

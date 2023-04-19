@@ -7,9 +7,7 @@ part of 'task_dto.dart';
 // **************************************************************************
 
 _$_TaskDTO _$$_TaskDTOFromJson(Map<String, dynamic> json) => _$_TaskDTO(
-      name: json['name'] as String,
       description: json['description'] as String,
-      goal: json['goal'] as String,
       done: json['done'] as bool,
       createdAt: DateTime.parse(json['createdAt'] as String),
       result: json['result'] as String?,
@@ -22,9 +20,7 @@ _$_TaskDTO _$$_TaskDTOFromJson(Map<String, dynamic> json) => _$_TaskDTO(
 
 Map<String, dynamic> _$$_TaskDTOToJson(_$_TaskDTO instance) =>
     <String, dynamic>{
-      'name': instance.name,
       'description': instance.description,
-      'goal': instance.goal,
       'done': instance.done,
       'createdAt': instance.createdAt.toIso8601String(),
       'result': instance.result,

@@ -156,21 +156,15 @@ class AgentsRepository implements IAgentsRepository {
 
       debugPrint('startGoal() - content: $content');
 
-      final jsonContent = _extractJsonParts(content);
-
-      debugPrint('startGoal() - jsonContent: $jsonContent');
+      final extractedTasks = _extractTasks(content);
 
       final tasks = <Task>[];
-      for (final task in jsonContent) {
-        final taskName = task['name'] as String;
-        final taskDescription = task['description'] as String;
-        final taskGoal = task['goal'] as String;
+      for (final task in extractedTasks) {
+        final description = task as String;
 
         tasks.add(
           Task(
-            name: Label(taskName),
-            description: Label(taskDescription),
-            goal: Label(taskGoal),
+            description: Label(description),
             createdAt: DateTime.now(),
             done: false,
           ),
@@ -194,7 +188,7 @@ class AgentsRepository implements IAgentsRepository {
           .map(
             (task) => {
               'id': '${task.id}',
-              'name': task.name.getOrCrash(),
+              'description': task.description.getOrCrash(),
             },
           )
           .toList();
@@ -203,7 +197,7 @@ class AgentsRepository implements IAgentsRepository {
       const systemPrompt =
           'You are an autonomous task priorization AI for worldbuilding called Lumina Task Manager.';
       final userPrompt =
-          'Given the following goal: "${cluster.goal.getOrCrash()}", you have to sort tasks by their importance to help you reach or more closely reach the goal.\n\nTasks:\n\n$tasksJson. Return an array of IDs that can be used by JSON.parse().';
+          'Given the following goal: "${cluster.goal.getOrCrash()}", you have to prioritize the tasks to help you reach the goal.\n\nTasks:\n\n$tasksJson. Return the response as an array of IDs that can be used in JSON.parse() WITHOUT ANYTHING ELSE.';
       final assistantPrompt = '${cluster.knowledge?.getOrCrash()}';
 
       debugPrint('prioritizeTasks() - systemPrompt: $systemPrompt');
@@ -234,11 +228,9 @@ class AgentsRepository implements IAgentsRepository {
 
       debugPrint('prioritizeTasks() - content: $content');
 
-      final jsonContent = _extractJsonParts(content);
+      final priorities = _extractPriorities(content);
 
-      debugPrint('prioritizeTasks() - jsonContent: $jsonContent');
-
-      final priorities = jsonContent.first['priorities'] as List<dynamic>;
+      debugPrint('prioritizeTasks() - priorities: $priorities');
 
       final newTasksList = <Task>[];
       for (final task in tasks) {
@@ -266,17 +258,10 @@ class AgentsRepository implements IAgentsRepository {
     Task task,
   ) async {
     try {
-      final formattedTask = {
-        'name': task.name.getOrCrash(),
-        'description': task.description.getOrCrash(),
-        'goal': task.goal.getOrCrash(),
-      };
-      final taskJson = jsonEncode(formattedTask);
-
       const systemPrompt =
           'You are an autonomous task execution AI for worldbuilding called Lumina Task Executor.';
       final userPrompt =
-          'Given the following goal: "${cluster.goal.getOrCrash()}", you have been given the task: $taskJson. Execute the task and return a string.';
+          'Given the following goal: "${cluster.goal.getOrCrash()}", you have been given the task: ${task.description.getOrCrash()}. Execute the task and return a string.';
       final assistantPrompt = '${cluster.knowledge?.getOrCrash()}';
 
       debugPrint('executeTask() - userPrompt: $userPrompt');
@@ -336,10 +321,7 @@ class AgentsRepository implements IAgentsRepository {
       final tasksFormatted = tasks
           .map(
             (task) => {
-              'name': task.name.getOrCrash(),
               'description': task.description.getOrCrash(),
-              // 'role': task.role.getOrCrash(),
-              // 'goal': task.goal.getOrCrash(),
             },
           )
           .toList();
@@ -348,7 +330,7 @@ class AgentsRepository implements IAgentsRepository {
       const systemPrompt =
           'You are an autonomous task executioon AI for worldbuilding called Lumina Task Maker.';
       final userPrompt =
-          'Given the following goal: "${cluster.goal.getOrCrash()}", you have to create a task that will help you reach or more closely reach the goal.\n\nCurrent tasks:\n\n$tasksJson. Return a string that can be used by JSON.parse().';
+          'Given the following goal: "${cluster.goal.getOrCrash()}", you have to create a task that will help you reach or more closely reach the goal.\n\nCurrent tasks:\n\n$tasksJson. Return an array with A SINGLE TASK as a STRING that can be used in JSON.parse().';
       final assistantPrompt = '${cluster.knowledge?.getOrCrash()}';
 
       debugPrint('createTasks() - systemPrompt: $systemPrompt');
@@ -379,30 +361,95 @@ class AgentsRepository implements IAgentsRepository {
 
       debugPrint('createTasks() - content: $content');
 
-      final jsonContent = _parseApiResponse(content);
+      final extractedTask = _extractTask(content);
 
-      debugPrint('createTasks() - jsonContent: $jsonContent');
+      debugPrint('createTasks() - extractedTask: $extractedTask');
 
-      if (jsonContent.isNotEmpty) {
-        final taskName = jsonContent.first['name'] as String;
-        final taskDescription = jsonContent.first['description'] as String;
-        final taskGoal = jsonContent.first['goal'] as String;
-
-        return Ok(
-          Some(
-            Task(
-              name: Label(taskName),
-              description: Label(taskDescription),
-              goal: Label(taskGoal),
-              createdAt: DateTime.now(),
-              done: false,
-            ),
-          ),
-        );
+      if (content.isEmpty) {
+        return const Ok(None());
       }
-      return const Ok(None());
+
+      return Ok(
+        Some(
+          Task(
+            description: Label(extractedTask),
+            createdAt: DateTime.now(),
+            done: false,
+          ),
+        ),
+      );
     } catch (e) {
       return const Err(AgentsFailure.unexpected());
+    }
+  }
+
+  List<dynamic> _extractTasks(String input) {
+    var cleanedInput = input.trim().replaceAll(RegExp(r'\s*\n\s*'), '');
+
+    if (cleanedInput.endsWith(',')) {
+      cleanedInput = cleanedInput.substring(0, cleanedInput.length - 1);
+    }
+
+    if (!cleanedInput.startsWith('[')) {
+      cleanedInput = '[$cleanedInput';
+    }
+
+    if (!cleanedInput.endsWith(']')) {
+      cleanedInput = '$cleanedInput]';
+    }
+
+    final tasks = jsonDecode(cleanedInput) as List<dynamic>;
+
+    final tasksEndingWithPeriod =
+        tasks.where((task) => (task as String).trim().endsWith('.')).toList();
+
+    return tasksEndingWithPeriod;
+  }
+
+  List<int> _extractPriorities(String input) {
+    final pattern1 =
+        RegExp(r'\[\s*((?:"\d+"|\d+)(?:\s*,\s*(?:"\d+"|\d+))*)\s*\]');
+    final pattern2 = RegExp(
+      r'\[\s*({(?:\s*"id"\s*:\s*"\d+"\s*,?\s*)+}\s*(?:,\s*{(?:\s*"id"\s*:\s*"\d+"\s*,?\s*)+}\s*)*)\s*\]',
+    );
+
+    final match1 = pattern1.firstMatch(input);
+    final match2 = pattern2.firstMatch(input);
+
+    if (match1 != null) {
+      final listContent = match1.group(1)!;
+      final stringItems = listContent.split(RegExp(r'\s*,\s*'));
+      final priorities = stringItems
+          .map((item) => int.parse(item.replaceAll('"', '')))
+          .toList();
+
+      return priorities;
+    } else if (match2 != null) {
+      final listContent = match2.group(0)!;
+      final jsonList = jsonDecode(listContent) as List<dynamic>;
+      final priorities =
+          jsonList.map((item) => int.parse(item['id'] as String)).toList();
+
+      return priorities;
+    } else {
+      return [];
+    }
+  }
+
+  String _extractTask(String input) {
+    final pattern1 =
+        RegExp(r'\{\s*"description"\s*:\s*"((?:[^"\\]|\\.)*)"\s*\}');
+    final pattern2 = RegExp(r'^\s*((?:[^"\\]|\\.)+)\s*$');
+
+    final match1 = pattern1.firstMatch(input);
+    final match2 = pattern2.firstMatch(input);
+
+    if (match1 != null) {
+      return match1.group(1)!;
+    } else if (match2 != null) {
+      return match2.group(1)!;
+    } else {
+      return '';
     }
   }
 

@@ -16,9 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Task {
-  Label get name => throw _privateConstructorUsedError;
   Label get description => throw _privateConstructorUsedError;
-  Label get goal => throw _privateConstructorUsedError;
   bool get done => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   Label? get result => throw _privateConstructorUsedError;
@@ -36,9 +34,7 @@ abstract class $TaskCopyWith<$Res> {
       _$TaskCopyWithImpl<$Res, Task>;
   @useResult
   $Res call(
-      {Label name,
-      Label description,
-      Label goal,
+      {Label description,
       bool done,
       DateTime createdAt,
       Label? result,
@@ -60,9 +56,7 @@ class _$TaskCopyWithImpl<$Res, $Val extends Task>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
     Object? description = null,
-    Object? goal = null,
     Object? done = null,
     Object? createdAt = null,
     Object? result = freezed,
@@ -71,17 +65,9 @@ class _$TaskCopyWithImpl<$Res, $Val extends Task>
     Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as Label,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as Label,
-      goal: null == goal
-          ? _value.goal
-          : goal // ignore: cast_nullable_to_non_nullable
               as Label,
       done: null == done
           ? _value.done
@@ -118,9 +104,7 @@ abstract class _$$_TaskCopyWith<$Res> implements $TaskCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {Label name,
-      Label description,
-      Label goal,
+      {Label description,
       bool done,
       DateTime createdAt,
       Label? result,
@@ -138,9 +122,7 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res, _$_Task>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
     Object? description = null,
-    Object? goal = null,
     Object? done = null,
     Object? createdAt = null,
     Object? result = freezed,
@@ -149,17 +131,9 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res, _$_Task>
     Object? updatedAt = freezed,
   }) {
     return _then(_$_Task(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as Label,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as Label,
-      goal: null == goal
-          ? _value.goal
-          : goal // ignore: cast_nullable_to_non_nullable
               as Label,
       done: null == done
           ? _value.done
@@ -193,9 +167,7 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res, _$_Task>
 
 class _$_Task implements _Task {
   _$_Task(
-      {required this.name,
-      required this.description,
-      required this.goal,
+      {required this.description,
       required this.done,
       required this.createdAt,
       this.result,
@@ -204,11 +176,7 @@ class _$_Task implements _Task {
       this.updatedAt});
 
   @override
-  final Label name;
-  @override
   final Label description;
-  @override
-  final Label goal;
   @override
   final bool done;
   @override
@@ -224,7 +192,7 @@ class _$_Task implements _Task {
 
   @override
   String toString() {
-    return 'Task(name: $name, description: $description, goal: $goal, done: $done, createdAt: $createdAt, result: $result, id: $id, priority: $priority, updatedAt: $updatedAt)';
+    return 'Task(description: $description, done: $done, createdAt: $createdAt, result: $result, id: $id, priority: $priority, updatedAt: $updatedAt)';
   }
 
   @override
@@ -232,10 +200,8 @@ class _$_Task implements _Task {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Task &&
-            (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.goal, goal) || other.goal == goal) &&
             (identical(other.done, done) || other.done == done) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -248,8 +214,8 @@ class _$_Task implements _Task {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, description, goal, done,
-      createdAt, result, id, priority, updatedAt);
+  int get hashCode => Object.hash(runtimeType, description, done, createdAt,
+      result, id, priority, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -260,9 +226,7 @@ class _$_Task implements _Task {
 
 abstract class _Task implements Task {
   factory _Task(
-      {required final Label name,
-      required final Label description,
-      required final Label goal,
+      {required final Label description,
       required final bool done,
       required final DateTime createdAt,
       final Label? result,
@@ -271,11 +235,7 @@ abstract class _Task implements Task {
       final DateTime? updatedAt}) = _$_Task;
 
   @override
-  Label get name;
-  @override
   Label get description;
-  @override
-  Label get goal;
   @override
   bool get done;
   @override

@@ -32,33 +32,23 @@ const IsarTaskSchema = CollectionSchema(
       name: r'done',
       type: IsarType.bool,
     ),
-    r'goal': PropertySchema(
-      id: 3,
-      name: r'goal',
-      type: IsarType.string,
-    ),
-    r'name': PropertySchema(
-      id: 4,
-      name: r'name',
-      type: IsarType.string,
-    ),
     r'priority': PropertySchema(
-      id: 5,
+      id: 3,
       name: r'priority',
       type: IsarType.long,
     ),
     r'result': PropertySchema(
-      id: 6,
+      id: 4,
       name: r'result',
       type: IsarType.string,
     ),
     r'stringify': PropertySchema(
-      id: 7,
+      id: 5,
       name: r'stringify',
       type: IsarType.bool,
     ),
     r'updatedAt': PropertySchema(
-      id: 8,
+      id: 6,
       name: r'updatedAt',
       type: IsarType.dateTime,
     )
@@ -84,8 +74,6 @@ int _isarTaskEstimateSize(
 ) {
   var bytesCount = offsets.last;
   bytesCount += 3 + object.description.length * 3;
-  bytesCount += 3 + object.goal.length * 3;
-  bytesCount += 3 + object.name.length * 3;
   {
     final value = object.result;
     if (value != null) {
@@ -104,12 +92,10 @@ void _isarTaskSerialize(
   writer.writeDateTime(offsets[0], object.createdAt);
   writer.writeString(offsets[1], object.description);
   writer.writeBool(offsets[2], object.done);
-  writer.writeString(offsets[3], object.goal);
-  writer.writeString(offsets[4], object.name);
-  writer.writeLong(offsets[5], object.priority);
-  writer.writeString(offsets[6], object.result);
-  writer.writeBool(offsets[7], object.stringify);
-  writer.writeDateTime(offsets[8], object.updatedAt);
+  writer.writeLong(offsets[3], object.priority);
+  writer.writeString(offsets[4], object.result);
+  writer.writeBool(offsets[5], object.stringify);
+  writer.writeDateTime(offsets[6], object.updatedAt);
 }
 
 IsarTask _isarTaskDeserialize(
@@ -122,12 +108,10 @@ IsarTask _isarTaskDeserialize(
     createdAt: reader.readDateTime(offsets[0]),
     description: reader.readString(offsets[1]),
     done: reader.readBool(offsets[2]),
-    goal: reader.readString(offsets[3]),
     id: id,
-    name: reader.readString(offsets[4]),
-    priority: reader.readLongOrNull(offsets[5]),
-    result: reader.readStringOrNull(offsets[6]),
-    updatedAt: reader.readDateTimeOrNull(offsets[8]),
+    priority: reader.readLongOrNull(offsets[3]),
+    result: reader.readStringOrNull(offsets[4]),
+    updatedAt: reader.readDateTimeOrNull(offsets[6]),
   );
   return object;
 }
@@ -146,16 +130,12 @@ P _isarTaskDeserializeProp<P>(
     case 2:
       return (reader.readBool(offset)) as P;
     case 3:
-      return (reader.readString(offset)) as P;
-    case 4:
-      return (reader.readString(offset)) as P;
-    case 5:
       return (reader.readLongOrNull(offset)) as P;
-    case 6:
+    case 4:
       return (reader.readStringOrNull(offset)) as P;
-    case 7:
+    case 5:
       return (reader.readBool(offset)) as P;
-    case 8:
+    case 6:
       return (reader.readDateTimeOrNull(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -446,136 +426,6 @@ extension IsarTaskQueryFilter
     });
   }
 
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> goalEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'goal',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> goalGreaterThan(
-    String value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'goal',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> goalLessThan(
-    String value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'goal',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> goalBetween(
-    String lower,
-    String upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'goal',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> goalStartsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'goal',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> goalEndsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'goal',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> goalContains(
-      String value,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.contains(
-        property: r'goal',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> goalMatches(
-      String pattern,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.matches(
-        property: r'goal',
-        wildcard: pattern,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> goalIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'goal',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> goalIsNotEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'goal',
-        value: '',
-      ));
-    });
-  }
-
   QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> idIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
@@ -640,136 +490,6 @@ extension IsarTaskQueryFilter
         includeLower: includeLower,
         upper: upper,
         includeUpper: includeUpper,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> nameEqualTo(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'name',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> nameGreaterThan(
-    String value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'name',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> nameLessThan(
-    String value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'name',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> nameBetween(
-    String lower,
-    String upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'name',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> nameStartsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'name',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> nameEndsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'name',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> nameContains(
-      String value,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.contains(
-        property: r'name',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> nameMatches(
-      String pattern,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.matches(
-        property: r'name',
-        wildcard: pattern,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> nameIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'name',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> nameIsNotEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'name',
-        value: '',
       ));
     });
   }
@@ -1112,30 +832,6 @@ extension IsarTaskQuerySortBy on QueryBuilder<IsarTask, IsarTask, QSortBy> {
     });
   }
 
-  QueryBuilder<IsarTask, IsarTask, QAfterSortBy> sortByGoal() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'goal', Sort.asc);
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterSortBy> sortByGoalDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'goal', Sort.desc);
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterSortBy> sortByName() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'name', Sort.asc);
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterSortBy> sortByNameDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'name', Sort.desc);
-    });
-  }
-
   QueryBuilder<IsarTask, IsarTask, QAfterSortBy> sortByPriority() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'priority', Sort.asc);
@@ -1223,18 +919,6 @@ extension IsarTaskQuerySortThenBy
     });
   }
 
-  QueryBuilder<IsarTask, IsarTask, QAfterSortBy> thenByGoal() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'goal', Sort.asc);
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterSortBy> thenByGoalDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'goal', Sort.desc);
-    });
-  }
-
   QueryBuilder<IsarTask, IsarTask, QAfterSortBy> thenById() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.asc);
@@ -1244,18 +928,6 @@ extension IsarTaskQuerySortThenBy
   QueryBuilder<IsarTask, IsarTask, QAfterSortBy> thenByIdDesc() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.desc);
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterSortBy> thenByName() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'name', Sort.asc);
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QAfterSortBy> thenByNameDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'name', Sort.desc);
     });
   }
 
@@ -1329,20 +1001,6 @@ extension IsarTaskQueryWhereDistinct
     });
   }
 
-  QueryBuilder<IsarTask, IsarTask, QDistinct> distinctByGoal(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'goal', caseSensitive: caseSensitive);
-    });
-  }
-
-  QueryBuilder<IsarTask, IsarTask, QDistinct> distinctByName(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'name', caseSensitive: caseSensitive);
-    });
-  }
-
   QueryBuilder<IsarTask, IsarTask, QDistinct> distinctByPriority() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'priority');
@@ -1392,18 +1050,6 @@ extension IsarTaskQueryProperty
   QueryBuilder<IsarTask, bool, QQueryOperations> doneProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'done');
-    });
-  }
-
-  QueryBuilder<IsarTask, String, QQueryOperations> goalProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'goal');
-    });
-  }
-
-  QueryBuilder<IsarTask, String, QQueryOperations> nameProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'name');
     });
   }
 

@@ -11,9 +11,7 @@ part 'task_dto.g.dart';
 class TaskDTO with _$TaskDTO {
   /// @nodoc
   factory TaskDTO({
-    required String name,
     required String description,
-    required String goal,
     required bool done,
     required DateTime createdAt,
     String? result,
@@ -25,9 +23,7 @@ class TaskDTO with _$TaskDTO {
   /// @nodoc
   factory TaskDTO.fromDomain(Task task) {
     return TaskDTO(
-      name: task.name.getOrCrash(),
       description: task.description.getOrCrash(),
-      goal: task.goal.getOrCrash(),
       done: task.done,
       createdAt: task.createdAt,
       result: task.result?.getOrCrash(),
@@ -40,9 +36,7 @@ class TaskDTO with _$TaskDTO {
   /// @nodoc
   factory TaskDTO.fromAdapter(IsarTask task) {
     return TaskDTO(
-      name: task.name,
       description: task.description,
-      goal: task.goal,
       done: task.done,
       createdAt: task.createdAt,
       result: task.result,
@@ -61,9 +55,7 @@ class TaskDTO with _$TaskDTO {
 extension TaskDTOX on TaskDTO {
   /// @nodoc
   Task toDomain() => Task(
-        name: Label(name),
         description: Label(description),
-        goal: Label(goal),
         done: done,
         createdAt: createdAt,
         result: result != null ? Label(result!) : null,
@@ -74,9 +66,7 @@ extension TaskDTOX on TaskDTO {
 
   /// @nodoc
   IsarTask toAdapter() => IsarTask(
-        name: name,
         description: description,
-        goal: goal,
         done: done,
         createdAt: createdAt,
         result: result,

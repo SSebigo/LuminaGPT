@@ -8,9 +8,7 @@ part 'task.freezed.dart';
 class Task with _$Task {
   /// @nodoc
   factory Task({
-    required Label name,
     required Label description,
-    required Label goal,
     required bool done,
     required DateTime createdAt,
     Label? result,
@@ -21,9 +19,7 @@ class Task with _$Task {
 
   /// @nodoc
   factory Task.empty() => Task(
-        name: Label(''),
         description: Label(''),
-        goal: Label(''),
         done: false,
         createdAt: DateTime.now(),
       );

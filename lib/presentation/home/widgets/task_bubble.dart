@@ -25,19 +25,8 @@ class TaskBubble extends StatelessWidget {
         children: [
           TaskBubbleField(
             icon: Icons.task_alt_rounded,
-            text: task!.name.getOrCrash(),
-            title: 'Task added:',
-          ),
-          TaskBubbleField(
-            icon: Icons.lightbulb_outline_rounded,
             text: task!.description.getOrCrash(),
-            title: 'Reasoning:',
-          ),
-          TaskBubbleField(
-            icon: Icons.star_outline_rounded,
-            text: task!.goal.getOrCrash(),
-            title: 'Goal:',
-            iconColor: Colors.yellow,
+            title: 'Task added:',
           ),
           if (task!.result != null)
             TaskBubbleField(

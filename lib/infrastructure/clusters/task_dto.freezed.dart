@@ -20,9 +20,7 @@ TaskDTO _$TaskDTOFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TaskDTO {
-  String get name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  String get goal => throw _privateConstructorUsedError;
   bool get done => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   String? get result => throw _privateConstructorUsedError;
@@ -41,9 +39,7 @@ abstract class $TaskDTOCopyWith<$Res> {
       _$TaskDTOCopyWithImpl<$Res, TaskDTO>;
   @useResult
   $Res call(
-      {String name,
-      String description,
-      String goal,
+      {String description,
       bool done,
       DateTime createdAt,
       String? result,
@@ -65,9 +61,7 @@ class _$TaskDTOCopyWithImpl<$Res, $Val extends TaskDTO>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
     Object? description = null,
-    Object? goal = null,
     Object? done = null,
     Object? createdAt = null,
     Object? result = freezed,
@@ -76,17 +70,9 @@ class _$TaskDTOCopyWithImpl<$Res, $Val extends TaskDTO>
     Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      goal: null == goal
-          ? _value.goal
-          : goal // ignore: cast_nullable_to_non_nullable
               as String,
       done: null == done
           ? _value.done
@@ -124,9 +110,7 @@ abstract class _$$_TaskDTOCopyWith<$Res> implements $TaskDTOCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String name,
-      String description,
-      String goal,
+      {String description,
       bool done,
       DateTime createdAt,
       String? result,
@@ -145,9 +129,7 @@ class __$$_TaskDTOCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = null,
     Object? description = null,
-    Object? goal = null,
     Object? done = null,
     Object? createdAt = null,
     Object? result = freezed,
@@ -156,17 +138,9 @@ class __$$_TaskDTOCopyWithImpl<$Res>
     Object? updatedAt = freezed,
   }) {
     return _then(_$_TaskDTO(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      goal: null == goal
-          ? _value.goal
-          : goal // ignore: cast_nullable_to_non_nullable
               as String,
       done: null == done
           ? _value.done
@@ -200,9 +174,7 @@ class __$$_TaskDTOCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_TaskDTO implements _TaskDTO {
   _$_TaskDTO(
-      {required this.name,
-      required this.description,
-      required this.goal,
+      {required this.description,
       required this.done,
       required this.createdAt,
       this.result,
@@ -214,11 +186,7 @@ class _$_TaskDTO implements _TaskDTO {
       _$$_TaskDTOFromJson(json);
 
   @override
-  final String name;
-  @override
   final String description;
-  @override
-  final String goal;
   @override
   final bool done;
   @override
@@ -234,7 +202,7 @@ class _$_TaskDTO implements _TaskDTO {
 
   @override
   String toString() {
-    return 'TaskDTO(name: $name, description: $description, goal: $goal, done: $done, createdAt: $createdAt, result: $result, id: $id, priority: $priority, updatedAt: $updatedAt)';
+    return 'TaskDTO(description: $description, done: $done, createdAt: $createdAt, result: $result, id: $id, priority: $priority, updatedAt: $updatedAt)';
   }
 
   @override
@@ -242,10 +210,8 @@ class _$_TaskDTO implements _TaskDTO {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_TaskDTO &&
-            (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.goal, goal) || other.goal == goal) &&
             (identical(other.done, done) || other.done == done) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -259,8 +225,8 @@ class _$_TaskDTO implements _TaskDTO {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, description, goal, done,
-      createdAt, result, id, priority, updatedAt);
+  int get hashCode => Object.hash(runtimeType, description, done, createdAt,
+      result, id, priority, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -278,9 +244,7 @@ class _$_TaskDTO implements _TaskDTO {
 
 abstract class _TaskDTO implements TaskDTO {
   factory _TaskDTO(
-      {required final String name,
-      required final String description,
-      required final String goal,
+      {required final String description,
       required final bool done,
       required final DateTime createdAt,
       final String? result,
@@ -291,11 +255,7 @@ abstract class _TaskDTO implements TaskDTO {
   factory _TaskDTO.fromJson(Map<String, dynamic> json) = _$_TaskDTO.fromJson;
 
   @override
-  String get name;
-  @override
   String get description;
-  @override
-  String get goal;
   @override
   bool get done;
   @override
