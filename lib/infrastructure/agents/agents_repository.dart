@@ -126,7 +126,7 @@ class AgentsRepository implements IAgentsRepository {
       const systemPrompt =
           'You are an autonomous task creation AI for worldbuilding called Lumina Brain.';
       final userPrompt =
-          'Given the following goal: "${goal.getOrCrash()}", you have to create tasks that will help you achieve the goal. Return a list of tasks in formatted like this ```{"name": "","description": "","goal": ""}``` such that it can be used by JSON.parse().';
+          'Given the following goal: "${goal.getOrCrash()}", you have to create tasks that will help you reach or more closely reach the goal. Return the response as an array of strings that can be used in JSON.parse().';
 
       debugPrint('startGoal() - systemPrompt: $systemPrompt');
       debugPrint('startGoal() - userPrompt: $userPrompt');
@@ -203,7 +203,7 @@ class AgentsRepository implements IAgentsRepository {
       const systemPrompt =
           'You are an autonomous task priorization AI for worldbuilding called Lumina Task Manager.';
       final userPrompt =
-          'Given the following goal: "${cluster.goal.getOrCrash()}", you have to sort tasks by their importance to help you achieve the goal.\n\nTasks:\n\n$tasksJson. Return a list of ALL IDs sorted by their task priority WITHOUT ANY EXPLANATION formatted like this ```{"priorities": []}``` such that it can be used by JSON.parse().';
+          'Given the following goal: "${cluster.goal.getOrCrash()}", you have to sort tasks by their importance to help you reach or more closely reach the goal.\n\nTasks:\n\n$tasksJson. Return an array of IDs that can be used by JSON.parse().';
       final assistantPrompt = '${cluster.knowledge?.getOrCrash()}';
 
       debugPrint('prioritizeTasks() - systemPrompt: $systemPrompt');
@@ -276,7 +276,7 @@ class AgentsRepository implements IAgentsRepository {
       const systemPrompt =
           'You are an autonomous task execution AI for worldbuilding called Lumina Task Executor.';
       final userPrompt =
-          'Given the following goal: "${cluster.goal.getOrCrash()}", you have been given the task: $taskJson.';
+          'Given the following goal: "${cluster.goal.getOrCrash()}", you have been given the task: $taskJson. Execute the task and return a string.';
       final assistantPrompt = '${cluster.knowledge?.getOrCrash()}';
 
       debugPrint('executeTask() - userPrompt: $userPrompt');
@@ -348,7 +348,7 @@ class AgentsRepository implements IAgentsRepository {
       const systemPrompt =
           'You are an autonomous task executioon AI for worldbuilding called Lumina Task Maker.';
       final userPrompt =
-          'Given the following goal: "${cluster.goal.getOrCrash()}", you have to create a task that will help you achieve the goal. Return an objet and ONLY ONE formatted like this ```{"name": "","description": "","goal": ""}``` such that it can be used by JSON.parse().\n\nCurrent tasks:\n\n$tasksJson.';
+          'Given the following goal: "${cluster.goal.getOrCrash()}", you have to create a task that will help you reach or more closely reach the goal.\n\nCurrent tasks:\n\n$tasksJson. Return a string that can be used by JSON.parse().';
       final assistantPrompt = '${cluster.knowledge?.getOrCrash()}';
 
       debugPrint('createTasks() - systemPrompt: $systemPrompt');
