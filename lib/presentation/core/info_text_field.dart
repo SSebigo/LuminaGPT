@@ -8,6 +8,7 @@ class InfoTextField extends StatelessWidget {
     required this.icon,
     required this.text,
     super.key,
+    this.controller,
     this.onChanged,
     this.validator,
   });
@@ -17,6 +18,9 @@ class InfoTextField extends StatelessWidget {
 
   /// @nodoc
   final String text;
+
+  /// @nodoc
+  final TextEditingController? controller;
 
   /// @nodoc
   final void Function(String)? onChanged;
@@ -34,6 +38,7 @@ class InfoTextField extends StatelessWidget {
       child: TextFormField(
         minLines: 1,
         maxLines: 5,
+        controller: controller,
         onChanged: onChanged,
         validator: validator,
         style: const TextStyle(

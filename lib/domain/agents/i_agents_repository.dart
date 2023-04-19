@@ -20,7 +20,11 @@ abstract class IAgentsRepository {
   Future<Result<Agent, AgentsFailure>> insertAgent(Agent agent);
 
   /// @nodoc
-  Future<Result<List<Task>, AgentsFailure>> startGoal(Agent agent, Label goal);
+  Future<Result<List<Task>, AgentsFailure>> startGoal(
+    Agent agent,
+    Label goal,
+    Label knowledge,
+  );
 
   /// @nodoc
   Future<Result<List<Task>, AgentsFailure>> prioritizeTasks(
@@ -37,16 +41,9 @@ abstract class IAgentsRepository {
   );
 
   /// @nodoc
-  Stream<Result<Task, AgentsFailure>> executeTasks(
+  Future<Result<Option<Task>, AgentsFailure>> createTasks(
     Agent agent,
+    Cluster cluster,
     List<Task> tasks,
-    Label goal,
-  );
-
-  /// @nodoc
-  Stream<Result<List<Task>, AgentsFailure>> createTasks(
-    Agent agent,
-    List<Task> task,
-    Label goal,
   );
 }

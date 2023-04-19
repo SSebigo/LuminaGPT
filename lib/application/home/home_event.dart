@@ -16,19 +16,19 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.deleteAgentPressed(Agent agent) = DeleteAgentPressed;
 
   /// @nodoc
-  const factory HomeEvent.settingsNotFound() = SettingsNotFound;
+  const factory HomeEvent.agentPressed(Agent agent) = AgentPressed;
+
+  /// @nodoc
+  const factory HomeEvent.clusterPressed(Cluster cluster) = ClusterPressed;
+
+  /// @nodoc
+  const factory HomeEvent.viewPressed(View view) = ViewPressed;
 
   /// @nodoc
   const factory HomeEvent.apiKeyChanged(String apiKeyStr) = ApiKeyChanged;
 
   /// @nodoc
   const factory HomeEvent.apiKeySubmitted() = ApiKeySubmitted;
-
-  /// @nodoc
-  const factory HomeEvent.apiKeyUpdated() = _ApiKeyUpdated;
-
-  /// @nodoc
-  const factory HomeEvent.clientInitialized() = _ClientInitialized;
 
   /// @nodoc
   const factory HomeEvent.agentNameChanged(String nameStr) = AgentNameChanged;
@@ -42,35 +42,39 @@ class HomeEvent with _$HomeEvent {
       ClusterGoalChanged;
 
   /// @nodoc
+  const factory HomeEvent.clusterKnowledgeChanged(String knowledgeStr) =
+      ClusterKnowledgeChanged;
+
+  /// @nodoc
   const factory HomeEvent.deployPressed() = DeployPressed;
+
+  /// @nodoc
+  const factory HomeEvent.settingsNotFound() = _SettingsNotFound;
+
+  /// @nodoc
+  const factory HomeEvent.apiKeyUpdated() = _ApiKeyUpdated;
+
+  /// @nodoc
+  const factory HomeEvent.clientInitialized() = _ClientInitialized;
 
   /// @nodoc
   const factory HomeEvent.agentDeployed() = _AgentDeployed;
 
   /// @nodoc
-  const factory HomeEvent.agentInserted() = _AgentInserted;
+  const factory HomeEvent.prioritizeTasks() = _PrioritizeTasks;
+
+  /// @nodoc
+  const factory HomeEvent.executeTask() = _ExecuteTask;
+
+  /// @nodoc
+  const factory HomeEvent.createTasks() = _CreateTasks;
 
   /// @nodoc
   const factory HomeEvent.tasksPrioritized() = _TasksPrioritized;
 
   /// @nodoc
-  const factory HomeEvent.tasksCreated(List<Task> tasks) = _TasksCreated;
+  const factory HomeEvent.tasksCreated() = _TasksCreated;
 
   /// @nodoc
   const factory HomeEvent.taskExecuted() = _TaskExecuted;
-
-  /// @nodoc
-  const factory HomeEvent.maxTasksReached() = _MaxTasksReached;
-
-  /// @nodoc
-  const factory HomeEvent.noTasksAdded() = _NoTasksAdded;
-
-  /// @nodoc
-  const factory HomeEvent.agentPressed(Agent agent) = AgentPressed;
-
-  /// @nodoc
-  const factory HomeEvent.clusterPressed(Cluster cluster) = ClusterPressed;
-
-  /// @nodoc
-  const factory HomeEvent.viewPressed(View view) = ViewPressed;
 }

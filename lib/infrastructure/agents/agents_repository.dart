@@ -13,9 +13,9 @@ import 'package:lumina_gpt/domain/core/label.dart';
 import 'package:lumina_gpt/infrastructure/agents/agent_dto.dart';
 import 'package:lumina_gpt/infrastructure/agents/isar_agent.dart';
 import 'package:lumina_gpt/infrastructure/agents/isar_model.dart';
+import 'package:lumina_gpt/infrastructure/agents/model_dto.dart';
 import 'package:lumina_gpt/infrastructure/clusters/cluster_dto.dart';
 import 'package:lumina_gpt/infrastructure/clusters/isar_cluster.dart';
-import 'package:lumina_gpt/infrastructure/agents/model_dto.dart';
 import 'package:lumina_gpt/infrastructure/clusters/isar_task.dart';
 import 'package:lumina_gpt/infrastructure/clusters/task_dto.dart';
 import 'package:oxidized/oxidized.dart';
@@ -120,19 +120,32 @@ class AgentsRepository implements IAgentsRepository {
   Future<Result<List<Task>, AgentsFailure>> startGoal(
     Agent agent,
     Label goal,
+    Label knowledge,
   ) async {
     try {
-      final prompt =
-          'Instruction: You are an autonomous task creation AI for worldbuilding called Lumina Brain. Given the following goal: "${goal.getOrCrash()}", you have to create tasks that will help you achieve the goal. Return a list of tasks in JSON format such that it is formatted like this ```{"name": "","description": "","role": "","goal": ""}```.';
+      const systemPrompt =
+          'You are an autonomous task creation AI for worldbuilding called Lumina Brain.';
+      final userPrompt =
+          'Given the following goal: "${goal.getOrCrash()}", you have to create tasks that will help you achieve the goal. Return a list of tasks in formatted like this ```{"name": "","description": "","goal": ""}``` such that it can be used by JSON.parse().';
 
-      debugPrint('startGoal() - prompt: $prompt');
+      debugPrint('startGoal() - systemPrompt: $systemPrompt');
+      debugPrint('startGoal() - userPrompt: $userPrompt');
+      debugPrint('startGoal() - knowledge: ${knowledge.getOrCrash()}');
 
       final completion = await OpenAI.instance.chat.create(
         model: agent.model.name.getOrCrash(),
         messages: [
           OpenAIChatCompletionChoiceMessageModel(
-            content: prompt,
+            content: systemPrompt,
+            role: OpenAIChatMessageRole.system,
+          ),
+          OpenAIChatCompletionChoiceMessageModel(
+            content: userPrompt,
             role: OpenAIChatMessageRole.user,
+          ),
+          OpenAIChatCompletionChoiceMessageModel(
+            content: knowledge.getOrCrash(),
+            role: OpenAIChatMessageRole.assistant,
           ),
         ],
         temperature: agent.model.temperature.getOrCrash(),
@@ -151,14 +164,12 @@ class AgentsRepository implements IAgentsRepository {
       for (final task in jsonContent) {
         final taskName = task['name'] as String;
         final taskDescription = task['description'] as String;
-        final taskRole = task['role'] as String;
         final taskGoal = task['goal'] as String;
 
         tasks.add(
           Task(
             name: Label(taskName),
             description: Label(taskDescription),
-            role: Label(taskRole),
             goal: Label(taskGoal),
             createdAt: DateTime.now(),
             done: false,
@@ -184,24 +195,35 @@ class AgentsRepository implements IAgentsRepository {
             (task) => {
               'id': '${task.id}',
               'name': task.name.getOrCrash(),
-              'description': task.description.getOrCrash(),
-              'role': task.role.getOrCrash(),
-              'goal': task.goal.getOrCrash(),
             },
           )
           .toList();
       final tasksJson = jsonEncode(tasksFormatted);
-      final prompt =
-          'Instruction: You are an autonomous task priorization AI for worldbuilding called Lumina Task Manager. Given the following goal: "${cluster.goal.getOrCrash()}", you have to sort tasks by their importance to help you achieve the goal.\n\nTasks: $tasksJson. Return a JSON formatted list of IDs sorted by their task priority.\n\n\nContext: ${cluster.knowledge?.getOrCrash()}';
 
-      debugPrint('prioritizeTasks() - prompt: $prompt');
+      const systemPrompt =
+          'You are an autonomous task priorization AI for worldbuilding called Lumina Task Manager.';
+      final userPrompt =
+          'Given the following goal: "${cluster.goal.getOrCrash()}", you have to sort tasks by their importance to help you achieve the goal.\n\nTasks:\n\n$tasksJson. Return a list of ALL IDs sorted by their task priority WITHOUT ANY EXPLANATION formatted like this ```{"priorities": []}``` such that it can be used by JSON.parse().';
+      final assistantPrompt = '${cluster.knowledge?.getOrCrash()}';
+
+      debugPrint('prioritizeTasks() - systemPrompt: $systemPrompt');
+      debugPrint('prioritizeTasks() - userPrompt: $userPrompt');
+      debugPrint('prioritizeTasks() - assistantPrompt: $assistantPrompt');
 
       final completion = await OpenAI.instance.chat.create(
         model: agent.model.name.getOrCrash(),
         messages: [
           OpenAIChatCompletionChoiceMessageModel(
-            content: prompt,
+            content: systemPrompt,
+            role: OpenAIChatMessageRole.system,
+          ),
+          OpenAIChatCompletionChoiceMessageModel(
+            content: userPrompt,
             role: OpenAIChatMessageRole.user,
+          ),
+          OpenAIChatCompletionChoiceMessageModel(
+            content: assistantPrompt,
+            role: OpenAIChatMessageRole.assistant,
           ),
         ],
         temperature: agent.model.temperature.getOrCrash(),
@@ -216,11 +238,19 @@ class AgentsRepository implements IAgentsRepository {
 
       debugPrint('prioritizeTasks() - jsonContent: $jsonContent');
 
+      final priorities = jsonContent.first['priorities'] as List<dynamic>;
+
       final newTasksList = <Task>[];
       for (final task in tasks) {
-        final index = jsonContent.indexOf({'id': '${task.id}'});
+        final index =
+            priorities.indexWhere((e) => e.toString() == '${task.id}');
 
-        newTasksList.add(task.copyWith(priority: index));
+        newTasksList.add(
+          tasks[index].copyWith(
+            priority: index,
+            updatedAt: DateTime.now(),
+          ),
+        );
       }
 
       return Ok(newTasksList);
@@ -235,138 +265,144 @@ class AgentsRepository implements IAgentsRepository {
     Cluster cluster,
     Task task,
   ) async {
-    try {} catch (e) {
+    try {
+      final formattedTask = {
+        'name': task.name.getOrCrash(),
+        'description': task.description.getOrCrash(),
+        'goal': task.goal.getOrCrash(),
+      };
+      final taskJson = jsonEncode(formattedTask);
+
+      const systemPrompt =
+          'You are an autonomous task execution AI for worldbuilding called Lumina Task Executor.';
+      final userPrompt =
+          'Given the following goal: "${cluster.goal.getOrCrash()}", you have been given the task: $taskJson.';
+      final assistantPrompt = '${cluster.knowledge?.getOrCrash()}';
+
+      debugPrint('executeTask() - userPrompt: $userPrompt');
+      debugPrint('executeTask() - assistantPrompt: $assistantPrompt');
+
+      final completion = await OpenAI.instance.chat.create(
+        model: agent.model.name.getOrCrash(),
+        messages: [
+          OpenAIChatCompletionChoiceMessageModel(
+            content: systemPrompt,
+            role: OpenAIChatMessageRole.system,
+          ),
+          OpenAIChatCompletionChoiceMessageModel(
+            content: userPrompt,
+            role: OpenAIChatMessageRole.user,
+          ),
+          OpenAIChatCompletionChoiceMessageModel(
+            content: assistantPrompt,
+            role: OpenAIChatMessageRole.assistant,
+          ),
+        ],
+        temperature: agent.model.temperature.getOrCrash(),
+        maxTokens: 300,
+      );
+
+      final content = completion.choices.single.message.content;
+
+      debugPrint('executeTask() - content: $content');
+
+      // final jsonContent = _extractJsonParts(content);
+
+      // debugPrint('executeTask() - jsonContent: $jsonContent');
+
+      // final result = jsonContent.first['result'] as String;
+
+      // debugPrint('executeTask() - result: $result');
+
+      return Ok(
+        task.copyWith(
+          result: Label(content),
+          done: true,
+          updatedAt: DateTime.now(),
+        ),
+      );
+    } catch (e) {
       return const Err(AgentsFailure.unexpected());
     }
   }
 
   @override
-  Stream<Result<Task, AgentsFailure>> executeTasks(
+  Future<Result<Option<Task>, AgentsFailure>> createTasks(
     Agent agent,
+    Cluster cluster,
     List<Task> tasks,
-    Label goal,
-  ) async* {
+  ) async {
     try {
-      final sortedTasks = List<Task>.from(tasks)
-        ..sort((a, b) => b.createdAt.compareTo(a.createdAt));
+      final tasksFormatted = tasks
+          .map(
+            (task) => {
+              'name': task.name.getOrCrash(),
+              'description': task.description.getOrCrash(),
+              // 'role': task.role.getOrCrash(),
+              // 'goal': task.goal.getOrCrash(),
+            },
+          )
+          .toList();
+      final tasksJson = jsonEncode(tasksFormatted);
 
-      for (var task in sortedTasks) {
-        // final childrenTasks = sortedTasks.where(
-        //   (element) => element.parentId == task.id,
-        // );
+      const systemPrompt =
+          'You are an autonomous task executioon AI for worldbuilding called Lumina Task Maker.';
+      final userPrompt =
+          'Given the following goal: "${cluster.goal.getOrCrash()}", you have to create a task that will help you achieve the goal. Return an objet and ONLY ONE formatted like this ```{"name": "","description": "","goal": ""}``` such that it can be used by JSON.parse().\n\nCurrent tasks:\n\n$tasksJson.';
+      final assistantPrompt = '${cluster.knowledge?.getOrCrash()}';
 
-        // final result = StringBuffer();
+      debugPrint('createTasks() - systemPrompt: $systemPrompt');
+      debugPrint('createTasks() - userPrompt: $userPrompt');
+      debugPrint('createTasks() - assistantPrompt: $assistantPrompt');
 
-        // for (final childTask in childrenTasks) {
-        //   result.write(childTask.result?.getOrCrash() ?? '');
-        // }
+      final completion = await OpenAI.instance.chat.create(
+        model: agent.model.name.getOrCrash(),
+        messages: [
+          OpenAIChatCompletionChoiceMessageModel(
+            content: systemPrompt,
+            role: OpenAIChatMessageRole.system,
+          ),
+          OpenAIChatCompletionChoiceMessageModel(
+            content: userPrompt,
+            role: OpenAIChatMessageRole.user,
+          ),
+          OpenAIChatCompletionChoiceMessageModel(
+            content: assistantPrompt,
+            role: OpenAIChatMessageRole.assistant,
+          ),
+        ],
+        temperature: agent.model.temperature.getOrCrash(),
+        maxTokens: 300,
+      );
 
-        final prompt =
-            'You are an autonomous task executioon AI for worldbuilding called Lumina Task Solver. Given the following overall goal: "${goal.getOrCrash()}", you have been given the task: ${task.name.getOrCrash().toLowerCase()}. Your role is that of a ${task.role.getOrCrash().toLowerCase()}. You will ${task.description.getOrCrash().toLowerCase()}. Your goal is to ${task.goal.getOrCrash().toLowerCase()}, you have to complete this goal by any means necessary and available to you. Return a string.';
+      final content = completion.choices.single.message.content;
 
-        final completion = await OpenAI.instance.chat.create(
-          model: agent.model.name.getOrCrash(),
-          messages: [
-            OpenAIChatCompletionChoiceMessageModel(
-              content: prompt,
-              role: OpenAIChatMessageRole.user,
+      debugPrint('createTasks() - content: $content');
+
+      final jsonContent = _parseApiResponse(content);
+
+      debugPrint('createTasks() - jsonContent: $jsonContent');
+
+      if (jsonContent.isNotEmpty) {
+        final taskName = jsonContent.first['name'] as String;
+        final taskDescription = jsonContent.first['description'] as String;
+        final taskGoal = jsonContent.first['goal'] as String;
+
+        return Ok(
+          Some(
+            Task(
+              name: Label(taskName),
+              description: Label(taskDescription),
+              goal: Label(taskGoal),
+              createdAt: DateTime.now(),
+              done: false,
             ),
-            // if (result.isNotEmpty)
-            //   OpenAIChatCompletionChoiceMessageModel(
-            //     content: 'This is your current knowledge of the topic: $result',
-            //     role: OpenAIChatMessageRole.user,
-            //   ),
-          ],
-          temperature: agent.model.temperature.getOrCrash(),
-          maxTokens: 300,
+          ),
         );
-
-        final content = completion.choices.single.message.content;
-
-        debugPrint('executeTasks() - content: $content');
-
-        task = task.copyWith(
-          result: Label(content),
-          done: true,
-        );
-
-        // update the tasl in tasks
-        final index =
-            sortedTasks.indexWhere((element) => element.id == task.id);
-        sortedTasks[index] = task;
-
-        yield Ok(task);
       }
+      return const Ok(None());
     } catch (e) {
-      yield const Err(AgentsFailure.unexpected());
-    }
-  }
-
-  @override
-  Stream<Result<List<Task>, AgentsFailure>> createTasks(
-    Agent agent,
-    List<Task> tasks,
-    Label goal,
-  ) async* {
-    try {
-      // if (agent.tasks.length >= maxTasks) {
-      //   yield const Err(AgentsFailure.maxTasksReached());
-      // } else {
-      //   for (final task in tasks) {
-      //     final newTasks = <Task>[];
-
-      //     final prompt =
-      //         'You are an autonomous task creation AI for worldbuilding called Lumina Task Maker. Given the following overall goal: "${goal.getOrCrash()}", you have been given the following task: "${task.name.getOrCrash().toLowerCase()}". Your role is that of a ${task.role.getOrCrash().toLowerCase()}. You will ${task.description.getOrCrash().toLowerCase()}. Your goal is to ${task.goal.getOrCrash().toLowerCase()}, you have to create ONLY IF NEEDED, zero to three realistic tasks for an AI that will help you achieve the goal. Return a list of tasks in JSON format such that it contains a name for the task, a description for the task, a role for the task and a goal for the task like this ```{"name": "","description": "","role": "","goal": ""}```. Return an empty list if you don\'t need to create any new tasks.';
-
-      //     final completion = await OpenAI.instance.chat.create(
-      //       model: agent.model.name.getOrCrash(),
-      //       messages: [
-      //         OpenAIChatCompletionChoiceMessageModel(
-      //           content: prompt,
-      //           role: OpenAIChatMessageRole.user,
-      //         ),
-      //       ],
-      //       temperature: agent.model.temperature.getOrCrash(),
-      //       maxTokens: 300,
-      //     );
-
-      //     final content = completion.choices.single.message.content;
-
-      //     debugPrint('createTasks() - content: $content');
-
-      //     final jsonContent = jsonDecode(content) as List<dynamic>;
-
-      //     debugPrint('createTasks() - jsonContent: $jsonContent');
-
-      //     for (final jsonTask in jsonContent) {
-      //       final taskName =
-      //           (jsonTask as Map<String, dynamic>)['name'] as String;
-      //       final taskDescription = jsonTask['description'] as String;
-      //       final taskRole = jsonTask['role'] as String;
-      //       final taskGoal = jsonTask['goal'] as String;
-
-      //       newTasks.add(
-      //         Task(
-      //           name: Label(taskName),
-      //           description: Label(taskDescription),
-      //           role: Label(taskRole),
-      //           goal: Label(taskGoal),
-      //           createdAt: DateTime.now(),
-      //           done: false,
-      //           parentId: task.id,
-      //         ),
-      //       );
-      //     }
-
-      //     if (newTasks.isEmpty) {
-      //       yield const Err(AgentsFailure.noNewTasks());
-      //     } else {
-      //       yield Ok(newTasks);
-      //     }
-      //   }
-      // }
-    } catch (e) {
-      yield const Err(AgentsFailure.unexpected());
+      return const Err(AgentsFailure.unexpected());
     }
   }
 
@@ -382,6 +418,35 @@ class AgentsRepository implements IAgentsRepository {
         } catch (e) {
           // Ignore invalid JSON parts
         }
+      }
+    }
+
+    return jsonList;
+  }
+
+  List<Map<String, dynamic>> _parseApiResponse(String response) {
+    final trimResponse = response.trim();
+    var jsonList = <Map<String, dynamic>>[];
+
+    jsonList = _extractJsonParts(trimResponse);
+    if (jsonList.isEmpty) {
+      // Assume the response is in the custom list format
+      final items = response.split(RegExp(r'\n(?=\d+\.)'));
+
+      for (final item in items) {
+        final lines = item.trim().split('\n');
+        final currentItem = <String, dynamic>{};
+
+        for (final line in lines) {
+          final parts = line.split(':');
+          if (parts.length > 1) {
+            final key = parts[0].toLowerCase().trim();
+            final cleanedKey = key.replaceAll(RegExp(r'^\d+\.\s*'), '');
+            currentItem[cleanedKey] = parts.sublist(1).join(':').trim();
+          }
+        }
+
+        jsonList.add(currentItem);
       }
     }
 

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:collection/collection.dart';
 import 'package:dart_openai/openai.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:lumina_gpt/domain/agents/agent.dart';
@@ -87,6 +88,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
                 agentName: Label(''),
                 clusterName: Label(''),
                 clusterGoal: Label(''),
+                clusterKnowledge: Label(''),
+                agentNameController: TextEditingController(),
+                clusterNameController: TextEditingController(),
+                clusterGoalController: TextEditingController(),
+                clusterKnowledgeController: TextEditingController(),
                 agents: [...state.agents, agent],
                 view: View.clusters,
                 agent: agent,
@@ -111,12 +117,176 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           failureOption: const None(),
           clusterName: Label(''),
           clusterGoal: Label(''),
+          clusterKnowledge: Label(''),
+          clusterNameController: TextEditingController(),
+          clusterGoalController: TextEditingController(),
+          clusterKnowledgeController: TextEditingController(),
           cluster: null,
         ),
       );
     });
     on<DeleteAgentPressed>((_, emit) async {});
-    on<SettingsNotFound>((event, emit) async {
+    on<AgentPressed>((event, emit) async {
+      if (state.agent == null || state.agent!.id != event.agent.id) {
+        emit(
+          state.copyWith(
+            failureOption: const None(),
+            agent: event.agent,
+            cluster: null,
+            view: View.clusters,
+          ),
+        );
+      }
+    });
+    on<ClusterPressed>((event, emit) async {
+      if (state.cluster == null || state.cluster!.id != event.cluster.id) {
+        emit(
+          state.copyWith(
+            failureOption: const None(),
+            cluster: event.cluster,
+          ),
+        );
+      }
+    });
+    on<ViewPressed>((event, emit) {
+      emit(
+        state.copyWith(
+          failureOption: const None(),
+          view: event.view,
+        ),
+      );
+    });
+    on<ApiKeyChanged>(
+      (event, emit) => emit(
+        state.copyWith(
+          failureOption: const None(),
+          apiKey: Label(event.apiKeyStr),
+        ),
+      ),
+    );
+    on<ApiKeySubmitted>((event, emit) async {
+      final apiKeyValid = state.apiKey?.isValid;
+
+      if (apiKeyValid != null && apiKeyValid) {
+        final settings = state.settings.copyWith(apiKey: state.apiKey);
+        (await _settingsRepository.updateSettings(settings)).match(
+          (_) {
+            emit(
+              state.copyWith(
+                failureOption: const None(),
+                thinking: false,
+                settings: settings,
+                apiKey: Label(''),
+                apiKeyController: TextEditingController(),
+              ),
+            );
+
+            add(const HomeEvent.apiKeyUpdated());
+          },
+          (failure) {
+            emit(
+              state.copyWith(
+                failureOption: Some(Err(CoreFailure.settings(failure))),
+                thinking: false,
+              ),
+            );
+          },
+        );
+      }
+    });
+    on<AgentNameChanged>((event, emit) {
+      emit(
+        state.copyWith(
+          failureOption: const None(),
+          agentName: Label(event.nameStr),
+        ),
+      );
+    });
+    on<ClusterNameChanged>((event, emit) {
+      emit(
+        state.copyWith(
+          failureOption: const None(),
+          clusterName: Label(event.nameStr),
+        ),
+      );
+    });
+    on<ClusterGoalChanged>((event, emit) {
+      emit(
+        state.copyWith(
+          failureOption: const None(),
+          clusterGoal: Label(event.goalStr),
+        ),
+      );
+    });
+    on<ClusterKnowledgeChanged>((event, emit) {
+      emit(
+        state.copyWith(
+          failureOption: const None(),
+          clusterKnowledge: Label(event.knowledgeStr),
+        ),
+      );
+    });
+    on<DeployPressed>((event, emit) async {
+      final nameValid = state.clusterName.isValid;
+      final goalValid = state.clusterGoal.isValid;
+      final knowledgeValid = state.clusterKnowledge.isValid;
+
+      if (nameValid && goalValid && knowledgeValid) {
+        emit(
+          state.copyWith(
+            failureOption: const None(),
+            thinking: true,
+          ),
+        );
+
+        (await _agentsRepository.startGoal(
+          state.agent!,
+          state.clusterGoal,
+          state.clusterKnowledge,
+        ))
+            .match(
+          (tasks) {
+            final cluster = Cluster(
+              name: state.clusterName,
+              goal: state.clusterGoal,
+              knowledge: state.clusterKnowledge,
+              tasks: tasks,
+              uid: const Uuid().v4(),
+            );
+
+            final agent = state.agent!.copyWith(
+              clusters: [...state.agent!.clusters, cluster],
+            );
+
+            emit(
+              state.copyWith(
+                failureOption: const None(),
+                clusterName: Label(''),
+                clusterGoal: Label(''),
+                clusterKnowledge: Label(''),
+                clusterNameController: TextEditingController(),
+                clusterGoalController: TextEditingController(),
+                clusterKnowledgeController: TextEditingController(),
+                agent: agent,
+                cluster: cluster,
+                tasksQueue: [...tasks],
+              ),
+            );
+
+            add(const HomeEvent.agentDeployed());
+          },
+          (failure) {
+            emit(
+              state.copyWith(
+                failureOption: Some(Err(CoreFailure.agents(failure))),
+                thinking: false,
+              ),
+            );
+          },
+        );
+      }
+    });
+    on<_SettingsNotFound>((event, emit) async {
       (await _settingsRepository.initializeSettings()).match(
         (_) {
           emit(
@@ -136,36 +306,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           );
         },
       );
-    });
-    on<ApiKeyChanged>(
-      (event, emit) => emit(
-        state.copyWith(
-          failureOption: const None(),
-          apiKey: Label(event.apiKeyStr),
-        ),
-      ),
-    );
-    on<ApiKeySubmitted>((event, emit) async {
-      final apiKeyValid = state.apiKey?.isValid;
-
-      if (apiKeyValid != null && apiKeyValid) {
-        (await _settingsRepository.updateSettings(
-          state.settings.copyWith(apiKey: state.apiKey),
-        ))
-            .match(
-          (_) {
-            add(const HomeEvent.apiKeyUpdated());
-          },
-          (failure) {
-            emit(
-              state.copyWith(
-                failureOption: Some(Err(CoreFailure.settings(failure))),
-                thinking: false,
-              ),
-            );
-          },
-        );
-      }
     });
     on<_ApiKeyUpdated>((event, emit) async {
       final apiKey = state.apiKey?.getOrCrash();
@@ -197,114 +337,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         },
       );
     });
-    on<AgentNameChanged>((event, emit) {
-      emit(
-        state.copyWith(
-          failureOption: const None(),
-          agentName: Label(event.nameStr),
-        ),
-      );
-    });
-    on<ClusterNameChanged>((event, emit) {
-      emit(
-        state.copyWith(
-          failureOption: const None(),
-          clusterName: Label(event.nameStr),
-        ),
-      );
-    });
-    on<ClusterGoalChanged>((event, emit) {
-      emit(
-        state.copyWith(
-          failureOption: const None(),
-          clusterGoal: Label(event.goalStr),
-        ),
-      );
-    });
-    on<DeployPressed>((event, emit) async {
-      final nameValid = state.clusterName.isValid;
-      final goalValid = state.clusterGoal.isValid;
-
-      emit(
-        state.copyWith(
-          failureOption: const None(),
-          thinking: true,
-        ),
-      );
-
-      if (nameValid && goalValid) {
-        (await _agentsRepository.startGoal(
-          state.agent!,
-          state.clusterGoal,
-        ))
-            .match(
-          (tasks) {
-            final cluster = Cluster(
-              name: state.clusterName,
-              goal: state.clusterGoal,
-              tasks: tasks,
-              uid: const Uuid().v4(),
-            );
-
-            final agent = state.agent!.copyWith(
-              clusters: [...state.agent!.clusters, cluster],
-            );
-
-            emit(
-              state.copyWith(
-                failureOption: const None(),
-                clusterName: Label(''),
-                clusterGoal: Label(''),
-                agent: agent,
-                cluster: cluster,
-                tasksQueue: [...tasks],
-              ),
-            );
-
-            add(const HomeEvent.agentDeployed());
-          },
-          (failure) {
-            emit(
-              state.copyWith(
-                failureOption: Some(Err(CoreFailure.agents(failure))),
-                thinking: false,
-              ),
-            );
-          },
-        );
-      }
-    });
     on<_AgentDeployed>((event, emit) async {
       if (state.agent != null) {
-        (await _agentsRepository.insertAgent(state.agent!)).match(
-          (agent) {
-            final cluster = agent.clusters.firstWhereOrNull(
-              (cluster) => cluster.uid == state.cluster!.uid,
-            );
-
-            emit(
-              state.copyWith(
-                failureOption: const None(),
-                agent: agent,
-                cluster: cluster,
-                tasksQueue: [...cluster!.tasks],
-              ),
-            );
-
-            add(const HomeEvent.agentInserted());
-          },
-          (failure) {
-            emit(
-              state.copyWith(
-                failureOption: Some(Err(CoreFailure.agents(failure))),
-                thinking: false,
-              ),
-            );
-          },
-        );
+        await _insertAgent(emit, const HomeEvent.prioritizeTasks());
       }
     });
-    on<_AgentInserted>((event, emit) async {
+    on<_PrioritizeTasks>((event, emit) async {
       if (state.agent != null && state.cluster != null) {
         (await _agentsRepository.prioritizeTasks(
           state.agent!,
@@ -313,9 +351,19 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         ))
             .match(
           (tasks) {
+            final cluster = state.cluster!.copyWith(tasks: tasks);
+
+            final agent = state.agent!.copyWith(
+              clusters: state.agent!.clusters
+                  .map((c) => c.uid == cluster.uid ? cluster : c)
+                  .toList(),
+            );
+
             emit(
               state.copyWith(
                 failureOption: const None(),
+                agent: agent,
+                cluster: cluster,
                 tasksQueue: tasks,
               ),
             );
@@ -333,7 +381,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         );
       }
     });
-    on<_TasksPrioritized>((_, emit) async {
+    on<_ExecuteTask>((_, emit) async {
       if (state.tasksQueue.isNotEmpty) {
         final task =
             state.tasksQueue.singleWhereOrNull((task) => task.priority == 0);
@@ -345,12 +393,38 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             task,
           ))
               .match(
-            (tasks) {
+            (task) {
+              final tasks =
+                  state.tasksQueue.where((t) => t.priority != 0).toList();
+
+              var knowledge = state.cluster?.knowledge;
+              if (knowledge != null) {
+                knowledge = Label(
+                  '${knowledge.getOrCrash()}\n\n${task.result?.getOrCrash()}',
+                );
+              } else {
+                knowledge = Label('${task.result?.getOrCrash()}');
+              }
+
+              final cluster = state.cluster!.copyWith(
+                knowledge: knowledge,
+                tasks: state.cluster!.tasks
+                    .map((t) => t.id == task.id ? task : t)
+                    .toList(),
+              );
+
+              final agent = state.agent!.copyWith(
+                clusters: state.agent!.clusters
+                    .map((c) => c.uid == cluster.uid ? cluster : c)
+                    .toList(),
+              );
+
               emit(
                 state.copyWith(
                   failureOption: const None(),
-                  tasksQueue: state.tasksQueue
-                    ..removeWhere((task) => task.priority == 0),
+                  agent: agent,
+                  cluster: cluster,
+                  tasksQueue: tasks,
                 ),
               );
 
@@ -368,21 +442,38 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         }
       }
     });
-    on<_TasksCreated>((event, emit) async {
-      if (state.agent != null) {
-        (await _agentsRepository.insertAgent(state.agent!)).match(
-          (agent) {
-            emit(
-              state.copyWith(
-                failureOption: const None(),
-                agent: agent,
-                agents: state.agents
-                    .map((s) => s.id == agent.id ? agent : s)
-                    .toList(),
-              ),
-            );
+    on<_CreateTasks>((_, emit) async {
+      if (state.agent != null && state.cluster != null) {
+        (await _agentsRepository.createTasks(
+          state.agent!,
+          state.cluster!,
+          state.tasksQueue,
+        ))
+            .match(
+          (tasks) {
+            if (tasks.isSome()) {
+              // add tasks to the queue and cluster tasks
+              final cluster = state.cluster!.copyWith(
+                tasks: [...state.cluster!.tasks, tasks.unwrap()],
+              );
 
-            add(const HomeEvent.agentInserted());
+              final agent = state.agent!.copyWith(
+                clusters: state.agent!.clusters
+                    .map((c) => c.uid == cluster.uid ? cluster : c)
+                    .toList(),
+              );
+
+              emit(
+                state.copyWith(
+                  failureOption: const None(),
+                  agent: agent,
+                  cluster: cluster,
+                  tasksQueue: [...state.tasksQueue, tasks.unwrap()],
+                ),
+              );
+
+              add(const HomeEvent.tasksCreated());
+            }
           },
           (failure) {
             emit(
@@ -393,106 +484,56 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             );
           },
         );
+      }
+    });
+    on<_TasksPrioritized>((_, emit) async {
+      if (state.agent != null && state.cluster != null) {
+        await _insertAgent(emit, const HomeEvent.executeTask());
+      }
+    });
+    on<_TasksCreated>((event, emit) async {
+      if (state.agent != null) {
+        await _insertAgent(emit, const HomeEvent.prioritizeTasks());
       }
     });
     on<_TaskExecuted>((event, emit) async {
-      if (state.agent != null) {
-        (await _agentsRepository.insertAgent(state.agent!)).match(
-          (agent) {
-            emit(
-              state.copyWith(
-                failureOption: const None(),
-                agent: agent,
-              ),
-            );
-          },
-          (failure) {
-            emit(
-              state.copyWith(
-                failureOption: Some(Err(CoreFailure.agents(failure))),
-                thinking: false,
-              ),
-            );
-          },
-        );
+      if (state.agent != null && state.cluster != null) {
+        await _insertAgent(emit, const HomeEvent.createTasks());
       }
-    });
-    on<_MaxTasksReached>((_, emit) async => _executeTasks(emit));
-    on<_NoTasksAdded>((_, emit) async => _executeTasks(emit));
-    on<AgentPressed>((event, emit) async {
-      if (state.agent == null || state.agent!.id != event.agent.id) {
-        emit(
-          state.copyWith(
-            failureOption: const None(),
-            agent: event.agent,
-            cluster: null,
-            view: View.clusters,
-          ),
-        );
-      }
-    });
-    on<ClusterPressed>((event, emit) async {
-      if (state.cluster == null || state.cluster!.id != event.cluster.id) {
-        emit(
-          state.copyWith(
-            failureOption: const None(),
-            cluster: event.cluster,
-          ),
-        );
-      }
-    });
-    on<ViewPressed>((event, emit) {
-      emit(
-        state.copyWith(
-          failureOption: const None(),
-          view: event.view,
-        ),
-      );
     });
   }
 
   final ISettingsRepository _settingsRepository;
   final IAgentsRepository _agentsRepository;
 
-  FutureOr<void> _executeTasks(Emitter<HomeState> emit) async {
-    if (state.agent != null) {
-      // await emit.onEach(
-      //   _agentsRepository.executeTasks(
-      //     state.agent!,
-      //     state.agent!.tasks,
-      //     state.goal,
-      //   ),
-      //   onData: (result) => result.match(
-      //     (task) {
-      //       // update corresponding task in agent
-      //       final agent = state.agent!.copyWith(
-      //         tasks: state.agent!.tasks
-      //             .map((t) => t.id == task.id ? task : t)
-      //             .toList(),
-      //       );
+  FutureOr<void> _insertAgent(Emitter<HomeState> emit, HomeEvent event) async {
+    (await _agentsRepository.insertAgent(state.agent!)).match(
+      (agent) {
+        final cluster = agent.clusters.firstWhereOrNull(
+          (cluster) => cluster.uid == state.cluster!.uid,
+        );
 
-      //       emit(
-      //         state.copyWith(
-      //           failureOption: const None(),
-      //           agent: agent,
-      //           agents: state.agents
-      //               .map((a) => a.id == agent.id ? agent : a)
-      //               .toList(),
-      //         ),
-      //       );
+        emit(
+          state.copyWith(
+            failureOption: const None(),
+            agent: agent,
+            cluster: cluster,
+            // put in queue the tasks that are not done
+            tasksQueue:
+                cluster?.tasks.where((task) => !task.done).toList() ?? [],
+          ),
+        );
 
-      //       add(HomeEvent.taskExecuted(agent));
-      //     },
-      //     (failure) {
-      //       emit(
-      //         state.copyWith(
-      //           failureOption: Some(Err(CoreFailure.agents(failure))),
-      //           thinking: false,
-      //         ),
-      //       );
-      //     },
-      //   ),
-      // );
-    }
+        add(event);
+      },
+      (failure) {
+        emit(
+          state.copyWith(
+            failureOption: Some(Err(CoreFailure.agents(failure))),
+            thinking: false,
+          ),
+        );
+      },
+    );
   }
 }

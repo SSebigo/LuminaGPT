@@ -18,13 +18,13 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Task {
   Label get name => throw _privateConstructorUsedError;
   Label get description => throw _privateConstructorUsedError;
-  Label get role => throw _privateConstructorUsedError;
   Label get goal => throw _privateConstructorUsedError;
   bool get done => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   Label? get result => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
   int? get priority => throw _privateConstructorUsedError;
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TaskCopyWith<Task> get copyWith => throw _privateConstructorUsedError;
@@ -38,13 +38,13 @@ abstract class $TaskCopyWith<$Res> {
   $Res call(
       {Label name,
       Label description,
-      Label role,
       Label goal,
       bool done,
       DateTime createdAt,
       Label? result,
       int? id,
-      int? priority});
+      int? priority,
+      DateTime? updatedAt});
 }
 
 /// @nodoc
@@ -62,13 +62,13 @@ class _$TaskCopyWithImpl<$Res, $Val extends Task>
   $Res call({
     Object? name = null,
     Object? description = null,
-    Object? role = null,
     Object? goal = null,
     Object? done = null,
     Object? createdAt = null,
     Object? result = freezed,
     Object? id = freezed,
     Object? priority = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -78,10 +78,6 @@ class _$TaskCopyWithImpl<$Res, $Val extends Task>
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as Label,
-      role: null == role
-          ? _value.role
-          : role // ignore: cast_nullable_to_non_nullable
               as Label,
       goal: null == goal
           ? _value.goal
@@ -107,6 +103,10 @@ class _$TaskCopyWithImpl<$Res, $Val extends Task>
           ? _value.priority
           : priority // ignore: cast_nullable_to_non_nullable
               as int?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -120,13 +120,13 @@ abstract class _$$_TaskCopyWith<$Res> implements $TaskCopyWith<$Res> {
   $Res call(
       {Label name,
       Label description,
-      Label role,
       Label goal,
       bool done,
       DateTime createdAt,
       Label? result,
       int? id,
-      int? priority});
+      int? priority,
+      DateTime? updatedAt});
 }
 
 /// @nodoc
@@ -140,13 +140,13 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res, _$_Task>
   $Res call({
     Object? name = null,
     Object? description = null,
-    Object? role = null,
     Object? goal = null,
     Object? done = null,
     Object? createdAt = null,
     Object? result = freezed,
     Object? id = freezed,
     Object? priority = freezed,
+    Object? updatedAt = freezed,
   }) {
     return _then(_$_Task(
       name: null == name
@@ -156,10 +156,6 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res, _$_Task>
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
-              as Label,
-      role: null == role
-          ? _value.role
-          : role // ignore: cast_nullable_to_non_nullable
               as Label,
       goal: null == goal
           ? _value.goal
@@ -185,6 +181,10 @@ class __$$_TaskCopyWithImpl<$Res> extends _$TaskCopyWithImpl<$Res, _$_Task>
           ? _value.priority
           : priority // ignore: cast_nullable_to_non_nullable
               as int?,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -195,20 +195,18 @@ class _$_Task implements _Task {
   _$_Task(
       {required this.name,
       required this.description,
-      required this.role,
       required this.goal,
       required this.done,
       required this.createdAt,
       this.result,
       this.id,
-      this.priority});
+      this.priority,
+      this.updatedAt});
 
   @override
   final Label name;
   @override
   final Label description;
-  @override
-  final Label role;
   @override
   final Label goal;
   @override
@@ -221,10 +219,12 @@ class _$_Task implements _Task {
   final int? id;
   @override
   final int? priority;
+  @override
+  final DateTime? updatedAt;
 
   @override
   String toString() {
-    return 'Task(name: $name, description: $description, role: $role, goal: $goal, done: $done, createdAt: $createdAt, result: $result, id: $id, priority: $priority)';
+    return 'Task(name: $name, description: $description, goal: $goal, done: $done, createdAt: $createdAt, result: $result, id: $id, priority: $priority, updatedAt: $updatedAt)';
   }
 
   @override
@@ -235,7 +235,6 @@ class _$_Task implements _Task {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.role, role) || other.role == role) &&
             (identical(other.goal, goal) || other.goal == goal) &&
             (identical(other.done, done) || other.done == done) &&
             (identical(other.createdAt, createdAt) ||
@@ -243,12 +242,14 @@ class _$_Task implements _Task {
             (identical(other.result, result) || other.result == result) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.priority, priority) ||
-                other.priority == priority));
+                other.priority == priority) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, description, role, goal,
-      done, createdAt, result, id, priority);
+  int get hashCode => Object.hash(runtimeType, name, description, goal, done,
+      createdAt, result, id, priority, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -261,20 +262,18 @@ abstract class _Task implements Task {
   factory _Task(
       {required final Label name,
       required final Label description,
-      required final Label role,
       required final Label goal,
       required final bool done,
       required final DateTime createdAt,
       final Label? result,
       final int? id,
-      final int? priority}) = _$_Task;
+      final int? priority,
+      final DateTime? updatedAt}) = _$_Task;
 
   @override
   Label get name;
   @override
   Label get description;
-  @override
-  Label get role;
   @override
   Label get goal;
   @override
@@ -287,6 +286,8 @@ abstract class _Task implements Task {
   int? get id;
   @override
   int? get priority;
+  @override
+  DateTime? get updatedAt;
   @override
   @JsonKey(ignore: true)
   _$$_TaskCopyWith<_$_Task> get copyWith => throw _privateConstructorUsedError;

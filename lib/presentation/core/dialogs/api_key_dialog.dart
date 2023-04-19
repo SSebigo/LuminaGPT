@@ -47,20 +47,23 @@ class ApiKeyDialog extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: InfoTextField(
-                icon: Icons.vpn_key_rounded,
-                text: 'API key',
-                onChanged: (value) => context
-                    .read<HomeBloc>()
-                    .add(HomeEvent.apiKeyChanged(value)),
-                validator: (_) =>
-                    context.watch<HomeBloc>().state.apiKey?.value.match(
-                          (_) => null,
-                          (err) => err.maybeMap(
-                            emptyInput: (_) => 'The API key is invalid.',
-                            orElse: () => null,
+              child: BlocBuilder<HomeBloc, HomeState>(
+                builder: (context, state) => InfoTextField(
+                  controller: state.apiKeyController,
+                  icon: Icons.vpn_key_rounded,
+                  text: 'API key',
+                  onChanged: (value) => context
+                      .read<HomeBloc>()
+                      .add(HomeEvent.apiKeyChanged(value)),
+                  validator: (_) =>
+                      context.watch<HomeBloc>().state.apiKey?.value.match(
+                            (_) => null,
+                            (err) => err.maybeMap(
+                              emptyInput: (_) => 'The API key is invalid.',
+                              orElse: () => null,
+                            ),
                           ),
-                        ),
+                ),
               ),
             ),
             Padding(

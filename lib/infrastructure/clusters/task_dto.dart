@@ -13,13 +13,13 @@ class TaskDTO with _$TaskDTO {
   factory TaskDTO({
     required String name,
     required String description,
-    required String role,
     required String goal,
     required bool done,
     required DateTime createdAt,
     String? result,
     int? id,
     int? priority,
+    DateTime? updatedAt,
   }) = _TaskDTO;
 
   /// @nodoc
@@ -27,13 +27,13 @@ class TaskDTO with _$TaskDTO {
     return TaskDTO(
       name: task.name.getOrCrash(),
       description: task.description.getOrCrash(),
-      role: task.role.getOrCrash(),
       goal: task.goal.getOrCrash(),
       done: task.done,
       createdAt: task.createdAt,
       result: task.result?.getOrCrash(),
       id: task.id,
       priority: task.priority,
+      updatedAt: task.updatedAt,
     );
   }
 
@@ -42,13 +42,13 @@ class TaskDTO with _$TaskDTO {
     return TaskDTO(
       name: task.name,
       description: task.description,
-      role: task.role,
       goal: task.goal,
       done: task.done,
       createdAt: task.createdAt,
       result: task.result,
       id: task.id,
       priority: task.priority,
+      updatedAt: task.updatedAt,
     );
   }
 
@@ -63,25 +63,25 @@ extension TaskDTOX on TaskDTO {
   Task toDomain() => Task(
         name: Label(name),
         description: Label(description),
-        role: Label(role),
         goal: Label(goal),
         done: done,
         createdAt: createdAt,
         result: result != null ? Label(result!) : null,
         id: id,
         priority: priority,
+        updatedAt: updatedAt,
       );
 
   /// @nodoc
   IsarTask toAdapter() => IsarTask(
         name: name,
         description: description,
-        role: role,
         goal: goal,
         done: done,
         createdAt: createdAt,
         result: result,
         id: id,
         priority: priority,
+        updatedAt: updatedAt,
       );
 }
