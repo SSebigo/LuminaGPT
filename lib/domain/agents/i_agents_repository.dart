@@ -30,8 +30,9 @@ abstract class IAgentsRepository {
   Future<Result<List<Task>, AgentsFailure>> prioritizeTasks(
     Agent agent,
     Cluster cluster,
-    List<Task> tasks,
-  );
+    List<Task> tasks, {
+    int attempts,
+  });
 
   /// @nodoc
   Future<Result<Task, AgentsFailure>> executeTask(
