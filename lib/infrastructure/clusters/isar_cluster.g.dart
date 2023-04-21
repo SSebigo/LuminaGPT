@@ -27,18 +27,23 @@ const IsarClusterSchema = CollectionSchema(
       name: r'knowledge',
       type: IsarType.string,
     ),
-    r'name': PropertySchema(
+    r'knowledgeEmbeddings': PropertySchema(
       id: 2,
+      name: r'knowledgeEmbeddings',
+      type: IsarType.doubleList,
+    ),
+    r'name': PropertySchema(
+      id: 3,
       name: r'name',
       type: IsarType.string,
     ),
     r'stringify': PropertySchema(
-      id: 3,
+      id: 4,
       name: r'stringify',
       type: IsarType.bool,
     ),
     r'uid': PropertySchema(
-      id: 4,
+      id: 5,
       name: r'uid',
       type: IsarType.string,
     )
@@ -77,6 +82,12 @@ int _isarClusterEstimateSize(
       bytesCount += 3 + value.length * 3;
     }
   }
+  {
+    final value = object.knowledgeEmbeddings;
+    if (value != null) {
+      bytesCount += 3 + value.length * 8;
+    }
+  }
   bytesCount += 3 + object.name.length * 3;
   {
     final value = object.uid;
@@ -95,9 +106,10 @@ void _isarClusterSerialize(
 ) {
   writer.writeString(offsets[0], object.goal);
   writer.writeString(offsets[1], object.knowledge);
-  writer.writeString(offsets[2], object.name);
-  writer.writeBool(offsets[3], object.stringify);
-  writer.writeString(offsets[4], object.uid);
+  writer.writeDoubleList(offsets[2], object.knowledgeEmbeddings);
+  writer.writeString(offsets[3], object.name);
+  writer.writeBool(offsets[4], object.stringify);
+  writer.writeString(offsets[5], object.uid);
 }
 
 IsarCluster _isarClusterDeserialize(
@@ -110,8 +122,9 @@ IsarCluster _isarClusterDeserialize(
     goal: reader.readString(offsets[0]),
     id: id,
     knowledge: reader.readStringOrNull(offsets[1]),
-    name: reader.readString(offsets[2]),
-    uid: reader.readStringOrNull(offsets[4]),
+    knowledgeEmbeddings: reader.readDoubleList(offsets[2]),
+    name: reader.readString(offsets[3]),
+    uid: reader.readStringOrNull(offsets[5]),
   );
   return object;
 }
@@ -128,10 +141,12 @@ P _isarClusterDeserializeProp<P>(
     case 1:
       return (reader.readStringOrNull(offset)) as P;
     case 2:
-      return (reader.readString(offset)) as P;
+      return (reader.readDoubleList(offset)) as P;
     case 3:
-      return (reader.readBool(offset)) as P;
+      return (reader.readString(offset)) as P;
     case 4:
+      return (reader.readBool(offset)) as P;
+    case 5:
       return (reader.readStringOrNull(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -583,6 +598,179 @@ extension IsarClusterQueryFilter
         property: r'knowledge',
         value: '',
       ));
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition>
+      knowledgeEmbeddingsIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'knowledgeEmbeddings',
+      ));
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition>
+      knowledgeEmbeddingsIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'knowledgeEmbeddings',
+      ));
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition>
+      knowledgeEmbeddingsElementEqualTo(
+    double value, {
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'knowledgeEmbeddings',
+        value: value,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition>
+      knowledgeEmbeddingsElementGreaterThan(
+    double value, {
+    bool include = false,
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'knowledgeEmbeddings',
+        value: value,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition>
+      knowledgeEmbeddingsElementLessThan(
+    double value, {
+    bool include = false,
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'knowledgeEmbeddings',
+        value: value,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition>
+      knowledgeEmbeddingsElementBetween(
+    double lower,
+    double upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'knowledgeEmbeddings',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition>
+      knowledgeEmbeddingsLengthEqualTo(int length) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'knowledgeEmbeddings',
+        length,
+        true,
+        length,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition>
+      knowledgeEmbeddingsIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'knowledgeEmbeddings',
+        0,
+        true,
+        0,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition>
+      knowledgeEmbeddingsIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'knowledgeEmbeddings',
+        0,
+        false,
+        999999,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition>
+      knowledgeEmbeddingsLengthLessThan(
+    int length, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'knowledgeEmbeddings',
+        0,
+        true,
+        length,
+        include,
+      );
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition>
+      knowledgeEmbeddingsLengthGreaterThan(
+    int length, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'knowledgeEmbeddings',
+        length,
+        include,
+        999999,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<IsarCluster, IsarCluster, QAfterFilterCondition>
+      knowledgeEmbeddingsLengthBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'knowledgeEmbeddings',
+        lower,
+        includeLower,
+        upper,
+        includeUpper,
+      );
     });
   }
 
@@ -1095,6 +1283,13 @@ extension IsarClusterQueryWhereDistinct
     });
   }
 
+  QueryBuilder<IsarCluster, IsarCluster, QDistinct>
+      distinctByKnowledgeEmbeddings() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'knowledgeEmbeddings');
+    });
+  }
+
   QueryBuilder<IsarCluster, IsarCluster, QDistinct> distinctByName(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
@@ -1133,6 +1328,13 @@ extension IsarClusterQueryProperty
   QueryBuilder<IsarCluster, String?, QQueryOperations> knowledgeProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'knowledge');
+    });
+  }
+
+  QueryBuilder<IsarCluster, List<double>?, QQueryOperations>
+      knowledgeEmbeddingsProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'knowledgeEmbeddings');
     });
   }
 

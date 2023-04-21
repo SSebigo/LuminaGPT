@@ -2,7 +2,6 @@ import 'package:lumina_gpt/domain/agents/agent.dart';
 import 'package:lumina_gpt/domain/agents/agents_failure.dart';
 import 'package:lumina_gpt/domain/clusters/cluster.dart';
 import 'package:lumina_gpt/domain/clusters/task.dart';
-import 'package:lumina_gpt/domain/core/label.dart';
 import 'package:oxidized/oxidized.dart';
 
 /// @nodoc
@@ -22,8 +21,13 @@ abstract class IAgentsRepository {
   /// @nodoc
   Future<Result<List<Task>, AgentsFailure>> startGoal(
     Agent agent,
-    Label goal,
-    Label knowledge,
+    Cluster cluster,
+  );
+
+  /// @nodoc
+  Future<Result<Cluster, AgentsFailure>> embedKnowledge(
+    Agent agent,
+    Cluster cluster,
   );
 
   /// @nodoc
@@ -35,6 +39,12 @@ abstract class IAgentsRepository {
   });
 
   /// @nodoc
+  Future<Result<Task, AgentsFailure>> embedTaskDescription(
+    Agent agent,
+    Task task,
+  );
+
+  /// @nodoc
   Future<Result<Task, AgentsFailure>> executeTask(
     Agent agent,
     Cluster cluster,
@@ -42,9 +52,16 @@ abstract class IAgentsRepository {
   );
 
   /// @nodoc
+  Future<Result<Task, AgentsFailure>> embedTaskResult(
+    Agent agent,
+    Task task,
+  );
+
+  /// @nodoc
   Future<Result<Option<Task>, AgentsFailure>> createTasks(
     Agent agent,
     Cluster cluster,
-    List<Task> tasks,
-  );
+    List<Task> tasks, {
+    int attempts,
+  });
 }

@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Model {
   Label get name => throw _privateConstructorUsedError;
-  Temperature get temperature => throw _privateConstructorUsedError;
+  Temperature? get temperature => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -29,7 +29,7 @@ abstract class $ModelCopyWith<$Res> {
   factory $ModelCopyWith(Model value, $Res Function(Model) then) =
       _$ModelCopyWithImpl<$Res, Model>;
   @useResult
-  $Res call({Label name, Temperature temperature, int? id});
+  $Res call({Label name, Temperature? temperature, int? id});
 }
 
 /// @nodoc
@@ -46,7 +46,7 @@ class _$ModelCopyWithImpl<$Res, $Val extends Model>
   @override
   $Res call({
     Object? name = null,
-    Object? temperature = null,
+    Object? temperature = freezed,
     Object? id = freezed,
   }) {
     return _then(_value.copyWith(
@@ -54,10 +54,10 @@ class _$ModelCopyWithImpl<$Res, $Val extends Model>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as Label,
-      temperature: null == temperature
+      temperature: freezed == temperature
           ? _value.temperature
           : temperature // ignore: cast_nullable_to_non_nullable
-              as Temperature,
+              as Temperature?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -72,7 +72,7 @@ abstract class _$$_ModelCopyWith<$Res> implements $ModelCopyWith<$Res> {
       __$$_ModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Label name, Temperature temperature, int? id});
+  $Res call({Label name, Temperature? temperature, int? id});
 }
 
 /// @nodoc
@@ -85,7 +85,7 @@ class __$$_ModelCopyWithImpl<$Res> extends _$ModelCopyWithImpl<$Res, _$_Model>
   @override
   $Res call({
     Object? name = null,
-    Object? temperature = null,
+    Object? temperature = freezed,
     Object? id = freezed,
   }) {
     return _then(_$_Model(
@@ -93,10 +93,10 @@ class __$$_ModelCopyWithImpl<$Res> extends _$ModelCopyWithImpl<$Res, _$_Model>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as Label,
-      temperature: null == temperature
+      temperature: freezed == temperature
           ? _value.temperature
           : temperature // ignore: cast_nullable_to_non_nullable
-              as Temperature,
+              as Temperature?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -108,12 +108,12 @@ class __$$_ModelCopyWithImpl<$Res> extends _$ModelCopyWithImpl<$Res, _$_Model>
 /// @nodoc
 
 class _$_Model implements _Model {
-  _$_Model({required this.name, required this.temperature, this.id});
+  _$_Model({required this.name, this.temperature, this.id});
 
   @override
   final Label name;
   @override
-  final Temperature temperature;
+  final Temperature? temperature;
   @override
   final int? id;
 
@@ -146,13 +146,13 @@ class _$_Model implements _Model {
 abstract class _Model implements Model {
   factory _Model(
       {required final Label name,
-      required final Temperature temperature,
+      final Temperature? temperature,
       final int? id}) = _$_Model;
 
   @override
   Label get name;
   @override
-  Temperature get temperature;
+  Temperature? get temperature;
   @override
   int? get id;
   @override

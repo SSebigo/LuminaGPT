@@ -11,7 +11,8 @@ class Agent with _$Agent {
   /// @nodoc
   factory Agent({
     required Label name,
-    required Model model,
+    required Model completionModel,
+    required Model embeddingModel,
     required List<Cluster> clusters,
     int? id,
   }) = _Agent;
@@ -19,7 +20,8 @@ class Agent with _$Agent {
   /// @nodoc
   factory Agent.empty() => Agent(
         name: Label(''),
-        model: Model.empty(),
+        completionModel: Model.defaultCompletion(),
+        embeddingModel: Model.defaultEmbedding(),
         clusters: [],
       );
 }

@@ -23,7 +23,9 @@ mixin _$TaskDTO {
   String get description => throw _privateConstructorUsedError;
   bool get done => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
+  List<double>? get descriptionEmbeddings => throw _privateConstructorUsedError;
   String? get result => throw _privateConstructorUsedError;
+  List<double>? get resultEmbeddings => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
   int? get priority => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
@@ -42,7 +44,9 @@ abstract class $TaskDTOCopyWith<$Res> {
       {String description,
       bool done,
       DateTime createdAt,
+      List<double>? descriptionEmbeddings,
       String? result,
+      List<double>? resultEmbeddings,
       int? id,
       int? priority,
       DateTime? updatedAt});
@@ -64,7 +68,9 @@ class _$TaskDTOCopyWithImpl<$Res, $Val extends TaskDTO>
     Object? description = null,
     Object? done = null,
     Object? createdAt = null,
+    Object? descriptionEmbeddings = freezed,
     Object? result = freezed,
+    Object? resultEmbeddings = freezed,
     Object? id = freezed,
     Object? priority = freezed,
     Object? updatedAt = freezed,
@@ -82,10 +88,18 @@ class _$TaskDTOCopyWithImpl<$Res, $Val extends TaskDTO>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      descriptionEmbeddings: freezed == descriptionEmbeddings
+          ? _value.descriptionEmbeddings
+          : descriptionEmbeddings // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
       result: freezed == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
               as String?,
+      resultEmbeddings: freezed == resultEmbeddings
+          ? _value.resultEmbeddings
+          : resultEmbeddings // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -113,7 +127,9 @@ abstract class _$$_TaskDTOCopyWith<$Res> implements $TaskDTOCopyWith<$Res> {
       {String description,
       bool done,
       DateTime createdAt,
+      List<double>? descriptionEmbeddings,
       String? result,
+      List<double>? resultEmbeddings,
       int? id,
       int? priority,
       DateTime? updatedAt});
@@ -132,7 +148,9 @@ class __$$_TaskDTOCopyWithImpl<$Res>
     Object? description = null,
     Object? done = null,
     Object? createdAt = null,
+    Object? descriptionEmbeddings = freezed,
     Object? result = freezed,
+    Object? resultEmbeddings = freezed,
     Object? id = freezed,
     Object? priority = freezed,
     Object? updatedAt = freezed,
@@ -150,10 +168,18 @@ class __$$_TaskDTOCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      descriptionEmbeddings: freezed == descriptionEmbeddings
+          ? _value._descriptionEmbeddings
+          : descriptionEmbeddings // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
       result: freezed == result
           ? _value.result
           : result // ignore: cast_nullable_to_non_nullable
               as String?,
+      resultEmbeddings: freezed == resultEmbeddings
+          ? _value._resultEmbeddings
+          : resultEmbeddings // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -177,10 +203,14 @@ class _$_TaskDTO implements _TaskDTO {
       {required this.description,
       required this.done,
       required this.createdAt,
+      final List<double>? descriptionEmbeddings,
       this.result,
+      final List<double>? resultEmbeddings,
       this.id,
       this.priority,
-      this.updatedAt});
+      this.updatedAt})
+      : _descriptionEmbeddings = descriptionEmbeddings,
+        _resultEmbeddings = resultEmbeddings;
 
   factory _$_TaskDTO.fromJson(Map<String, dynamic> json) =>
       _$$_TaskDTOFromJson(json);
@@ -191,8 +221,30 @@ class _$_TaskDTO implements _TaskDTO {
   final bool done;
   @override
   final DateTime createdAt;
+  final List<double>? _descriptionEmbeddings;
+  @override
+  List<double>? get descriptionEmbeddings {
+    final value = _descriptionEmbeddings;
+    if (value == null) return null;
+    if (_descriptionEmbeddings is EqualUnmodifiableListView)
+      return _descriptionEmbeddings;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final String? result;
+  final List<double>? _resultEmbeddings;
+  @override
+  List<double>? get resultEmbeddings {
+    final value = _resultEmbeddings;
+    if (value == null) return null;
+    if (_resultEmbeddings is EqualUnmodifiableListView)
+      return _resultEmbeddings;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final int? id;
   @override
@@ -202,7 +254,7 @@ class _$_TaskDTO implements _TaskDTO {
 
   @override
   String toString() {
-    return 'TaskDTO(description: $description, done: $done, createdAt: $createdAt, result: $result, id: $id, priority: $priority, updatedAt: $updatedAt)';
+    return 'TaskDTO(description: $description, done: $done, createdAt: $createdAt, descriptionEmbeddings: $descriptionEmbeddings, result: $result, resultEmbeddings: $resultEmbeddings, id: $id, priority: $priority, updatedAt: $updatedAt)';
   }
 
   @override
@@ -215,7 +267,11 @@ class _$_TaskDTO implements _TaskDTO {
             (identical(other.done, done) || other.done == done) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
+            const DeepCollectionEquality()
+                .equals(other._descriptionEmbeddings, _descriptionEmbeddings) &&
             (identical(other.result, result) || other.result == result) &&
+            const DeepCollectionEquality()
+                .equals(other._resultEmbeddings, _resultEmbeddings) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.priority, priority) ||
                 other.priority == priority) &&
@@ -225,8 +281,17 @@ class _$_TaskDTO implements _TaskDTO {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, description, done, createdAt,
-      result, id, priority, updatedAt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      description,
+      done,
+      createdAt,
+      const DeepCollectionEquality().hash(_descriptionEmbeddings),
+      result,
+      const DeepCollectionEquality().hash(_resultEmbeddings),
+      id,
+      priority,
+      updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -247,7 +312,9 @@ abstract class _TaskDTO implements TaskDTO {
       {required final String description,
       required final bool done,
       required final DateTime createdAt,
+      final List<double>? descriptionEmbeddings,
       final String? result,
+      final List<double>? resultEmbeddings,
       final int? id,
       final int? priority,
       final DateTime? updatedAt}) = _$_TaskDTO;
@@ -261,7 +328,11 @@ abstract class _TaskDTO implements TaskDTO {
   @override
   DateTime get createdAt;
   @override
+  List<double>? get descriptionEmbeddings;
+  @override
   String? get result;
+  @override
+  List<double>? get resultEmbeddings;
   @override
   int? get id;
   @override

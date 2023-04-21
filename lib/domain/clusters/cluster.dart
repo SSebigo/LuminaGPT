@@ -14,6 +14,7 @@ class Cluster with _$Cluster {
     required Label goal,
     required List<Task> tasks,
     Label? knowledge,
+    List<double>? knowledgeEmbeddings,
     int? id,
     String? uid,
   }) = _Cluster;

@@ -77,7 +77,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         final agent = Agent(
           name: state.agentName,
           clusters: [],
-          model: Model.base(),
+          completionModel: Model.defaultCompletion(),
+          embeddingModel: Model.defaultEmbedding(),
         );
 
         (await _agentsRepository.insertAgent(agent)).match(
@@ -226,7 +227,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         ),
       );
     });
-    on<DeployPressed>((event, emit) async {
+    on<DeployPressed>((_, emit) async {
       final nameValid = state.clusterName.isValid;
       final goalValid = state.clusterGoal.isValid;
       final knowledgeValid = state.clusterKnowledge.isValid;
@@ -239,25 +240,20 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           ),
         );
 
-        (await _agentsRepository.startGoal(
+        final cluster = Cluster(
+          name: state.clusterName,
+          goal: state.clusterGoal,
+          knowledge: state.clusterKnowledge,
+          uid: const Uuid().v4(),
+          tasks: [],
+        );
+
+        (await _agentsRepository.embedKnowledge(
           state.agent!,
-          state.clusterGoal,
-          state.clusterKnowledge,
+          cluster,
         ))
             .match(
-          (tasks) {
-            final cluster = Cluster(
-              name: state.clusterName,
-              goal: state.clusterGoal,
-              knowledge: state.clusterKnowledge,
-              tasks: tasks,
-              uid: const Uuid().v4(),
-            );
-
-            final agent = state.agent!.copyWith(
-              clusters: [...state.agent!.clusters, cluster],
-            );
-
+          (cluster) {
             emit(
               state.copyWith(
                 failureOption: const None(),
@@ -267,13 +263,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
                 clusterNameController: TextEditingController(),
                 clusterGoalController: TextEditingController(),
                 clusterKnowledgeController: TextEditingController(),
-                agent: agent,
                 cluster: cluster,
-                tasksQueue: [...tasks],
               ),
             );
 
-            add(const HomeEvent.agentDeployed());
+            add(const HomeEvent.knowledgeEmbedded());
           },
           (failure) {
             emit(
@@ -337,7 +331,40 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         },
       );
     });
-    on<_AgentDeployed>((event, emit) async {
+    on<_KnowledgeEmbedded>((_, emit) async {
+      if (state.agent != null && state.cluster != null) {
+        (await _agentsRepository.startGoal(
+          state.agent!,
+          state.cluster!,
+        ))
+            .match(
+          (tasks) {
+            final agent = state.agent!.copyWith(
+              clusters: [...state.agent!.clusters, state.cluster!],
+            );
+
+            emit(
+              state.copyWith(
+                failureOption: const None(),
+                agent: agent,
+                tasksQueue: [...tasks],
+              ),
+            );
+
+            add(const HomeEvent.tasksCreated());
+          },
+          (failure) {
+            emit(
+              state.copyWith(
+                failureOption: Some(Err(CoreFailure.agents(failure))),
+                thinking: false,
+              ),
+            );
+          },
+        );
+      }
+    });
+    on<_TasksCreated>((event, emit) async {
       if (state.agent != null) {
         await _insertAgent(emit, const HomeEvent.prioritizeTasks());
       }
@@ -381,15 +408,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         );
       }
     });
-    on<_ExecuteTask>((_, emit) async {
+    on<_TasksPrioritized>((_, emit) async {
+      // if (state.agent != null && state.cluster != null) {
+      //   await _insertAgent(emit, const HomeEvent.executeTask());
+      // }
       if (state.tasksQueue.isNotEmpty) {
         final task =
             state.tasksQueue.singleWhereOrNull((task) => task.priority == 0);
 
         if (task != null) {
-          (await _agentsRepository.executeTask(
+          (await _agentsRepository.embedTaskDescription(
             state.agent!,
-            state.cluster!,
             task,
           ))
               .match(
@@ -397,38 +426,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
               final tasks =
                   state.tasksQueue.where((t) => t.priority != 0).toList();
 
-              var knowledge = state.cluster?.knowledge;
-              if (knowledge != null) {
-                knowledge = Label(
-                  '${knowledge.getOrCrash()}\n\n${task.result?.getOrCrash()}',
-                );
-              } else {
-                knowledge = Label('${task.result?.getOrCrash()}');
-              }
-
-              final cluster = state.cluster!.copyWith(
-                knowledge: knowledge,
-                tasks: state.cluster!.tasks
-                    .map((t) => t.id == task.id ? task : t)
-                    .toList(),
-              );
-
-              final agent = state.agent!.copyWith(
-                clusters: state.agent!.clusters
-                    .map((c) => c.uid == cluster.uid ? cluster : c)
-                    .toList(),
-              );
-
               emit(
                 state.copyWith(
                   failureOption: const None(),
-                  agent: agent,
-                  cluster: cluster,
+                  nextTask: task,
                   tasksQueue: tasks,
                 ),
               );
 
-              add(const HomeEvent.taskExecuted());
+              add(const HomeEvent.taskDescriptionEmbedded());
             },
             (failure) {
               emit(
@@ -442,7 +448,83 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         }
       }
     });
-    on<_CreateTasks>((_, emit) async {
+    on<_TaskDescriptionEmbedded>((_, emit) async {
+      if (state.agent != null &&
+          state.cluster != null &&
+          state.nextTask != null) {
+        (await _agentsRepository.executeTask(
+          state.agent!,
+          state.cluster!,
+          state.nextTask!,
+        ))
+            .match(
+          (task) {
+            emit(
+              state.copyWith(
+                failureOption: const None(),
+                nextTask: task,
+              ),
+            );
+
+            add(const HomeEvent.taskExecuted());
+          },
+          (failure) {
+            emit(
+              state.copyWith(
+                failureOption: Some(Err(CoreFailure.agents(failure))),
+                thinking: false,
+              ),
+            );
+          },
+        );
+      }
+    });
+    on<_TaskExecuted>((event, emit) async {
+      // if (state.agent != null && state.cluster != null) {
+      //   await _insertAgent(emit, const HomeEvent.createTasks());
+      // }
+      if (state.agent != null && state.nextTask != null) {
+        (await _agentsRepository.embedTaskResult(
+          state.agent!,
+          state.nextTask!,
+        ))
+            .match(
+          (task) {
+            final cluster = state.cluster!.copyWith(
+              tasks: state.cluster!.tasks
+                  .map((t) => t.id == task.id ? task : t)
+                  .toList(),
+            );
+
+            final agent = state.agent!.copyWith(
+              clusters: state.agent!.clusters
+                  .map((c) => c.uid == cluster.uid ? cluster : c)
+                  .toList(),
+            );
+
+            emit(
+              state.copyWith(
+                failureOption: const None(),
+                agent: agent,
+                cluster: cluster,
+                nextTask: null,
+              ),
+            );
+
+            add(const HomeEvent.taskResultEmbedded());
+          },
+          (failure) {
+            emit(
+              state.copyWith(
+                failureOption: Some(Err(CoreFailure.agents(failure))),
+                thinking: false,
+              ),
+            );
+          },
+        );
+      }
+    });
+    on<_TaskResultEmbedded>((_, emit) async {
       if (state.agent != null && state.cluster != null) {
         (await _agentsRepository.createTasks(
           state.agent!,
@@ -486,20 +568,18 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         );
       }
     });
-    on<_TasksPrioritized>((_, emit) async {
-      if (state.agent != null && state.cluster != null) {
-        await _insertAgent(emit, const HomeEvent.executeTask());
-      }
-    });
-    on<_TasksCreated>((event, emit) async {
+    on<_TasksCreated>((_, emit) async {
       if (state.agent != null) {
         await _insertAgent(emit, const HomeEvent.prioritizeTasks());
       }
     });
-    on<_TaskExecuted>((event, emit) async {
-      if (state.agent != null && state.cluster != null) {
-        await _insertAgent(emit, const HomeEvent.createTasks());
-      }
+    on<_Finished>((_, emit) async {
+      emit(
+        state.copyWith(
+          failureOption: const None(),
+          thinking: false,
+        ),
+      );
     });
   }
 

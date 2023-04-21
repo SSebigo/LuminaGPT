@@ -35,13 +35,15 @@ mixin _$HomeEvent {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -63,13 +65,15 @@ mixin _$HomeEvent {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -91,13 +95,15 @@ mixin _$HomeEvent {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -121,13 +127,16 @@ mixin _$HomeEvent {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -149,13 +158,15 @@ mixin _$HomeEvent {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -177,13 +188,15 @@ mixin _$HomeEvent {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -261,13 +274,15 @@ class _$AppLaunched implements AppLaunched {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) {
     return appLaunched();
   }
@@ -292,13 +307,15 @@ class _$AppLaunched implements AppLaunched {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) {
     return appLaunched?.call();
   }
@@ -323,13 +340,15 @@ class _$AppLaunched implements AppLaunched {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) {
     if (appLaunched != null) {
@@ -359,13 +378,16 @@ class _$AppLaunched implements AppLaunched {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) {
     return appLaunched(this);
   }
@@ -390,13 +412,15 @@ class _$AppLaunched implements AppLaunched {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) {
     return appLaunched?.call(this);
   }
@@ -421,13 +445,15 @@ class _$AppLaunched implements AppLaunched {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
     if (appLaunched != null) {
@@ -496,13 +522,15 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) {
     return agentNameSubmitted();
   }
@@ -527,13 +555,15 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) {
     return agentNameSubmitted?.call();
   }
@@ -558,13 +588,15 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) {
     if (agentNameSubmitted != null) {
@@ -594,13 +626,16 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) {
     return agentNameSubmitted(this);
   }
@@ -625,13 +660,15 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) {
     return agentNameSubmitted?.call(this);
   }
@@ -656,13 +693,15 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
     if (agentNameSubmitted != null) {
@@ -731,13 +770,15 @@ class _$NewClusterPressed implements NewClusterPressed {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) {
     return newClusterPressed();
   }
@@ -762,13 +803,15 @@ class _$NewClusterPressed implements NewClusterPressed {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) {
     return newClusterPressed?.call();
   }
@@ -793,13 +836,15 @@ class _$NewClusterPressed implements NewClusterPressed {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) {
     if (newClusterPressed != null) {
@@ -829,13 +874,16 @@ class _$NewClusterPressed implements NewClusterPressed {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) {
     return newClusterPressed(this);
   }
@@ -860,13 +908,15 @@ class _$NewClusterPressed implements NewClusterPressed {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) {
     return newClusterPressed?.call(this);
   }
@@ -891,13 +941,15 @@ class _$NewClusterPressed implements NewClusterPressed {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
     if (newClusterPressed != null) {
@@ -1003,13 +1055,15 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) {
     return deleteAgentPressed(agent);
   }
@@ -1034,13 +1088,15 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) {
     return deleteAgentPressed?.call(agent);
   }
@@ -1065,13 +1121,15 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) {
     if (deleteAgentPressed != null) {
@@ -1101,13 +1159,16 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) {
     return deleteAgentPressed(this);
   }
@@ -1132,13 +1193,15 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) {
     return deleteAgentPressed?.call(this);
   }
@@ -1163,13 +1226,15 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
     if (deleteAgentPressed != null) {
@@ -1279,13 +1344,15 @@ class _$AgentPressed implements AgentPressed {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) {
     return agentPressed(agent);
   }
@@ -1310,13 +1377,15 @@ class _$AgentPressed implements AgentPressed {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) {
     return agentPressed?.call(agent);
   }
@@ -1341,13 +1410,15 @@ class _$AgentPressed implements AgentPressed {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) {
     if (agentPressed != null) {
@@ -1377,13 +1448,16 @@ class _$AgentPressed implements AgentPressed {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) {
     return agentPressed(this);
   }
@@ -1408,13 +1482,15 @@ class _$AgentPressed implements AgentPressed {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) {
     return agentPressed?.call(this);
   }
@@ -1439,13 +1515,15 @@ class _$AgentPressed implements AgentPressed {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
     if (agentPressed != null) {
@@ -1555,13 +1633,15 @@ class _$ClusterPressed implements ClusterPressed {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) {
     return clusterPressed(cluster);
   }
@@ -1586,13 +1666,15 @@ class _$ClusterPressed implements ClusterPressed {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) {
     return clusterPressed?.call(cluster);
   }
@@ -1617,13 +1699,15 @@ class _$ClusterPressed implements ClusterPressed {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) {
     if (clusterPressed != null) {
@@ -1653,13 +1737,16 @@ class _$ClusterPressed implements ClusterPressed {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) {
     return clusterPressed(this);
   }
@@ -1684,13 +1771,15 @@ class _$ClusterPressed implements ClusterPressed {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) {
     return clusterPressed?.call(this);
   }
@@ -1715,13 +1804,15 @@ class _$ClusterPressed implements ClusterPressed {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
     if (clusterPressed != null) {
@@ -1821,13 +1912,15 @@ class _$ViewPressed implements ViewPressed {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) {
     return viewPressed(view);
   }
@@ -1852,13 +1945,15 @@ class _$ViewPressed implements ViewPressed {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) {
     return viewPressed?.call(view);
   }
@@ -1883,13 +1978,15 @@ class _$ViewPressed implements ViewPressed {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) {
     if (viewPressed != null) {
@@ -1919,13 +2016,16 @@ class _$ViewPressed implements ViewPressed {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) {
     return viewPressed(this);
   }
@@ -1950,13 +2050,15 @@ class _$ViewPressed implements ViewPressed {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) {
     return viewPressed?.call(this);
   }
@@ -1981,13 +2083,15 @@ class _$ViewPressed implements ViewPressed {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
     if (viewPressed != null) {
@@ -2088,13 +2192,15 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) {
     return apiKeyChanged(apiKeyStr);
   }
@@ -2119,13 +2225,15 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) {
     return apiKeyChanged?.call(apiKeyStr);
   }
@@ -2150,13 +2258,15 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) {
     if (apiKeyChanged != null) {
@@ -2186,13 +2296,16 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) {
     return apiKeyChanged(this);
   }
@@ -2217,13 +2330,15 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) {
     return apiKeyChanged?.call(this);
   }
@@ -2248,13 +2363,15 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
     if (apiKeyChanged != null) {
@@ -2328,13 +2445,15 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) {
     return apiKeySubmitted();
   }
@@ -2359,13 +2478,15 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) {
     return apiKeySubmitted?.call();
   }
@@ -2390,13 +2511,15 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) {
     if (apiKeySubmitted != null) {
@@ -2426,13 +2549,16 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) {
     return apiKeySubmitted(this);
   }
@@ -2457,13 +2583,15 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) {
     return apiKeySubmitted?.call(this);
   }
@@ -2488,13 +2616,15 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
     if (apiKeySubmitted != null) {
@@ -2589,13 +2719,15 @@ class _$AgentNameChanged implements AgentNameChanged {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) {
     return agentNameChanged(nameStr);
   }
@@ -2620,13 +2752,15 @@ class _$AgentNameChanged implements AgentNameChanged {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) {
     return agentNameChanged?.call(nameStr);
   }
@@ -2651,13 +2785,15 @@ class _$AgentNameChanged implements AgentNameChanged {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) {
     if (agentNameChanged != null) {
@@ -2687,13 +2823,16 @@ class _$AgentNameChanged implements AgentNameChanged {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) {
     return agentNameChanged(this);
   }
@@ -2718,13 +2857,15 @@ class _$AgentNameChanged implements AgentNameChanged {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) {
     return agentNameChanged?.call(this);
   }
@@ -2749,13 +2890,15 @@ class _$AgentNameChanged implements AgentNameChanged {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
     if (agentNameChanged != null) {
@@ -2856,13 +2999,15 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) {
     return clusterNameChanged(nameStr);
   }
@@ -2887,13 +3032,15 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) {
     return clusterNameChanged?.call(nameStr);
   }
@@ -2918,13 +3065,15 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) {
     if (clusterNameChanged != null) {
@@ -2954,13 +3103,16 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) {
     return clusterNameChanged(this);
   }
@@ -2985,13 +3137,15 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) {
     return clusterNameChanged?.call(this);
   }
@@ -3016,13 +3170,15 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
     if (clusterNameChanged != null) {
@@ -3123,13 +3279,15 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) {
     return clusterGoalChanged(goalStr);
   }
@@ -3154,13 +3312,15 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) {
     return clusterGoalChanged?.call(goalStr);
   }
@@ -3185,13 +3345,15 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) {
     if (clusterGoalChanged != null) {
@@ -3221,13 +3383,16 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) {
     return clusterGoalChanged(this);
   }
@@ -3252,13 +3417,15 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) {
     return clusterGoalChanged?.call(this);
   }
@@ -3283,13 +3450,15 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
     if (clusterGoalChanged != null) {
@@ -3391,13 +3560,15 @@ class _$ClusterKnowledgeChanged implements ClusterKnowledgeChanged {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) {
     return clusterKnowledgeChanged(knowledgeStr);
   }
@@ -3422,13 +3593,15 @@ class _$ClusterKnowledgeChanged implements ClusterKnowledgeChanged {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) {
     return clusterKnowledgeChanged?.call(knowledgeStr);
   }
@@ -3453,13 +3626,15 @@ class _$ClusterKnowledgeChanged implements ClusterKnowledgeChanged {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) {
     if (clusterKnowledgeChanged != null) {
@@ -3489,13 +3664,16 @@ class _$ClusterKnowledgeChanged implements ClusterKnowledgeChanged {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) {
     return clusterKnowledgeChanged(this);
   }
@@ -3520,13 +3698,15 @@ class _$ClusterKnowledgeChanged implements ClusterKnowledgeChanged {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) {
     return clusterKnowledgeChanged?.call(this);
   }
@@ -3551,13 +3731,15 @@ class _$ClusterKnowledgeChanged implements ClusterKnowledgeChanged {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
     if (clusterKnowledgeChanged != null) {
@@ -3632,13 +3814,15 @@ class _$DeployPressed implements DeployPressed {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) {
     return deployPressed();
   }
@@ -3663,13 +3847,15 @@ class _$DeployPressed implements DeployPressed {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) {
     return deployPressed?.call();
   }
@@ -3694,13 +3880,15 @@ class _$DeployPressed implements DeployPressed {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) {
     if (deployPressed != null) {
@@ -3730,13 +3918,16 @@ class _$DeployPressed implements DeployPressed {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) {
     return deployPressed(this);
   }
@@ -3761,13 +3952,15 @@ class _$DeployPressed implements DeployPressed {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) {
     return deployPressed?.call(this);
   }
@@ -3792,13 +3985,15 @@ class _$DeployPressed implements DeployPressed {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
     if (deployPressed != null) {
@@ -3867,13 +4062,15 @@ class _$_SettingsNotFound implements _SettingsNotFound {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) {
     return settingsNotFound();
   }
@@ -3898,13 +4095,15 @@ class _$_SettingsNotFound implements _SettingsNotFound {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) {
     return settingsNotFound?.call();
   }
@@ -3929,13 +4128,15 @@ class _$_SettingsNotFound implements _SettingsNotFound {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) {
     if (settingsNotFound != null) {
@@ -3965,13 +4166,16 @@ class _$_SettingsNotFound implements _SettingsNotFound {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) {
     return settingsNotFound(this);
   }
@@ -3996,13 +4200,15 @@ class _$_SettingsNotFound implements _SettingsNotFound {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) {
     return settingsNotFound?.call(this);
   }
@@ -4027,13 +4233,15 @@ class _$_SettingsNotFound implements _SettingsNotFound {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
     if (settingsNotFound != null) {
@@ -4102,13 +4310,15 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) {
     return apiKeyUpdated();
   }
@@ -4133,13 +4343,15 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) {
     return apiKeyUpdated?.call();
   }
@@ -4164,13 +4376,15 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) {
     if (apiKeyUpdated != null) {
@@ -4200,13 +4414,16 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) {
     return apiKeyUpdated(this);
   }
@@ -4231,13 +4448,15 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) {
     return apiKeyUpdated?.call(this);
   }
@@ -4262,13 +4481,15 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
     if (apiKeyUpdated != null) {
@@ -4337,13 +4558,15 @@ class _$_ClientInitialized implements _ClientInitialized {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) {
     return clientInitialized();
   }
@@ -4368,13 +4591,15 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) {
     return clientInitialized?.call();
   }
@@ -4399,13 +4624,15 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) {
     if (clientInitialized != null) {
@@ -4435,13 +4662,16 @@ class _$_ClientInitialized implements _ClientInitialized {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) {
     return clientInitialized(this);
   }
@@ -4466,13 +4696,15 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) {
     return clientInitialized?.call(this);
   }
@@ -4497,13 +4729,15 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
     if (clientInitialized != null) {
@@ -4518,35 +4752,35 @@ abstract class _ClientInitialized implements HomeEvent {
 }
 
 /// @nodoc
-abstract class _$$_AgentDeployedCopyWith<$Res> {
-  factory _$$_AgentDeployedCopyWith(
-          _$_AgentDeployed value, $Res Function(_$_AgentDeployed) then) =
-      __$$_AgentDeployedCopyWithImpl<$Res>;
+abstract class _$$_KnowledgeEmbeddedCopyWith<$Res> {
+  factory _$$_KnowledgeEmbeddedCopyWith(_$_KnowledgeEmbedded value,
+          $Res Function(_$_KnowledgeEmbedded) then) =
+      __$$_KnowledgeEmbeddedCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_AgentDeployedCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$_AgentDeployed>
-    implements _$$_AgentDeployedCopyWith<$Res> {
-  __$$_AgentDeployedCopyWithImpl(
-      _$_AgentDeployed _value, $Res Function(_$_AgentDeployed) _then)
+class __$$_KnowledgeEmbeddedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$_KnowledgeEmbedded>
+    implements _$$_KnowledgeEmbeddedCopyWith<$Res> {
+  __$$_KnowledgeEmbeddedCopyWithImpl(
+      _$_KnowledgeEmbedded _value, $Res Function(_$_KnowledgeEmbedded) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_AgentDeployed implements _AgentDeployed {
-  const _$_AgentDeployed();
+class _$_KnowledgeEmbedded implements _KnowledgeEmbedded {
+  const _$_KnowledgeEmbedded();
 
   @override
   String toString() {
-    return 'HomeEvent.agentDeployed()';
+    return 'HomeEvent.knowledgeEmbedded()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_AgentDeployed);
+        (other.runtimeType == runtimeType && other is _$_KnowledgeEmbedded);
   }
 
   @override
@@ -4572,15 +4806,17 @@ class _$_AgentDeployed implements _AgentDeployed {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) {
-    return agentDeployed();
+    return knowledgeEmbedded();
   }
 
   @override
@@ -4603,15 +4839,17 @@ class _$_AgentDeployed implements _AgentDeployed {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) {
-    return agentDeployed?.call();
+    return knowledgeEmbedded?.call();
   }
 
   @override
@@ -4634,17 +4872,19 @@ class _$_AgentDeployed implements _AgentDeployed {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) {
-    if (agentDeployed != null) {
-      return agentDeployed();
+    if (knowledgeEmbedded != null) {
+      return knowledgeEmbedded();
     }
     return orElse();
   }
@@ -4670,15 +4910,18 @@ class _$_AgentDeployed implements _AgentDeployed {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) {
-    return agentDeployed(this);
+    return knowledgeEmbedded(this);
   }
 
   @override
@@ -4701,15 +4944,17 @@ class _$_AgentDeployed implements _AgentDeployed {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) {
-    return agentDeployed?.call(this);
+    return knowledgeEmbedded?.call(this);
   }
 
   @override
@@ -4732,964 +4977,26 @@ class _$_AgentDeployed implements _AgentDeployed {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
-    TResult Function(_TaskExecuted value)? taskExecuted,
-    required TResult orElse(),
-  }) {
-    if (agentDeployed != null) {
-      return agentDeployed(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _AgentDeployed implements HomeEvent {
-  const factory _AgentDeployed() = _$_AgentDeployed;
-}
-
-/// @nodoc
-abstract class _$$_PrioritizeTasksCopyWith<$Res> {
-  factory _$$_PrioritizeTasksCopyWith(
-          _$_PrioritizeTasks value, $Res Function(_$_PrioritizeTasks) then) =
-      __$$_PrioritizeTasksCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_PrioritizeTasksCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$_PrioritizeTasks>
-    implements _$$_PrioritizeTasksCopyWith<$Res> {
-  __$$_PrioritizeTasksCopyWithImpl(
-      _$_PrioritizeTasks _value, $Res Function(_$_PrioritizeTasks) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_PrioritizeTasks implements _PrioritizeTasks {
-  const _$_PrioritizeTasks();
-
-  @override
-  String toString() {
-    return 'HomeEvent.prioritizeTasks()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_PrioritizeTasks);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() appLaunched,
-    required TResult Function() agentNameSubmitted,
-    required TResult Function() newClusterPressed,
-    required TResult Function(Agent agent) deleteAgentPressed,
-    required TResult Function(Agent agent) agentPressed,
-    required TResult Function(Cluster cluster) clusterPressed,
-    required TResult Function(View view) viewPressed,
-    required TResult Function(String apiKeyStr) apiKeyChanged,
-    required TResult Function() apiKeySubmitted,
-    required TResult Function(String nameStr) agentNameChanged,
-    required TResult Function(String nameStr) clusterNameChanged,
-    required TResult Function(String goalStr) clusterGoalChanged,
-    required TResult Function(String knowledgeStr) clusterKnowledgeChanged,
-    required TResult Function() deployPressed,
-    required TResult Function() settingsNotFound,
-    required TResult Function() apiKeyUpdated,
-    required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
-    required TResult Function() tasksCreated,
-    required TResult Function() taskExecuted,
-  }) {
-    return prioritizeTasks();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? appLaunched,
-    TResult? Function()? agentNameSubmitted,
-    TResult? Function()? newClusterPressed,
-    TResult? Function(Agent agent)? deleteAgentPressed,
-    TResult? Function(Agent agent)? agentPressed,
-    TResult? Function(Cluster cluster)? clusterPressed,
-    TResult? Function(View view)? viewPressed,
-    TResult? Function(String apiKeyStr)? apiKeyChanged,
-    TResult? Function()? apiKeySubmitted,
-    TResult? Function(String nameStr)? agentNameChanged,
-    TResult? Function(String nameStr)? clusterNameChanged,
-    TResult? Function(String goalStr)? clusterGoalChanged,
-    TResult? Function(String knowledgeStr)? clusterKnowledgeChanged,
-    TResult? Function()? deployPressed,
-    TResult? Function()? settingsNotFound,
-    TResult? Function()? apiKeyUpdated,
-    TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
-    TResult? Function()? tasksCreated,
-    TResult? Function()? taskExecuted,
-  }) {
-    return prioritizeTasks?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? appLaunched,
-    TResult Function()? agentNameSubmitted,
-    TResult Function()? newClusterPressed,
-    TResult Function(Agent agent)? deleteAgentPressed,
-    TResult Function(Agent agent)? agentPressed,
-    TResult Function(Cluster cluster)? clusterPressed,
-    TResult Function(View view)? viewPressed,
-    TResult Function(String apiKeyStr)? apiKeyChanged,
-    TResult Function()? apiKeySubmitted,
-    TResult Function(String nameStr)? agentNameChanged,
-    TResult Function(String nameStr)? clusterNameChanged,
-    TResult Function(String goalStr)? clusterGoalChanged,
-    TResult Function(String knowledgeStr)? clusterKnowledgeChanged,
-    TResult Function()? deployPressed,
-    TResult Function()? settingsNotFound,
-    TResult Function()? apiKeyUpdated,
-    TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
-    TResult Function()? tasksCreated,
-    TResult Function()? taskExecuted,
-    required TResult orElse(),
-  }) {
-    if (prioritizeTasks != null) {
-      return prioritizeTasks();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
-    required TResult Function(NewClusterPressed value) newClusterPressed,
-    required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
-    required TResult Function(AgentPressed value) agentPressed,
-    required TResult Function(ClusterPressed value) clusterPressed,
-    required TResult Function(ViewPressed value) viewPressed,
-    required TResult Function(ApiKeyChanged value) apiKeyChanged,
-    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
-    required TResult Function(AgentNameChanged value) agentNameChanged,
-    required TResult Function(ClusterNameChanged value) clusterNameChanged,
-    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
-    required TResult Function(ClusterKnowledgeChanged value)
-        clusterKnowledgeChanged,
-    required TResult Function(DeployPressed value) deployPressed,
-    required TResult Function(_SettingsNotFound value) settingsNotFound,
-    required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
-    required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
-    required TResult Function(_TasksCreated value) tasksCreated,
-    required TResult Function(_TaskExecuted value) taskExecuted,
-  }) {
-    return prioritizeTasks(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
-    TResult? Function(NewClusterPressed value)? newClusterPressed,
-    TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
-    TResult? Function(AgentPressed value)? agentPressed,
-    TResult? Function(ClusterPressed value)? clusterPressed,
-    TResult? Function(ViewPressed value)? viewPressed,
-    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
-    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
-    TResult? Function(AgentNameChanged value)? agentNameChanged,
-    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
-    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
-    TResult? Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
-    TResult? Function(DeployPressed value)? deployPressed,
-    TResult? Function(_SettingsNotFound value)? settingsNotFound,
-    TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
-    TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
-    TResult? Function(_TasksCreated value)? tasksCreated,
-    TResult? Function(_TaskExecuted value)? taskExecuted,
-  }) {
-    return prioritizeTasks?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
-    TResult Function(NewClusterPressed value)? newClusterPressed,
-    TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
-    TResult Function(AgentPressed value)? agentPressed,
-    TResult Function(ClusterPressed value)? clusterPressed,
-    TResult Function(ViewPressed value)? viewPressed,
-    TResult Function(ApiKeyChanged value)? apiKeyChanged,
-    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
-    TResult Function(AgentNameChanged value)? agentNameChanged,
-    TResult Function(ClusterNameChanged value)? clusterNameChanged,
-    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
-    TResult Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
-    TResult Function(DeployPressed value)? deployPressed,
-    TResult Function(_SettingsNotFound value)? settingsNotFound,
-    TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
-    TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
     TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
     TResult Function(_TasksPrioritized value)? tasksPrioritized,
-    TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
-    if (prioritizeTasks != null) {
-      return prioritizeTasks(this);
+    if (knowledgeEmbedded != null) {
+      return knowledgeEmbedded(this);
     }
     return orElse();
   }
 }
 
-abstract class _PrioritizeTasks implements HomeEvent {
-  const factory _PrioritizeTasks() = _$_PrioritizeTasks;
-}
-
-/// @nodoc
-abstract class _$$_ExecuteTaskCopyWith<$Res> {
-  factory _$$_ExecuteTaskCopyWith(
-          _$_ExecuteTask value, $Res Function(_$_ExecuteTask) then) =
-      __$$_ExecuteTaskCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_ExecuteTaskCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$_ExecuteTask>
-    implements _$$_ExecuteTaskCopyWith<$Res> {
-  __$$_ExecuteTaskCopyWithImpl(
-      _$_ExecuteTask _value, $Res Function(_$_ExecuteTask) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_ExecuteTask implements _ExecuteTask {
-  const _$_ExecuteTask();
-
-  @override
-  String toString() {
-    return 'HomeEvent.executeTask()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_ExecuteTask);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() appLaunched,
-    required TResult Function() agentNameSubmitted,
-    required TResult Function() newClusterPressed,
-    required TResult Function(Agent agent) deleteAgentPressed,
-    required TResult Function(Agent agent) agentPressed,
-    required TResult Function(Cluster cluster) clusterPressed,
-    required TResult Function(View view) viewPressed,
-    required TResult Function(String apiKeyStr) apiKeyChanged,
-    required TResult Function() apiKeySubmitted,
-    required TResult Function(String nameStr) agentNameChanged,
-    required TResult Function(String nameStr) clusterNameChanged,
-    required TResult Function(String goalStr) clusterGoalChanged,
-    required TResult Function(String knowledgeStr) clusterKnowledgeChanged,
-    required TResult Function() deployPressed,
-    required TResult Function() settingsNotFound,
-    required TResult Function() apiKeyUpdated,
-    required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
-    required TResult Function() tasksCreated,
-    required TResult Function() taskExecuted,
-  }) {
-    return executeTask();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? appLaunched,
-    TResult? Function()? agentNameSubmitted,
-    TResult? Function()? newClusterPressed,
-    TResult? Function(Agent agent)? deleteAgentPressed,
-    TResult? Function(Agent agent)? agentPressed,
-    TResult? Function(Cluster cluster)? clusterPressed,
-    TResult? Function(View view)? viewPressed,
-    TResult? Function(String apiKeyStr)? apiKeyChanged,
-    TResult? Function()? apiKeySubmitted,
-    TResult? Function(String nameStr)? agentNameChanged,
-    TResult? Function(String nameStr)? clusterNameChanged,
-    TResult? Function(String goalStr)? clusterGoalChanged,
-    TResult? Function(String knowledgeStr)? clusterKnowledgeChanged,
-    TResult? Function()? deployPressed,
-    TResult? Function()? settingsNotFound,
-    TResult? Function()? apiKeyUpdated,
-    TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
-    TResult? Function()? tasksCreated,
-    TResult? Function()? taskExecuted,
-  }) {
-    return executeTask?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? appLaunched,
-    TResult Function()? agentNameSubmitted,
-    TResult Function()? newClusterPressed,
-    TResult Function(Agent agent)? deleteAgentPressed,
-    TResult Function(Agent agent)? agentPressed,
-    TResult Function(Cluster cluster)? clusterPressed,
-    TResult Function(View view)? viewPressed,
-    TResult Function(String apiKeyStr)? apiKeyChanged,
-    TResult Function()? apiKeySubmitted,
-    TResult Function(String nameStr)? agentNameChanged,
-    TResult Function(String nameStr)? clusterNameChanged,
-    TResult Function(String goalStr)? clusterGoalChanged,
-    TResult Function(String knowledgeStr)? clusterKnowledgeChanged,
-    TResult Function()? deployPressed,
-    TResult Function()? settingsNotFound,
-    TResult Function()? apiKeyUpdated,
-    TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
-    TResult Function()? tasksCreated,
-    TResult Function()? taskExecuted,
-    required TResult orElse(),
-  }) {
-    if (executeTask != null) {
-      return executeTask();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
-    required TResult Function(NewClusterPressed value) newClusterPressed,
-    required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
-    required TResult Function(AgentPressed value) agentPressed,
-    required TResult Function(ClusterPressed value) clusterPressed,
-    required TResult Function(ViewPressed value) viewPressed,
-    required TResult Function(ApiKeyChanged value) apiKeyChanged,
-    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
-    required TResult Function(AgentNameChanged value) agentNameChanged,
-    required TResult Function(ClusterNameChanged value) clusterNameChanged,
-    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
-    required TResult Function(ClusterKnowledgeChanged value)
-        clusterKnowledgeChanged,
-    required TResult Function(DeployPressed value) deployPressed,
-    required TResult Function(_SettingsNotFound value) settingsNotFound,
-    required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
-    required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
-    required TResult Function(_TasksCreated value) tasksCreated,
-    required TResult Function(_TaskExecuted value) taskExecuted,
-  }) {
-    return executeTask(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
-    TResult? Function(NewClusterPressed value)? newClusterPressed,
-    TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
-    TResult? Function(AgentPressed value)? agentPressed,
-    TResult? Function(ClusterPressed value)? clusterPressed,
-    TResult? Function(ViewPressed value)? viewPressed,
-    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
-    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
-    TResult? Function(AgentNameChanged value)? agentNameChanged,
-    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
-    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
-    TResult? Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
-    TResult? Function(DeployPressed value)? deployPressed,
-    TResult? Function(_SettingsNotFound value)? settingsNotFound,
-    TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
-    TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
-    TResult? Function(_TasksCreated value)? tasksCreated,
-    TResult? Function(_TaskExecuted value)? taskExecuted,
-  }) {
-    return executeTask?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
-    TResult Function(NewClusterPressed value)? newClusterPressed,
-    TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
-    TResult Function(AgentPressed value)? agentPressed,
-    TResult Function(ClusterPressed value)? clusterPressed,
-    TResult Function(ViewPressed value)? viewPressed,
-    TResult Function(ApiKeyChanged value)? apiKeyChanged,
-    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
-    TResult Function(AgentNameChanged value)? agentNameChanged,
-    TResult Function(ClusterNameChanged value)? clusterNameChanged,
-    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
-    TResult Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
-    TResult Function(DeployPressed value)? deployPressed,
-    TResult Function(_SettingsNotFound value)? settingsNotFound,
-    TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
-    TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
-    TResult Function(_TasksCreated value)? tasksCreated,
-    TResult Function(_TaskExecuted value)? taskExecuted,
-    required TResult orElse(),
-  }) {
-    if (executeTask != null) {
-      return executeTask(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ExecuteTask implements HomeEvent {
-  const factory _ExecuteTask() = _$_ExecuteTask;
-}
-
-/// @nodoc
-abstract class _$$_CreateTasksCopyWith<$Res> {
-  factory _$$_CreateTasksCopyWith(
-          _$_CreateTasks value, $Res Function(_$_CreateTasks) then) =
-      __$$_CreateTasksCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_CreateTasksCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$_CreateTasks>
-    implements _$$_CreateTasksCopyWith<$Res> {
-  __$$_CreateTasksCopyWithImpl(
-      _$_CreateTasks _value, $Res Function(_$_CreateTasks) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_CreateTasks implements _CreateTasks {
-  const _$_CreateTasks();
-
-  @override
-  String toString() {
-    return 'HomeEvent.createTasks()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_CreateTasks);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() appLaunched,
-    required TResult Function() agentNameSubmitted,
-    required TResult Function() newClusterPressed,
-    required TResult Function(Agent agent) deleteAgentPressed,
-    required TResult Function(Agent agent) agentPressed,
-    required TResult Function(Cluster cluster) clusterPressed,
-    required TResult Function(View view) viewPressed,
-    required TResult Function(String apiKeyStr) apiKeyChanged,
-    required TResult Function() apiKeySubmitted,
-    required TResult Function(String nameStr) agentNameChanged,
-    required TResult Function(String nameStr) clusterNameChanged,
-    required TResult Function(String goalStr) clusterGoalChanged,
-    required TResult Function(String knowledgeStr) clusterKnowledgeChanged,
-    required TResult Function() deployPressed,
-    required TResult Function() settingsNotFound,
-    required TResult Function() apiKeyUpdated,
-    required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
-    required TResult Function() tasksCreated,
-    required TResult Function() taskExecuted,
-  }) {
-    return createTasks();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? appLaunched,
-    TResult? Function()? agentNameSubmitted,
-    TResult? Function()? newClusterPressed,
-    TResult? Function(Agent agent)? deleteAgentPressed,
-    TResult? Function(Agent agent)? agentPressed,
-    TResult? Function(Cluster cluster)? clusterPressed,
-    TResult? Function(View view)? viewPressed,
-    TResult? Function(String apiKeyStr)? apiKeyChanged,
-    TResult? Function()? apiKeySubmitted,
-    TResult? Function(String nameStr)? agentNameChanged,
-    TResult? Function(String nameStr)? clusterNameChanged,
-    TResult? Function(String goalStr)? clusterGoalChanged,
-    TResult? Function(String knowledgeStr)? clusterKnowledgeChanged,
-    TResult? Function()? deployPressed,
-    TResult? Function()? settingsNotFound,
-    TResult? Function()? apiKeyUpdated,
-    TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
-    TResult? Function()? tasksCreated,
-    TResult? Function()? taskExecuted,
-  }) {
-    return createTasks?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? appLaunched,
-    TResult Function()? agentNameSubmitted,
-    TResult Function()? newClusterPressed,
-    TResult Function(Agent agent)? deleteAgentPressed,
-    TResult Function(Agent agent)? agentPressed,
-    TResult Function(Cluster cluster)? clusterPressed,
-    TResult Function(View view)? viewPressed,
-    TResult Function(String apiKeyStr)? apiKeyChanged,
-    TResult Function()? apiKeySubmitted,
-    TResult Function(String nameStr)? agentNameChanged,
-    TResult Function(String nameStr)? clusterNameChanged,
-    TResult Function(String goalStr)? clusterGoalChanged,
-    TResult Function(String knowledgeStr)? clusterKnowledgeChanged,
-    TResult Function()? deployPressed,
-    TResult Function()? settingsNotFound,
-    TResult Function()? apiKeyUpdated,
-    TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
-    TResult Function()? tasksCreated,
-    TResult Function()? taskExecuted,
-    required TResult orElse(),
-  }) {
-    if (createTasks != null) {
-      return createTasks();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
-    required TResult Function(NewClusterPressed value) newClusterPressed,
-    required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
-    required TResult Function(AgentPressed value) agentPressed,
-    required TResult Function(ClusterPressed value) clusterPressed,
-    required TResult Function(ViewPressed value) viewPressed,
-    required TResult Function(ApiKeyChanged value) apiKeyChanged,
-    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
-    required TResult Function(AgentNameChanged value) agentNameChanged,
-    required TResult Function(ClusterNameChanged value) clusterNameChanged,
-    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
-    required TResult Function(ClusterKnowledgeChanged value)
-        clusterKnowledgeChanged,
-    required TResult Function(DeployPressed value) deployPressed,
-    required TResult Function(_SettingsNotFound value) settingsNotFound,
-    required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
-    required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
-    required TResult Function(_TasksCreated value) tasksCreated,
-    required TResult Function(_TaskExecuted value) taskExecuted,
-  }) {
-    return createTasks(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
-    TResult? Function(NewClusterPressed value)? newClusterPressed,
-    TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
-    TResult? Function(AgentPressed value)? agentPressed,
-    TResult? Function(ClusterPressed value)? clusterPressed,
-    TResult? Function(ViewPressed value)? viewPressed,
-    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
-    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
-    TResult? Function(AgentNameChanged value)? agentNameChanged,
-    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
-    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
-    TResult? Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
-    TResult? Function(DeployPressed value)? deployPressed,
-    TResult? Function(_SettingsNotFound value)? settingsNotFound,
-    TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
-    TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
-    TResult? Function(_TasksCreated value)? tasksCreated,
-    TResult? Function(_TaskExecuted value)? taskExecuted,
-  }) {
-    return createTasks?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
-    TResult Function(NewClusterPressed value)? newClusterPressed,
-    TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
-    TResult Function(AgentPressed value)? agentPressed,
-    TResult Function(ClusterPressed value)? clusterPressed,
-    TResult Function(ViewPressed value)? viewPressed,
-    TResult Function(ApiKeyChanged value)? apiKeyChanged,
-    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
-    TResult Function(AgentNameChanged value)? agentNameChanged,
-    TResult Function(ClusterNameChanged value)? clusterNameChanged,
-    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
-    TResult Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
-    TResult Function(DeployPressed value)? deployPressed,
-    TResult Function(_SettingsNotFound value)? settingsNotFound,
-    TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
-    TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
-    TResult Function(_TasksCreated value)? tasksCreated,
-    TResult Function(_TaskExecuted value)? taskExecuted,
-    required TResult orElse(),
-  }) {
-    if (createTasks != null) {
-      return createTasks(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _CreateTasks implements HomeEvent {
-  const factory _CreateTasks() = _$_CreateTasks;
-}
-
-/// @nodoc
-abstract class _$$_TasksPrioritizedCopyWith<$Res> {
-  factory _$$_TasksPrioritizedCopyWith(
-          _$_TasksPrioritized value, $Res Function(_$_TasksPrioritized) then) =
-      __$$_TasksPrioritizedCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$_TasksPrioritizedCopyWithImpl<$Res>
-    extends _$HomeEventCopyWithImpl<$Res, _$_TasksPrioritized>
-    implements _$$_TasksPrioritizedCopyWith<$Res> {
-  __$$_TasksPrioritizedCopyWithImpl(
-      _$_TasksPrioritized _value, $Res Function(_$_TasksPrioritized) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$_TasksPrioritized implements _TasksPrioritized {
-  const _$_TasksPrioritized();
-
-  @override
-  String toString() {
-    return 'HomeEvent.tasksPrioritized()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_TasksPrioritized);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() appLaunched,
-    required TResult Function() agentNameSubmitted,
-    required TResult Function() newClusterPressed,
-    required TResult Function(Agent agent) deleteAgentPressed,
-    required TResult Function(Agent agent) agentPressed,
-    required TResult Function(Cluster cluster) clusterPressed,
-    required TResult Function(View view) viewPressed,
-    required TResult Function(String apiKeyStr) apiKeyChanged,
-    required TResult Function() apiKeySubmitted,
-    required TResult Function(String nameStr) agentNameChanged,
-    required TResult Function(String nameStr) clusterNameChanged,
-    required TResult Function(String goalStr) clusterGoalChanged,
-    required TResult Function(String knowledgeStr) clusterKnowledgeChanged,
-    required TResult Function() deployPressed,
-    required TResult Function() settingsNotFound,
-    required TResult Function() apiKeyUpdated,
-    required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
-    required TResult Function() tasksCreated,
-    required TResult Function() taskExecuted,
-  }) {
-    return tasksPrioritized();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? appLaunched,
-    TResult? Function()? agentNameSubmitted,
-    TResult? Function()? newClusterPressed,
-    TResult? Function(Agent agent)? deleteAgentPressed,
-    TResult? Function(Agent agent)? agentPressed,
-    TResult? Function(Cluster cluster)? clusterPressed,
-    TResult? Function(View view)? viewPressed,
-    TResult? Function(String apiKeyStr)? apiKeyChanged,
-    TResult? Function()? apiKeySubmitted,
-    TResult? Function(String nameStr)? agentNameChanged,
-    TResult? Function(String nameStr)? clusterNameChanged,
-    TResult? Function(String goalStr)? clusterGoalChanged,
-    TResult? Function(String knowledgeStr)? clusterKnowledgeChanged,
-    TResult? Function()? deployPressed,
-    TResult? Function()? settingsNotFound,
-    TResult? Function()? apiKeyUpdated,
-    TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
-    TResult? Function()? tasksCreated,
-    TResult? Function()? taskExecuted,
-  }) {
-    return tasksPrioritized?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? appLaunched,
-    TResult Function()? agentNameSubmitted,
-    TResult Function()? newClusterPressed,
-    TResult Function(Agent agent)? deleteAgentPressed,
-    TResult Function(Agent agent)? agentPressed,
-    TResult Function(Cluster cluster)? clusterPressed,
-    TResult Function(View view)? viewPressed,
-    TResult Function(String apiKeyStr)? apiKeyChanged,
-    TResult Function()? apiKeySubmitted,
-    TResult Function(String nameStr)? agentNameChanged,
-    TResult Function(String nameStr)? clusterNameChanged,
-    TResult Function(String goalStr)? clusterGoalChanged,
-    TResult Function(String knowledgeStr)? clusterKnowledgeChanged,
-    TResult Function()? deployPressed,
-    TResult Function()? settingsNotFound,
-    TResult Function()? apiKeyUpdated,
-    TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
-    TResult Function()? tasksCreated,
-    TResult Function()? taskExecuted,
-    required TResult orElse(),
-  }) {
-    if (tasksPrioritized != null) {
-      return tasksPrioritized();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AppLaunched value) appLaunched,
-    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
-    required TResult Function(NewClusterPressed value) newClusterPressed,
-    required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
-    required TResult Function(AgentPressed value) agentPressed,
-    required TResult Function(ClusterPressed value) clusterPressed,
-    required TResult Function(ViewPressed value) viewPressed,
-    required TResult Function(ApiKeyChanged value) apiKeyChanged,
-    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
-    required TResult Function(AgentNameChanged value) agentNameChanged,
-    required TResult Function(ClusterNameChanged value) clusterNameChanged,
-    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
-    required TResult Function(ClusterKnowledgeChanged value)
-        clusterKnowledgeChanged,
-    required TResult Function(DeployPressed value) deployPressed,
-    required TResult Function(_SettingsNotFound value) settingsNotFound,
-    required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
-    required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
-    required TResult Function(_TasksCreated value) tasksCreated,
-    required TResult Function(_TaskExecuted value) taskExecuted,
-  }) {
-    return tasksPrioritized(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AppLaunched value)? appLaunched,
-    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
-    TResult? Function(NewClusterPressed value)? newClusterPressed,
-    TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
-    TResult? Function(AgentPressed value)? agentPressed,
-    TResult? Function(ClusterPressed value)? clusterPressed,
-    TResult? Function(ViewPressed value)? viewPressed,
-    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
-    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
-    TResult? Function(AgentNameChanged value)? agentNameChanged,
-    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
-    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
-    TResult? Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
-    TResult? Function(DeployPressed value)? deployPressed,
-    TResult? Function(_SettingsNotFound value)? settingsNotFound,
-    TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
-    TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
-    TResult? Function(_TasksCreated value)? tasksCreated,
-    TResult? Function(_TaskExecuted value)? taskExecuted,
-  }) {
-    return tasksPrioritized?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AppLaunched value)? appLaunched,
-    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
-    TResult Function(NewClusterPressed value)? newClusterPressed,
-    TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
-    TResult Function(AgentPressed value)? agentPressed,
-    TResult Function(ClusterPressed value)? clusterPressed,
-    TResult Function(ViewPressed value)? viewPressed,
-    TResult Function(ApiKeyChanged value)? apiKeyChanged,
-    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
-    TResult Function(AgentNameChanged value)? agentNameChanged,
-    TResult Function(ClusterNameChanged value)? clusterNameChanged,
-    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
-    TResult Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
-    TResult Function(DeployPressed value)? deployPressed,
-    TResult Function(_SettingsNotFound value)? settingsNotFound,
-    TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
-    TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
-    TResult Function(_TasksCreated value)? tasksCreated,
-    TResult Function(_TaskExecuted value)? taskExecuted,
-    required TResult orElse(),
-  }) {
-    if (tasksPrioritized != null) {
-      return tasksPrioritized(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _TasksPrioritized implements HomeEvent {
-  const factory _TasksPrioritized() = _$_TasksPrioritized;
+abstract class _KnowledgeEmbedded implements HomeEvent {
+  const factory _KnowledgeEmbedded() = _$_KnowledgeEmbedded;
 }
 
 /// @nodoc
@@ -5747,13 +5054,15 @@ class _$_TasksCreated implements _TasksCreated {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) {
     return tasksCreated();
   }
@@ -5778,13 +5087,15 @@ class _$_TasksCreated implements _TasksCreated {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) {
     return tasksCreated?.call();
   }
@@ -5809,13 +5120,15 @@ class _$_TasksCreated implements _TasksCreated {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) {
     if (tasksCreated != null) {
@@ -5845,13 +5158,16 @@ class _$_TasksCreated implements _TasksCreated {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) {
     return tasksCreated(this);
   }
@@ -5876,13 +5192,15 @@ class _$_TasksCreated implements _TasksCreated {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) {
     return tasksCreated?.call(this);
   }
@@ -5907,13 +5225,15 @@ class _$_TasksCreated implements _TasksCreated {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
     if (tasksCreated != null) {
@@ -5925,6 +5245,751 @@ class _$_TasksCreated implements _TasksCreated {
 
 abstract class _TasksCreated implements HomeEvent {
   const factory _TasksCreated() = _$_TasksCreated;
+}
+
+/// @nodoc
+abstract class _$$_PrioritizeTasksCopyWith<$Res> {
+  factory _$$_PrioritizeTasksCopyWith(
+          _$_PrioritizeTasks value, $Res Function(_$_PrioritizeTasks) then) =
+      __$$_PrioritizeTasksCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_PrioritizeTasksCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$_PrioritizeTasks>
+    implements _$$_PrioritizeTasksCopyWith<$Res> {
+  __$$_PrioritizeTasksCopyWithImpl(
+      _$_PrioritizeTasks _value, $Res Function(_$_PrioritizeTasks) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_PrioritizeTasks implements _PrioritizeTasks {
+  const _$_PrioritizeTasks();
+
+  @override
+  String toString() {
+    return 'HomeEvent.prioritizeTasks()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_PrioritizeTasks);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() appLaunched,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
+    required TResult Function(Agent agent) deleteAgentPressed,
+    required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
+    required TResult Function(String knowledgeStr) clusterKnowledgeChanged,
+    required TResult Function() deployPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function() apiKeyUpdated,
+    required TResult Function() clientInitialized,
+    required TResult Function() knowledgeEmbedded,
+    required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
+    required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
+  }) {
+    return prioritizeTasks();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? appLaunched,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
+    TResult? Function(Agent agent)? deleteAgentPressed,
+    TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
+    TResult? Function(String knowledgeStr)? clusterKnowledgeChanged,
+    TResult? Function()? deployPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function()? apiKeyUpdated,
+    TResult? Function()? clientInitialized,
+    TResult? Function()? knowledgeEmbedded,
+    TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
+    TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
+  }) {
+    return prioritizeTasks?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? appLaunched,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
+    TResult Function(Agent agent)? deleteAgentPressed,
+    TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
+    TResult Function(String knowledgeStr)? clusterKnowledgeChanged,
+    TResult Function()? deployPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function()? apiKeyUpdated,
+    TResult Function()? clientInitialized,
+    TResult Function()? knowledgeEmbedded,
+    TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
+    TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
+    required TResult orElse(),
+  }) {
+    if (prioritizeTasks != null) {
+      return prioritizeTasks();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
+    required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
+    required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
+    required TResult Function(ClusterKnowledgeChanged value)
+        clusterKnowledgeChanged,
+    required TResult Function(DeployPressed value) deployPressed,
+    required TResult Function(_SettingsNotFound value) settingsNotFound,
+    required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
+    required TResult Function(_ClientInitialized value) clientInitialized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
+    required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
+    required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
+  }) {
+    return prioritizeTasks(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
+    TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult? Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
+    TResult? Function(DeployPressed value)? deployPressed,
+    TResult? Function(_SettingsNotFound value)? settingsNotFound,
+    TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult? Function(_ClientInitialized value)? clientInitialized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
+    TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
+    TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
+  }) {
+    return prioritizeTasks?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
+    TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
+    TResult Function(DeployPressed value)? deployPressed,
+    TResult Function(_SettingsNotFound value)? settingsNotFound,
+    TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult Function(_ClientInitialized value)? clientInitialized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
+    TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
+    TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
+    required TResult orElse(),
+  }) {
+    if (prioritizeTasks != null) {
+      return prioritizeTasks(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PrioritizeTasks implements HomeEvent {
+  const factory _PrioritizeTasks() = _$_PrioritizeTasks;
+}
+
+/// @nodoc
+abstract class _$$_TasksPrioritizedCopyWith<$Res> {
+  factory _$$_TasksPrioritizedCopyWith(
+          _$_TasksPrioritized value, $Res Function(_$_TasksPrioritized) then) =
+      __$$_TasksPrioritizedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_TasksPrioritizedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$_TasksPrioritized>
+    implements _$$_TasksPrioritizedCopyWith<$Res> {
+  __$$_TasksPrioritizedCopyWithImpl(
+      _$_TasksPrioritized _value, $Res Function(_$_TasksPrioritized) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_TasksPrioritized implements _TasksPrioritized {
+  const _$_TasksPrioritized();
+
+  @override
+  String toString() {
+    return 'HomeEvent.tasksPrioritized()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_TasksPrioritized);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() appLaunched,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
+    required TResult Function(Agent agent) deleteAgentPressed,
+    required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
+    required TResult Function(String knowledgeStr) clusterKnowledgeChanged,
+    required TResult Function() deployPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function() apiKeyUpdated,
+    required TResult Function() clientInitialized,
+    required TResult Function() knowledgeEmbedded,
+    required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
+    required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
+  }) {
+    return tasksPrioritized();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? appLaunched,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
+    TResult? Function(Agent agent)? deleteAgentPressed,
+    TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
+    TResult? Function(String knowledgeStr)? clusterKnowledgeChanged,
+    TResult? Function()? deployPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function()? apiKeyUpdated,
+    TResult? Function()? clientInitialized,
+    TResult? Function()? knowledgeEmbedded,
+    TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
+    TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
+  }) {
+    return tasksPrioritized?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? appLaunched,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
+    TResult Function(Agent agent)? deleteAgentPressed,
+    TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
+    TResult Function(String knowledgeStr)? clusterKnowledgeChanged,
+    TResult Function()? deployPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function()? apiKeyUpdated,
+    TResult Function()? clientInitialized,
+    TResult Function()? knowledgeEmbedded,
+    TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
+    TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
+    required TResult orElse(),
+  }) {
+    if (tasksPrioritized != null) {
+      return tasksPrioritized();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
+    required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
+    required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
+    required TResult Function(ClusterKnowledgeChanged value)
+        clusterKnowledgeChanged,
+    required TResult Function(DeployPressed value) deployPressed,
+    required TResult Function(_SettingsNotFound value) settingsNotFound,
+    required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
+    required TResult Function(_ClientInitialized value) clientInitialized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
+    required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
+    required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
+  }) {
+    return tasksPrioritized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
+    TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult? Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
+    TResult? Function(DeployPressed value)? deployPressed,
+    TResult? Function(_SettingsNotFound value)? settingsNotFound,
+    TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult? Function(_ClientInitialized value)? clientInitialized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
+    TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
+    TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
+  }) {
+    return tasksPrioritized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
+    TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
+    TResult Function(DeployPressed value)? deployPressed,
+    TResult Function(_SettingsNotFound value)? settingsNotFound,
+    TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult Function(_ClientInitialized value)? clientInitialized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
+    TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
+    TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
+    required TResult orElse(),
+  }) {
+    if (tasksPrioritized != null) {
+      return tasksPrioritized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TasksPrioritized implements HomeEvent {
+  const factory _TasksPrioritized() = _$_TasksPrioritized;
+}
+
+/// @nodoc
+abstract class _$$_TaskDescriptionEmbeddedCopyWith<$Res> {
+  factory _$$_TaskDescriptionEmbeddedCopyWith(_$_TaskDescriptionEmbedded value,
+          $Res Function(_$_TaskDescriptionEmbedded) then) =
+      __$$_TaskDescriptionEmbeddedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_TaskDescriptionEmbeddedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$_TaskDescriptionEmbedded>
+    implements _$$_TaskDescriptionEmbeddedCopyWith<$Res> {
+  __$$_TaskDescriptionEmbeddedCopyWithImpl(_$_TaskDescriptionEmbedded _value,
+      $Res Function(_$_TaskDescriptionEmbedded) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_TaskDescriptionEmbedded implements _TaskDescriptionEmbedded {
+  const _$_TaskDescriptionEmbedded();
+
+  @override
+  String toString() {
+    return 'HomeEvent.taskDescriptionEmbedded()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TaskDescriptionEmbedded);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() appLaunched,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
+    required TResult Function(Agent agent) deleteAgentPressed,
+    required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
+    required TResult Function(String knowledgeStr) clusterKnowledgeChanged,
+    required TResult Function() deployPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function() apiKeyUpdated,
+    required TResult Function() clientInitialized,
+    required TResult Function() knowledgeEmbedded,
+    required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
+    required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
+  }) {
+    return taskDescriptionEmbedded();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? appLaunched,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
+    TResult? Function(Agent agent)? deleteAgentPressed,
+    TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
+    TResult? Function(String knowledgeStr)? clusterKnowledgeChanged,
+    TResult? Function()? deployPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function()? apiKeyUpdated,
+    TResult? Function()? clientInitialized,
+    TResult? Function()? knowledgeEmbedded,
+    TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
+    TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
+  }) {
+    return taskDescriptionEmbedded?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? appLaunched,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
+    TResult Function(Agent agent)? deleteAgentPressed,
+    TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
+    TResult Function(String knowledgeStr)? clusterKnowledgeChanged,
+    TResult Function()? deployPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function()? apiKeyUpdated,
+    TResult Function()? clientInitialized,
+    TResult Function()? knowledgeEmbedded,
+    TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
+    TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
+    required TResult orElse(),
+  }) {
+    if (taskDescriptionEmbedded != null) {
+      return taskDescriptionEmbedded();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
+    required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
+    required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
+    required TResult Function(ClusterKnowledgeChanged value)
+        clusterKnowledgeChanged,
+    required TResult Function(DeployPressed value) deployPressed,
+    required TResult Function(_SettingsNotFound value) settingsNotFound,
+    required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
+    required TResult Function(_ClientInitialized value) clientInitialized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
+    required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
+    required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
+  }) {
+    return taskDescriptionEmbedded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
+    TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult? Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
+    TResult? Function(DeployPressed value)? deployPressed,
+    TResult? Function(_SettingsNotFound value)? settingsNotFound,
+    TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult? Function(_ClientInitialized value)? clientInitialized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
+    TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
+    TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
+  }) {
+    return taskDescriptionEmbedded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
+    TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
+    TResult Function(DeployPressed value)? deployPressed,
+    TResult Function(_SettingsNotFound value)? settingsNotFound,
+    TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult Function(_ClientInitialized value)? clientInitialized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
+    TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
+    TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
+    required TResult orElse(),
+  }) {
+    if (taskDescriptionEmbedded != null) {
+      return taskDescriptionEmbedded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TaskDescriptionEmbedded implements HomeEvent {
+  const factory _TaskDescriptionEmbedded() = _$_TaskDescriptionEmbedded;
 }
 
 /// @nodoc
@@ -5982,13 +6047,15 @@ class _$_TaskExecuted implements _TaskExecuted {
     required TResult Function() settingsNotFound,
     required TResult Function() apiKeyUpdated,
     required TResult Function() clientInitialized,
-    required TResult Function() agentDeployed,
-    required TResult Function() prioritizeTasks,
-    required TResult Function() executeTask,
-    required TResult Function() createTasks,
-    required TResult Function() tasksPrioritized,
+    required TResult Function() knowledgeEmbedded,
     required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
     required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
   }) {
     return taskExecuted();
   }
@@ -6013,13 +6080,15 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult? Function()? settingsNotFound,
     TResult? Function()? apiKeyUpdated,
     TResult? Function()? clientInitialized,
-    TResult? Function()? agentDeployed,
-    TResult? Function()? prioritizeTasks,
-    TResult? Function()? executeTask,
-    TResult? Function()? createTasks,
-    TResult? Function()? tasksPrioritized,
+    TResult? Function()? knowledgeEmbedded,
     TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
     TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
   }) {
     return taskExecuted?.call();
   }
@@ -6044,13 +6113,15 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult Function()? settingsNotFound,
     TResult Function()? apiKeyUpdated,
     TResult Function()? clientInitialized,
-    TResult Function()? agentDeployed,
-    TResult Function()? prioritizeTasks,
-    TResult Function()? executeTask,
-    TResult Function()? createTasks,
-    TResult Function()? tasksPrioritized,
+    TResult Function()? knowledgeEmbedded,
     TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
     TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
     required TResult orElse(),
   }) {
     if (taskExecuted != null) {
@@ -6080,13 +6151,16 @@ class _$_TaskExecuted implements _TaskExecuted {
     required TResult Function(_SettingsNotFound value) settingsNotFound,
     required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
     required TResult Function(_ClientInitialized value) clientInitialized,
-    required TResult Function(_AgentDeployed value) agentDeployed,
-    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
-    required TResult Function(_ExecuteTask value) executeTask,
-    required TResult Function(_CreateTasks value) createTasks,
-    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
     required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
     required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
   }) {
     return taskExecuted(this);
   }
@@ -6111,13 +6185,15 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult? Function(_SettingsNotFound value)? settingsNotFound,
     TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult? Function(_ClientInitialized value)? clientInitialized,
-    TResult? Function(_AgentDeployed value)? agentDeployed,
-    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult? Function(_ExecuteTask value)? executeTask,
-    TResult? Function(_CreateTasks value)? createTasks,
-    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
   }) {
     return taskExecuted?.call(this);
   }
@@ -6142,13 +6218,15 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult Function(_SettingsNotFound value)? settingsNotFound,
     TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
     TResult Function(_ClientInitialized value)? clientInitialized,
-    TResult Function(_AgentDeployed value)? agentDeployed,
-    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
-    TResult Function(_ExecuteTask value)? executeTask,
-    TResult Function(_CreateTasks value)? createTasks,
-    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
     TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
     TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
     if (taskExecuted != null) {
@@ -6160,6 +6238,750 @@ class _$_TaskExecuted implements _TaskExecuted {
 
 abstract class _TaskExecuted implements HomeEvent {
   const factory _TaskExecuted() = _$_TaskExecuted;
+}
+
+/// @nodoc
+abstract class _$$_TaskResultEmbeddedCopyWith<$Res> {
+  factory _$$_TaskResultEmbeddedCopyWith(_$_TaskResultEmbedded value,
+          $Res Function(_$_TaskResultEmbedded) then) =
+      __$$_TaskResultEmbeddedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_TaskResultEmbeddedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$_TaskResultEmbedded>
+    implements _$$_TaskResultEmbeddedCopyWith<$Res> {
+  __$$_TaskResultEmbeddedCopyWithImpl(
+      _$_TaskResultEmbedded _value, $Res Function(_$_TaskResultEmbedded) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_TaskResultEmbedded implements _TaskResultEmbedded {
+  const _$_TaskResultEmbedded();
+
+  @override
+  String toString() {
+    return 'HomeEvent.taskResultEmbedded()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_TaskResultEmbedded);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() appLaunched,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
+    required TResult Function(Agent agent) deleteAgentPressed,
+    required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
+    required TResult Function(String knowledgeStr) clusterKnowledgeChanged,
+    required TResult Function() deployPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function() apiKeyUpdated,
+    required TResult Function() clientInitialized,
+    required TResult Function() knowledgeEmbedded,
+    required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
+    required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
+  }) {
+    return taskResultEmbedded();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? appLaunched,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
+    TResult? Function(Agent agent)? deleteAgentPressed,
+    TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
+    TResult? Function(String knowledgeStr)? clusterKnowledgeChanged,
+    TResult? Function()? deployPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function()? apiKeyUpdated,
+    TResult? Function()? clientInitialized,
+    TResult? Function()? knowledgeEmbedded,
+    TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
+    TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
+  }) {
+    return taskResultEmbedded?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? appLaunched,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
+    TResult Function(Agent agent)? deleteAgentPressed,
+    TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
+    TResult Function(String knowledgeStr)? clusterKnowledgeChanged,
+    TResult Function()? deployPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function()? apiKeyUpdated,
+    TResult Function()? clientInitialized,
+    TResult Function()? knowledgeEmbedded,
+    TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
+    TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
+    required TResult orElse(),
+  }) {
+    if (taskResultEmbedded != null) {
+      return taskResultEmbedded();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
+    required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
+    required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
+    required TResult Function(ClusterKnowledgeChanged value)
+        clusterKnowledgeChanged,
+    required TResult Function(DeployPressed value) deployPressed,
+    required TResult Function(_SettingsNotFound value) settingsNotFound,
+    required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
+    required TResult Function(_ClientInitialized value) clientInitialized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
+    required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
+    required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
+  }) {
+    return taskResultEmbedded(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
+    TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult? Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
+    TResult? Function(DeployPressed value)? deployPressed,
+    TResult? Function(_SettingsNotFound value)? settingsNotFound,
+    TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult? Function(_ClientInitialized value)? clientInitialized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
+    TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
+    TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
+  }) {
+    return taskResultEmbedded?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
+    TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
+    TResult Function(DeployPressed value)? deployPressed,
+    TResult Function(_SettingsNotFound value)? settingsNotFound,
+    TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult Function(_ClientInitialized value)? clientInitialized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
+    TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
+    TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
+    required TResult orElse(),
+  }) {
+    if (taskResultEmbedded != null) {
+      return taskResultEmbedded(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TaskResultEmbedded implements HomeEvent {
+  const factory _TaskResultEmbedded() = _$_TaskResultEmbedded;
+}
+
+/// @nodoc
+abstract class _$$_TaskCreatedCopyWith<$Res> {
+  factory _$$_TaskCreatedCopyWith(
+          _$_TaskCreated value, $Res Function(_$_TaskCreated) then) =
+      __$$_TaskCreatedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_TaskCreatedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$_TaskCreated>
+    implements _$$_TaskCreatedCopyWith<$Res> {
+  __$$_TaskCreatedCopyWithImpl(
+      _$_TaskCreated _value, $Res Function(_$_TaskCreated) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_TaskCreated implements _TaskCreated {
+  const _$_TaskCreated();
+
+  @override
+  String toString() {
+    return 'HomeEvent.taskCreated()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_TaskCreated);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() appLaunched,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
+    required TResult Function(Agent agent) deleteAgentPressed,
+    required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
+    required TResult Function(String knowledgeStr) clusterKnowledgeChanged,
+    required TResult Function() deployPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function() apiKeyUpdated,
+    required TResult Function() clientInitialized,
+    required TResult Function() knowledgeEmbedded,
+    required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
+    required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
+  }) {
+    return taskCreated();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? appLaunched,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
+    TResult? Function(Agent agent)? deleteAgentPressed,
+    TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
+    TResult? Function(String knowledgeStr)? clusterKnowledgeChanged,
+    TResult? Function()? deployPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function()? apiKeyUpdated,
+    TResult? Function()? clientInitialized,
+    TResult? Function()? knowledgeEmbedded,
+    TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
+    TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
+  }) {
+    return taskCreated?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? appLaunched,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
+    TResult Function(Agent agent)? deleteAgentPressed,
+    TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
+    TResult Function(String knowledgeStr)? clusterKnowledgeChanged,
+    TResult Function()? deployPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function()? apiKeyUpdated,
+    TResult Function()? clientInitialized,
+    TResult Function()? knowledgeEmbedded,
+    TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
+    TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
+    required TResult orElse(),
+  }) {
+    if (taskCreated != null) {
+      return taskCreated();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
+    required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
+    required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
+    required TResult Function(ClusterKnowledgeChanged value)
+        clusterKnowledgeChanged,
+    required TResult Function(DeployPressed value) deployPressed,
+    required TResult Function(_SettingsNotFound value) settingsNotFound,
+    required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
+    required TResult Function(_ClientInitialized value) clientInitialized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
+    required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
+    required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
+  }) {
+    return taskCreated(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
+    TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult? Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
+    TResult? Function(DeployPressed value)? deployPressed,
+    TResult? Function(_SettingsNotFound value)? settingsNotFound,
+    TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult? Function(_ClientInitialized value)? clientInitialized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
+    TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
+    TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
+  }) {
+    return taskCreated?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
+    TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
+    TResult Function(DeployPressed value)? deployPressed,
+    TResult Function(_SettingsNotFound value)? settingsNotFound,
+    TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult Function(_ClientInitialized value)? clientInitialized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
+    TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
+    TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
+    required TResult orElse(),
+  }) {
+    if (taskCreated != null) {
+      return taskCreated(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _TaskCreated implements HomeEvent {
+  const factory _TaskCreated() = _$_TaskCreated;
+}
+
+/// @nodoc
+abstract class _$$_FinishedCopyWith<$Res> {
+  factory _$$_FinishedCopyWith(
+          _$_Finished value, $Res Function(_$_Finished) then) =
+      __$$_FinishedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_FinishedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$_Finished>
+    implements _$$_FinishedCopyWith<$Res> {
+  __$$_FinishedCopyWithImpl(
+      _$_Finished _value, $Res Function(_$_Finished) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_Finished implements _Finished {
+  const _$_Finished();
+
+  @override
+  String toString() {
+    return 'HomeEvent.finished()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_Finished);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() appLaunched,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
+    required TResult Function(Agent agent) deleteAgentPressed,
+    required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
+    required TResult Function(String knowledgeStr) clusterKnowledgeChanged,
+    required TResult Function() deployPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function() apiKeyUpdated,
+    required TResult Function() clientInitialized,
+    required TResult Function() knowledgeEmbedded,
+    required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
+    required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() finished,
+  }) {
+    return finished();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? appLaunched,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
+    TResult? Function(Agent agent)? deleteAgentPressed,
+    TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
+    TResult? Function(String knowledgeStr)? clusterKnowledgeChanged,
+    TResult? Function()? deployPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function()? apiKeyUpdated,
+    TResult? Function()? clientInitialized,
+    TResult? Function()? knowledgeEmbedded,
+    TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
+    TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? finished,
+  }) {
+    return finished?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? appLaunched,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
+    TResult Function(Agent agent)? deleteAgentPressed,
+    TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
+    TResult Function(String knowledgeStr)? clusterKnowledgeChanged,
+    TResult Function()? deployPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function()? apiKeyUpdated,
+    TResult Function()? clientInitialized,
+    TResult Function()? knowledgeEmbedded,
+    TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
+    TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? finished,
+    required TResult orElse(),
+  }) {
+    if (finished != null) {
+      return finished();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
+    required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
+    required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
+    required TResult Function(ClusterKnowledgeChanged value)
+        clusterKnowledgeChanged,
+    required TResult Function(DeployPressed value) deployPressed,
+    required TResult Function(_SettingsNotFound value) settingsNotFound,
+    required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
+    required TResult Function(_ClientInitialized value) clientInitialized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
+    required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
+    required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_Finished value) finished,
+  }) {
+    return finished(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
+    TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult? Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
+    TResult? Function(DeployPressed value)? deployPressed,
+    TResult? Function(_SettingsNotFound value)? settingsNotFound,
+    TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult? Function(_ClientInitialized value)? clientInitialized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
+    TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
+    TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_Finished value)? finished,
+  }) {
+    return finished?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
+    TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
+    TResult Function(DeployPressed value)? deployPressed,
+    TResult Function(_SettingsNotFound value)? settingsNotFound,
+    TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult Function(_ClientInitialized value)? clientInitialized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
+    TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
+    TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_Finished value)? finished,
+    required TResult orElse(),
+  }) {
+    if (finished != null) {
+      return finished(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Finished implements HomeEvent {
+  const factory _Finished() = _$_Finished;
 }
 
 /// @nodoc
@@ -6185,6 +7007,7 @@ mixin _$HomeState {
       throw _privateConstructorUsedError;
   View get view => throw _privateConstructorUsedError;
   List<Task> get tasksQueue => throw _privateConstructorUsedError;
+  Task? get nextTask => throw _privateConstructorUsedError;
   Label? get apiKey => throw _privateConstructorUsedError;
   Agent? get agent => throw _privateConstructorUsedError;
   Cluster? get cluster => throw _privateConstructorUsedError;
@@ -6215,11 +7038,13 @@ abstract class $HomeStateCopyWith<$Res> {
       TextEditingController apiKeyController,
       View view,
       List<Task> tasksQueue,
+      Task? nextTask,
       Label? apiKey,
       Agent? agent,
       Cluster? cluster});
 
   $SettingsCopyWith<$Res> get settings;
+  $TaskCopyWith<$Res>? get nextTask;
   $AgentCopyWith<$Res>? get agent;
   $ClusterCopyWith<$Res>? get cluster;
 }
@@ -6252,6 +7077,7 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? apiKeyController = null,
     Object? view = null,
     Object? tasksQueue = null,
+    Object? nextTask = freezed,
     Object? apiKey = freezed,
     Object? agent = freezed,
     Object? cluster = freezed,
@@ -6317,6 +7143,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.tasksQueue
           : tasksQueue // ignore: cast_nullable_to_non_nullable
               as List<Task>,
+      nextTask: freezed == nextTask
+          ? _value.nextTask
+          : nextTask // ignore: cast_nullable_to_non_nullable
+              as Task?,
       apiKey: freezed == apiKey
           ? _value.apiKey
           : apiKey // ignore: cast_nullable_to_non_nullable
@@ -6337,6 +7167,18 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   $SettingsCopyWith<$Res> get settings {
     return $SettingsCopyWith<$Res>(_value.settings, (value) {
       return _then(_value.copyWith(settings: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $TaskCopyWith<$Res>? get nextTask {
+    if (_value.nextTask == null) {
+      return null;
+    }
+
+    return $TaskCopyWith<$Res>(_value.nextTask!, (value) {
+      return _then(_value.copyWith(nextTask: value) as $Val);
     });
   }
 
@@ -6388,12 +7230,15 @@ abstract class _$$_HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       TextEditingController apiKeyController,
       View view,
       List<Task> tasksQueue,
+      Task? nextTask,
       Label? apiKey,
       Agent? agent,
       Cluster? cluster});
 
   @override
   $SettingsCopyWith<$Res> get settings;
+  @override
+  $TaskCopyWith<$Res>? get nextTask;
   @override
   $AgentCopyWith<$Res>? get agent;
   @override
@@ -6426,6 +7271,7 @@ class __$$_HomeStateCopyWithImpl<$Res>
     Object? apiKeyController = null,
     Object? view = null,
     Object? tasksQueue = null,
+    Object? nextTask = freezed,
     Object? apiKey = freezed,
     Object? agent = freezed,
     Object? cluster = freezed,
@@ -6491,6 +7337,10 @@ class __$$_HomeStateCopyWithImpl<$Res>
           ? _value._tasksQueue
           : tasksQueue // ignore: cast_nullable_to_non_nullable
               as List<Task>,
+      nextTask: freezed == nextTask
+          ? _value.nextTask
+          : nextTask // ignore: cast_nullable_to_non_nullable
+              as Task?,
       apiKey: freezed == apiKey
           ? _value.apiKey
           : apiKey // ignore: cast_nullable_to_non_nullable
@@ -6526,6 +7376,7 @@ class _$_HomeState implements _HomeState {
       required this.apiKeyController,
       required this.view,
       required final List<Task> tasksQueue,
+      this.nextTask,
       this.apiKey,
       this.agent,
       this.cluster})
@@ -6575,6 +7426,8 @@ class _$_HomeState implements _HomeState {
   }
 
   @override
+  final Task? nextTask;
+  @override
   final Label? apiKey;
   @override
   final Agent? agent;
@@ -6583,7 +7436,7 @@ class _$_HomeState implements _HomeState {
 
   @override
   String toString() {
-    return 'HomeState(failureOption: $failureOption, thinking: $thinking, agents: $agents, settings: $settings, agentName: $agentName, clusterName: $clusterName, clusterGoal: $clusterGoal, clusterKnowledge: $clusterKnowledge, agentNameController: $agentNameController, clusterNameController: $clusterNameController, clusterGoalController: $clusterGoalController, clusterKnowledgeController: $clusterKnowledgeController, apiKeyController: $apiKeyController, view: $view, tasksQueue: $tasksQueue, apiKey: $apiKey, agent: $agent, cluster: $cluster)';
+    return 'HomeState(failureOption: $failureOption, thinking: $thinking, agents: $agents, settings: $settings, agentName: $agentName, clusterName: $clusterName, clusterGoal: $clusterGoal, clusterKnowledge: $clusterKnowledge, agentNameController: $agentNameController, clusterNameController: $clusterNameController, clusterGoalController: $clusterGoalController, clusterKnowledgeController: $clusterKnowledgeController, apiKeyController: $apiKeyController, view: $view, tasksQueue: $tasksQueue, nextTask: $nextTask, apiKey: $apiKey, agent: $agent, cluster: $cluster)';
   }
 
   @override
@@ -6621,32 +7474,36 @@ class _$_HomeState implements _HomeState {
             (identical(other.view, view) || other.view == view) &&
             const DeepCollectionEquality()
                 .equals(other._tasksQueue, _tasksQueue) &&
+            (identical(other.nextTask, nextTask) ||
+                other.nextTask == nextTask) &&
             (identical(other.apiKey, apiKey) || other.apiKey == apiKey) &&
             (identical(other.agent, agent) || other.agent == agent) &&
             (identical(other.cluster, cluster) || other.cluster == cluster));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      failureOption,
-      thinking,
-      const DeepCollectionEquality().hash(_agents),
-      settings,
-      agentName,
-      clusterName,
-      clusterGoal,
-      clusterKnowledge,
-      agentNameController,
-      clusterNameController,
-      clusterGoalController,
-      clusterKnowledgeController,
-      apiKeyController,
-      view,
-      const DeepCollectionEquality().hash(_tasksQueue),
-      apiKey,
-      agent,
-      cluster);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        failureOption,
+        thinking,
+        const DeepCollectionEquality().hash(_agents),
+        settings,
+        agentName,
+        clusterName,
+        clusterGoal,
+        clusterKnowledge,
+        agentNameController,
+        clusterNameController,
+        clusterGoalController,
+        clusterKnowledgeController,
+        apiKeyController,
+        view,
+        const DeepCollectionEquality().hash(_tasksQueue),
+        nextTask,
+        apiKey,
+        agent,
+        cluster
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -6672,6 +7529,7 @@ abstract class _HomeState implements HomeState {
       required final TextEditingController apiKeyController,
       required final View view,
       required final List<Task> tasksQueue,
+      final Task? nextTask,
       final Label? apiKey,
       final Agent? agent,
       final Cluster? cluster}) = _$_HomeState;
@@ -6706,6 +7564,8 @@ abstract class _HomeState implements HomeState {
   View get view;
   @override
   List<Task> get tasksQueue;
+  @override
+  Task? get nextTask;
   @override
   Label? get apiKey;
   @override

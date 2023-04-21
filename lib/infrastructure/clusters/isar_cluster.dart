@@ -12,6 +12,7 @@ class IsarCluster extends Equatable {
     required this.name,
     required this.goal,
     this.knowledge,
+    this.knowledgeEmbeddings,
     this.uid,
     this.id = Isar.autoIncrement,
   });
@@ -29,6 +30,9 @@ class IsarCluster extends Equatable {
   final String? knowledge;
 
   /// @nodoc
+  final List<double>? knowledgeEmbeddings;
+
+  /// @nodoc
   final String? uid;
 
   /// @nodoc
@@ -40,6 +44,7 @@ class IsarCluster extends Equatable {
     String? name,
     String? goal,
     String? knowledge,
+    List<double>? knowledgeEmbeddings,
     String? uid,
   }) {
     return IsarCluster(
@@ -47,6 +52,7 @@ class IsarCluster extends Equatable {
       name: name ?? this.name,
       goal: goal ?? this.goal,
       knowledge: knowledge ?? this.knowledge,
+      knowledgeEmbeddings: knowledgeEmbeddings ?? this.knowledgeEmbeddings,
       uid: uid ?? this.uid,
     );
   }

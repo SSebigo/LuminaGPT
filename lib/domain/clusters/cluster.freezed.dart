@@ -20,6 +20,7 @@ mixin _$Cluster {
   Label get goal => throw _privateConstructorUsedError;
   List<Task> get tasks => throw _privateConstructorUsedError;
   Label? get knowledge => throw _privateConstructorUsedError;
+  List<double>? get knowledgeEmbeddings => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
   String? get uid => throw _privateConstructorUsedError;
 
@@ -37,6 +38,7 @@ abstract class $ClusterCopyWith<$Res> {
       Label goal,
       List<Task> tasks,
       Label? knowledge,
+      List<double>? knowledgeEmbeddings,
       int? id,
       String? uid});
 }
@@ -58,6 +60,7 @@ class _$ClusterCopyWithImpl<$Res, $Val extends Cluster>
     Object? goal = null,
     Object? tasks = null,
     Object? knowledge = freezed,
+    Object? knowledgeEmbeddings = freezed,
     Object? id = freezed,
     Object? uid = freezed,
   }) {
@@ -78,6 +81,10 @@ class _$ClusterCopyWithImpl<$Res, $Val extends Cluster>
           ? _value.knowledge
           : knowledge // ignore: cast_nullable_to_non_nullable
               as Label?,
+      knowledgeEmbeddings: freezed == knowledgeEmbeddings
+          ? _value.knowledgeEmbeddings
+          : knowledgeEmbeddings // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -102,6 +109,7 @@ abstract class _$$_ClusterCopyWith<$Res> implements $ClusterCopyWith<$Res> {
       Label goal,
       List<Task> tasks,
       Label? knowledge,
+      List<double>? knowledgeEmbeddings,
       int? id,
       String? uid});
 }
@@ -120,6 +128,7 @@ class __$$_ClusterCopyWithImpl<$Res>
     Object? goal = null,
     Object? tasks = null,
     Object? knowledge = freezed,
+    Object? knowledgeEmbeddings = freezed,
     Object? id = freezed,
     Object? uid = freezed,
   }) {
@@ -140,6 +149,10 @@ class __$$_ClusterCopyWithImpl<$Res>
           ? _value.knowledge
           : knowledge // ignore: cast_nullable_to_non_nullable
               as Label?,
+      knowledgeEmbeddings: freezed == knowledgeEmbeddings
+          ? _value._knowledgeEmbeddings
+          : knowledgeEmbeddings // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -160,9 +173,11 @@ class _$_Cluster implements _Cluster {
       required this.goal,
       required final List<Task> tasks,
       this.knowledge,
+      final List<double>? knowledgeEmbeddings,
       this.id,
       this.uid})
-      : _tasks = tasks;
+      : _tasks = tasks,
+        _knowledgeEmbeddings = knowledgeEmbeddings;
 
   @override
   final Label name;
@@ -178,6 +193,17 @@ class _$_Cluster implements _Cluster {
 
   @override
   final Label? knowledge;
+  final List<double>? _knowledgeEmbeddings;
+  @override
+  List<double>? get knowledgeEmbeddings {
+    final value = _knowledgeEmbeddings;
+    if (value == null) return null;
+    if (_knowledgeEmbeddings is EqualUnmodifiableListView)
+      return _knowledgeEmbeddings;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final int? id;
   @override
@@ -185,7 +211,7 @@ class _$_Cluster implements _Cluster {
 
   @override
   String toString() {
-    return 'Cluster(name: $name, goal: $goal, tasks: $tasks, knowledge: $knowledge, id: $id, uid: $uid)';
+    return 'Cluster(name: $name, goal: $goal, tasks: $tasks, knowledge: $knowledge, knowledgeEmbeddings: $knowledgeEmbeddings, id: $id, uid: $uid)';
   }
 
   @override
@@ -198,13 +224,22 @@ class _$_Cluster implements _Cluster {
             const DeepCollectionEquality().equals(other._tasks, _tasks) &&
             (identical(other.knowledge, knowledge) ||
                 other.knowledge == knowledge) &&
+            const DeepCollectionEquality()
+                .equals(other._knowledgeEmbeddings, _knowledgeEmbeddings) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.uid, uid) || other.uid == uid));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, goal,
-      const DeepCollectionEquality().hash(_tasks), knowledge, id, uid);
+  int get hashCode => Object.hash(
+      runtimeType,
+      name,
+      goal,
+      const DeepCollectionEquality().hash(_tasks),
+      knowledge,
+      const DeepCollectionEquality().hash(_knowledgeEmbeddings),
+      id,
+      uid);
 
   @JsonKey(ignore: true)
   @override
@@ -219,6 +254,7 @@ abstract class _Cluster implements Cluster {
       required final Label goal,
       required final List<Task> tasks,
       final Label? knowledge,
+      final List<double>? knowledgeEmbeddings,
       final int? id,
       final String? uid}) = _$_Cluster;
 
@@ -230,6 +266,8 @@ abstract class _Cluster implements Cluster {
   List<Task> get tasks;
   @override
   Label? get knowledge;
+  @override
+  List<double>? get knowledgeEmbeddings;
   @override
   int? get id;
   @override

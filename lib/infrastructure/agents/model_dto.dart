@@ -13,7 +13,7 @@ class ModelDTO with _$ModelDTO {
   /// @nodoc
   factory ModelDTO({
     required String name,
-    required double temperature,
+    double? temperature,
     int? id,
   }) = _ModelDTO;
 
@@ -21,7 +21,7 @@ class ModelDTO with _$ModelDTO {
   factory ModelDTO.fromDomain(Model model) {
     return ModelDTO(
       name: model.name.getOrCrash(),
-      temperature: model.temperature.getOrCrash(),
+      temperature: model.temperature?.getOrCrash(),
       id: model.id,
     );
   }
@@ -45,7 +45,7 @@ extension ModelDTOX on ModelDTO {
   /// @nodoc
   Model toDomain() => Model(
         name: Label(name),
-        temperature: Temperature(temperature),
+        temperature: temperature != null ? Temperature(temperature!) : null,
         id: id,
       );
 

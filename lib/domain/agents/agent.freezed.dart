@@ -17,7 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Agent {
   Label get name => throw _privateConstructorUsedError;
-  Model get model => throw _privateConstructorUsedError;
+  Model get completionModel => throw _privateConstructorUsedError;
+  Model get embeddingModel => throw _privateConstructorUsedError;
   List<Cluster> get clusters => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
 
@@ -30,9 +31,15 @@ abstract class $AgentCopyWith<$Res> {
   factory $AgentCopyWith(Agent value, $Res Function(Agent) then) =
       _$AgentCopyWithImpl<$Res, Agent>;
   @useResult
-  $Res call({Label name, Model model, List<Cluster> clusters, int? id});
+  $Res call(
+      {Label name,
+      Model completionModel,
+      Model embeddingModel,
+      List<Cluster> clusters,
+      int? id});
 
-  $ModelCopyWith<$Res> get model;
+  $ModelCopyWith<$Res> get completionModel;
+  $ModelCopyWith<$Res> get embeddingModel;
 }
 
 /// @nodoc
@@ -49,7 +56,8 @@ class _$AgentCopyWithImpl<$Res, $Val extends Agent>
   @override
   $Res call({
     Object? name = null,
-    Object? model = null,
+    Object? completionModel = null,
+    Object? embeddingModel = null,
     Object? clusters = null,
     Object? id = freezed,
   }) {
@@ -58,9 +66,13 @@ class _$AgentCopyWithImpl<$Res, $Val extends Agent>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as Label,
-      model: null == model
-          ? _value.model
-          : model // ignore: cast_nullable_to_non_nullable
+      completionModel: null == completionModel
+          ? _value.completionModel
+          : completionModel // ignore: cast_nullable_to_non_nullable
+              as Model,
+      embeddingModel: null == embeddingModel
+          ? _value.embeddingModel
+          : embeddingModel // ignore: cast_nullable_to_non_nullable
               as Model,
       clusters: null == clusters
           ? _value.clusters
@@ -75,9 +87,17 @@ class _$AgentCopyWithImpl<$Res, $Val extends Agent>
 
   @override
   @pragma('vm:prefer-inline')
-  $ModelCopyWith<$Res> get model {
-    return $ModelCopyWith<$Res>(_value.model, (value) {
-      return _then(_value.copyWith(model: value) as $Val);
+  $ModelCopyWith<$Res> get completionModel {
+    return $ModelCopyWith<$Res>(_value.completionModel, (value) {
+      return _then(_value.copyWith(completionModel: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ModelCopyWith<$Res> get embeddingModel {
+    return $ModelCopyWith<$Res>(_value.embeddingModel, (value) {
+      return _then(_value.copyWith(embeddingModel: value) as $Val);
     });
   }
 }
@@ -88,10 +108,17 @@ abstract class _$$_AgentCopyWith<$Res> implements $AgentCopyWith<$Res> {
       __$$_AgentCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Label name, Model model, List<Cluster> clusters, int? id});
+  $Res call(
+      {Label name,
+      Model completionModel,
+      Model embeddingModel,
+      List<Cluster> clusters,
+      int? id});
 
   @override
-  $ModelCopyWith<$Res> get model;
+  $ModelCopyWith<$Res> get completionModel;
+  @override
+  $ModelCopyWith<$Res> get embeddingModel;
 }
 
 /// @nodoc
@@ -104,7 +131,8 @@ class __$$_AgentCopyWithImpl<$Res> extends _$AgentCopyWithImpl<$Res, _$_Agent>
   @override
   $Res call({
     Object? name = null,
-    Object? model = null,
+    Object? completionModel = null,
+    Object? embeddingModel = null,
     Object? clusters = null,
     Object? id = freezed,
   }) {
@@ -113,9 +141,13 @@ class __$$_AgentCopyWithImpl<$Res> extends _$AgentCopyWithImpl<$Res, _$_Agent>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as Label,
-      model: null == model
-          ? _value.model
-          : model // ignore: cast_nullable_to_non_nullable
+      completionModel: null == completionModel
+          ? _value.completionModel
+          : completionModel // ignore: cast_nullable_to_non_nullable
+              as Model,
+      embeddingModel: null == embeddingModel
+          ? _value.embeddingModel
+          : embeddingModel // ignore: cast_nullable_to_non_nullable
               as Model,
       clusters: null == clusters
           ? _value._clusters
@@ -134,7 +166,8 @@ class __$$_AgentCopyWithImpl<$Res> extends _$AgentCopyWithImpl<$Res, _$_Agent>
 class _$_Agent implements _Agent {
   _$_Agent(
       {required this.name,
-      required this.model,
+      required this.completionModel,
+      required this.embeddingModel,
       required final List<Cluster> clusters,
       this.id})
       : _clusters = clusters;
@@ -142,7 +175,9 @@ class _$_Agent implements _Agent {
   @override
   final Label name;
   @override
-  final Model model;
+  final Model completionModel;
+  @override
+  final Model embeddingModel;
   final List<Cluster> _clusters;
   @override
   List<Cluster> get clusters {
@@ -156,7 +191,7 @@ class _$_Agent implements _Agent {
 
   @override
   String toString() {
-    return 'Agent(name: $name, model: $model, clusters: $clusters, id: $id)';
+    return 'Agent(name: $name, completionModel: $completionModel, embeddingModel: $embeddingModel, clusters: $clusters, id: $id)';
   }
 
   @override
@@ -165,14 +200,17 @@ class _$_Agent implements _Agent {
         (other.runtimeType == runtimeType &&
             other is _$_Agent &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.model, model) || other.model == model) &&
+            (identical(other.completionModel, completionModel) ||
+                other.completionModel == completionModel) &&
+            (identical(other.embeddingModel, embeddingModel) ||
+                other.embeddingModel == embeddingModel) &&
             const DeepCollectionEquality().equals(other._clusters, _clusters) &&
             (identical(other.id, id) || other.id == id));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, model,
-      const DeepCollectionEquality().hash(_clusters), id);
+  int get hashCode => Object.hash(runtimeType, name, completionModel,
+      embeddingModel, const DeepCollectionEquality().hash(_clusters), id);
 
   @JsonKey(ignore: true)
   @override
@@ -184,14 +222,17 @@ class _$_Agent implements _Agent {
 abstract class _Agent implements Agent {
   factory _Agent(
       {required final Label name,
-      required final Model model,
+      required final Model completionModel,
+      required final Model embeddingModel,
       required final List<Cluster> clusters,
       final int? id}) = _$_Agent;
 
   @override
   Label get name;
   @override
-  Model get model;
+  Model get completionModel;
+  @override
+  Model get embeddingModel;
   @override
   List<Cluster> get clusters;
   @override

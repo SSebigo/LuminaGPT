@@ -14,6 +14,9 @@ _$_ClusterDTO _$$_ClusterDTOFromJson(Map<String, dynamic> json) =>
           .map((e) => TaskDTO.fromJson(e as Map<String, dynamic>?))
           .toList(),
       knowledge: json['knowledge'] as String?,
+      knowledgeEmbeddings: (json['knowledgeEmbeddings'] as List<dynamic>?)
+          ?.map((e) => (e as num).toDouble())
+          .toList(),
       id: json['id'] as int?,
       uid: json['uid'] as String?,
     );
@@ -24,6 +27,7 @@ Map<String, dynamic> _$$_ClusterDTOToJson(_$_ClusterDTO instance) =>
       'goal': instance.goal,
       'tasks': instance.tasks,
       'knowledge': instance.knowledge,
+      'knowledgeEmbeddings': instance.knowledgeEmbeddings,
       'id': instance.id,
       'uid': instance.uid,
     };

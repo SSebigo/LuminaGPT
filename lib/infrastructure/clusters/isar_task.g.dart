@@ -27,28 +27,38 @@ const IsarTaskSchema = CollectionSchema(
       name: r'description',
       type: IsarType.string,
     ),
-    r'done': PropertySchema(
+    r'descriptionEmbeddings': PropertySchema(
       id: 2,
+      name: r'descriptionEmbeddings',
+      type: IsarType.doubleList,
+    ),
+    r'done': PropertySchema(
+      id: 3,
       name: r'done',
       type: IsarType.bool,
     ),
     r'priority': PropertySchema(
-      id: 3,
+      id: 4,
       name: r'priority',
       type: IsarType.long,
     ),
     r'result': PropertySchema(
-      id: 4,
+      id: 5,
       name: r'result',
       type: IsarType.string,
     ),
+    r'resultEmbeddings': PropertySchema(
+      id: 6,
+      name: r'resultEmbeddings',
+      type: IsarType.doubleList,
+    ),
     r'stringify': PropertySchema(
-      id: 5,
+      id: 7,
       name: r'stringify',
       type: IsarType.bool,
     ),
     r'updatedAt': PropertySchema(
-      id: 6,
+      id: 8,
       name: r'updatedAt',
       type: IsarType.dateTime,
     )
@@ -75,9 +85,21 @@ int _isarTaskEstimateSize(
   var bytesCount = offsets.last;
   bytesCount += 3 + object.description.length * 3;
   {
+    final value = object.descriptionEmbeddings;
+    if (value != null) {
+      bytesCount += 3 + value.length * 8;
+    }
+  }
+  {
     final value = object.result;
     if (value != null) {
       bytesCount += 3 + value.length * 3;
+    }
+  }
+  {
+    final value = object.resultEmbeddings;
+    if (value != null) {
+      bytesCount += 3 + value.length * 8;
     }
   }
   return bytesCount;
@@ -91,11 +113,13 @@ void _isarTaskSerialize(
 ) {
   writer.writeDateTime(offsets[0], object.createdAt);
   writer.writeString(offsets[1], object.description);
-  writer.writeBool(offsets[2], object.done);
-  writer.writeLong(offsets[3], object.priority);
-  writer.writeString(offsets[4], object.result);
-  writer.writeBool(offsets[5], object.stringify);
-  writer.writeDateTime(offsets[6], object.updatedAt);
+  writer.writeDoubleList(offsets[2], object.descriptionEmbeddings);
+  writer.writeBool(offsets[3], object.done);
+  writer.writeLong(offsets[4], object.priority);
+  writer.writeString(offsets[5], object.result);
+  writer.writeDoubleList(offsets[6], object.resultEmbeddings);
+  writer.writeBool(offsets[7], object.stringify);
+  writer.writeDateTime(offsets[8], object.updatedAt);
 }
 
 IsarTask _isarTaskDeserialize(
@@ -107,11 +131,13 @@ IsarTask _isarTaskDeserialize(
   final object = IsarTask(
     createdAt: reader.readDateTime(offsets[0]),
     description: reader.readString(offsets[1]),
-    done: reader.readBool(offsets[2]),
+    descriptionEmbeddings: reader.readDoubleList(offsets[2]),
+    done: reader.readBool(offsets[3]),
     id: id,
-    priority: reader.readLongOrNull(offsets[3]),
-    result: reader.readStringOrNull(offsets[4]),
-    updatedAt: reader.readDateTimeOrNull(offsets[6]),
+    priority: reader.readLongOrNull(offsets[4]),
+    result: reader.readStringOrNull(offsets[5]),
+    resultEmbeddings: reader.readDoubleList(offsets[6]),
+    updatedAt: reader.readDateTimeOrNull(offsets[8]),
   );
   return object;
 }
@@ -128,14 +154,18 @@ P _isarTaskDeserializeProp<P>(
     case 1:
       return (reader.readString(offset)) as P;
     case 2:
-      return (reader.readBool(offset)) as P;
+      return (reader.readDoubleList(offset)) as P;
     case 3:
-      return (reader.readLongOrNull(offset)) as P;
-    case 4:
-      return (reader.readStringOrNull(offset)) as P;
-    case 5:
       return (reader.readBool(offset)) as P;
+    case 4:
+      return (reader.readLongOrNull(offset)) as P;
+    case 5:
+      return (reader.readStringOrNull(offset)) as P;
     case 6:
+      return (reader.readDoubleList(offset)) as P;
+    case 7:
+      return (reader.readBool(offset)) as P;
+    case 8:
       return (reader.readDateTimeOrNull(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -413,6 +443,179 @@ extension IsarTaskQueryFilter
         property: r'description',
         value: '',
       ));
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      descriptionEmbeddingsIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'descriptionEmbeddings',
+      ));
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      descriptionEmbeddingsIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'descriptionEmbeddings',
+      ));
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      descriptionEmbeddingsElementEqualTo(
+    double value, {
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'descriptionEmbeddings',
+        value: value,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      descriptionEmbeddingsElementGreaterThan(
+    double value, {
+    bool include = false,
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'descriptionEmbeddings',
+        value: value,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      descriptionEmbeddingsElementLessThan(
+    double value, {
+    bool include = false,
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'descriptionEmbeddings',
+        value: value,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      descriptionEmbeddingsElementBetween(
+    double lower,
+    double upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'descriptionEmbeddings',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      descriptionEmbeddingsLengthEqualTo(int length) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'descriptionEmbeddings',
+        length,
+        true,
+        length,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      descriptionEmbeddingsIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'descriptionEmbeddings',
+        0,
+        true,
+        0,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      descriptionEmbeddingsIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'descriptionEmbeddings',
+        0,
+        false,
+        999999,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      descriptionEmbeddingsLengthLessThan(
+    int length, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'descriptionEmbeddings',
+        0,
+        true,
+        length,
+        include,
+      );
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      descriptionEmbeddingsLengthGreaterThan(
+    int length, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'descriptionEmbeddings',
+        length,
+        include,
+        999999,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      descriptionEmbeddingsLengthBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'descriptionEmbeddings',
+        lower,
+        includeLower,
+        upper,
+        includeUpper,
+      );
     });
   }
 
@@ -709,6 +912,179 @@ extension IsarTaskQueryFilter
     });
   }
 
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      resultEmbeddingsIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'resultEmbeddings',
+      ));
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      resultEmbeddingsIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'resultEmbeddings',
+      ));
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      resultEmbeddingsElementEqualTo(
+    double value, {
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'resultEmbeddings',
+        value: value,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      resultEmbeddingsElementGreaterThan(
+    double value, {
+    bool include = false,
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.greaterThan(
+        include: include,
+        property: r'resultEmbeddings',
+        value: value,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      resultEmbeddingsElementLessThan(
+    double value, {
+    bool include = false,
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.lessThan(
+        include: include,
+        property: r'resultEmbeddings',
+        value: value,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      resultEmbeddingsElementBetween(
+    double lower,
+    double upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+    double epsilon = Query.epsilon,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.between(
+        property: r'resultEmbeddings',
+        lower: lower,
+        includeLower: includeLower,
+        upper: upper,
+        includeUpper: includeUpper,
+        epsilon: epsilon,
+      ));
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      resultEmbeddingsLengthEqualTo(int length) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'resultEmbeddings',
+        length,
+        true,
+        length,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      resultEmbeddingsIsEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'resultEmbeddings',
+        0,
+        true,
+        0,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      resultEmbeddingsIsNotEmpty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'resultEmbeddings',
+        0,
+        false,
+        999999,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      resultEmbeddingsLengthLessThan(
+    int length, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'resultEmbeddings',
+        0,
+        true,
+        length,
+        include,
+      );
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      resultEmbeddingsLengthGreaterThan(
+    int length, {
+    bool include = false,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'resultEmbeddings',
+        length,
+        include,
+        999999,
+        true,
+      );
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition>
+      resultEmbeddingsLengthBetween(
+    int lower,
+    int upper, {
+    bool includeLower = true,
+    bool includeUpper = true,
+  }) {
+    return QueryBuilder.apply(this, (query) {
+      return query.listLength(
+        r'resultEmbeddings',
+        lower,
+        includeLower,
+        upper,
+        includeUpper,
+      );
+    });
+  }
+
   QueryBuilder<IsarTask, IsarTask, QAfterFilterCondition> stringifyEqualTo(
       bool value) {
     return QueryBuilder.apply(this, (query) {
@@ -995,6 +1371,13 @@ extension IsarTaskQueryWhereDistinct
     });
   }
 
+  QueryBuilder<IsarTask, IsarTask, QDistinct>
+      distinctByDescriptionEmbeddings() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'descriptionEmbeddings');
+    });
+  }
+
   QueryBuilder<IsarTask, IsarTask, QDistinct> distinctByDone() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'done');
@@ -1011,6 +1394,12 @@ extension IsarTaskQueryWhereDistinct
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'result', caseSensitive: caseSensitive);
+    });
+  }
+
+  QueryBuilder<IsarTask, IsarTask, QDistinct> distinctByResultEmbeddings() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'resultEmbeddings');
     });
   }
 
@@ -1047,6 +1436,13 @@ extension IsarTaskQueryProperty
     });
   }
 
+  QueryBuilder<IsarTask, List<double>?, QQueryOperations>
+      descriptionEmbeddingsProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'descriptionEmbeddings');
+    });
+  }
+
   QueryBuilder<IsarTask, bool, QQueryOperations> doneProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'done');
@@ -1062,6 +1458,13 @@ extension IsarTaskQueryProperty
   QueryBuilder<IsarTask, String?, QQueryOperations> resultProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'result');
+    });
+  }
+
+  QueryBuilder<IsarTask, List<double>?, QQueryOperations>
+      resultEmbeddingsProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'resultEmbeddings');
     });
   }
 

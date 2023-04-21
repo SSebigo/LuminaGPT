@@ -21,7 +21,7 @@ ModelDTO _$ModelDTOFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ModelDTO {
   String get name => throw _privateConstructorUsedError;
-  double get temperature => throw _privateConstructorUsedError;
+  double? get temperature => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $ModelDTOCopyWith<$Res> {
   factory $ModelDTOCopyWith(ModelDTO value, $Res Function(ModelDTO) then) =
       _$ModelDTOCopyWithImpl<$Res, ModelDTO>;
   @useResult
-  $Res call({String name, double temperature, int? id});
+  $Res call({String name, double? temperature, int? id});
 }
 
 /// @nodoc
@@ -52,7 +52,7 @@ class _$ModelDTOCopyWithImpl<$Res, $Val extends ModelDTO>
   @override
   $Res call({
     Object? name = null,
-    Object? temperature = null,
+    Object? temperature = freezed,
     Object? id = freezed,
   }) {
     return _then(_value.copyWith(
@@ -60,10 +60,10 @@ class _$ModelDTOCopyWithImpl<$Res, $Val extends ModelDTO>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      temperature: null == temperature
+      temperature: freezed == temperature
           ? _value.temperature
           : temperature // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -79,7 +79,7 @@ abstract class _$$_ModelDTOCopyWith<$Res> implements $ModelDTOCopyWith<$Res> {
       __$$_ModelDTOCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, double temperature, int? id});
+  $Res call({String name, double? temperature, int? id});
 }
 
 /// @nodoc
@@ -94,7 +94,7 @@ class __$$_ModelDTOCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
-    Object? temperature = null,
+    Object? temperature = freezed,
     Object? id = freezed,
   }) {
     return _then(_$_ModelDTO(
@@ -102,10 +102,10 @@ class __$$_ModelDTOCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      temperature: null == temperature
+      temperature: freezed == temperature
           ? _value.temperature
           : temperature // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -117,7 +117,7 @@ class __$$_ModelDTOCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_ModelDTO implements _ModelDTO {
-  _$_ModelDTO({required this.name, required this.temperature, this.id});
+  _$_ModelDTO({required this.name, this.temperature, this.id});
 
   factory _$_ModelDTO.fromJson(Map<String, dynamic> json) =>
       _$$_ModelDTOFromJson(json);
@@ -125,7 +125,7 @@ class _$_ModelDTO implements _ModelDTO {
   @override
   final String name;
   @override
-  final double temperature;
+  final double? temperature;
   @override
   final int? id;
 
@@ -166,7 +166,7 @@ class _$_ModelDTO implements _ModelDTO {
 abstract class _ModelDTO implements ModelDTO {
   factory _ModelDTO(
       {required final String name,
-      required final double temperature,
+      final double? temperature,
       final int? id}) = _$_ModelDTO;
 
   factory _ModelDTO.fromJson(Map<String, dynamic> json) = _$_ModelDTO.fromJson;
@@ -174,7 +174,7 @@ abstract class _ModelDTO implements ModelDTO {
   @override
   String get name;
   @override
-  double get temperature;
+  double? get temperature;
   @override
   int? get id;
   @override

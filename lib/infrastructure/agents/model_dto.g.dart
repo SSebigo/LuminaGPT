@@ -8,7 +8,7 @@ part of 'model_dto.dart';
 
 _$_ModelDTO _$$_ModelDTOFromJson(Map<String, dynamic> json) => _$_ModelDTO(
       name: json['name'] as String,
-      temperature: (json['temperature'] as num).toDouble(),
+      temperature: (json['temperature'] as num?)?.toDouble(),
       id: json['id'] as int?,
     );
 

@@ -77,7 +77,7 @@ IsarModel _isarModelDeserialize(
   final object = IsarModel(
     id: id,
     name: reader.readString(offsets[0]),
-    temperature: reader.readDouble(offsets[2]),
+    temperature: reader.readDoubleOrNull(offsets[2]),
   );
   return object;
 }
@@ -94,7 +94,7 @@ P _isarModelDeserializeProp<P>(
     case 1:
       return (reader.readBool(offset)) as P;
     case 2:
-      return (reader.readDouble(offset)) as P;
+      return (reader.readDoubleOrNull(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
   }
@@ -400,8 +400,26 @@ extension IsarModelQueryFilter
     });
   }
 
+  QueryBuilder<IsarModel, IsarModel, QAfterFilterCondition>
+      temperatureIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'temperature',
+      ));
+    });
+  }
+
+  QueryBuilder<IsarModel, IsarModel, QAfterFilterCondition>
+      temperatureIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'temperature',
+      ));
+    });
+  }
+
   QueryBuilder<IsarModel, IsarModel, QAfterFilterCondition> temperatureEqualTo(
-    double value, {
+    double? value, {
     double epsilon = Query.epsilon,
   }) {
     return QueryBuilder.apply(this, (query) {
@@ -415,7 +433,7 @@ extension IsarModelQueryFilter
 
   QueryBuilder<IsarModel, IsarModel, QAfterFilterCondition>
       temperatureGreaterThan(
-    double value, {
+    double? value, {
     bool include = false,
     double epsilon = Query.epsilon,
   }) {
@@ -430,7 +448,7 @@ extension IsarModelQueryFilter
   }
 
   QueryBuilder<IsarModel, IsarModel, QAfterFilterCondition> temperatureLessThan(
-    double value, {
+    double? value, {
     bool include = false,
     double epsilon = Query.epsilon,
   }) {
@@ -445,8 +463,8 @@ extension IsarModelQueryFilter
   }
 
   QueryBuilder<IsarModel, IsarModel, QAfterFilterCondition> temperatureBetween(
-    double lower,
-    double upper, {
+    double? lower,
+    double? upper, {
     bool includeLower = true,
     bool includeUpper = true,
     double epsilon = Query.epsilon,
@@ -601,7 +619,7 @@ extension IsarModelQueryProperty
     });
   }
 
-  QueryBuilder<IsarModel, double, QQueryOperations> temperatureProperty() {
+  QueryBuilder<IsarModel, double?, QQueryOperations> temperatureProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'temperature');
     });

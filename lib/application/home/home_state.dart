@@ -20,6 +20,7 @@ class HomeState with _$HomeState {
     required TextEditingController apiKeyController,
     required View view,
     required List<Task> tasksQueue,
+    Task? nextTask,
     Label? apiKey,
     Agent? agent,
     Cluster? cluster,

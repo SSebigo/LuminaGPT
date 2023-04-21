@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:dart_openai/openai.dart';
-import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:isar/isar.dart';
 import 'package:lumina_gpt/domain/agents/agent.dart';
@@ -18,6 +17,7 @@ import 'package:lumina_gpt/infrastructure/clusters/cluster_dto.dart';
 import 'package:lumina_gpt/infrastructure/clusters/isar_cluster.dart';
 import 'package:lumina_gpt/infrastructure/clusters/isar_task.dart';
 import 'package:lumina_gpt/infrastructure/clusters/task_dto.dart';
+import 'package:ml_linalg/linalg.dart';
 import 'package:oxidized/oxidized.dart';
 
 /// @nodoc
@@ -50,7 +50,8 @@ class AgentsRepository implements IAgentsRepository {
 
       for (final agent in agents) {
         await agent.clusters.load();
-        await agent.model.load();
+        await agent.completionModel.load();
+        await agent.embeddingModel.load();
       }
 
       return Ok(
@@ -68,7 +69,10 @@ class AgentsRepository implements IAgentsRepository {
 
       final isarAgent = AgentDTO.fromDomain(agent).toAdapter()
         ..clusters.clear();
-      final isarModel = ModelDTO.fromDomain(agent.model).toAdapter();
+      final isarCompletionModel =
+          ModelDTO.fromDomain(agent.completionModel).toAdapter();
+      final isarEmbeddingModel =
+          ModelDTO.fromDomain(agent.embeddingModel).toAdapter();
 
       await _isar.writeTxn(() async {
         await _isar.agents.put(isarAgent);
@@ -95,18 +99,22 @@ class AgentsRepository implements IAgentsRepository {
           await isarAgent.clusters.save();
         }
 
-        await _isar.models.put(isarModel);
+        await _isar.models.put(isarCompletionModel);
+        await _isar.models.put(isarEmbeddingModel);
 
-        isarAgent.model.value = isarModel;
+        isarAgent.completionModel.value = isarCompletionModel;
+        isarAgent.embeddingModel.value = isarEmbeddingModel;
 
-        await isarAgent.model.save();
+        await isarAgent.completionModel.save();
+        await isarAgent.embeddingModel.save();
       });
 
       await isarAgent.clusters.load();
       for (final cluster in isarAgent.clusters) {
         await cluster.tasks.load();
       }
-      await isarAgent.model.load();
+      await isarAgent.completionModel.load();
+      await isarAgent.embeddingModel.load();
 
       tmpAgent = AgentDTO.fromAdapter(isarAgent).toDomain();
 
@@ -119,21 +127,16 @@ class AgentsRepository implements IAgentsRepository {
   @override
   Future<Result<List<Task>, AgentsFailure>> startGoal(
     Agent agent,
-    Label goal,
-    Label knowledge,
+    Cluster cluster,
   ) async {
     try {
       const systemPrompt =
           'You are an autonomous task creation AI for worldbuilding called Lumina Brain.';
       final userPrompt =
-          'Given the following goal: "${goal.getOrCrash()}", you have to create tasks that will help you reach or more closely reach the goal. Return the response as an array of strings without any explanation or additional text. The response should be usable in JSON.parse().';
-
-      debugPrint('startGoal() - systemPrompt: $systemPrompt');
-      debugPrint('startGoal() - userPrompt: $userPrompt');
-      debugPrint('startGoal() - knowledge: ${knowledge.getOrCrash()}');
+          'Given the following goal: "${cluster.goal.getOrCrash()}", you have to create tasks that will help you reach or more closely reach the goal. Return the response as an array of strings without any explanation or additional text. The response should be usable in JSON.parse().';
 
       final completion = await OpenAI.instance.chat.create(
-        model: agent.model.name.getOrCrash(),
+        model: agent.completionModel.name.getOrCrash(),
         messages: [
           OpenAIChatCompletionChoiceMessageModel(
             content: systemPrompt,
@@ -144,21 +147,17 @@ class AgentsRepository implements IAgentsRepository {
             role: OpenAIChatMessageRole.user,
           ),
           OpenAIChatCompletionChoiceMessageModel(
-            content: knowledge.getOrCrash(),
+            content: 'Knowledge:\n\ncluster.knowledge?.getOrCrash()',
             role: OpenAIChatMessageRole.assistant,
           ),
         ],
-        temperature: agent.model.temperature.getOrCrash(),
+        temperature: agent.completionModel.temperature?.getOrCrash(),
         maxTokens: 300,
       );
 
       final content = completion.choices.single.message.content;
 
-      debugPrint('startGoal() - content: $content');
-
       final extractedTasks = _extractTasks(content);
-
-      debugPrint('startGoal() - extractedTasks: $extractedTasks');
 
       final tasks = <Task>[];
       for (final task in extractedTasks) {
@@ -174,6 +173,25 @@ class AgentsRepository implements IAgentsRepository {
       }
 
       return Ok(tasks);
+    } catch (e) {
+      return const Err(AgentsFailure.unexpected());
+    }
+  }
+
+  @override
+  Future<Result<Cluster, AgentsFailure>> embedKnowledge(
+    Agent agent,
+    Cluster cluster,
+  ) async {
+    try {
+      final embedding = await OpenAI.instance.embedding.create(
+        model: agent.embeddingModel.name.getOrCrash(),
+        input: cluster.knowledge?.getOrCrash(),
+      );
+
+      final embeddings = embedding.data.first.embeddings;
+
+      return Ok(cluster.copyWith(knowledgeEmbeddings: embeddings));
     } catch (e) {
       return const Err(AgentsFailure.unexpected());
     }
@@ -203,12 +221,8 @@ class AgentsRepository implements IAgentsRepository {
       final assistantPrompt =
           'Tasks:\n\n$tasksJson\n\n\nKnowlegde:\n\n${cluster.knowledge?.getOrCrash()}';
 
-      debugPrint('prioritizeTasks() - systemPrompt: $systemPrompt');
-      debugPrint('prioritizeTasks() - userPrompt: $userPrompt');
-      debugPrint('prioritizeTasks() - assistantPrompt: $assistantPrompt');
-
       final completion = await OpenAI.instance.chat.create(
-        model: agent.model.name.getOrCrash(),
+        model: agent.completionModel.name.getOrCrash(),
         messages: [
           OpenAIChatCompletionChoiceMessageModel(
             content: systemPrompt,
@@ -223,17 +237,13 @@ class AgentsRepository implements IAgentsRepository {
             role: OpenAIChatMessageRole.assistant,
           ),
         ],
-        temperature: agent.model.temperature.getOrCrash(),
+        temperature: agent.completionModel.temperature?.getOrCrash(),
         maxTokens: 300,
       );
 
       final content = completion.choices.single.message.content;
 
-      debugPrint('prioritizeTasks() - content: $content');
-
       final priorities = _extractPriorities(content);
-
-      debugPrint('prioritizeTasks() - priorities: $priorities');
 
       if (priorities.isEmpty || priorities.length < tasks.length) {
         if (attempts > 0) {
@@ -268,23 +278,78 @@ class AgentsRepository implements IAgentsRepository {
   }
 
   @override
+  Future<Result<Task, AgentsFailure>> embedTaskDescription(
+    Agent agent,
+    Task task,
+  ) async {
+    try {
+      final embedding = await OpenAI.instance.embedding.create(
+        model: agent.embeddingModel.name.getOrCrash(),
+        input: task.description.getOrCrash(),
+      );
+
+      final embeddings = embedding.data.first.embeddings;
+
+      return Ok(task.copyWith(descriptionEmbeddings: embeddings));
+    } catch (e) {
+      return const Err(AgentsFailure.unexpected());
+    }
+  }
+
+  @override
   Future<Result<Task, AgentsFailure>> executeTask(
     Agent agent,
     Cluster cluster,
     Task task,
   ) async {
     try {
+      // get knowledge using embeddings
+      final knowledgeBase = <Map<String, dynamic>>[
+        {
+          'id': cluster.id,
+          'type': 'cluster',
+          'embeddings': cluster.knowledgeEmbeddings,
+          'proximity': 0,
+        }
+      ];
+
+      for (final task in cluster.tasks) {
+        if (task.resultEmbeddings != null &&
+            task.resultEmbeddings!.isNotEmpty) {
+          knowledgeBase.add({
+            'id': task.id,
+            'type': 'task',
+            'embeddings': task.resultEmbeddings,
+            'proximity': 0,
+          });
+        }
+      }
+
+      for (final knowledge in knowledgeBase) {
+        final taskVector = Vector.fromList(task.descriptionEmbeddings!);
+        final knowledgeVector =
+            Vector.fromList(knowledge['embeddings'] as List<double>);
+
+        final proximity = knowledgeVector.distanceTo(taskVector);
+
+        knowledge['proximity'] = proximity;
+      }
+
+      knowledgeBase.sort(
+        (a, b) =>
+            (a['proximity'] as double).compareTo(b['proximity'] as double),
+      );
+
+      final knowledge = knowledgeBase.last;
+
       const systemPrompt =
           'You are an autonomous task execution AI for worldbuilding called Lumina Task Executor.';
       final userPrompt =
           'Given the following goal: "${cluster.goal.getOrCrash()}", you have been given the task: "${task.description.getOrCrash()}". Execute the task. Return the response as a string.';
-      final assistantPrompt = '${cluster.knowledge?.getOrCrash()}';
-
-      debugPrint('executeTask() - userPrompt: $userPrompt');
-      debugPrint('executeTask() - assistantPrompt: $assistantPrompt');
+      final assistantPrompt = 'Knowledge:\n\n$knowledge';
 
       final completion = await OpenAI.instance.chat.create(
-        model: agent.model.name.getOrCrash(),
+        model: agent.completionModel.name.getOrCrash(),
         messages: [
           OpenAIChatCompletionChoiceMessageModel(
             content: systemPrompt,
@@ -299,17 +364,13 @@ class AgentsRepository implements IAgentsRepository {
             role: OpenAIChatMessageRole.assistant,
           ),
         ],
-        temperature: agent.model.temperature.getOrCrash(),
+        temperature: agent.completionModel.temperature?.getOrCrash(),
         maxTokens: 300,
       );
 
       final content = completion.choices.single.message.content;
 
-      debugPrint('executeTask() - content: $content');
-
       final trimmedContent = _trimIncompleteSentence(content);
-
-      debugPrint('executeTask() - trimmedContent: $trimmedContent');
 
       return Ok(
         task.copyWith(
@@ -324,11 +385,35 @@ class AgentsRepository implements IAgentsRepository {
   }
 
   @override
+  Future<Result<Task, AgentsFailure>> embedTaskResult(
+    Agent agent,
+    Task task,
+  ) async {
+    try {
+      if (task.result == null) {
+        return const Err(AgentsFailure.unexpected());
+      }
+
+      final embedding = await OpenAI.instance.embedding.create(
+        model: agent.embeddingModel.name.getOrCrash(),
+        input: task.result?.getOrCrash(),
+      );
+
+      final embeddings = embedding.data.first.embeddings;
+
+      return Ok(task.copyWith(resultEmbeddings: embeddings));
+    } catch (e) {
+      return const Err(AgentsFailure.unexpected());
+    }
+  }
+
+  @override
   Future<Result<Option<Task>, AgentsFailure>> createTasks(
     Agent agent,
     Cluster cluster,
-    List<Task> tasks,
-  ) async {
+    List<Task> tasks, {
+    int attempts = 3,
+  }) async {
     try {
       final tasksFormatted =
           tasks.map((task) => task.description.getOrCrash()).toList();
@@ -341,12 +426,8 @@ class AgentsRepository implements IAgentsRepository {
       final assistantPrompt =
           'Current tasks:\n\n$tasksJson\n\n\nKnowledge:\n\n${cluster.knowledge?.getOrCrash()}';
 
-      debugPrint('createTasks() - systemPrompt: $systemPrompt');
-      debugPrint('createTasks() - userPrompt: $userPrompt');
-      debugPrint('createTasks() - assistantPrompt: $assistantPrompt');
-
       final completion = await OpenAI.instance.chat.create(
-        model: agent.model.name.getOrCrash(),
+        model: agent.completionModel.name.getOrCrash(),
         messages: [
           OpenAIChatCompletionChoiceMessageModel(
             content: systemPrompt,
@@ -361,23 +442,26 @@ class AgentsRepository implements IAgentsRepository {
             role: OpenAIChatMessageRole.assistant,
           ),
         ],
-        temperature: agent.model.temperature.getOrCrash(),
+        temperature: agent.completionModel.temperature?.getOrCrash(),
         maxTokens: 300,
       );
 
       final content = completion.choices.single.message.content;
 
-      debugPrint('createTasks() - content: $content');
-
       final extractedTask = _extractTask(content);
-
-      debugPrint('createTasks() - extractedTask: $extractedTask');
 
       final trimmedTask = _trimIncompleteSentence(extractedTask);
 
-      debugPrint('createTasks() - trimmedTask: $trimmedTask');
-
-      if (content.isEmpty) {
+      if ((content.isNotEmpty && extractedTask.isEmpty) ||
+          (extractedTask.isNotEmpty && trimmedTask.isEmpty)) {
+        if (attempts > 0) {
+          return createTasks(
+            agent,
+            cluster,
+            tasks,
+            attempts: attempts - 1,
+          );
+        }
         return const Ok(None());
       }
 

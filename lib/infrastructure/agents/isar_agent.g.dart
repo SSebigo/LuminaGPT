@@ -35,9 +35,15 @@ const IsarAgentSchema = CollectionSchema(
   idName: r'id',
   indexes: {},
   links: {
-    r'model': LinkSchema(
-      id: 4888570492174830822,
-      name: r'model',
+    r'completionModel': LinkSchema(
+      id: 1630462866332951785,
+      name: r'completionModel',
+      target: r'IsarModel',
+      single: true,
+    ),
+    r'embeddingModel': LinkSchema(
+      id: 7664380461412225859,
+      name: r'embeddingModel',
       target: r'IsarModel',
       single: true,
     ),
@@ -109,12 +115,15 @@ Id _isarAgentGetId(IsarAgent object) {
 }
 
 List<IsarLinkBase<dynamic>> _isarAgentGetLinks(IsarAgent object) {
-  return [object.model, object.clusters];
+  return [object.completionModel, object.embeddingModel, object.clusters];
 }
 
 void _isarAgentAttach(IsarCollection<dynamic> col, Id id, IsarAgent object) {
   object.id = id;
-  object.model.attach(col, col.isar.collection<IsarModel>(), r'model', id);
+  object.completionModel
+      .attach(col, col.isar.collection<IsarModel>(), r'completionModel', id);
+  object.embeddingModel
+      .attach(col, col.isar.collection<IsarModel>(), r'embeddingModel', id);
   object.clusters
       .attach(col, col.isar.collection<IsarCluster>(), r'clusters', id);
 }
@@ -413,16 +422,31 @@ extension IsarAgentQueryObject
 
 extension IsarAgentQueryLinks
     on QueryBuilder<IsarAgent, IsarAgent, QFilterCondition> {
-  QueryBuilder<IsarAgent, IsarAgent, QAfterFilterCondition> model(
+  QueryBuilder<IsarAgent, IsarAgent, QAfterFilterCondition> completionModel(
       FilterQuery<IsarModel> q) {
     return QueryBuilder.apply(this, (query) {
-      return query.link(q, r'model');
+      return query.link(q, r'completionModel');
     });
   }
 
-  QueryBuilder<IsarAgent, IsarAgent, QAfterFilterCondition> modelIsNull() {
+  QueryBuilder<IsarAgent, IsarAgent, QAfterFilterCondition>
+      completionModelIsNull() {
     return QueryBuilder.apply(this, (query) {
-      return query.linkLength(r'model', 0, true, 0, true);
+      return query.linkLength(r'completionModel', 0, true, 0, true);
+    });
+  }
+
+  QueryBuilder<IsarAgent, IsarAgent, QAfterFilterCondition> embeddingModel(
+      FilterQuery<IsarModel> q) {
+    return QueryBuilder.apply(this, (query) {
+      return query.link(q, r'embeddingModel');
+    });
+  }
+
+  QueryBuilder<IsarAgent, IsarAgent, QAfterFilterCondition>
+      embeddingModelIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.linkLength(r'embeddingModel', 0, true, 0, true);
     });
   }
 

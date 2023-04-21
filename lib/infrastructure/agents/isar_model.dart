@@ -9,7 +9,7 @@ class IsarModel extends Equatable {
   /// @nodoc
   IsarModel({
     required this.name,
-    required this.temperature,
+    this.temperature,
     this.id = Isar.autoIncrement,
   });
 
@@ -20,7 +20,7 @@ class IsarModel extends Equatable {
   final String name;
 
   /// @nodoc
-  final double temperature;
+  final double? temperature;
 
   /// @nodoc
   IsarModel copyWith({

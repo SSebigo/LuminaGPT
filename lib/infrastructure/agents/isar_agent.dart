@@ -2,7 +2,6 @@ import 'package:equatable/equatable.dart';
 import 'package:isar/isar.dart';
 import 'package:lumina_gpt/infrastructure/agents/isar_model.dart';
 import 'package:lumina_gpt/infrastructure/clusters/isar_cluster.dart';
-import 'package:lumina_gpt/infrastructure/clusters/isar_task.dart';
 
 part 'isar_agent.g.dart';
 
@@ -22,7 +21,10 @@ class IsarAgent extends Equatable {
   final String name;
 
   /// @nodoc
-  final model = IsarLink<IsarModel>();
+  final completionModel = IsarLink<IsarModel>();
+
+  /// @nodoc
+  final embeddingModel = IsarLink<IsarModel>();
 
   /// @nodoc
   final clusters = IsarLinks<IsarCluster>();

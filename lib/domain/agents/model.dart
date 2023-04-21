@@ -12,19 +12,23 @@ class Model with _$Model {
   /// @nodoc
   factory Model({
     required Label name,
-    required Temperature temperature,
+    Temperature? temperature,
     int? id,
   }) = _Model;
 
   /// @nodoc
   factory Model.empty() => Model(
         name: Label(''),
-        temperature: Temperature(0),
       );
 
   /// @nodoc
-  factory Model.base() => Model(
+  factory Model.defaultCompletion() => Model(
         name: Label(gpt35Turbo),
         temperature: Temperature(defaultTemperature),
+      );
+
+  /// @nodoc
+  factory Model.defaultEmbedding() => Model(
+        name: Label(textEmbeddingAda002),
       );
 }

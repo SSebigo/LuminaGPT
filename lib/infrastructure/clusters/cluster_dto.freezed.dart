@@ -24,6 +24,7 @@ mixin _$ClusterDTO {
   String get goal => throw _privateConstructorUsedError;
   List<TaskDTO> get tasks => throw _privateConstructorUsedError;
   String? get knowledge => throw _privateConstructorUsedError;
+  List<double>? get knowledgeEmbeddings => throw _privateConstructorUsedError;
   int? get id => throw _privateConstructorUsedError;
   String? get uid => throw _privateConstructorUsedError;
 
@@ -44,6 +45,7 @@ abstract class $ClusterDTOCopyWith<$Res> {
       String goal,
       List<TaskDTO> tasks,
       String? knowledge,
+      List<double>? knowledgeEmbeddings,
       int? id,
       String? uid});
 }
@@ -65,6 +67,7 @@ class _$ClusterDTOCopyWithImpl<$Res, $Val extends ClusterDTO>
     Object? goal = null,
     Object? tasks = null,
     Object? knowledge = freezed,
+    Object? knowledgeEmbeddings = freezed,
     Object? id = freezed,
     Object? uid = freezed,
   }) {
@@ -85,6 +88,10 @@ class _$ClusterDTOCopyWithImpl<$Res, $Val extends ClusterDTO>
           ? _value.knowledge
           : knowledge // ignore: cast_nullable_to_non_nullable
               as String?,
+      knowledgeEmbeddings: freezed == knowledgeEmbeddings
+          ? _value.knowledgeEmbeddings
+          : knowledgeEmbeddings // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -110,6 +117,7 @@ abstract class _$$_ClusterDTOCopyWith<$Res>
       String goal,
       List<TaskDTO> tasks,
       String? knowledge,
+      List<double>? knowledgeEmbeddings,
       int? id,
       String? uid});
 }
@@ -129,6 +137,7 @@ class __$$_ClusterDTOCopyWithImpl<$Res>
     Object? goal = null,
     Object? tasks = null,
     Object? knowledge = freezed,
+    Object? knowledgeEmbeddings = freezed,
     Object? id = freezed,
     Object? uid = freezed,
   }) {
@@ -149,6 +158,10 @@ class __$$_ClusterDTOCopyWithImpl<$Res>
           ? _value.knowledge
           : knowledge // ignore: cast_nullable_to_non_nullable
               as String?,
+      knowledgeEmbeddings: freezed == knowledgeEmbeddings
+          ? _value._knowledgeEmbeddings
+          : knowledgeEmbeddings // ignore: cast_nullable_to_non_nullable
+              as List<double>?,
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -169,9 +182,11 @@ class _$_ClusterDTO implements _ClusterDTO {
       required this.goal,
       required final List<TaskDTO> tasks,
       this.knowledge,
+      final List<double>? knowledgeEmbeddings,
       this.id,
       this.uid})
-      : _tasks = tasks;
+      : _tasks = tasks,
+        _knowledgeEmbeddings = knowledgeEmbeddings;
 
   factory _$_ClusterDTO.fromJson(Map<String, dynamic> json) =>
       _$$_ClusterDTOFromJson(json);
@@ -190,6 +205,17 @@ class _$_ClusterDTO implements _ClusterDTO {
 
   @override
   final String? knowledge;
+  final List<double>? _knowledgeEmbeddings;
+  @override
+  List<double>? get knowledgeEmbeddings {
+    final value = _knowledgeEmbeddings;
+    if (value == null) return null;
+    if (_knowledgeEmbeddings is EqualUnmodifiableListView)
+      return _knowledgeEmbeddings;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final int? id;
   @override
@@ -197,7 +223,7 @@ class _$_ClusterDTO implements _ClusterDTO {
 
   @override
   String toString() {
-    return 'ClusterDTO(name: $name, goal: $goal, tasks: $tasks, knowledge: $knowledge, id: $id, uid: $uid)';
+    return 'ClusterDTO(name: $name, goal: $goal, tasks: $tasks, knowledge: $knowledge, knowledgeEmbeddings: $knowledgeEmbeddings, id: $id, uid: $uid)';
   }
 
   @override
@@ -210,14 +236,23 @@ class _$_ClusterDTO implements _ClusterDTO {
             const DeepCollectionEquality().equals(other._tasks, _tasks) &&
             (identical(other.knowledge, knowledge) ||
                 other.knowledge == knowledge) &&
+            const DeepCollectionEquality()
+                .equals(other._knowledgeEmbeddings, _knowledgeEmbeddings) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.uid, uid) || other.uid == uid));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, goal,
-      const DeepCollectionEquality().hash(_tasks), knowledge, id, uid);
+  int get hashCode => Object.hash(
+      runtimeType,
+      name,
+      goal,
+      const DeepCollectionEquality().hash(_tasks),
+      knowledge,
+      const DeepCollectionEquality().hash(_knowledgeEmbeddings),
+      id,
+      uid);
 
   @JsonKey(ignore: true)
   @override
@@ -239,6 +274,7 @@ abstract class _ClusterDTO implements ClusterDTO {
       required final String goal,
       required final List<TaskDTO> tasks,
       final String? knowledge,
+      final List<double>? knowledgeEmbeddings,
       final int? id,
       final String? uid}) = _$_ClusterDTO;
 
@@ -253,6 +289,8 @@ abstract class _ClusterDTO implements ClusterDTO {
   List<TaskDTO> get tasks;
   @override
   String? get knowledge;
+  @override
+  List<double>? get knowledgeEmbeddings;
   @override
   int? get id;
   @override

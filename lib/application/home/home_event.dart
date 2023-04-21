@@ -58,23 +58,29 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.clientInitialized() = _ClientInitialized;
 
   /// @nodoc
-  const factory HomeEvent.agentDeployed() = _AgentDeployed;
-
-  /// @nodoc
-  const factory HomeEvent.prioritizeTasks() = _PrioritizeTasks;
-
-  /// @nodoc
-  const factory HomeEvent.executeTask() = _ExecuteTask;
-
-  /// @nodoc
-  const factory HomeEvent.createTasks() = _CreateTasks;
-
-  /// @nodoc
-  const factory HomeEvent.tasksPrioritized() = _TasksPrioritized;
+  const factory HomeEvent.knowledgeEmbedded() = _KnowledgeEmbedded;
 
   /// @nodoc
   const factory HomeEvent.tasksCreated() = _TasksCreated;
 
   /// @nodoc
+  const factory HomeEvent.prioritizeTasks() = _PrioritizeTasks;
+
+  /// @nodoc
+  const factory HomeEvent.tasksPrioritized() = _TasksPrioritized;
+
+  /// @nodoc
+  const factory HomeEvent.taskDescriptionEmbedded() = _TaskDescriptionEmbedded;
+
+  /// @nodoc
   const factory HomeEvent.taskExecuted() = _TaskExecuted;
+
+  /// @nodoc
+  const factory HomeEvent.taskResultEmbedded() = _TaskResultEmbedded;
+
+  /// @nodoc
+  const factory HomeEvent.taskCreated() = _TaskCreated;
+
+  /// @nodoc
+  const factory HomeEvent.finished() = _Finished;
 }
