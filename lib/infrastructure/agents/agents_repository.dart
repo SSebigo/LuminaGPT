@@ -423,7 +423,7 @@ class AgentsRepository implements IAgentsRepository {
   }
 
   @override
-  Future<Result<Option<Task>, AgentsFailure>> createTasks(
+  Future<Result<Option<Task>, AgentsFailure>> createTask(
     Agent agent,
     Cluster cluster,
     List<Task> tasks, {
@@ -470,7 +470,7 @@ class AgentsRepository implements IAgentsRepository {
       if ((content.isNotEmpty && extractedTask.isEmpty) ||
           (extractedTask.isNotEmpty && trimmedTask.isEmpty)) {
         if (attempts > 0) {
-          return createTasks(
+          return createTask(
             agent,
             cluster,
             tasks,
