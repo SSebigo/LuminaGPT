@@ -340,7 +340,20 @@ class AgentsRepository implements IAgentsRepository {
             (a['proximity'] as double).compareTo(b['proximity'] as double),
       );
 
-      final knowledge = knowledgeBase.last;
+      final knowledgeMap = knowledgeBase.last;
+
+      var knowledge = '';
+
+      if (knowledgeMap['type'] == 'cluster') {
+        knowledge = cluster.knowledge?.getOrCrash() ?? '';
+      } else if (knowledgeMap['type'] == 'task') {
+        final task = cluster.tasks.firstWhere(
+          (e) => e.id == knowledgeMap['id'],
+          orElse: Task.empty,
+        );
+
+        knowledge = task.result?.getOrCrash() ?? '';
+      }
 
       const systemPrompt =
           'You are an autonomous task execution AI for worldbuilding called Lumina Task Executor.';
@@ -370,7 +383,9 @@ class AgentsRepository implements IAgentsRepository {
 
       final content = completion.choices.single.message.content;
 
-      final trimmedContent = _trimIncompleteSentence(content);
+      final cleanedContent = _removeLabel(content);
+
+      final trimmedContent = _trimIncompleteSentence(cleanedContent);
 
       return Ok(
         task.copyWith(
@@ -420,9 +435,9 @@ class AgentsRepository implements IAgentsRepository {
       final tasksJson = jsonEncode(tasksFormatted);
 
       const systemPrompt =
-          'You are an autonomous task executioon AI for worldbuilding called Lumina Task Maker.';
+          'You are an autonomous task executioon AI for worldbuilding called Lumina Single Task Maker.';
       final userPrompt =
-          'Given the following goal: "${cluster.goal.getOrCrash()}", you have to create a task that will help you reach or more closely reach the goal.\n\nReturn the response as a SINGLE SENTENCE without any explanation or additional text. The response should be usable in JSON.parse().';
+          'Given the following goal: "${cluster.goal.getOrCrash()}", you have to create ONE AND ONLY ONE task that will help you reach or more closely reach the goal.\n\nReturn the response as a SINGLE SENTENCE without any explanation or additional text. The response should be usable in JSON.parse().';
       final assistantPrompt =
           'Current tasks:\n\n$tasksJson\n\n\nKnowledge:\n\n${cluster.knowledge?.getOrCrash()}';
 
@@ -480,37 +495,47 @@ class AgentsRepository implements IAgentsRepository {
   }
 
   List<dynamic> _extractTasks(String input) {
-    var tmpInput = input.trim();
-
-    final isBracketed = tmpInput.startsWith('[') && tmpInput.endsWith(']');
-
-    if (isBracketed) {
-      tmpInput = tmpInput.substring(1, tmpInput.length - 1);
+    // Find the list surrounded by brackets
+    final regexList = RegExp(r'\[[\s\S]*?\]');
+    final listMatch = regexList.firstMatch(input);
+    if (listMatch == null) {
+      return [];
     }
 
-    // Match single or double quoted strings, or unquoted strings
-    final regex = RegExp(
-      r'''(["'])(.*?)(?<!\\)\1|([^,"'\[\]\s]+(?:\s+[^,"'\[\]\s]+)*)''',
-    );
-    final matches = regex.allMatches(tmpInput);
+    var tmpInput = listMatch.group(0)?.trim();
 
-    final tasks = matches
-        .map((match) {
-          String? str;
-          if (match.group(2) != null) {
-            str = match.group(2);
-          } else {
-            str = match.group(3);
-          }
-          if (str != null) {
-            str = str.trim();
-          }
-          return str;
-        })
-        .whereType<String>()
-        .toList();
+    if (tmpInput != null) {
+      final isBracketed = tmpInput.startsWith('[') && tmpInput.endsWith(']');
 
-    return tasks;
+      if (isBracketed) {
+        tmpInput = tmpInput.substring(1, tmpInput.length - 1);
+      }
+
+      // Match single or double quoted strings, or unquoted strings
+      final regex = RegExp(
+        r'''(["'])(.*?)(?<!\\)\1|([^,"'\[\]\s]+(?:\s+[^,"'\[\]\s]+)*)''',
+      );
+      final matches = regex.allMatches(tmpInput);
+
+      final tasks = matches
+          .map((match) {
+            String? str;
+            if (match.group(2) != null) {
+              str = match.group(2);
+            } else {
+              str = match.group(3);
+            }
+            if (str != null) {
+              str = str.trim();
+            }
+            return str;
+          })
+          .whereType<String>()
+          .toList();
+
+      return tasks;
+    }
+    return [];
   }
 
   List<int> _extractPriorities(String input) {
@@ -549,11 +574,16 @@ class AgentsRepository implements IAgentsRepository {
     final pattern2 = RegExp(r'^\s*\[?"((?:[^"\\]|\\.)+)"?\]?\s*$');
     final pattern3 = RegExp(r"^'([^']+)'$");
     final pattern4 = RegExp(r'^(\S.*\S)$');
+    // Add a new pattern to match any string followed by ":"
+    final pattern5 = RegExp(r'^[^:]*:\s*');
 
-    final match1 = pattern1.firstMatch(input);
-    final match2 = pattern2.firstMatch(input);
-    final match3 = pattern3.firstMatch(input);
-    final match4 = pattern4.firstMatch(input);
+    // Remove any string followed by ":" from the input
+    final tmpInput = input.replaceFirst(pattern5, '');
+
+    final match1 = pattern1.firstMatch(tmpInput);
+    final match2 = pattern2.firstMatch(tmpInput);
+    final match3 = pattern3.firstMatch(tmpInput);
+    final match4 = pattern4.firstMatch(tmpInput);
 
     if (match1 != null) {
       return match1.group(2)!;
@@ -566,6 +596,14 @@ class AgentsRepository implements IAgentsRepository {
     } else {
       return '';
     }
+  }
+
+  String _removeLabel(String input) {
+    // Match any string followed by ":" at the beginning of the input
+    final pattern = RegExp(r'^[^:]*:\s*');
+
+    // Remove the matched string from the input
+    return input.replaceFirst(pattern, '');
   }
 
   String _trimIncompleteSentence(String input) {
