@@ -384,7 +384,15 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         ))
             .match(
           (tasks) {
-            final cluster = state.cluster!.copyWith(tasks: tasks);
+            final cluster = state.cluster!.copyWith(
+              tasks: state.cluster!.tasks
+                  .map(
+                    (t) => tasks.contains(t)
+                        ? tasks.singleWhere((t2) => t2.id == t.id)
+                        : t,
+                  )
+                  .toList(),
+            );
 
             final agent = state.agent!.copyWith(
               clusters: state.agent!.clusters
@@ -526,17 +534,17 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     });
     on<_TaskResultEmbedded>((_, emit) async {
       if (state.agent != null && state.cluster != null) {
-        (await _agentsRepository.createTasks(
+        (await _agentsRepository.createTask(
           state.agent!,
           state.cluster!,
           state.tasksQueue,
         ))
             .match(
-          (tasks) {
-            if (tasks.isSome()) {
+          (task) {
+            if (task.isSome()) {
               // add tasks to the queue and cluster tasks
               final cluster = state.cluster!.copyWith(
-                tasks: [...state.cluster!.tasks, tasks.unwrap()],
+                tasks: [...state.cluster!.tasks, task.unwrap()],
               );
 
               final agent = state.agent!.copyWith(
@@ -550,11 +558,10 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
                   failureOption: const None(),
                   agent: agent,
                   cluster: cluster,
-                  tasksQueue: [...state.tasksQueue, tasks.unwrap()],
                 ),
               );
 
-              add(const HomeEvent.tasksCreated());
+              add(const HomeEvent.taskCreated());
             }
           },
           (failure) {
@@ -598,7 +605,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
             failureOption: const None(),
             agent: agent,
             cluster: cluster,
-            // put in queue the tasks that are not done
             tasksQueue:
                 cluster?.tasks.where((task) => !task.done).toList() ?? [],
           ),
