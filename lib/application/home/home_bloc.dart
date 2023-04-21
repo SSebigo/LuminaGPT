@@ -409,9 +409,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       }
     });
     on<_TasksPrioritized>((_, emit) async {
-      // if (state.agent != null && state.cluster != null) {
-      //   await _insertAgent(emit, const HomeEvent.executeTask());
-      // }
       if (state.tasksQueue.isNotEmpty) {
         final task =
             state.tasksQueue.singleWhereOrNull((task) => task.priority == 0);
@@ -480,9 +477,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       }
     });
     on<_TaskExecuted>((event, emit) async {
-      // if (state.agent != null && state.cluster != null) {
-      //   await _insertAgent(emit, const HomeEvent.createTasks());
-      // }
       if (state.agent != null && state.nextTask != null) {
         (await _agentsRepository.embedTaskResult(
           state.agent!,
