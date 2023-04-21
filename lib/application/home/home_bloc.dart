@@ -170,6 +170,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
       if (apiKeyValid != null && apiKeyValid) {
         final settings = state.settings.copyWith(apiKey: state.apiKey);
+
         (await _settingsRepository.updateSettings(settings)).match(
           (_) {
             emit(
@@ -302,7 +303,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       );
     });
     on<_ApiKeyUpdated>((event, emit) async {
-      final apiKey = state.apiKey?.getOrCrash();
+      final apiKey = state.settings.apiKey?.getOrCrash();
 
       if (apiKey != null) {
         OpenAI.apiKey = apiKey;
@@ -339,14 +340,19 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         ))
             .match(
           (tasks) {
+            final cluster = state.cluster!.copyWith(
+              tasks: [...state.cluster!.tasks, ...tasks],
+            );
+
             final agent = state.agent!.copyWith(
-              clusters: [...state.agent!.clusters, state.cluster!],
+              clusters: [...state.agent!.clusters, cluster],
             );
 
             emit(
               state.copyWith(
                 failureOption: const None(),
                 agent: agent,
+                cluster: cluster,
                 tasksQueue: [...tasks],
               ),
             );
@@ -562,7 +568,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         );
       }
     });
-    on<_TasksCreated>((_, emit) async {
+    on<_TaskCreated>((_, emit) async {
       if (state.agent != null) {
         await _insertAgent(emit, const HomeEvent.prioritizeTasks());
       }
