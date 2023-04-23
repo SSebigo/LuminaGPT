@@ -60,8 +60,7 @@ abstract class IAgentsRepository {
   /// @nodoc
   Future<Result<Option<Task>, AgentsFailure>> createTask(
     Agent agent,
-    Cluster cluster,
-    List<Task> tasks, {
+    Cluster cluster, {
     int attempts,
   });
 }

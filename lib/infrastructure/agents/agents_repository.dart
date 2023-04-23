@@ -217,7 +217,7 @@ class AgentsRepository implements IAgentsRepository {
       const systemPrompt =
           'You are an autonomous task priorization AI for worldbuilding called Lumina Task Manager.';
       final userPrompt =
-          'Given the following goal: "${cluster.goal.getOrCrash()}", you have to prioritize tasks to help you reach or more closely reach the goal. Return the response as an array of IDs (Integer) without any explanation or additional text. The response should be usable in JSON.parse().';
+          'Given the following goal: "${cluster.goal.getOrCrash()}", you have to prioritize tasks to help you reach or more closely reach the goal. Return the response as an array of ${tasks.length} IDs (Integer) without any explanation or additional text. The response should be usable in JSON.parse().';
       final assistantPrompt =
           'Tasks:\n\n$tasksJson\n\n\nKnowlegde:\n\n${cluster.knowledge?.getOrCrash()}';
 
@@ -238,7 +238,7 @@ class AgentsRepository implements IAgentsRepository {
           ),
         ],
         temperature: agent.completionModel.temperature?.getOrCrash(),
-        maxTokens: 300,
+        maxTokens: 500,
       );
 
       final content = completion.choices.single.message.content;
@@ -425,21 +425,28 @@ class AgentsRepository implements IAgentsRepository {
   @override
   Future<Result<Option<Task>, AgentsFailure>> createTask(
     Agent agent,
-    Cluster cluster,
-    List<Task> tasks, {
+    Cluster cluster, {
     int attempts = 3,
   }) async {
     try {
-      final tasksFormatted =
-          tasks.map((task) => task.description.getOrCrash()).toList();
-      final tasksJson = jsonEncode(tasksFormatted);
+      final tasks = cluster.tasks;
+
+      final tasksDone = tasks.where((task) => task.done).toList();
+      final tasksToDo = tasks.where((task) => !task.done).toList();
+      final tasksDoneFormatted =
+          tasksDone.map((task) => task.description.getOrCrash()).toList();
+      final tasksToDoFormatted =
+          tasksToDo.map((task) => task.description.getOrCrash()).toList();
+
+      final tasksDoneJson = jsonEncode(tasksDoneFormatted);
+      final tasksToDoJson = jsonEncode(tasksToDoFormatted);
 
       const systemPrompt =
           'You are an autonomous task executioon AI for worldbuilding called Lumina Single Task Maker.';
       final userPrompt =
           'Given the following goal: "${cluster.goal.getOrCrash()}", you have to create ONE AND ONLY ONE task that will help you reach or more closely reach the goal.\n\nReturn the response as a SINGLE SENTENCE without any explanation or additional text. The response should be usable in JSON.parse().';
       final assistantPrompt =
-          'Current tasks:\n\n$tasksJson\n\n\nKnowledge:\n\n${cluster.knowledge?.getOrCrash()}';
+          'Tasks done:\n\n$tasksDoneJson\n\nTasks to do:\n\n$tasksToDoJson\n\n\nKnowledge:\n\n${cluster.knowledge?.getOrCrash()}';
 
       final completion = await OpenAI.instance.chat.create(
         model: agent.completionModel.name.getOrCrash(),
@@ -467,13 +474,18 @@ class AgentsRepository implements IAgentsRepository {
 
       final trimmedTask = _trimIncompleteSentence(extractedTask);
 
+      // empty trimmedTask if trimmedTask is a duplication of an existing task
+      final isDuplicate = tasks.any(
+        (task) => task.description.getOrCrash() == trimmedTask,
+      );
+
       if ((content.isNotEmpty && extractedTask.isEmpty) ||
-          (extractedTask.isNotEmpty && trimmedTask.isEmpty)) {
+          (extractedTask.isNotEmpty && trimmedTask.isEmpty) ||
+          isDuplicate) {
         if (attempts > 0) {
           return createTask(
             agent,
             cluster,
-            tasks,
             attempts: attempts - 1,
           );
         }

@@ -534,11 +534,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     });
     on<_TaskResultEmbedded>((_, emit) async {
       if (state.agent != null && state.cluster != null) {
-        (await _agentsRepository.createTask(
-          state.agent!,
-          state.cluster!,
-          state.tasksQueue,
-        ))
+        (await _agentsRepository.createTask(state.agent!, state.cluster!))
             .match(
           (task) {
             if (task.isSome()) {
