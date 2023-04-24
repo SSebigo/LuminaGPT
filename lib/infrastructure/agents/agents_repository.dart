@@ -253,9 +253,8 @@ class AgentsRepository implements IAgentsRepository {
             tasks,
             attempts: attempts - 1,
           );
-        } else {
-          return const Err(AgentsFailure.unexpected());
         }
+        return const Err(AgentsFailure.unexpected());
       }
 
       final newTasksList = <Task>[];
@@ -423,30 +422,24 @@ class AgentsRepository implements IAgentsRepository {
   }
 
   @override
-  Future<Result<Option<Task>, AgentsFailure>> createTask(
+  Future<Result<List<Task>, AgentsFailure>> createTasks(
     Agent agent,
-    Cluster cluster, {
+    Cluster cluster,
+    Task task, {
     int attempts = 3,
   }) async {
     try {
-      final tasks = cluster.tasks;
-
-      final tasksDone = tasks.where((task) => task.done).toList();
-      final tasksToDo = tasks.where((task) => !task.done).toList();
-      final tasksDoneFormatted =
-          tasksDone.map((task) => task.description.getOrCrash()).toList();
-      final tasksToDoFormatted =
-          tasksToDo.map((task) => task.description.getOrCrash()).toList();
-
-      final tasksDoneJson = jsonEncode(tasksDoneFormatted);
-      final tasksToDoJson = jsonEncode(tasksToDoFormatted);
+      final existingTasks = cluster.tasks;
+      final existingTasksFormatted =
+          existingTasks.map((t) => t.description.getOrCrash()).toList();
+      final existingTasksJson = jsonEncode(existingTasksFormatted);
 
       const systemPrompt =
           'You are an autonomous task executioon AI for worldbuilding called Lumina Single Task Maker.';
       final userPrompt =
-          'Given the following goal: "${cluster.goal.getOrCrash()}", you have to create ONE AND ONLY ONE task that will help you reach or more closely reach the goal.\n\nReturn the response as a SINGLE SENTENCE without any explanation or additional text. The response should be usable in JSON.parse().';
+          'Given the following goal: "${cluster.goal.getOrCrash()}", you have to create tasks that will help you reach or more closely reach the goal (DO NOT DUPLICATE ANY EXISTING TASK).\n\nReturn the response as an array of strings without any explanation or additional text. The response should be usable in JSON.parse().';
       final assistantPrompt =
-          'Tasks done:\n\n$tasksDoneJson\n\nTasks to do:\n\n$tasksToDoJson\n\n\nKnowledge:\n\n${cluster.knowledge?.getOrCrash()}';
+          'Existing tasks:\n\n$existingTasksJson\n\n\nKnowledge:\n\n${task.result?.getOrCrash() ?? cluster.knowledge?.getOrCrash()}';
 
       final completion = await OpenAI.instance.chat.create(
         model: agent.completionModel.name.getOrCrash(),
@@ -465,42 +458,52 @@ class AgentsRepository implements IAgentsRepository {
           ),
         ],
         temperature: agent.completionModel.temperature?.getOrCrash(),
-        maxTokens: 300,
       );
 
       final content = completion.choices.single.message.content;
 
-      final extractedTask = _extractTask(content);
+      final extractedTasks = _extractTasks(content);
 
-      final trimmedTask = _trimIncompleteSentence(extractedTask);
+      final trimmedTasks = extractedTasks
+          .map((task) => _trimIncompleteSentence(task as String))
+          .toList();
 
-      // empty trimmedTask if trimmedTask is a duplication of an existing task
-      final isDuplicate = tasks.any(
-        (task) => task.description.getOrCrash() == trimmedTask,
-      );
+      final tasksToCreate = trimmedTasks
+          .where(
+            (t) =>
+                !existingTasks.any(
+                  (e) => e.description.getOrCrash() == t,
+                ) &&
+                t.isNotEmpty,
+          )
+          .toList();
 
-      if ((content.isNotEmpty && extractedTask.isEmpty) ||
-          (extractedTask.isNotEmpty && trimmedTask.isEmpty) ||
-          isDuplicate) {
+      if (tasksToCreate.isEmpty) {
         if (attempts > 0) {
-          return createTask(
+          return createTasks(
             agent,
             cluster,
+            task,
             attempts: attempts - 1,
           );
         }
-        return const Ok(None());
+        return const Err(AgentsFailure.noNewTask());
       }
 
-      return Ok(
-        Some(
+      final tasks = <Task>[];
+      for (final t in tasksToCreate) {
+        final description = t;
+
+        tasks.add(
           Task(
-            description: Label(trimmedTask),
+            description: Label(description),
             createdAt: DateTime.now(),
             done: false,
           ),
-        ),
-      );
+        );
+      }
+
+      return Ok(tasks);
     } catch (e) {
       return const Err(AgentsFailure.unexpected());
     }
@@ -610,6 +613,18 @@ class AgentsRepository implements IAgentsRepository {
     }
   }
 
+  bool _containsSpecialCharacters(String input) {
+    final pattern = RegExp(r'''[^A-Za-z0-9\s,.\'"]''');
+
+    return pattern.hasMatch(input);
+  }
+
+  List<String> _filterSpecialCharacters(List<String> inputList) {
+    return inputList
+        .where((input) => !_containsSpecialCharacters(input))
+        .toList();
+  }
+
   String _removeLabel(String input) {
     // Match any string followed by ":" at the beginning of the input
     final pattern = RegExp(r'^[^:]*:\s*');
@@ -623,6 +638,9 @@ class AgentsRepository implements IAgentsRepository {
     if (lastPeriodIndex == -1) {
       return '';
     }
-    return input.substring(0, lastPeriodIndex + 1).trimRight();
+
+    final trimmed = input.substring(0, lastPeriodIndex + 1).trimRight();
+
+    return trimmed.replaceAll(RegExp(r'''^[\'"]+|[\'"]+$'''), '');
   }
 }

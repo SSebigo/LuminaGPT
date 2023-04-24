@@ -376,50 +376,54 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       }
     });
     on<_PrioritizeTasks>((event, emit) async {
-      if (state.agent != null && state.cluster != null) {
-        (await _agentsRepository.prioritizeTasks(
-          state.agent!,
-          state.cluster!,
-          state.tasksQueue,
-        ))
-            .match(
-          (tasks) {
-            final cluster = state.cluster!.copyWith(
-              tasks: state.cluster!.tasks
-                  .map(
-                    (t) => tasks.contains(t)
-                        ? tasks.singleWhere((t2) => t2.id == t.id)
-                        : t,
-                  )
-                  .toList(),
-            );
+      if (state.tasksQueue.isEmpty) {
+        add(const HomeEvent.finished());
+      } else {
+        if (state.agent != null && state.cluster != null) {
+          (await _agentsRepository.prioritizeTasks(
+            state.agent!,
+            state.cluster!,
+            state.tasksQueue,
+          ))
+              .match(
+            (tasks) {
+              final cluster = state.cluster!.copyWith(
+                tasks: state.cluster!.tasks
+                    .map(
+                      (t) => tasks.contains(t)
+                          ? tasks.singleWhere((t2) => t2.id == t.id)
+                          : t,
+                    )
+                    .toList(),
+              );
 
-            final agent = state.agent!.copyWith(
-              clusters: state.agent!.clusters
-                  .map((c) => c.uid == cluster.uid ? cluster : c)
-                  .toList(),
-            );
+              final agent = state.agent!.copyWith(
+                clusters: state.agent!.clusters
+                    .map((c) => c.uid == cluster.uid ? cluster : c)
+                    .toList(),
+              );
 
-            emit(
-              state.copyWith(
-                failureOption: const None(),
-                agent: agent,
-                cluster: cluster,
-                tasksQueue: tasks,
-              ),
-            );
+              emit(
+                state.copyWith(
+                  failureOption: const None(),
+                  agent: agent,
+                  cluster: cluster,
+                  tasksQueue: tasks,
+                ),
+              );
 
-            add(const HomeEvent.tasksPrioritized());
-          },
-          (failure) {
-            emit(
-              state.copyWith(
-                failureOption: Some(Err(CoreFailure.agents(failure))),
-                thinking: false,
-              ),
-            );
-          },
-        );
+              add(const HomeEvent.tasksPrioritized());
+            },
+            (failure) {
+              emit(
+                state.copyWith(
+                  failureOption: Some(Err(CoreFailure.agents(failure))),
+                  thinking: false,
+                ),
+              );
+            },
+          );
+        }
       }
     });
     on<_TasksPrioritized>((_, emit) async {
@@ -515,7 +519,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
                 failureOption: const None(),
                 agent: agent,
                 cluster: cluster,
-                nextTask: null,
               ),
             );
 
@@ -533,38 +536,45 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       }
     });
     on<_TaskResultEmbedded>((_, emit) async {
-      if (state.agent != null && state.cluster != null) {
-        (await _agentsRepository.createTask(state.agent!, state.cluster!))
+      if (state.agent != null &&
+          state.cluster != null &&
+          state.nextTask != null) {
+        (await _agentsRepository.createTasks(
+          state.agent!,
+          state.cluster!,
+          state.nextTask!,
+        ))
             .match(
           (task) {
-            if (task.isSome()) {
-              // add tasks to the queue and cluster tasks
-              final cluster = state.cluster!.copyWith(
-                tasks: [...state.cluster!.tasks, task.unwrap()],
-              );
+            final cluster = state.cluster!.copyWith(
+              tasks: [...state.cluster!.tasks, ...task],
+            );
 
-              final agent = state.agent!.copyWith(
-                clusters: state.agent!.clusters
-                    .map((c) => c.uid == cluster.uid ? cluster : c)
-                    .toList(),
-              );
+            final agent = state.agent!.copyWith(
+              clusters: state.agent!.clusters
+                  .map((c) => c.uid == cluster.uid ? cluster : c)
+                  .toList(),
+            );
 
-              emit(
-                state.copyWith(
-                  failureOption: const None(),
-                  agent: agent,
-                  cluster: cluster,
-                ),
-              );
-
-              add(const HomeEvent.taskCreated());
-            }
-          },
-          (failure) {
             emit(
               state.copyWith(
-                failureOption: Some(Err(CoreFailure.agents(failure))),
-                thinking: false,
+                failureOption: const None(),
+                agent: agent,
+                cluster: cluster,
+                nextTask: null,
+              ),
+            );
+
+            add(const HomeEvent.taskCreated());
+          },
+          (failure) {
+            failure.maybeMap(
+              noNewTask: (_) => add(const HomeEvent.noNewTask()),
+              orElse: () => emit(
+                state.copyWith(
+                  failureOption: Some(Err(CoreFailure.agents(failure))),
+                  thinking: false,
+                ),
               ),
             );
           },
@@ -572,6 +582,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       }
     });
     on<_TaskCreated>((_, emit) async {
+      if (state.agent != null) {
+        await _insertAgent(emit, const HomeEvent.prioritizeTasks());
+      }
+    });
+    on<_NoNewTask>((_, emit) async {
       if (state.agent != null) {
         await _insertAgent(emit, const HomeEvent.prioritizeTasks());
       }

@@ -43,6 +43,7 @@ mixin _$HomeEvent {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) =>
       throw _privateConstructorUsedError;
@@ -73,6 +74,7 @@ mixin _$HomeEvent {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) =>
       throw _privateConstructorUsedError;
@@ -103,6 +105,7 @@ mixin _$HomeEvent {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) =>
@@ -136,6 +139,7 @@ mixin _$HomeEvent {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) =>
       throw _privateConstructorUsedError;
@@ -166,6 +170,7 @@ mixin _$HomeEvent {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) =>
       throw _privateConstructorUsedError;
@@ -196,6 +201,7 @@ mixin _$HomeEvent {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) =>
@@ -282,6 +288,7 @@ class _$AppLaunched implements AppLaunched {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return appLaunched();
@@ -315,6 +322,7 @@ class _$AppLaunched implements AppLaunched {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return appLaunched?.call();
@@ -348,6 +356,7 @@ class _$AppLaunched implements AppLaunched {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -387,6 +396,7 @@ class _$AppLaunched implements AppLaunched {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return appLaunched(this);
@@ -420,6 +430,7 @@ class _$AppLaunched implements AppLaunched {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return appLaunched?.call(this);
@@ -453,6 +464,7 @@ class _$AppLaunched implements AppLaunched {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -530,6 +542,7 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return agentNameSubmitted();
@@ -563,6 +576,7 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return agentNameSubmitted?.call();
@@ -596,6 +610,7 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -635,6 +650,7 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return agentNameSubmitted(this);
@@ -668,6 +684,7 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return agentNameSubmitted?.call(this);
@@ -701,6 +718,7 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -778,6 +796,7 @@ class _$NewClusterPressed implements NewClusterPressed {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return newClusterPressed();
@@ -811,6 +830,7 @@ class _$NewClusterPressed implements NewClusterPressed {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return newClusterPressed?.call();
@@ -844,6 +864,7 @@ class _$NewClusterPressed implements NewClusterPressed {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -883,6 +904,7 @@ class _$NewClusterPressed implements NewClusterPressed {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return newClusterPressed(this);
@@ -916,6 +938,7 @@ class _$NewClusterPressed implements NewClusterPressed {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return newClusterPressed?.call(this);
@@ -949,6 +972,7 @@ class _$NewClusterPressed implements NewClusterPressed {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -1063,6 +1087,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return deleteAgentPressed(agent);
@@ -1096,6 +1121,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return deleteAgentPressed?.call(agent);
@@ -1129,6 +1155,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -1168,6 +1195,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return deleteAgentPressed(this);
@@ -1201,6 +1229,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return deleteAgentPressed?.call(this);
@@ -1234,6 +1263,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -1352,6 +1382,7 @@ class _$AgentPressed implements AgentPressed {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return agentPressed(agent);
@@ -1385,6 +1416,7 @@ class _$AgentPressed implements AgentPressed {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return agentPressed?.call(agent);
@@ -1418,6 +1450,7 @@ class _$AgentPressed implements AgentPressed {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -1457,6 +1490,7 @@ class _$AgentPressed implements AgentPressed {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return agentPressed(this);
@@ -1490,6 +1524,7 @@ class _$AgentPressed implements AgentPressed {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return agentPressed?.call(this);
@@ -1523,6 +1558,7 @@ class _$AgentPressed implements AgentPressed {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -1641,6 +1677,7 @@ class _$ClusterPressed implements ClusterPressed {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return clusterPressed(cluster);
@@ -1674,6 +1711,7 @@ class _$ClusterPressed implements ClusterPressed {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return clusterPressed?.call(cluster);
@@ -1707,6 +1745,7 @@ class _$ClusterPressed implements ClusterPressed {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -1746,6 +1785,7 @@ class _$ClusterPressed implements ClusterPressed {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return clusterPressed(this);
@@ -1779,6 +1819,7 @@ class _$ClusterPressed implements ClusterPressed {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return clusterPressed?.call(this);
@@ -1812,6 +1853,7 @@ class _$ClusterPressed implements ClusterPressed {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -1920,6 +1962,7 @@ class _$ViewPressed implements ViewPressed {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return viewPressed(view);
@@ -1953,6 +1996,7 @@ class _$ViewPressed implements ViewPressed {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return viewPressed?.call(view);
@@ -1986,6 +2030,7 @@ class _$ViewPressed implements ViewPressed {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -2025,6 +2070,7 @@ class _$ViewPressed implements ViewPressed {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return viewPressed(this);
@@ -2058,6 +2104,7 @@ class _$ViewPressed implements ViewPressed {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return viewPressed?.call(this);
@@ -2091,6 +2138,7 @@ class _$ViewPressed implements ViewPressed {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -2200,6 +2248,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return apiKeyChanged(apiKeyStr);
@@ -2233,6 +2282,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return apiKeyChanged?.call(apiKeyStr);
@@ -2266,6 +2316,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -2305,6 +2356,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return apiKeyChanged(this);
@@ -2338,6 +2390,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return apiKeyChanged?.call(this);
@@ -2371,6 +2424,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -2453,6 +2507,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return apiKeySubmitted();
@@ -2486,6 +2541,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return apiKeySubmitted?.call();
@@ -2519,6 +2575,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -2558,6 +2615,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return apiKeySubmitted(this);
@@ -2591,6 +2649,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return apiKeySubmitted?.call(this);
@@ -2624,6 +2683,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -2727,6 +2787,7 @@ class _$AgentNameChanged implements AgentNameChanged {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return agentNameChanged(nameStr);
@@ -2760,6 +2821,7 @@ class _$AgentNameChanged implements AgentNameChanged {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return agentNameChanged?.call(nameStr);
@@ -2793,6 +2855,7 @@ class _$AgentNameChanged implements AgentNameChanged {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -2832,6 +2895,7 @@ class _$AgentNameChanged implements AgentNameChanged {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return agentNameChanged(this);
@@ -2865,6 +2929,7 @@ class _$AgentNameChanged implements AgentNameChanged {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return agentNameChanged?.call(this);
@@ -2898,6 +2963,7 @@ class _$AgentNameChanged implements AgentNameChanged {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -3007,6 +3073,7 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return clusterNameChanged(nameStr);
@@ -3040,6 +3107,7 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return clusterNameChanged?.call(nameStr);
@@ -3073,6 +3141,7 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -3112,6 +3181,7 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return clusterNameChanged(this);
@@ -3145,6 +3215,7 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return clusterNameChanged?.call(this);
@@ -3178,6 +3249,7 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -3287,6 +3359,7 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return clusterGoalChanged(goalStr);
@@ -3320,6 +3393,7 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return clusterGoalChanged?.call(goalStr);
@@ -3353,6 +3427,7 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -3392,6 +3467,7 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return clusterGoalChanged(this);
@@ -3425,6 +3501,7 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return clusterGoalChanged?.call(this);
@@ -3458,6 +3535,7 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -3568,6 +3646,7 @@ class _$ClusterKnowledgeChanged implements ClusterKnowledgeChanged {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return clusterKnowledgeChanged(knowledgeStr);
@@ -3601,6 +3680,7 @@ class _$ClusterKnowledgeChanged implements ClusterKnowledgeChanged {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return clusterKnowledgeChanged?.call(knowledgeStr);
@@ -3634,6 +3714,7 @@ class _$ClusterKnowledgeChanged implements ClusterKnowledgeChanged {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -3673,6 +3754,7 @@ class _$ClusterKnowledgeChanged implements ClusterKnowledgeChanged {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return clusterKnowledgeChanged(this);
@@ -3706,6 +3788,7 @@ class _$ClusterKnowledgeChanged implements ClusterKnowledgeChanged {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return clusterKnowledgeChanged?.call(this);
@@ -3739,6 +3822,7 @@ class _$ClusterKnowledgeChanged implements ClusterKnowledgeChanged {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -3822,6 +3906,7 @@ class _$DeployPressed implements DeployPressed {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return deployPressed();
@@ -3855,6 +3940,7 @@ class _$DeployPressed implements DeployPressed {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return deployPressed?.call();
@@ -3888,6 +3974,7 @@ class _$DeployPressed implements DeployPressed {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -3927,6 +4014,7 @@ class _$DeployPressed implements DeployPressed {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return deployPressed(this);
@@ -3960,6 +4048,7 @@ class _$DeployPressed implements DeployPressed {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return deployPressed?.call(this);
@@ -3993,6 +4082,7 @@ class _$DeployPressed implements DeployPressed {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -4070,6 +4160,7 @@ class _$_SettingsNotFound implements _SettingsNotFound {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return settingsNotFound();
@@ -4103,6 +4194,7 @@ class _$_SettingsNotFound implements _SettingsNotFound {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return settingsNotFound?.call();
@@ -4136,6 +4228,7 @@ class _$_SettingsNotFound implements _SettingsNotFound {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -4175,6 +4268,7 @@ class _$_SettingsNotFound implements _SettingsNotFound {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return settingsNotFound(this);
@@ -4208,6 +4302,7 @@ class _$_SettingsNotFound implements _SettingsNotFound {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return settingsNotFound?.call(this);
@@ -4241,6 +4336,7 @@ class _$_SettingsNotFound implements _SettingsNotFound {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -4318,6 +4414,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return apiKeyUpdated();
@@ -4351,6 +4448,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return apiKeyUpdated?.call();
@@ -4384,6 +4482,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -4423,6 +4522,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return apiKeyUpdated(this);
@@ -4456,6 +4556,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return apiKeyUpdated?.call(this);
@@ -4489,6 +4590,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -4566,6 +4668,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return clientInitialized();
@@ -4599,6 +4702,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return clientInitialized?.call();
@@ -4632,6 +4736,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -4671,6 +4776,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return clientInitialized(this);
@@ -4704,6 +4810,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return clientInitialized?.call(this);
@@ -4737,6 +4844,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -4814,6 +4922,7 @@ class _$_KnowledgeEmbedded implements _KnowledgeEmbedded {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return knowledgeEmbedded();
@@ -4847,6 +4956,7 @@ class _$_KnowledgeEmbedded implements _KnowledgeEmbedded {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return knowledgeEmbedded?.call();
@@ -4880,6 +4990,7 @@ class _$_KnowledgeEmbedded implements _KnowledgeEmbedded {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -4919,6 +5030,7 @@ class _$_KnowledgeEmbedded implements _KnowledgeEmbedded {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return knowledgeEmbedded(this);
@@ -4952,6 +5064,7 @@ class _$_KnowledgeEmbedded implements _KnowledgeEmbedded {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return knowledgeEmbedded?.call(this);
@@ -4985,6 +5098,7 @@ class _$_KnowledgeEmbedded implements _KnowledgeEmbedded {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -5062,6 +5176,7 @@ class _$_TasksCreated implements _TasksCreated {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return tasksCreated();
@@ -5095,6 +5210,7 @@ class _$_TasksCreated implements _TasksCreated {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return tasksCreated?.call();
@@ -5128,6 +5244,7 @@ class _$_TasksCreated implements _TasksCreated {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -5167,6 +5284,7 @@ class _$_TasksCreated implements _TasksCreated {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return tasksCreated(this);
@@ -5200,6 +5318,7 @@ class _$_TasksCreated implements _TasksCreated {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return tasksCreated?.call(this);
@@ -5233,6 +5352,7 @@ class _$_TasksCreated implements _TasksCreated {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -5310,6 +5430,7 @@ class _$_PrioritizeTasks implements _PrioritizeTasks {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return prioritizeTasks();
@@ -5343,6 +5464,7 @@ class _$_PrioritizeTasks implements _PrioritizeTasks {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return prioritizeTasks?.call();
@@ -5376,6 +5498,7 @@ class _$_PrioritizeTasks implements _PrioritizeTasks {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -5415,6 +5538,7 @@ class _$_PrioritizeTasks implements _PrioritizeTasks {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return prioritizeTasks(this);
@@ -5448,6 +5572,7 @@ class _$_PrioritizeTasks implements _PrioritizeTasks {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return prioritizeTasks?.call(this);
@@ -5481,6 +5606,7 @@ class _$_PrioritizeTasks implements _PrioritizeTasks {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -5558,6 +5684,7 @@ class _$_TasksPrioritized implements _TasksPrioritized {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return tasksPrioritized();
@@ -5591,6 +5718,7 @@ class _$_TasksPrioritized implements _TasksPrioritized {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return tasksPrioritized?.call();
@@ -5624,6 +5752,7 @@ class _$_TasksPrioritized implements _TasksPrioritized {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -5663,6 +5792,7 @@ class _$_TasksPrioritized implements _TasksPrioritized {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return tasksPrioritized(this);
@@ -5696,6 +5826,7 @@ class _$_TasksPrioritized implements _TasksPrioritized {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return tasksPrioritized?.call(this);
@@ -5729,6 +5860,7 @@ class _$_TasksPrioritized implements _TasksPrioritized {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -5807,6 +5939,7 @@ class _$_TaskDescriptionEmbedded implements _TaskDescriptionEmbedded {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return taskDescriptionEmbedded();
@@ -5840,6 +5973,7 @@ class _$_TaskDescriptionEmbedded implements _TaskDescriptionEmbedded {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return taskDescriptionEmbedded?.call();
@@ -5873,6 +6007,7 @@ class _$_TaskDescriptionEmbedded implements _TaskDescriptionEmbedded {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -5912,6 +6047,7 @@ class _$_TaskDescriptionEmbedded implements _TaskDescriptionEmbedded {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return taskDescriptionEmbedded(this);
@@ -5945,6 +6081,7 @@ class _$_TaskDescriptionEmbedded implements _TaskDescriptionEmbedded {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return taskDescriptionEmbedded?.call(this);
@@ -5978,6 +6115,7 @@ class _$_TaskDescriptionEmbedded implements _TaskDescriptionEmbedded {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -6055,6 +6193,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return taskExecuted();
@@ -6088,6 +6227,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return taskExecuted?.call();
@@ -6121,6 +6261,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -6160,6 +6301,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return taskExecuted(this);
@@ -6193,6 +6335,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return taskExecuted?.call(this);
@@ -6226,6 +6369,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -6303,6 +6447,7 @@ class _$_TaskResultEmbedded implements _TaskResultEmbedded {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return taskResultEmbedded();
@@ -6336,6 +6481,7 @@ class _$_TaskResultEmbedded implements _TaskResultEmbedded {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return taskResultEmbedded?.call();
@@ -6369,6 +6515,7 @@ class _$_TaskResultEmbedded implements _TaskResultEmbedded {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -6408,6 +6555,7 @@ class _$_TaskResultEmbedded implements _TaskResultEmbedded {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return taskResultEmbedded(this);
@@ -6441,6 +6589,7 @@ class _$_TaskResultEmbedded implements _TaskResultEmbedded {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return taskResultEmbedded?.call(this);
@@ -6474,6 +6623,7 @@ class _$_TaskResultEmbedded implements _TaskResultEmbedded {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -6551,6 +6701,7 @@ class _$_TaskCreated implements _TaskCreated {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return taskCreated();
@@ -6584,6 +6735,7 @@ class _$_TaskCreated implements _TaskCreated {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return taskCreated?.call();
@@ -6617,6 +6769,7 @@ class _$_TaskCreated implements _TaskCreated {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -6656,6 +6809,7 @@ class _$_TaskCreated implements _TaskCreated {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return taskCreated(this);
@@ -6689,6 +6843,7 @@ class _$_TaskCreated implements _TaskCreated {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return taskCreated?.call(this);
@@ -6722,6 +6877,7 @@ class _$_TaskCreated implements _TaskCreated {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {
@@ -6734,6 +6890,260 @@ class _$_TaskCreated implements _TaskCreated {
 
 abstract class _TaskCreated implements HomeEvent {
   const factory _TaskCreated() = _$_TaskCreated;
+}
+
+/// @nodoc
+abstract class _$$_NoNewTaskCopyWith<$Res> {
+  factory _$$_NoNewTaskCopyWith(
+          _$_NoNewTask value, $Res Function(_$_NoNewTask) then) =
+      __$$_NoNewTaskCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_NoNewTaskCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$_NoNewTask>
+    implements _$$_NoNewTaskCopyWith<$Res> {
+  __$$_NoNewTaskCopyWithImpl(
+      _$_NoNewTask _value, $Res Function(_$_NoNewTask) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$_NoNewTask implements _NoNewTask {
+  const _$_NoNewTask();
+
+  @override
+  String toString() {
+    return 'HomeEvent.noNewTask()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_NoNewTask);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() appLaunched,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
+    required TResult Function(Agent agent) deleteAgentPressed,
+    required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
+    required TResult Function(String knowledgeStr) clusterKnowledgeChanged,
+    required TResult Function() deployPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function() apiKeyUpdated,
+    required TResult Function() clientInitialized,
+    required TResult Function() knowledgeEmbedded,
+    required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
+    required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
+    required TResult Function() finished,
+  }) {
+    return noNewTask();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? appLaunched,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
+    TResult? Function(Agent agent)? deleteAgentPressed,
+    TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
+    TResult? Function(String knowledgeStr)? clusterKnowledgeChanged,
+    TResult? Function()? deployPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function()? apiKeyUpdated,
+    TResult? Function()? clientInitialized,
+    TResult? Function()? knowledgeEmbedded,
+    TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
+    TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
+    TResult? Function()? finished,
+  }) {
+    return noNewTask?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? appLaunched,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
+    TResult Function(Agent agent)? deleteAgentPressed,
+    TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
+    TResult Function(String knowledgeStr)? clusterKnowledgeChanged,
+    TResult Function()? deployPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function()? apiKeyUpdated,
+    TResult Function()? clientInitialized,
+    TResult Function()? knowledgeEmbedded,
+    TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
+    TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
+    TResult Function()? finished,
+    required TResult orElse(),
+  }) {
+    if (noNewTask != null) {
+      return noNewTask();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
+    required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
+    required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
+    required TResult Function(ClusterKnowledgeChanged value)
+        clusterKnowledgeChanged,
+    required TResult Function(DeployPressed value) deployPressed,
+    required TResult Function(_SettingsNotFound value) settingsNotFound,
+    required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
+    required TResult Function(_ClientInitialized value) clientInitialized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
+    required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
+    required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
+    required TResult Function(_Finished value) finished,
+  }) {
+    return noNewTask(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
+    TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult? Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
+    TResult? Function(DeployPressed value)? deployPressed,
+    TResult? Function(_SettingsNotFound value)? settingsNotFound,
+    TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult? Function(_ClientInitialized value)? clientInitialized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
+    TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
+    TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
+    TResult? Function(_Finished value)? finished,
+  }) {
+    return noNewTask?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
+    TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
+    TResult Function(DeployPressed value)? deployPressed,
+    TResult Function(_SettingsNotFound value)? settingsNotFound,
+    TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult Function(_ClientInitialized value)? clientInitialized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
+    TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
+    TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
+    TResult Function(_Finished value)? finished,
+    required TResult orElse(),
+  }) {
+    if (noNewTask != null) {
+      return noNewTask(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NoNewTask implements HomeEvent {
+  const factory _NoNewTask() = _$_NoNewTask;
 }
 
 /// @nodoc
@@ -6799,6 +7209,7 @@ class _$_Finished implements _Finished {
     required TResult Function() taskExecuted,
     required TResult Function() taskResultEmbedded,
     required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
     required TResult Function() finished,
   }) {
     return finished();
@@ -6832,6 +7243,7 @@ class _$_Finished implements _Finished {
     TResult? Function()? taskExecuted,
     TResult? Function()? taskResultEmbedded,
     TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
     TResult? Function()? finished,
   }) {
     return finished?.call();
@@ -6865,6 +7277,7 @@ class _$_Finished implements _Finished {
     TResult Function()? taskExecuted,
     TResult Function()? taskResultEmbedded,
     TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
     TResult Function()? finished,
     required TResult orElse(),
   }) {
@@ -6904,6 +7317,7 @@ class _$_Finished implements _Finished {
     required TResult Function(_TaskExecuted value) taskExecuted,
     required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
     required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
   }) {
     return finished(this);
@@ -6937,6 +7351,7 @@ class _$_Finished implements _Finished {
     TResult? Function(_TaskExecuted value)? taskExecuted,
     TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
   }) {
     return finished?.call(this);
@@ -6970,6 +7385,7 @@ class _$_Finished implements _Finished {
     TResult Function(_TaskExecuted value)? taskExecuted,
     TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
     TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
     required TResult orElse(),
   }) {

@@ -82,5 +82,8 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.taskCreated() = _TaskCreated;
 
   /// @nodoc
+  const factory HomeEvent.noNewTask() = _NoNewTask;
+
+  /// @nodoc
   const factory HomeEvent.finished() = _Finished;
 }
