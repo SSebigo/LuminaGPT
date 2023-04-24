@@ -574,55 +574,16 @@ class AgentsRepository implements IAgentsRepository {
     } else if (match2 != null) {
       final listContent = match2.group(0)!;
       final jsonList = jsonDecode(listContent) as List<dynamic>;
-      final priorities =
-          jsonList.map((item) => int.parse(item['id'] as String)).toList();
+      final priorities = jsonList
+          .map(
+            (item) => int.parse((item as Map<String, dynamic>)['id'] as String),
+          )
+          .toList();
 
       return priorities;
     } else {
       return [];
     }
-  }
-
-  String _extractTask(String input) {
-    final pattern1 =
-        RegExp(r'\{\s*"([^"\\]|\\.)*"\s*:\s*"((?:[^"\\]|\\.)*)"\s*\}');
-    final pattern2 = RegExp(r'^\s*\[?"((?:[^"\\]|\\.)+)"?\]?\s*$');
-    final pattern3 = RegExp(r"^'([^']+)'$");
-    final pattern4 = RegExp(r'^(\S.*\S)$');
-    // Add a new pattern to match any string followed by ":"
-    final pattern5 = RegExp(r'^[^:]*:\s*');
-
-    // Remove any string followed by ":" from the input
-    final tmpInput = input.replaceFirst(pattern5, '');
-
-    final match1 = pattern1.firstMatch(tmpInput);
-    final match2 = pattern2.firstMatch(tmpInput);
-    final match3 = pattern3.firstMatch(tmpInput);
-    final match4 = pattern4.firstMatch(tmpInput);
-
-    if (match1 != null) {
-      return match1.group(2)!;
-    } else if (match2 != null) {
-      return match2.group(1)!;
-    } else if (match3 != null) {
-      return match3.group(1)!;
-    } else if (match4 != null) {
-      return match4.group(1)!;
-    } else {
-      return '';
-    }
-  }
-
-  bool _containsSpecialCharacters(String input) {
-    final pattern = RegExp(r'''[^A-Za-z0-9\s,.\'"]''');
-
-    return pattern.hasMatch(input);
-  }
-
-  List<String> _filterSpecialCharacters(List<String> inputList) {
-    return inputList
-        .where((input) => !_containsSpecialCharacters(input))
-        .toList();
   }
 
   String _removeLabel(String input) {
