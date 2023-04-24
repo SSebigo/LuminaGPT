@@ -22,7 +22,7 @@ Future<void> main() async {
     center: true,
     backgroundColor: Colors.transparent,
     skipTaskbar: false,
-    title: 'LuminaGPT',
+    title: 'LuminaGPT Dev',
   );
 
   await windowManager.waitUntilReadyToShow(windowOptions, () async {
