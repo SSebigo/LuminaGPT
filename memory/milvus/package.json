@@ -1,0 +1,23 @@
+{
+  "name": "lumina_milvus",
+  "version": "1.0.0",
+  "description": "Milvus database for LuminaGPT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SSebigo/LuminaGPT.git"
+  },
+  "author": "SSebigo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SSebigo/LuminaGPT/issues"
+  },
+  "homepage": "https://github.com/SSebigo/LuminaGPT#readme",
+  "dependencies": {
+    "@zilliz/milvus2-sdk-node": "2.2.6",
+    "typescript": "5.0.4"
+  }
+}

@@ -1,2 +1,2 @@
 # LuminaGPT
-Desktop UI for autonomous goal driven agents.
+Desktop app for autonomous goal driven worldbuilding agents.
