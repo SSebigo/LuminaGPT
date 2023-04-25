@@ -45,6 +45,7 @@ mixin _$HomeEvent {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +77,7 @@ mixin _$HomeEvent {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -107,6 +109,7 @@ mixin _$HomeEvent {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -141,6 +144,7 @@ mixin _$HomeEvent {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -172,6 +176,7 @@ mixin _$HomeEvent {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -203,6 +208,7 @@ mixin _$HomeEvent {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -290,6 +296,7 @@ class _$AppLaunched implements AppLaunched {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return appLaunched();
   }
@@ -324,6 +331,7 @@ class _$AppLaunched implements AppLaunched {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return appLaunched?.call();
   }
@@ -358,6 +366,7 @@ class _$AppLaunched implements AppLaunched {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (appLaunched != null) {
@@ -398,6 +407,7 @@ class _$AppLaunched implements AppLaunched {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return appLaunched(this);
   }
@@ -432,6 +442,7 @@ class _$AppLaunched implements AppLaunched {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return appLaunched?.call(this);
   }
@@ -466,6 +477,7 @@ class _$AppLaunched implements AppLaunched {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (appLaunched != null) {
@@ -544,6 +556,7 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return agentNameSubmitted();
   }
@@ -578,6 +591,7 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return agentNameSubmitted?.call();
   }
@@ -612,6 +626,7 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (agentNameSubmitted != null) {
@@ -652,6 +667,7 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return agentNameSubmitted(this);
   }
@@ -686,6 +702,7 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return agentNameSubmitted?.call(this);
   }
@@ -720,6 +737,7 @@ class _$AgentNameSubmitted implements AgentNameSubmitted {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (agentNameSubmitted != null) {
@@ -798,6 +816,7 @@ class _$NewClusterPressed implements NewClusterPressed {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return newClusterPressed();
   }
@@ -832,6 +851,7 @@ class _$NewClusterPressed implements NewClusterPressed {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return newClusterPressed?.call();
   }
@@ -866,6 +886,7 @@ class _$NewClusterPressed implements NewClusterPressed {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (newClusterPressed != null) {
@@ -906,6 +927,7 @@ class _$NewClusterPressed implements NewClusterPressed {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return newClusterPressed(this);
   }
@@ -940,6 +962,7 @@ class _$NewClusterPressed implements NewClusterPressed {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return newClusterPressed?.call(this);
   }
@@ -974,6 +997,7 @@ class _$NewClusterPressed implements NewClusterPressed {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (newClusterPressed != null) {
@@ -1089,6 +1113,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return deleteAgentPressed(agent);
   }
@@ -1123,6 +1148,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return deleteAgentPressed?.call(agent);
   }
@@ -1157,6 +1183,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (deleteAgentPressed != null) {
@@ -1197,6 +1224,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return deleteAgentPressed(this);
   }
@@ -1231,6 +1259,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return deleteAgentPressed?.call(this);
   }
@@ -1265,6 +1294,7 @@ class _$DeleteAgentPressed implements DeleteAgentPressed {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (deleteAgentPressed != null) {
@@ -1384,6 +1414,7 @@ class _$AgentPressed implements AgentPressed {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return agentPressed(agent);
   }
@@ -1418,6 +1449,7 @@ class _$AgentPressed implements AgentPressed {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return agentPressed?.call(agent);
   }
@@ -1452,6 +1484,7 @@ class _$AgentPressed implements AgentPressed {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (agentPressed != null) {
@@ -1492,6 +1525,7 @@ class _$AgentPressed implements AgentPressed {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return agentPressed(this);
   }
@@ -1526,6 +1560,7 @@ class _$AgentPressed implements AgentPressed {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return agentPressed?.call(this);
   }
@@ -1560,6 +1595,7 @@ class _$AgentPressed implements AgentPressed {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (agentPressed != null) {
@@ -1679,6 +1715,7 @@ class _$ClusterPressed implements ClusterPressed {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return clusterPressed(cluster);
   }
@@ -1713,6 +1750,7 @@ class _$ClusterPressed implements ClusterPressed {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return clusterPressed?.call(cluster);
   }
@@ -1747,6 +1785,7 @@ class _$ClusterPressed implements ClusterPressed {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (clusterPressed != null) {
@@ -1787,6 +1826,7 @@ class _$ClusterPressed implements ClusterPressed {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return clusterPressed(this);
   }
@@ -1821,6 +1861,7 @@ class _$ClusterPressed implements ClusterPressed {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return clusterPressed?.call(this);
   }
@@ -1855,6 +1896,7 @@ class _$ClusterPressed implements ClusterPressed {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (clusterPressed != null) {
@@ -1964,6 +2006,7 @@ class _$ViewPressed implements ViewPressed {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return viewPressed(view);
   }
@@ -1998,6 +2041,7 @@ class _$ViewPressed implements ViewPressed {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return viewPressed?.call(view);
   }
@@ -2032,6 +2076,7 @@ class _$ViewPressed implements ViewPressed {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (viewPressed != null) {
@@ -2072,6 +2117,7 @@ class _$ViewPressed implements ViewPressed {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return viewPressed(this);
   }
@@ -2106,6 +2152,7 @@ class _$ViewPressed implements ViewPressed {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return viewPressed?.call(this);
   }
@@ -2140,6 +2187,7 @@ class _$ViewPressed implements ViewPressed {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (viewPressed != null) {
@@ -2250,6 +2298,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return apiKeyChanged(apiKeyStr);
   }
@@ -2284,6 +2333,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return apiKeyChanged?.call(apiKeyStr);
   }
@@ -2318,6 +2368,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (apiKeyChanged != null) {
@@ -2358,6 +2409,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return apiKeyChanged(this);
   }
@@ -2392,6 +2444,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return apiKeyChanged?.call(this);
   }
@@ -2426,6 +2479,7 @@ class _$ApiKeyChanged implements ApiKeyChanged {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (apiKeyChanged != null) {
@@ -2509,6 +2563,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return apiKeySubmitted();
   }
@@ -2543,6 +2598,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return apiKeySubmitted?.call();
   }
@@ -2577,6 +2633,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (apiKeySubmitted != null) {
@@ -2617,6 +2674,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return apiKeySubmitted(this);
   }
@@ -2651,6 +2709,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return apiKeySubmitted?.call(this);
   }
@@ -2685,6 +2744,7 @@ class _$ApiKeySubmitted implements ApiKeySubmitted {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (apiKeySubmitted != null) {
@@ -2789,6 +2849,7 @@ class _$AgentNameChanged implements AgentNameChanged {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return agentNameChanged(nameStr);
   }
@@ -2823,6 +2884,7 @@ class _$AgentNameChanged implements AgentNameChanged {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return agentNameChanged?.call(nameStr);
   }
@@ -2857,6 +2919,7 @@ class _$AgentNameChanged implements AgentNameChanged {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (agentNameChanged != null) {
@@ -2897,6 +2960,7 @@ class _$AgentNameChanged implements AgentNameChanged {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return agentNameChanged(this);
   }
@@ -2931,6 +2995,7 @@ class _$AgentNameChanged implements AgentNameChanged {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return agentNameChanged?.call(this);
   }
@@ -2965,6 +3030,7 @@ class _$AgentNameChanged implements AgentNameChanged {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (agentNameChanged != null) {
@@ -3075,6 +3141,7 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return clusterNameChanged(nameStr);
   }
@@ -3109,6 +3176,7 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return clusterNameChanged?.call(nameStr);
   }
@@ -3143,6 +3211,7 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (clusterNameChanged != null) {
@@ -3183,6 +3252,7 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return clusterNameChanged(this);
   }
@@ -3217,6 +3287,7 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return clusterNameChanged?.call(this);
   }
@@ -3251,6 +3322,7 @@ class _$ClusterNameChanged implements ClusterNameChanged {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (clusterNameChanged != null) {
@@ -3361,6 +3433,7 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return clusterGoalChanged(goalStr);
   }
@@ -3395,6 +3468,7 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return clusterGoalChanged?.call(goalStr);
   }
@@ -3429,6 +3503,7 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (clusterGoalChanged != null) {
@@ -3469,6 +3544,7 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return clusterGoalChanged(this);
   }
@@ -3503,6 +3579,7 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return clusterGoalChanged?.call(this);
   }
@@ -3537,6 +3614,7 @@ class _$ClusterGoalChanged implements ClusterGoalChanged {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (clusterGoalChanged != null) {
@@ -3648,6 +3726,7 @@ class _$ClusterKnowledgeChanged implements ClusterKnowledgeChanged {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return clusterKnowledgeChanged(knowledgeStr);
   }
@@ -3682,6 +3761,7 @@ class _$ClusterKnowledgeChanged implements ClusterKnowledgeChanged {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return clusterKnowledgeChanged?.call(knowledgeStr);
   }
@@ -3716,6 +3796,7 @@ class _$ClusterKnowledgeChanged implements ClusterKnowledgeChanged {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (clusterKnowledgeChanged != null) {
@@ -3756,6 +3837,7 @@ class _$ClusterKnowledgeChanged implements ClusterKnowledgeChanged {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return clusterKnowledgeChanged(this);
   }
@@ -3790,6 +3872,7 @@ class _$ClusterKnowledgeChanged implements ClusterKnowledgeChanged {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return clusterKnowledgeChanged?.call(this);
   }
@@ -3824,6 +3907,7 @@ class _$ClusterKnowledgeChanged implements ClusterKnowledgeChanged {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (clusterKnowledgeChanged != null) {
@@ -3908,6 +3992,7 @@ class _$DeployPressed implements DeployPressed {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return deployPressed();
   }
@@ -3942,6 +4027,7 @@ class _$DeployPressed implements DeployPressed {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return deployPressed?.call();
   }
@@ -3976,6 +4062,7 @@ class _$DeployPressed implements DeployPressed {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (deployPressed != null) {
@@ -4016,6 +4103,7 @@ class _$DeployPressed implements DeployPressed {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return deployPressed(this);
   }
@@ -4050,6 +4138,7 @@ class _$DeployPressed implements DeployPressed {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return deployPressed?.call(this);
   }
@@ -4084,6 +4173,7 @@ class _$DeployPressed implements DeployPressed {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (deployPressed != null) {
@@ -4162,6 +4252,7 @@ class _$_SettingsNotFound implements _SettingsNotFound {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return settingsNotFound();
   }
@@ -4196,6 +4287,7 @@ class _$_SettingsNotFound implements _SettingsNotFound {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return settingsNotFound?.call();
   }
@@ -4230,6 +4322,7 @@ class _$_SettingsNotFound implements _SettingsNotFound {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (settingsNotFound != null) {
@@ -4270,6 +4363,7 @@ class _$_SettingsNotFound implements _SettingsNotFound {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return settingsNotFound(this);
   }
@@ -4304,6 +4398,7 @@ class _$_SettingsNotFound implements _SettingsNotFound {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return settingsNotFound?.call(this);
   }
@@ -4338,6 +4433,7 @@ class _$_SettingsNotFound implements _SettingsNotFound {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (settingsNotFound != null) {
@@ -4416,6 +4512,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return apiKeyUpdated();
   }
@@ -4450,6 +4547,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return apiKeyUpdated?.call();
   }
@@ -4484,6 +4582,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (apiKeyUpdated != null) {
@@ -4524,6 +4623,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return apiKeyUpdated(this);
   }
@@ -4558,6 +4658,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return apiKeyUpdated?.call(this);
   }
@@ -4592,6 +4693,7 @@ class _$_ApiKeyUpdated implements _ApiKeyUpdated {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (apiKeyUpdated != null) {
@@ -4670,6 +4772,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return clientInitialized();
   }
@@ -4704,6 +4807,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return clientInitialized?.call();
   }
@@ -4738,6 +4842,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (clientInitialized != null) {
@@ -4778,6 +4883,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return clientInitialized(this);
   }
@@ -4812,6 +4918,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return clientInitialized?.call(this);
   }
@@ -4846,6 +4953,7 @@ class _$_ClientInitialized implements _ClientInitialized {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (clientInitialized != null) {
@@ -4924,6 +5032,7 @@ class _$_KnowledgeEmbedded implements _KnowledgeEmbedded {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return knowledgeEmbedded();
   }
@@ -4958,6 +5067,7 @@ class _$_KnowledgeEmbedded implements _KnowledgeEmbedded {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return knowledgeEmbedded?.call();
   }
@@ -4992,6 +5102,7 @@ class _$_KnowledgeEmbedded implements _KnowledgeEmbedded {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (knowledgeEmbedded != null) {
@@ -5032,6 +5143,7 @@ class _$_KnowledgeEmbedded implements _KnowledgeEmbedded {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return knowledgeEmbedded(this);
   }
@@ -5066,6 +5178,7 @@ class _$_KnowledgeEmbedded implements _KnowledgeEmbedded {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return knowledgeEmbedded?.call(this);
   }
@@ -5100,6 +5213,7 @@ class _$_KnowledgeEmbedded implements _KnowledgeEmbedded {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (knowledgeEmbedded != null) {
@@ -5178,6 +5292,7 @@ class _$_TasksCreated implements _TasksCreated {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return tasksCreated();
   }
@@ -5212,6 +5327,7 @@ class _$_TasksCreated implements _TasksCreated {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return tasksCreated?.call();
   }
@@ -5246,6 +5362,7 @@ class _$_TasksCreated implements _TasksCreated {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (tasksCreated != null) {
@@ -5286,6 +5403,7 @@ class _$_TasksCreated implements _TasksCreated {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return tasksCreated(this);
   }
@@ -5320,6 +5438,7 @@ class _$_TasksCreated implements _TasksCreated {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return tasksCreated?.call(this);
   }
@@ -5354,6 +5473,7 @@ class _$_TasksCreated implements _TasksCreated {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (tasksCreated != null) {
@@ -5432,6 +5552,7 @@ class _$_PrioritizeTasks implements _PrioritizeTasks {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return prioritizeTasks();
   }
@@ -5466,6 +5587,7 @@ class _$_PrioritizeTasks implements _PrioritizeTasks {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return prioritizeTasks?.call();
   }
@@ -5500,6 +5622,7 @@ class _$_PrioritizeTasks implements _PrioritizeTasks {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (prioritizeTasks != null) {
@@ -5540,6 +5663,7 @@ class _$_PrioritizeTasks implements _PrioritizeTasks {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return prioritizeTasks(this);
   }
@@ -5574,6 +5698,7 @@ class _$_PrioritizeTasks implements _PrioritizeTasks {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return prioritizeTasks?.call(this);
   }
@@ -5608,6 +5733,7 @@ class _$_PrioritizeTasks implements _PrioritizeTasks {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (prioritizeTasks != null) {
@@ -5686,6 +5812,7 @@ class _$_TasksPrioritized implements _TasksPrioritized {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return tasksPrioritized();
   }
@@ -5720,6 +5847,7 @@ class _$_TasksPrioritized implements _TasksPrioritized {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return tasksPrioritized?.call();
   }
@@ -5754,6 +5882,7 @@ class _$_TasksPrioritized implements _TasksPrioritized {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (tasksPrioritized != null) {
@@ -5794,6 +5923,7 @@ class _$_TasksPrioritized implements _TasksPrioritized {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return tasksPrioritized(this);
   }
@@ -5828,6 +5958,7 @@ class _$_TasksPrioritized implements _TasksPrioritized {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return tasksPrioritized?.call(this);
   }
@@ -5862,6 +5993,7 @@ class _$_TasksPrioritized implements _TasksPrioritized {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (tasksPrioritized != null) {
@@ -5941,6 +6073,7 @@ class _$_TaskDescriptionEmbedded implements _TaskDescriptionEmbedded {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return taskDescriptionEmbedded();
   }
@@ -5975,6 +6108,7 @@ class _$_TaskDescriptionEmbedded implements _TaskDescriptionEmbedded {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return taskDescriptionEmbedded?.call();
   }
@@ -6009,6 +6143,7 @@ class _$_TaskDescriptionEmbedded implements _TaskDescriptionEmbedded {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (taskDescriptionEmbedded != null) {
@@ -6049,6 +6184,7 @@ class _$_TaskDescriptionEmbedded implements _TaskDescriptionEmbedded {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return taskDescriptionEmbedded(this);
   }
@@ -6083,6 +6219,7 @@ class _$_TaskDescriptionEmbedded implements _TaskDescriptionEmbedded {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return taskDescriptionEmbedded?.call(this);
   }
@@ -6117,6 +6254,7 @@ class _$_TaskDescriptionEmbedded implements _TaskDescriptionEmbedded {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (taskDescriptionEmbedded != null) {
@@ -6195,6 +6333,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return taskExecuted();
   }
@@ -6229,6 +6368,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return taskExecuted?.call();
   }
@@ -6263,6 +6403,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (taskExecuted != null) {
@@ -6303,6 +6444,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return taskExecuted(this);
   }
@@ -6337,6 +6479,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return taskExecuted?.call(this);
   }
@@ -6371,6 +6514,7 @@ class _$_TaskExecuted implements _TaskExecuted {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (taskExecuted != null) {
@@ -6449,6 +6593,7 @@ class _$_TaskResultEmbedded implements _TaskResultEmbedded {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return taskResultEmbedded();
   }
@@ -6483,6 +6628,7 @@ class _$_TaskResultEmbedded implements _TaskResultEmbedded {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return taskResultEmbedded?.call();
   }
@@ -6517,6 +6663,7 @@ class _$_TaskResultEmbedded implements _TaskResultEmbedded {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (taskResultEmbedded != null) {
@@ -6557,6 +6704,7 @@ class _$_TaskResultEmbedded implements _TaskResultEmbedded {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return taskResultEmbedded(this);
   }
@@ -6591,6 +6739,7 @@ class _$_TaskResultEmbedded implements _TaskResultEmbedded {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return taskResultEmbedded?.call(this);
   }
@@ -6625,6 +6774,7 @@ class _$_TaskResultEmbedded implements _TaskResultEmbedded {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (taskResultEmbedded != null) {
@@ -6703,6 +6853,7 @@ class _$_TaskCreated implements _TaskCreated {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return taskCreated();
   }
@@ -6737,6 +6888,7 @@ class _$_TaskCreated implements _TaskCreated {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return taskCreated?.call();
   }
@@ -6771,6 +6923,7 @@ class _$_TaskCreated implements _TaskCreated {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (taskCreated != null) {
@@ -6811,6 +6964,7 @@ class _$_TaskCreated implements _TaskCreated {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return taskCreated(this);
   }
@@ -6845,6 +6999,7 @@ class _$_TaskCreated implements _TaskCreated {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return taskCreated?.call(this);
   }
@@ -6879,6 +7034,7 @@ class _$_TaskCreated implements _TaskCreated {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (taskCreated != null) {
@@ -6957,6 +7113,7 @@ class _$_NoNewTask implements _NoNewTask {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return noNewTask();
   }
@@ -6991,6 +7148,7 @@ class _$_NoNewTask implements _NoNewTask {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return noNewTask?.call();
   }
@@ -7025,6 +7183,7 @@ class _$_NoNewTask implements _NoNewTask {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (noNewTask != null) {
@@ -7065,6 +7224,7 @@ class _$_NoNewTask implements _NoNewTask {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return noNewTask(this);
   }
@@ -7099,6 +7259,7 @@ class _$_NoNewTask implements _NoNewTask {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return noNewTask?.call(this);
   }
@@ -7133,6 +7294,7 @@ class _$_NoNewTask implements _NoNewTask {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (noNewTask != null) {
@@ -7211,6 +7373,7 @@ class _$_Finished implements _Finished {
     required TResult Function() taskCreated,
     required TResult Function() noNewTask,
     required TResult Function() finished,
+    required TResult Function() stopPressed,
   }) {
     return finished();
   }
@@ -7245,6 +7408,7 @@ class _$_Finished implements _Finished {
     TResult? Function()? taskCreated,
     TResult? Function()? noNewTask,
     TResult? Function()? finished,
+    TResult? Function()? stopPressed,
   }) {
     return finished?.call();
   }
@@ -7279,6 +7443,7 @@ class _$_Finished implements _Finished {
     TResult Function()? taskCreated,
     TResult Function()? noNewTask,
     TResult Function()? finished,
+    TResult Function()? stopPressed,
     required TResult orElse(),
   }) {
     if (finished != null) {
@@ -7319,6 +7484,7 @@ class _$_Finished implements _Finished {
     required TResult Function(_TaskCreated value) taskCreated,
     required TResult Function(_NoNewTask value) noNewTask,
     required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
   }) {
     return finished(this);
   }
@@ -7353,6 +7519,7 @@ class _$_Finished implements _Finished {
     TResult? Function(_TaskCreated value)? taskCreated,
     TResult? Function(_NoNewTask value)? noNewTask,
     TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
   }) {
     return finished?.call(this);
   }
@@ -7387,6 +7554,7 @@ class _$_Finished implements _Finished {
     TResult Function(_TaskCreated value)? taskCreated,
     TResult Function(_NoNewTask value)? noNewTask,
     TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
     required TResult orElse(),
   }) {
     if (finished != null) {
@@ -7398,6 +7566,266 @@ class _$_Finished implements _Finished {
 
 abstract class _Finished implements HomeEvent {
   const factory _Finished() = _$_Finished;
+}
+
+/// @nodoc
+abstract class _$$StopPressedCopyWith<$Res> {
+  factory _$$StopPressedCopyWith(
+          _$StopPressed value, $Res Function(_$StopPressed) then) =
+      __$$StopPressedCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$StopPressedCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$StopPressed>
+    implements _$$StopPressedCopyWith<$Res> {
+  __$$StopPressedCopyWithImpl(
+      _$StopPressed _value, $Res Function(_$StopPressed) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$StopPressed implements StopPressed {
+  const _$StopPressed();
+
+  @override
+  String toString() {
+    return 'HomeEvent.stopPressed()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$StopPressed);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() appLaunched,
+    required TResult Function() agentNameSubmitted,
+    required TResult Function() newClusterPressed,
+    required TResult Function(Agent agent) deleteAgentPressed,
+    required TResult Function(Agent agent) agentPressed,
+    required TResult Function(Cluster cluster) clusterPressed,
+    required TResult Function(View view) viewPressed,
+    required TResult Function(String apiKeyStr) apiKeyChanged,
+    required TResult Function() apiKeySubmitted,
+    required TResult Function(String nameStr) agentNameChanged,
+    required TResult Function(String nameStr) clusterNameChanged,
+    required TResult Function(String goalStr) clusterGoalChanged,
+    required TResult Function(String knowledgeStr) clusterKnowledgeChanged,
+    required TResult Function() deployPressed,
+    required TResult Function() settingsNotFound,
+    required TResult Function() apiKeyUpdated,
+    required TResult Function() clientInitialized,
+    required TResult Function() knowledgeEmbedded,
+    required TResult Function() tasksCreated,
+    required TResult Function() prioritizeTasks,
+    required TResult Function() tasksPrioritized,
+    required TResult Function() taskDescriptionEmbedded,
+    required TResult Function() taskExecuted,
+    required TResult Function() taskResultEmbedded,
+    required TResult Function() taskCreated,
+    required TResult Function() noNewTask,
+    required TResult Function() finished,
+    required TResult Function() stopPressed,
+  }) {
+    return stopPressed();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? appLaunched,
+    TResult? Function()? agentNameSubmitted,
+    TResult? Function()? newClusterPressed,
+    TResult? Function(Agent agent)? deleteAgentPressed,
+    TResult? Function(Agent agent)? agentPressed,
+    TResult? Function(Cluster cluster)? clusterPressed,
+    TResult? Function(View view)? viewPressed,
+    TResult? Function(String apiKeyStr)? apiKeyChanged,
+    TResult? Function()? apiKeySubmitted,
+    TResult? Function(String nameStr)? agentNameChanged,
+    TResult? Function(String nameStr)? clusterNameChanged,
+    TResult? Function(String goalStr)? clusterGoalChanged,
+    TResult? Function(String knowledgeStr)? clusterKnowledgeChanged,
+    TResult? Function()? deployPressed,
+    TResult? Function()? settingsNotFound,
+    TResult? Function()? apiKeyUpdated,
+    TResult? Function()? clientInitialized,
+    TResult? Function()? knowledgeEmbedded,
+    TResult? Function()? tasksCreated,
+    TResult? Function()? prioritizeTasks,
+    TResult? Function()? tasksPrioritized,
+    TResult? Function()? taskDescriptionEmbedded,
+    TResult? Function()? taskExecuted,
+    TResult? Function()? taskResultEmbedded,
+    TResult? Function()? taskCreated,
+    TResult? Function()? noNewTask,
+    TResult? Function()? finished,
+    TResult? Function()? stopPressed,
+  }) {
+    return stopPressed?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? appLaunched,
+    TResult Function()? agentNameSubmitted,
+    TResult Function()? newClusterPressed,
+    TResult Function(Agent agent)? deleteAgentPressed,
+    TResult Function(Agent agent)? agentPressed,
+    TResult Function(Cluster cluster)? clusterPressed,
+    TResult Function(View view)? viewPressed,
+    TResult Function(String apiKeyStr)? apiKeyChanged,
+    TResult Function()? apiKeySubmitted,
+    TResult Function(String nameStr)? agentNameChanged,
+    TResult Function(String nameStr)? clusterNameChanged,
+    TResult Function(String goalStr)? clusterGoalChanged,
+    TResult Function(String knowledgeStr)? clusterKnowledgeChanged,
+    TResult Function()? deployPressed,
+    TResult Function()? settingsNotFound,
+    TResult Function()? apiKeyUpdated,
+    TResult Function()? clientInitialized,
+    TResult Function()? knowledgeEmbedded,
+    TResult Function()? tasksCreated,
+    TResult Function()? prioritizeTasks,
+    TResult Function()? tasksPrioritized,
+    TResult Function()? taskDescriptionEmbedded,
+    TResult Function()? taskExecuted,
+    TResult Function()? taskResultEmbedded,
+    TResult Function()? taskCreated,
+    TResult Function()? noNewTask,
+    TResult Function()? finished,
+    TResult Function()? stopPressed,
+    required TResult orElse(),
+  }) {
+    if (stopPressed != null) {
+      return stopPressed();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(AppLaunched value) appLaunched,
+    required TResult Function(AgentNameSubmitted value) agentNameSubmitted,
+    required TResult Function(NewClusterPressed value) newClusterPressed,
+    required TResult Function(DeleteAgentPressed value) deleteAgentPressed,
+    required TResult Function(AgentPressed value) agentPressed,
+    required TResult Function(ClusterPressed value) clusterPressed,
+    required TResult Function(ViewPressed value) viewPressed,
+    required TResult Function(ApiKeyChanged value) apiKeyChanged,
+    required TResult Function(ApiKeySubmitted value) apiKeySubmitted,
+    required TResult Function(AgentNameChanged value) agentNameChanged,
+    required TResult Function(ClusterNameChanged value) clusterNameChanged,
+    required TResult Function(ClusterGoalChanged value) clusterGoalChanged,
+    required TResult Function(ClusterKnowledgeChanged value)
+        clusterKnowledgeChanged,
+    required TResult Function(DeployPressed value) deployPressed,
+    required TResult Function(_SettingsNotFound value) settingsNotFound,
+    required TResult Function(_ApiKeyUpdated value) apiKeyUpdated,
+    required TResult Function(_ClientInitialized value) clientInitialized,
+    required TResult Function(_KnowledgeEmbedded value) knowledgeEmbedded,
+    required TResult Function(_TasksCreated value) tasksCreated,
+    required TResult Function(_PrioritizeTasks value) prioritizeTasks,
+    required TResult Function(_TasksPrioritized value) tasksPrioritized,
+    required TResult Function(_TaskDescriptionEmbedded value)
+        taskDescriptionEmbedded,
+    required TResult Function(_TaskExecuted value) taskExecuted,
+    required TResult Function(_TaskResultEmbedded value) taskResultEmbedded,
+    required TResult Function(_TaskCreated value) taskCreated,
+    required TResult Function(_NoNewTask value) noNewTask,
+    required TResult Function(_Finished value) finished,
+    required TResult Function(StopPressed value) stopPressed,
+  }) {
+    return stopPressed(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(AppLaunched value)? appLaunched,
+    TResult? Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult? Function(NewClusterPressed value)? newClusterPressed,
+    TResult? Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult? Function(AgentPressed value)? agentPressed,
+    TResult? Function(ClusterPressed value)? clusterPressed,
+    TResult? Function(ViewPressed value)? viewPressed,
+    TResult? Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult? Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult? Function(AgentNameChanged value)? agentNameChanged,
+    TResult? Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult? Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult? Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
+    TResult? Function(DeployPressed value)? deployPressed,
+    TResult? Function(_SettingsNotFound value)? settingsNotFound,
+    TResult? Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult? Function(_ClientInitialized value)? clientInitialized,
+    TResult? Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
+    TResult? Function(_TasksCreated value)? tasksCreated,
+    TResult? Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult? Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult? Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
+    TResult? Function(_TaskExecuted value)? taskExecuted,
+    TResult? Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult? Function(_TaskCreated value)? taskCreated,
+    TResult? Function(_NoNewTask value)? noNewTask,
+    TResult? Function(_Finished value)? finished,
+    TResult? Function(StopPressed value)? stopPressed,
+  }) {
+    return stopPressed?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(AppLaunched value)? appLaunched,
+    TResult Function(AgentNameSubmitted value)? agentNameSubmitted,
+    TResult Function(NewClusterPressed value)? newClusterPressed,
+    TResult Function(DeleteAgentPressed value)? deleteAgentPressed,
+    TResult Function(AgentPressed value)? agentPressed,
+    TResult Function(ClusterPressed value)? clusterPressed,
+    TResult Function(ViewPressed value)? viewPressed,
+    TResult Function(ApiKeyChanged value)? apiKeyChanged,
+    TResult Function(ApiKeySubmitted value)? apiKeySubmitted,
+    TResult Function(AgentNameChanged value)? agentNameChanged,
+    TResult Function(ClusterNameChanged value)? clusterNameChanged,
+    TResult Function(ClusterGoalChanged value)? clusterGoalChanged,
+    TResult Function(ClusterKnowledgeChanged value)? clusterKnowledgeChanged,
+    TResult Function(DeployPressed value)? deployPressed,
+    TResult Function(_SettingsNotFound value)? settingsNotFound,
+    TResult Function(_ApiKeyUpdated value)? apiKeyUpdated,
+    TResult Function(_ClientInitialized value)? clientInitialized,
+    TResult Function(_KnowledgeEmbedded value)? knowledgeEmbedded,
+    TResult Function(_TasksCreated value)? tasksCreated,
+    TResult Function(_PrioritizeTasks value)? prioritizeTasks,
+    TResult Function(_TasksPrioritized value)? tasksPrioritized,
+    TResult Function(_TaskDescriptionEmbedded value)? taskDescriptionEmbedded,
+    TResult Function(_TaskExecuted value)? taskExecuted,
+    TResult Function(_TaskResultEmbedded value)? taskResultEmbedded,
+    TResult Function(_TaskCreated value)? taskCreated,
+    TResult Function(_NoNewTask value)? noNewTask,
+    TResult Function(_Finished value)? finished,
+    TResult Function(StopPressed value)? stopPressed,
+    required TResult orElse(),
+  }) {
+    if (stopPressed != null) {
+      return stopPressed(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class StopPressed implements HomeEvent {
+  const factory StopPressed() = _$StopPressed;
 }
 
 /// @nodoc
