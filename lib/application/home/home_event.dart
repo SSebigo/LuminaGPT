@@ -86,4 +86,7 @@ class HomeEvent with _$HomeEvent {
 
   /// @nodoc
   const factory HomeEvent.finished() = _Finished;
+
+  /// @nodoc
+  const factory HomeEvent.stopPressed() = StopPressed;
 }

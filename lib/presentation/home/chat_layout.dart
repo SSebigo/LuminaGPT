@@ -144,12 +144,14 @@ class ChatLayout extends StatelessWidget {
                                   .add(const HomeEvent.deployPressed()),
                         ),
                       ),
-                      // const SizedBox(width: 50),
-                      // ActionButton(
-                      //   text: 'Stop',
-                      //   onPressed: () {},
-                      //   backgroundColor: Colors.redAccent,
-                      // ),
+                      const SizedBox(width: 50),
+                      ActionButton(
+                        text: 'Stop',
+                        onPressed: () => context
+                            .read<HomeBloc>()
+                            .add(const HomeEvent.stopPressed()),
+                        backgroundColor: Colors.redAccent,
+                      ),
                     ],
                   ),
                 ),

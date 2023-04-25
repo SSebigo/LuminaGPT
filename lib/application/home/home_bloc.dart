@@ -233,7 +233,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       final goalValid = state.clusterGoal.isValid;
       final knowledgeValid = state.clusterKnowledge.isValid;
 
-      if (nameValid && goalValid && knowledgeValid) {
+      if (!state.thinking && nameValid && goalValid && knowledgeValid) {
         emit(
           state.copyWith(
             failureOption: const None(),
@@ -333,7 +333,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       );
     });
     on<_KnowledgeEmbedded>((_, emit) async {
-      if (state.agent != null && state.cluster != null) {
+      if (state.thinking && state.agent != null && state.cluster != null) {
         (await _agentsRepository.startGoal(
           state.agent!,
           state.cluster!,
@@ -371,7 +371,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       }
     });
     on<_TasksCreated>((event, emit) async {
-      if (state.agent != null) {
+      if (state.thinking && state.agent != null) {
         await _insertAgent(emit, const HomeEvent.prioritizeTasks());
       }
     });
@@ -379,7 +379,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       if (state.tasksQueue.isEmpty) {
         add(const HomeEvent.finished());
       } else {
-        if (state.agent != null && state.cluster != null) {
+        if (state.thinking && state.agent != null && state.cluster != null) {
           (await _agentsRepository.prioritizeTasks(
             state.agent!,
             state.cluster!,
@@ -464,7 +464,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       }
     });
     on<_TaskDescriptionEmbedded>((_, emit) async {
-      if (state.agent != null &&
+      if (state.thinking &&
+          state.agent != null &&
           state.cluster != null &&
           state.nextTask != null) {
         (await _agentsRepository.executeTask(
@@ -495,7 +496,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       }
     });
     on<_TaskExecuted>((event, emit) async {
-      if (state.agent != null && state.nextTask != null) {
+      if (state.thinking && state.agent != null && state.nextTask != null) {
         (await _agentsRepository.embedTaskResult(
           state.agent!,
           state.nextTask!,
@@ -536,7 +537,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       }
     });
     on<_TaskResultEmbedded>((_, emit) async {
-      if (state.agent != null &&
+      if (state.thinking &&
+          state.agent != null &&
           state.cluster != null &&
           state.nextTask != null) {
         (await _agentsRepository.createTasks(
@@ -582,12 +584,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       }
     });
     on<_TaskCreated>((_, emit) async {
-      if (state.agent != null) {
+      if (state.thinking && state.agent != null) {
         await _insertAgent(emit, const HomeEvent.prioritizeTasks());
       }
     });
     on<_NoNewTask>((_, emit) async {
-      if (state.agent != null) {
+      if (state.thinking && state.agent != null) {
         await _insertAgent(emit, const HomeEvent.prioritizeTasks());
       }
     });
@@ -599,6 +601,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         ),
       );
     });
+    on<StopPressed>(
+      (_, emit) async {
+        if (state.thinking && state.agent != null) {
+          await _insertAgent(emit, const HomeEvent.finished());
+        }
+      },
+    );
   }
 
   final ISettingsRepository _settingsRepository;
