@@ -2,7 +2,7 @@ name: lumina_gpt
 description: Desktop UI for autonomous goal driven agents.
 publish_to: "none"
 
-version: 1.0.0+1
+version: 0.0.2+2
 
 environment:
   sdk: ">=2.19.6 <3.0.0"
